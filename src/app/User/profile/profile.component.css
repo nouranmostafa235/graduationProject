@@ -1,0 +1,88 @@
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.first_section{
+    background-color: white;
+    box-shadow: 4px 4px 15px 0px rgba(0,0,0,0.75);
+    border-radius: 6px;
+    color: var(--blueColor);
+}
+.options{
+    position: absolute;
+    top: 20%;
+    left: 10%;
+}
+.bottom-0{
+    left: 30%;
+}
+.name{
+    cursor: pointer;
+}
+.logo{
+    width: 40%;
+    
+}
+.btn{
+    background-color: var(--orangeColor);
+    color: white;
+}
+.profileImage img{
+    width: 100%;
+}
+.container-fluid{
+    background-color: var(--bodyColor);
+}
+.personalInfo{
+    border: 1px solid black;
+    border-radius: 3px;
+}
+.sideBar{
+    height: 100%;
+    background-color: var(--blueColor);
+}
+i{
+    color: var(--orangeColor) !important;
+}
+.dropbtn {
+    background-color: var(--orangeColor);
+    color: white;
+    padding: 7px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+  }
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 10px;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  .dropdown-content a:hover {
+    background-color: #ddd;
+    border-radius: 10px;
+}
+  .dropdown:hover .dropdown-content {display: block;}
+
+.smallImage img{
+     width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.info img{
+    width: 100%;
+}

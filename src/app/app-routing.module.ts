@@ -1,7 +1,26 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { MedicalInfoComponent } from './register/medical-info/medical-info.component';
+import { SignUpComponent } from './register/sign-up/sign-up.component';
+import { EmergencyContactComponent } from './register/emergency-contact/emergency-contact.component';
+import { HomePageComponent } from './Home/home-page/home-page.component';
+import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './User/profile/profile.component';
+import { FamilyHistoryComponent } from './User/family-history/family-history.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path:"",redirectTo:'home',pathMatch:'full'},
+  {path:"home",component:HomePageComponent},
+  {path: 'register', component: SignUpComponent}, 
+  {path:'medical_info',component:MedicalInfoComponent},
+  {path:'emergency_Contact',component:EmergencyContactComponent},
+  {path:'login',component:LoginComponent},
+  {path:'profile',component:ProfileComponent},
+  {path:'familyHistory',component:FamilyHistoryComponent},
+  
+
+  
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -1,0 +1,27 @@
+
+.layer{
+    background-color: rgba(0, 0, 0, 0.4);
+   position: absolute;
+   bottom: 0;
+   top: 0;
+   left: 0;
+   right: 0;
+}
+.slider{
+    height: 30px;
+}
+img {
+    width: 100%;
+    height: 500px!important;
+    object-fit: cover;
+    object-position: center;
+}
+.text{
+    position: absolute;
+    left: 5%;
+    top: 50%;
+    color: white;
+}
+span{
+    color: var(--orangeColor);
+}
