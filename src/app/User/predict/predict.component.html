@@ -1,0 +1,57 @@
+<div class="row me-0">
+    <div class="col-sm-2 text-center" >
+       <app-side-bar></app-side-bar>
+    </div>
+
+    <div class="col-sm-9 mx-auto ">
+        <div class="navbar border-bottom mb-5">
+            <div class="icons ms-auto me-3">
+                <div class="dropdown">
+                    <button class="dropbtn">English <i class="fa-solid fa-caret-down"></i></button>
+                    <div class="dropdown-content">
+                        <a>Arabic</a>
+                    </div>
+                </div>
+            </div>
+            <div class="name me-3">
+                <div class="smallImage d-flex">
+                    <img  routerLink="/profile" src="assets/imgs/download.jpeg" alt="">
+                    <p routerLink="/profile" class="text-decoration-underline ms-2 mt-2 " style="color: var(--blueColor);">Alex ALex</p>
+                </div>
+            </div>
+        </div>
+        <div class="predict p-5 mb-5">
+            <h3 class="text-center">Prediction of Diabetes Disease</h3>
+            <form (ngSubmit)="submit(predictForm)" class="p-5" [formGroup]="predictForm">
+                <label for="">Body Mass Index (BMI)</label>
+                <p class="fw-lighter">Measure of body fat based on height and weight</p>
+                <input type="number" name="" id="" class="form-control mb-5" formControlName="bmi">
+                
+                <label for="">HbA1c Level</label>
+                <p class="fw-lighter">Average Blood Glucose (sugar) Levels for the Last Two to Three Months</p>
+                <input type="number" name="" id="" class="form-control mb-5" formControlName="hba1c">
+
+                <label for="" class="mb-2">Blood Glucose Level</label>
+                <input type="number" name="" id="" class="form-control mb-5" formControlName="bloodGlucoseLevel">
+
+                <label for="" class="mb-2">Smoking History</label>
+                <select name="" id="" class="form-select mb-5" formControlName="smokingHistory">
+                <option selected ></option>
+                <option value="never" >Never</option>
+                <option value="current" >Current</option>
+                <option value="former" >Former</option>
+                <option value="no_info" >No Info</option>
+               <option value="notCurrent" >Not Current</option> 
+               <option value="ever" >Ever</option>
+                </select>
+                <div class="d-flex justify-content-end">
+                    <button type="submit" class="btn pe-5 ps-5" (click)="flag=true">Predict</button>
+                </div>
+            </form>
+            <div *ngIf="flag==true" class="w-50 mx-auto result">
+                <p class="text-center p-4">Predicted to Have Diabetes in the Future</p>
+            </div>
+            
+        </div>
+    </div>
+</div>

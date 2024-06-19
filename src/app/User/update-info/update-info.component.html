@@ -1,0 +1,876 @@
+<div class="row me-0">
+    <div class="col-sm-2 text-center">
+        <app-side-bar></app-side-bar>
+    </div>
+
+    <div class="col-sm-10 ">
+        <div class="navbar border-bottom mb-5">
+            <div class="icons ms-auto me-3">
+                <div class="dropdown">
+                    <button class="dropbtn">English <i class="fa-solid fa-caret-down"></i></button>
+                    <div class="dropdown-content">
+                        <a>Arabic</a>
+                    </div>
+                </div>
+            </div>
+            <div class="name me-3">
+                <div class="smallImage d-flex">
+                    <img routerLink="/profile" src="assets/imgs/download.jpeg" alt="">
+                    <p routerLink="/profile" class="text-decoration-underline ms-2 mt-2 "
+                        style="color: var(--blueColor);">Alex ALex</p>
+                </div>
+            </div>
+        </div>
+        <div class="info ps-2 pe-5 pt-5 pb-5 first_section ">
+            <div class="ms-auto updateIcon">
+                <i class="fa-solid fa-pen" data-bs-toggle="modal" data-bs-target="#staticBackdrop"></i>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Update Personal Info</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form [formGroup]="form">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label for="">First Name</label>
+                                        <input type="text" name="" class="form-control" formControlName="firstName">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="">Last Name</label>
+                                        <input type="text" name="" id="" class="form-control"
+                                            formControlName="lastName">
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <label for="">Email</label>
+                                        <input type="email" name="" id="" class="form-control" formControlName="email">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="">Phone</label>
+                                        <input type="tel" name="" id="" class="form-control" formControlName="phone">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="">gender</label>
+                                        <select name="" id="" class="form-select" formControlName="gender">
+                                            <option selected value=""></option>
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <label for="">Address</label>
+                                        <input type="text" name="" id="" class="form-control" formControlName="address">
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <label for="">Change Image</label>
+                                        <input type="file" accept="image/*" name="" id="" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                                        (click)="clear()">Close</button>
+                                    <button type="button" class="btn btn-primary">Save Changes</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- End Modal -->
+            <div class="row">
+                <div class="col-sm-3">
+                    <img src="assets/imgs/download.jpeg" class="img-thumbnail" alt="">
+                </div>
+                <div class="col-sm-9">
+                    <h3><span id="firstName">Alex</span> <span id="lastName"> Alex</span></h3>
+                    <div class="d-flex justify-content-evenly">
+                        <p id="tag" class="fw-light"><span id="age">23</span> yrs, <span id="gender">Male</span></p>
+                        <p class="fw-light ms-auto">Phone: <span id="phone">0111235667</span></p>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between fw-light">
+                        <p>Weight: <span id="weight">90</span> Kg</p>
+                        <p>Height: <span id="height">1.89</span> Cm</p>
+                        <p>Blood Type: <span id="bloodType">A-</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-4 ps-2 first_section">
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false"
+                tabindex="-1" aria-labelledby="staticBackdropLabel2" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                    <div class="modal-content border-0">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel2">Update Personal Medical History</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form [formGroup]="form">
+                                <table class="personalTable table table-striped mb-0 mb-0" id="modalTable">
+                                    <tbody class="">
+                                        <tr>
+                                            <td>
+                                                <i class="fa-solid fa-check"></i>
+                                                <label for="">Animia</label>
+
+                                            </td>
+                                            <td>
+                                                <label for="">Arthirits</label>
+
+                                            </td>
+                                            <td>
+                                                <i class="fa-solid fa-check"></i>
+                                                <label for="">Asthma</label>
+
+                                            </td>
+                                            <td>
+
+                                                <label for="">Cancer</label>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="">Chronic Obstructive</label>
+
+                                            </td>
+                                            <td>
+                                                <label for="">Heart Disease</label>
+
+                                            </td>
+                                            <td><i class="fa-solid fa-check"></i>
+                                                <label for="">Clotting Disorder</label>
+
+                                            </td>
+                                            <td>
+                                                <label for="">Congestive Heart Failure</label>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="">Crohn's Disease</label>
+
+                                            </td>
+                                            <td> <i class="fa-solid fa-check"></i>
+                                                <label for="">Depression</label>
+
+                                            </td>
+                                            <td>
+                                                <i class="fa-solid fa-check"></i>
+                                                <label for="">Diabetes</label>
+
+                                            </td>
+                                            <td>
+                                                <label for="">Emphysema</label>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td> <i class="fa-solid fa-check"></i>
+                                                <label for="">Endocrine Problems</label>
+
+                                            </td>
+                                            <td>
+                                                <label for="">GERD</label>
+
+                                            </td>
+                                            <td>
+                                                <label for="">Glaucoma</label>
+
+                                            </td>
+                                            <td>
+                                                <label for="">Hepatitis</label>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td> <i class="fa-solid fa-check"></i>
+                                                <label for="">HIV/AIDS</label>
+
+                                            </td>
+                                            <td>
+                                                <i class="fa-solid fa-check"></i>
+                                                <label for="">Hypertension</label>
+
+                                            </td>
+                                            <td>
+                                                <label for="">Kidney Disease</label>
+
+                                            </td>
+                                            <td>
+                                                <label for="">Myocardial Infarction</label>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="">Peptic UIcer Disease</label>
+
+                                            </td>
+                                            <td>
+                                                <label for="">Seizures</label>
+
+                                            </td>
+                                            <td>
+                                                <i class="fa-solid fa-check"></i>
+                                                <label for="">Stroke</label>
+
+                                            </td>
+                                            <td>
+                                                <label for="">UIcerative Colitis</label>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save Changes</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- End Modal -->
+            <table class="personalTable table table-striped mb-0 mb-0">
+                <thead class="text-center">
+                    <tr>
+                        <th colspan="4">Personal <span>Medical</span> History <i class="fa-solid ms-2 fa-pen updateIcon"
+                                data-bs-toggle="modal" data-bs-target="#staticBackdrop2"></i></th>
+                    </tr>
+                </thead>
+                <tbody class="">
+                    <tr>
+                        <td>
+                            <i class="fa-solid fa-check"></i>
+                            <label for="">Animia</label>
+
+                        </td>
+                        <td>
+                            <label for="">Arthirits</label>
+
+                        </td>
+                        <td>
+                            <i class="fa-solid fa-check"></i>
+                            <label for="">Asthma</label>
+
+                        </td>
+                        <td>
+
+                            <label for="">Cancer</label>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="">Chronic Obstructive</label>
+
+                        </td>
+                        <td>
+                            <label for="">Disease</label>
+
+                        </td>
+                        <td><i class="fa-solid fa-check"></i>
+                            <label for="">Clotting Disorder</label>
+
+                        </td>
+                        <td>
+                            <label for="">Congestive Heart Failure</label>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="">Crohn's Disease</label>
+
+                        </td>
+                        <td> <i class="fa-solid fa-check"></i>
+                            <label for="">Depression</label>
+
+                        </td>
+                        <td>
+                            <i class="fa-solid fa-check"></i>
+                            <label for="">Diabetes</label>
+
+                        </td>
+                        <td>
+                            <label for="">Emphysema</label>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> <i class="fa-solid fa-check"></i>
+                            <label for="">Endocrine Problems</label>
+
+                        </td>
+                        <td>
+                            <label for="">GERD</label>
+
+                        </td>
+                        <td>
+                            <label for="">Glaucoma</label>
+
+                        </td>
+                        <td>
+                            <label for="">Hepatitis</label>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> <i class="fa-solid fa-check"></i>
+                            <label for="">HIV/AIDS</label>
+
+                        </td>
+                        <td>
+                            <i class="fa-solid fa-check"></i>
+                            <label for="">Hypertension</label>
+
+                        </td>
+                        <td>
+                            <label for="">Kidney Disease</label>
+
+                        </td>
+                        <td>
+                            <label for="">Myocardial Infarction</label>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="">Peptic UIcer Disease</label>
+
+                        </td>
+                        <td>
+                            <label for="">Seizures</label>
+
+                        </td>
+                        <td>
+                            <i class="fa-solid fa-check"></i>
+                            <label for="">Stroke</label>
+
+                        </td>
+                        <td>
+                            <label for="">UIcerative Colitis</label>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="mt-4 ps-2 first_section">
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false"
+                tabindex="-1" aria-labelledby="staticBackdropLabel3" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                    <div class="modal-content border-0">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel3">Update Personal Surgical History</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form [formGroup]="form">
+                                <table class="personalTable table table-striped mb-0 mb-0" id="modalTable2">
+                                    <tbody class="">
+                                        <tr>
+                                            <td>
+
+                                                <label for="">Adrenal Gland Surgery</label>
+
+                                            </td>
+                                            <td>
+                                                <i class="fa-solid fa-check"></i>
+                                                <label for="">Colon Surgery</label>
+
+                                            </td>
+                                            <td>
+                                                <i class="fa-solid fa-check"></i>
+                                                <label for="">Kidney Surgery</label>
+
+                                            </td>
+                                            <td>
+
+                                                <label for="">Appendectomy</label>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="">Artery Surgery</label>
+
+                                            </td>
+                                            <td>
+                                                <label for="">Neck Surgery</label>
+
+                                            </td>
+                                            <td>
+                                                <label for="">Thyroid Surgery</label>
+
+                                            </td>
+                                            <td>
+                                                <label for="">Esophagus Surgery</label>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="">Prostate Surgery</label>
+                                            </td>
+                                            <td> <i class="fa-solid fa-check"></i>
+                                                <label for="">Bladder Surgery</label>
+
+                                            </td>
+                                            <td>
+                                                <label for="">Large Intestine Surgery</label>
+
+                                            </td>
+                                            <td>
+                                                <label for="">Gastric Bypass Surgery</label>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="">Lungs Surgery</label>
+
+                                            </td>
+                                            <td>
+                                                <label for="">Small Intestine Surgery</label>
+
+                                            </td>
+                                            <td>
+                                                <label for="">Breast Surgery</label>
+
+                                            </td>
+                                            <td>
+                                                <label for="">Hemorrhoid Surgery</label>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td> <i class="fa-solid fa-check"></i>
+                                                <label for="">Spine Surgery</label>
+                                            </td>
+                                            <td>
+                                                <label for="">Utrus Surgery</label>
+
+                                            </td>
+                                            <td>
+                                                <label for="">Cesarean Section</label>
+
+                                            </td>
+                                            <td> <i class="fa-solid fa-check"></i>
+                                                <label for="">Stomach Surgery</label>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save Changes</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- End Modal -->
+
+            <table class="personalTable table table-striped mb-0 mb-0">
+                <thead class="text-center">
+                    <tr>
+                        <th colspan="4">Personal <span>Surgical</span> History <i
+                                class="fa-solid fa-pen updateIcon ms-2" data-bs-toggle="modal"
+                                data-bs-target="#staticBackdrop3"></i></th>
+                    </tr>
+                </thead>
+                <tbody class="">
+                    <tr>
+                        <td>
+
+                            <label for="">Adrenal Gland Surgery</label>
+
+                        </td>
+                        <td>
+                            <i class="fa-solid fa-check"></i>
+                            <label for="">Colon Surgery</label>
+
+                        </td>
+                        <td>
+                            <i class="fa-solid fa-check"></i>
+                            <label for="">Kidney Surgery</label>
+
+                        </td>
+                        <td>
+
+                            <label for="">Appendectomy</label>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="">Artery Surgery</label>
+
+                        </td>
+                        <td>
+                            <label for="">Neck Surgery</label>
+
+                        </td>
+                        <td>
+                            <label for="">Thyroid Surgery</label>
+
+                        </td>
+                        <td>
+                            <label for="">Esophagus Surgery</label>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="">Prostate Surgery</label>
+                        </td>
+                        <td> <i class="fa-solid fa-check"></i>
+                            <label for="">Bladder Surgery</label>
+
+                        </td>
+                        <td>
+                            <label for="">Large Intestine Surgery</label>
+
+                        </td>
+                        <td>
+                            <label for="">Gastric Bypass Surgery</label>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="">Lungs Surgery</label>
+
+                        </td>
+                        <td>
+                            <label for="">Small Intestine Surgery</label>
+
+                        </td>
+                        <td>
+                            <label for="">Breast Surgery</label>
+
+                        </td>
+                        <td>
+                            <label for="">Hemorrhoid Surgery</label>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> <i class="fa-solid fa-check"></i>
+                            <label for="">Spine Surgery</label>
+                        </td>
+                        <td>
+                            <label for="">Utrus Surgery</label>
+
+                        </td>
+                        <td>
+                            <label for="">Cesarean Section</label>
+
+                        </td>
+                        <td> <i class="fa-solid fa-check"></i>
+                            <label for="">Stomach Surgery</label>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="mt-4 ps-2 first_section">
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop4" data-bs-backdrop="static" data-bs-keyboard="false"
+                tabindex="-1" aria-labelledby="staticBackdropLabel4" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                    <div class="modal-content border-0">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel4">Update Personal Allergies History
+                            </h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form [formGroup]="form">
+                                <table class="personalTable table table-striped mb-0 mb-0" id="modalTable3">
+                                    <tbody class="">
+                                        <tr>
+                                            <td>
+
+                                                <label for="">Food Allergies</label>
+
+                                            </td>
+                                            <td>
+
+                                                <label for="">Drug Allergies</label>
+
+                                            </td>
+                                            <td>
+                                                <i class="fa-solid fa-check"></i>
+                                                <label for="">Dust Allergies</label>
+
+                                            </td>
+                                            <td>
+                                                <i class="fa-solid fa-check"></i>
+                                                <label for="">Pet Allergies</label>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td> <i class="fa-solid fa-check"></i>
+                                                <label for="">Tempreture Changes</label>
+
+                                            </td>
+                                            <td>
+                                                <label for="">Seasonal Allergies</label>
+
+                                            </td>
+                                            <td>
+                                                <label for="">Pollution Allergy</label>
+
+                                            </td>
+                                            <td>
+                                                <label for="">Mold Allergies</label>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save Changes</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- End Modal -->
+            <table class="personalTable table table-striped mb-0 mb-0">
+                <thead class="text-center">
+                    <tr>
+                        <th colspan="4">Personal <span>Allergies</span> History <i
+                                class="fa-solid ms-2 fa-pen updateIcon " data-bs-toggle="modal"
+                                data-bs-target="#staticBackdrop4"></i></th>
+                    </tr>
+                </thead>
+                <tbody class="">
+                    <tr>
+                        <td>
+
+                            <label for="">Food Allergies</label>
+
+                        </td>
+                        <td>
+
+                            <label for="">Drug Allergies</label>
+
+                        </td>
+                        <td>
+                            <i class="fa-solid fa-check"></i>
+                            <label for="">Dust Allergies</label>
+
+                        </td>
+                        <td>
+                            <i class="fa-solid fa-check"></i>
+                            <label for="">Pet Allergies</label>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> <i class="fa-solid fa-check"></i>
+                            <label for="">Tempreture Changes</label>
+
+                        </td>
+                        <td>
+                            <label for="">Seasonal Allergies</label>
+
+                        </td>
+                        <td>
+                            <label for="">Pollution Allergy</label>
+
+                        </td>
+                        <td>
+                            <label for="">Mold Allergies</label>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="mt-4 mb-5 ps-2 first_section">
+
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop5" data-bs-backdrop="static" data-bs-keyboard="false"
+                tabindex="-1" aria-labelledby="staticBackdropLabel5" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                    <div class="modal-content border-0">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel5">Update Family Medical History
+                            </h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form [formGroup]="form">
+                                <table class="personalTable table table-striped mb-0 mb-0" id="modalTable4">
+                                    <tbody class="">
+                                        <tr>
+                                            <td>
+                                                <i class="fa-solid fa-check"></i>
+                                                <label for="">Cancer</label>
+                    
+                                            </td>
+                                            <td>
+                    
+                                                <label for="">Animia</label>
+                    
+                                            </td>
+                                            <td>
+                    
+                                                <label for="">High Blood Pressure</label>
+                    
+                                            </td>
+                                            <td>
+                                                <i class="fa-solid fa-check"></i>
+                                                <label for="">Diabetes</label>
+                    
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="">Anesthesia Reaction</label>
+                    
+                                            </td>
+                                            <td>
+                                                <label for="">Blood Clots</label>
+                    
+                                            </td>
+                                            <td><i class="fa-solid fa-check"></i>
+                                                <label for="">Bleeding Problems</label>
+                    
+                                            </td>
+                                            <td>
+                                                <label for="">Heart Disease</label>
+                    
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="">Hepatitis</label>
+                                            </td>
+                                            <td>
+                                                <label for="">Stroke</label>
+                    
+                                            </td>
+                                            <td><i class="fa-solid fa-check"></i>
+                                                <label for="">Kidney Disease</label>
+                    
+                                            </td>
+                                            <td>
+                                                <label for="">Endocrine Problems</label>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save Changes</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- End Modal -->
+
+
+            <table class="personalTable table table-striped mb-0 mb-0">
+                <thead class="text-center">
+                    <tr>
+                        <th colspan="4">Family <span>Medical</span> History <i
+                                class="fa-solid ms-2 fa-pen updateIcon" data-bs-toggle="modal"
+                                data-bs-target="#staticBackdrop5"></i></th>
+                    </tr>
+                </thead>
+                <tbody class="">
+                    <tr>
+                        <td>
+                            <i class="fa-solid fa-check"></i>
+                            <label for="">Cancer</label>
+
+                        </td>
+                        <td>
+
+                            <label for="">Animia</label>
+
+                        </td>
+                        <td>
+
+                            <label for="">High Blood Pressure</label>
+
+                        </td>
+                        <td>
+                            <i class="fa-solid fa-check"></i>
+                            <label for="">Diabetes</label>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="">Anesthesia Reaction</label>
+
+                        </td>
+                        <td>
+                            <label for="">Blood Clots</label>
+
+                        </td>
+                        <td><i class="fa-solid fa-check"></i>
+                            <label for="">Bleeding Problems</label>
+
+                        </td>
+                        <td>
+                            <label for="">Heart Disease</label>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="">Hepatitis</label>
+                        </td>
+                        <td>
+                            <label for="">Stroke</label>
+
+                        </td>
+                        <td><i class="fa-solid fa-check"></i>
+                            <label for="">Kidney Disease</label>
+
+                        </td>
+                        <td>
+                            <label for="">Endocrine Problems</label>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

@@ -8,21 +8,11 @@
     border-radius: 6px;
     color: var(--blueColor);
 }
-.options{
-    position: absolute;
-    top: 20%;
-    left: 10%;
-}
-.bottom-0{
-    left: 30%;
-}
+
 .name{
     cursor: pointer;
 }
-.logo{
-    width: 40%;
-    
-}
+
 .btn{
     background-color: var(--orangeColor);
     color: white;
@@ -36,13 +26,6 @@
 .personalInfo{
     border: 1px solid black;
     border-radius: 3px;
-}
-.sideBar{
-    height: 100%;
-    background-color: var(--blueColor);
-}
-i{
-    color: var(--orangeColor) !important;
 }
 .dropbtn {
     background-color: var(--orangeColor);

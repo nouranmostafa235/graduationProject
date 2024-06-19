@@ -8,6 +8,7 @@
     border-radius: 6px;
     color: var(--blueColor);
 }
+
 .name{
     cursor: pointer;
 }
@@ -25,7 +26,6 @@
     border: 1px solid black;
     border-radius: 3px;
 }
-
 .dropbtn {
     background-color: var(--orangeColor);
     color: white;
@@ -58,8 +58,7 @@
     background-color: #ddd;
     border-radius: 10px;
 }
-  .dropdown:hover .dropdown-content {display: block;}
-
+.dropdown:hover .dropdown-content {display: block;}
 .smallImage img{
      width: 40px;
     height: 40px;
@@ -67,4 +66,17 @@
 }
 .info img{
     width: 100%;
+}
+.updateIcon{
+    width: 2%;
+    cursor: pointer;
+}
+.updateInfo{
+    color: var(--orangeColor);
+}
+.modal-dialog{
+    border-radius: 6px;
+}
+table label , th{
+    color: var(--blueColor) !important;
 }

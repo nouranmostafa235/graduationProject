@@ -1,0 +1,30 @@
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+li{
+    cursor: pointer;
+}
+
+.logo{
+    width: 40%;
+    
+}
+.sideBar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100vh; 
+    background-color: var(--blueColor);
+    z-index: 10000;
+}
+i{
+    color: var(--orangeColor) !important;
+}
+.active{
+    color: var(--orangeColor);
+}
+.logOut{
+    cursor: pointer;
+}

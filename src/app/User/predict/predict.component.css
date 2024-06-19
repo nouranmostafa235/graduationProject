@@ -2,12 +2,6 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.first_section{
-    background-color: white;
-    box-shadow: 4px 4px 15px 0px rgba(0,0,0,0.75);
-    border-radius: 6px;
-    color: var(--blueColor);
-}
 .name{
     cursor: pointer;
 }
@@ -67,4 +61,16 @@
 }
 .info img{
     width: 100%;
+}
+.predict{
+    background-color: white;
+    box-shadow: 4px 4px 15px 0px rgba(0,0,0,0.75);
+    border-radius: 6px;
+    color: var(--blueColor);
+}
+.result{
+    background-color: white;
+    box-shadow: 4px 4px 15px 0px rgba(0,0,0,0.75);
+    border-radius: 6px;
+    color: var(--blueColor);
 }

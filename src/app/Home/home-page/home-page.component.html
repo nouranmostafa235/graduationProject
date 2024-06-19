@@ -1,26 +1,42 @@
 <app-navbar></app-navbar>
-<div class="mt-3 position-relative slider" >
-    <owl-carousel-o [options]="customOptions">
-        <ng-template carouselSlide>
-            <div class="layer">
+<div class="container mt-4">
+    <owl-carousel-o [options]="customOptions" (translated)="onTranslated()" >
+    <ng-template carouselSlide>
+        <div class="slide1 mx-auto">
+            <div class="layer d-flex align-items-center position-relative">
+                <div class="container text-white w-50 mx-0 ps-3 position-absolute text slide-in-left">
+                    <h1 class="mb-3">Welcome To</h1>
+                    <h1 class="mb-3">Rapid<span>R</span>x </h1>
+                    <p>it is a cutting-edge web platform that leverages NFC (Near Field Communication) technology to
+                        instantly access comprehensive patient medical histories through quick scans of patient-specific
+                        NFC cards.</p>
+                </div>
             </div>
-                    <img src="assets/imgs/SLMA-Health-History-1080x675.jpg" alt="">
-                    <div class="text">
-                         <h2>Welcome to</h2>
-                         <h2 class="text-center">RApid<span>R</span>x </h2>
-                    </div>
-                   
-        </ng-template>  
-        <ng-template carouselSlide>           
-            <div class="layer">
+        </div>
+    </ng-template>
+    <ng-template carouselSlide>
+        <div class="slide2 mx-auto">
+            <div class="layer d-flex align-items-center">
+                <div class="container text-white w-50 mx-0 ps-3 slide-in-left ">
+                    <h1 class="mb-3">Welcome To</h1>
+                    <h1 class="mb-3">Rapid<span>R</span>x </h1>
+                    <p>it is a cutting-edge web platform that leverages NFC (Near Field Communication) technology to
+                        instantly access comprehensive patient medical histories through quick scans of patient-specific
+                        NFC cards.</p>
+                </div>
             </div>
-                    <img src="assets/imgs/SLMA-Health-History-1080x675.jpg" alt="">
-        </ng-template>  
-        <ng-template carouselSlide>
-            <div class="layer">
+        </div>
+    </ng-template>
+    <ng-template carouselSlide>
+        <div class="slide">
+            <div class="layer d-flex align-items-center ">
+                <div class="container text-white bg-danger w-50 mx-0">
+                    <h1 class="display-5 mb-4">Welcome To</h1>
+                    <h1 class="display-5 mb-5">RApid<span>R</span>x </h1>
+                </div>
             </div>
-                    <img src="assets/imgs/SLMA-Health-History-1080x675.jpg" alt="">
-        </ng-template>  
-        
-      </owl-carousel-o>
+        </div>
+    </ng-template> 
+
+</owl-carousel-o>
 </div>

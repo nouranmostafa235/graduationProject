@@ -4,23 +4,27 @@
 
 .title{
     background-color: var(--blueColor);
-    height: 100%;  
-    position: relative; 
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.title p{
+    width: 50%;
+    text-align: center;
+    color: white;
+    font-weight: 400;
+    font-size: 30px;  
 }
 .sideStatement{
     top: 50%;
     left: 50%;
 }
-.title p{
-    width: 150px;
-    text-align: center;
-    color: white;
-    font-weight: 400;
-    font-size: 30px;  
-    position: fixed;
-    top: 40%;
-    left: 5.5%;
-}
+
 .title span{
     color: var(--orangeColor);
 }

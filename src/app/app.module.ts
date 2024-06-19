@@ -13,6 +13,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { ProfileComponent } from './User/profile/profile.component';
 import { FamilyHistoryComponent } from './User/family-history/family-history.component';
+import { ChangePasswordComponent } from './User/change-password/change-password.component';
+import { UpdateInfoComponent } from './User/update-info/update-info.component';
+import { PredictComponent } from './User/predict/predict.component';
+import { SideBarComponent } from './side-bar/side-bar.component';
+import { NgwWowModule } from 'ngx-wow';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +29,10 @@ import { FamilyHistoryComponent } from './User/family-history/family-history.com
     LoginComponent,
     ProfileComponent,
     FamilyHistoryComponent,
+    ChangePasswordComponent,
+    UpdateInfoComponent,
+    PredictComponent,
+    SideBarComponent,
   ],
   imports: [
     BrowserModule,

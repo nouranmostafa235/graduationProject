@@ -7,6 +7,9 @@ import { HomePageComponent } from './Home/home-page/home-page.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './User/profile/profile.component';
 import { FamilyHistoryComponent } from './User/family-history/family-history.component';
+import { ChangePasswordComponent } from './User/change-password/change-password.component';
+import { UpdateInfoComponent } from './User/update-info/update-info.component';
+import { PredictComponent } from './User/predict/predict.component';
 
 const routes: Routes = [
   {path:"",redirectTo:'home',pathMatch:'full'},
@@ -17,8 +20,9 @@ const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'profile',component:ProfileComponent},
   {path:'familyHistory',component:FamilyHistoryComponent},
-  
-
+  {path:'changePassword',component:ChangePasswordComponent},
+  {path:'updateInfo',component:UpdateInfoComponent},
+  {path:'predictDisease',component:PredictComponent},
   
 ];
 

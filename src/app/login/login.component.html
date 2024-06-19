@@ -10,32 +10,27 @@
         <div class="d-flex justify-content-center align-items-center">
             <img src="./assets/imgs/rx.png" alt="" class="logo">
             </div>
-        <form class="login_form mb-5 col-sm-10 mx-auto" [formGroup]="login">
+        <form class="login_form mb-5 col-sm-10 mx-auto"[formGroup]="login">
             <div class="row">
                 <div class="row pe-0">
                     <div class="col-md-12 pe-0">
                         <label for="email_login" class="ms-2">Email</label>
-                        <input type="email" class="form-control mb-4" formControlName="email_login">
+                        <input type="email" class="form-control mb-4" formControlName="email">
                     </div>
                 </div>
                 <div class="col-md-12">
                     <label for="password_login" class="ms-2">Password</label>
-                    <input type="password" class="form-control mb-4" formControlName="password_login">
-                </div>
-
-                <div class="col-md-4">
-                    <select name="role" id="" class="form-select">
-                        <option selected>Choose your Role</option>
-                        <option ngValue="admin">Admin</option>
-                        <option ngValue="user">User</option>
-                        <option ngValue="institution">Institution</option>
-                        <option ngValue="lab">Analysis Lab</option>
-                    </select>
+                    <input type="password" class="form-control mb-4" formControlName="password">
                 </div>
             </div>
             <div class="div d-flex justify-content-center">
-                <a class="btn ps-5 pe-5 mt-5 " routerLink="/medical_info" >Login</a>
+                <button class="btn ps-5 pe-5 mt-5 "(click)="navtoReg()" >Login</button> 
             </div>
+            <div class="text-center mt-4 d-flex justify-content-center ">
+                 <p class="newUser">New User?</p>
+                 <a class="fw-light" routerLink="/register">Create New Account</a> 
+            </div>
+          
         </form>
     </div>
 </div>

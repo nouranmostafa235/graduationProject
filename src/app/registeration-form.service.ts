@@ -18,7 +18,7 @@ export class RegisterationFormService {
     weight:new FormControl(null,[Validators.required]),
     height:new FormControl(null,[Validators.required]),
     bloodType:new FormControl(null,[Validators.required]),
-    animia:new FormControl(null,[Validators.required]),
+    animia:new FormControl(null),
     Arthirits:new FormControl(null),
     Asthma:new FormControl(null),
     Cancer:new FormControl(null),
