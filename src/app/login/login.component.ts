@@ -24,9 +24,9 @@ export class LoginComponent {
       next:(response)=>{
         console.log(response);
         if(response.message === "Sign in successful"){
-          this.router.navigate(['/profile'])}
+          this.router.navigate(['/profile'])
+        }
         },
-        
       error:(err)=>console.log(err),
     })
 }
