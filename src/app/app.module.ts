@@ -18,6 +18,7 @@ import { UpdateInfoComponent } from './User/update-info/update-info.component';
 import { PredictComponent } from './User/predict/predict.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { NgwWowModule } from 'ngx-wow';
+import { HttpClientModule } from  '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +41,7 @@ import { NgwWowModule } from 'ngx-wow';
     ReactiveFormsModule,
     CarouselModule,
     BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
