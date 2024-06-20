@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 export class SignInService {
   userData=null;
   decodeToken(){
-    let encodedToken = JSON.stringify(localStorage.getItem('userToken'))
+    let encodedToken = JSON.stringify(localStorage.getItem('Authorization'))
     let decodedToken:any = jwtDecode(encodedToken)
     this.userData=decodedToken
   }

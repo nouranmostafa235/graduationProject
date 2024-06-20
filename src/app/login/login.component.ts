@@ -24,7 +24,7 @@ export class LoginComponent {
       next:(response)=>{
        
         if(response.message === "Sign in successful"){
-          localStorage.setItem('userToken',response.token)
+          localStorage.setItem('Authorization',response.token)
           this._service.decodeToken()
           this.router.navigate(['/profile'])
         }
