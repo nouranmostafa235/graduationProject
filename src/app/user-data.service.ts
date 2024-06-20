@@ -9,7 +9,7 @@ export class UserDataService {
   
   constructor(private http:HttpClient) { }
   header:any={
-    token:localStorage.getItem('Authorization')
+    Authorization:localStorage.getItem('Authorization')
   }
   getUserData():Observable<any>{
     return this.http.get("http://localhost:3000/users/profile",{headers:this.header})
