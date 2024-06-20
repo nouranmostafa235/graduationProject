@@ -22,8 +22,10 @@ export class LoginComponent {
   handle(reg:FormGroup){
     this._service.login(reg.value).subscribe({
       next:(response)=>{
-        console.log(response);
+       
         if(response.message === "Sign in successful"){
+          localStorage.setItem('userToken',response.token)
+          this._service.decodeToken()
           this.router.navigate(['/profile'])
         }
         },

@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { response } from 'express';
+import { UserDataService } from 'src/app/user-data.service';
 
 @Component({
   selector: 'app-family-history',
@@ -7,11 +9,14 @@ import { Component } from '@angular/core';
 })
 
 
-export class FamilyHistoryComponent {
- x=document.getElementsByClassName("sideBar")
-constructor(){
- console.log(document.getElementById("j"))
-}
-  
-  
+export class FamilyHistoryComponent implements OnInit {
+constructor(private userData:UserDataService){}
+  data:any
+  ngOnInit(): void {
+    this.userData.getUserData().subscribe({
+      next:(response)=>{
+        this.data=response
+      }
+    })
+  }
 } 
