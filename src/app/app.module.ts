@@ -19,6 +19,7 @@ import { PredictComponent } from './User/predict/predict.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { NgwWowModule } from 'ngx-wow';
 import { HttpClientModule } from  '@angular/common/http';
+import { InstitutionLoginComponent } from './institution-login/institution-login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +35,7 @@ import { HttpClientModule } from  '@angular/common/http';
     UpdateInfoComponent,
     PredictComponent,
     SideBarComponent,
+    InstitutionLoginComponent,
   ],
   imports: [
     BrowserModule,

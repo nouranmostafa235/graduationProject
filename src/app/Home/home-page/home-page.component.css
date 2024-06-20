@@ -1,37 +1,44 @@
+.home{
+    background-color: var(--bodycolor);
+}
 @keyframes slideInLeft {
-    from {
+    0% {
         transform: translateX(-100%);
         opacity: 0;
+        visibility: hidden;
     }
-    to {
+    100% {
         transform: translateX(0);
         opacity: 1;
+        visibility: visible;
     }
 }
 
 .slide-in-left {
-    animation: slideInLeft 1s ease-in-out;
+    animation: slideInLeft 1s forwards;
 }
-.slide1{
+.slide-in-left-delayed {
+    animation: slideInLeft 1s forwards;
+    animation-delay: 1s; 
+    animation-fill-mode: forwards; 
+    visibility: hidden;
+}
+.item1{
     background-image: url(../../../assets/imgs/rapidRx.jpg);
     background-position: center center;
     background-size: cover;
     min-height: 100vh;
-    background-attachment: fixed;
-    overflow: hidden;
-    
 }
-
-.slide2{
+.item2{
     background-image: url(../../../assets/imgs/Machine_Learning.jpg);
     background-position: center center;
     background-size: cover;
-    min-height: 100vh;
-    background-attachment: fixed;
+    min-height: 100vh; 
 }
+
 .layer{
     min-height: 100vh;
-    background-color: rgba(0, 0 ,0,0.7);
+    background-color: rgba(0, 0 ,0,0.6);
 }
 span{
     color: var(--orangeColor);
@@ -44,22 +51,5 @@ h1{
 }
 .layer p{
     font-size: 17px;
+    line-height: 2.1em;
 }
-
-/* .owl-carousel .item {
-    position: relative;
-    height: 300px; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-  } */
-  
-  .owl-carousel .text {
-    position: absolute;
-    left: -100px;
-    margin: 0;
-    padding: 10px;
-    background: rgba(255, 255, 255, 0.7);
-    border-radius: 4px;
-  }

@@ -10,6 +10,7 @@ import { FamilyHistoryComponent } from './User/family-history/family-history.com
 import { ChangePasswordComponent } from './User/change-password/change-password.component';
 import { UpdateInfoComponent } from './User/update-info/update-info.component';
 import { PredictComponent } from './User/predict/predict.component';
+import { InstitutionLoginComponent } from './institution-login/institution-login.component';
 
 const routes: Routes = [
   {path:"",redirectTo:'home',pathMatch:'full'},
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path:'changePassword',component:ChangePasswordComponent},
   {path:'updateInfo',component:UpdateInfoComponent},
   {path:'predictDisease',component:PredictComponent},
+  {path:'institutionLogin',component:InstitutionLoginComponent},
   
 ];
 
