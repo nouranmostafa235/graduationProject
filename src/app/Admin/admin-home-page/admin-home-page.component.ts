@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SignInService } from 'src/app/sign-in.service';
 
 @Component({
   selector: 'app-admin-home-page',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./admin-home-page.component.css']
 })
 export class AdminHomePageComponent {
-
+  constructor(private signIn:SignInService){}
+  logOut(){
+    this.signIn.adminLogOut()
+  }
 }

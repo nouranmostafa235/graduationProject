@@ -26,6 +26,11 @@ export class SignInService {
     this.userData.next(null)
     this.router.navigate(['/login'])
   }
+  adminLogOut(){
+    localStorage.removeItem('Admintoken')
+    this.adminData.next(null)
+    this.router.navigate(['/adminLogin'])
+  }
   login(userData:any):Observable<any>{
     return this._httpClient.post("http://localhost:3000/users/signIN",userData)
   }

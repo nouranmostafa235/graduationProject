@@ -22,7 +22,8 @@ export class AdminLoginComponent {
           this._service.decodeAdminToken()
           this.router.navigate(['/adminHomePage'])
         }
-      }
+      },
+      error:(err)=>console.log(err)
      })
   }
 }
