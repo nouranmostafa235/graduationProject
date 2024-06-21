@@ -20,6 +20,8 @@ import { SideBarComponent } from './side-bar/side-bar.component';
 import { NgwWowModule } from 'ngx-wow';
 import { HttpClientModule } from  '@angular/common/http';
 import { InstitutionLoginComponent } from './institution-login/institution-login.component';
+import { AdminLoginComponent } from './Admin/admin-login/admin-login.component';
+import { AdminHomePageComponent } from './Admin/admin-home-page/admin-home-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +38,8 @@ import { InstitutionLoginComponent } from './institution-login/institution-login
     PredictComponent,
     SideBarComponent,
     InstitutionLoginComponent,
+    AdminLoginComponent,
+    AdminHomePageComponent,
   ],
   imports: [
     BrowserModule,

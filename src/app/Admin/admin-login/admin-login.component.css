@@ -1,0 +1,61 @@
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.title{
+    background-color: var(--blueColor);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.title p{
+    width: 50%;
+    text-align: center;
+    color: white;
+    font-weight: 400;
+    font-size: 30px;  
+}
+.title span{
+    color: var(--orangeColor);
+}
+.body{
+    background-color: var(--bodycolor);
+}
+label{
+    color: var(--blueColor);
+}
+input{
+    background-color: #D9D9D9;
+}
+.logo{
+    width: 150px;
+    
+}
+
+.btn{
+    background-color: var(--orangeColor);
+    color: white; 
+}
+.login_form{
+    border: 1px solid var(--blueColor);
+    border-radius: 20px;
+    padding: 50px;
+    margin-top: 30px;
+    box-shadow: -8px 6px 26px -7px var(--blueColor);
+}
+select{
+    background-color: #D9D9D9;
+    margin-top: 20px;
+}
+.newUser{
+    color: var(--blueColor);
+}
+a{
+    color: var(--orangeColor);
+    cursor: pointer;
+}

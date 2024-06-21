@@ -11,6 +11,8 @@ import { ChangePasswordComponent } from './User/change-password/change-password.
 import { UpdateInfoComponent } from './User/update-info/update-info.component';
 import { PredictComponent } from './User/predict/predict.component';
 import { InstitutionLoginComponent } from './institution-login/institution-login.component';
+import { AdminLoginComponent } from './Admin/admin-login/admin-login.component';
+import { AdminHomePageComponent } from './Admin/admin-home-page/admin-home-page.component';
 
 const routes: Routes = [
   {path:"",redirectTo:'home',pathMatch:'full'},
@@ -25,6 +27,8 @@ const routes: Routes = [
   {path:'updateInfo',component:UpdateInfoComponent},
   {path:'predictDisease',component:PredictComponent},
   {path:'institutionLogin',component:InstitutionLoginComponent},
+  {path:'adminLogin',component:AdminLoginComponent},
+  {path:'adminHomePage',component:AdminHomePageComponent},
   
 ];
 

@@ -3,8 +3,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SignInService } from '../sign-in.service';
 
-
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
