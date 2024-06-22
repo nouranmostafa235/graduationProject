@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UserDataService } from 'src/app/user-data.service';
 
 @Component({
   selector: 'app-change-password',
@@ -7,13 +8,23 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./change-password.component.css']
 })
 export class ChangePasswordComponent {
+  constructor(private userData:UserDataService){
+
+  }
 form:FormGroup=new FormGroup({
-  current_pass:new FormControl(null,[Validators.required]),
-  new_pass:new FormControl(null,[Validators.required]),
-  re_pass:new FormControl(null,[Validators.required])
+  oldPassword:new FormControl(null,[Validators.required]),
+  newPassword:new FormControl(null,[Validators.required]),
 })
-fun(x:FormGroup){
-  console.log(x.value);
-  
+isUpdated:boolean=false
+handle(reg:FormGroup){
+  this.userData.changePass(reg.value).subscribe({
+    next:(response)=>{
+      if(response.message === "Password updated successfully")
+      {
+        this.isUpdated=true
+      }
+      },
+    error:(err)=>console.log(err),
+  })
 }
 }
