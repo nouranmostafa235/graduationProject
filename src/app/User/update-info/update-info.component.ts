@@ -1,4 +1,4 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { faL, faWeight } from '@fortawesome/free-solid-svg-icons';
 import { response } from 'express';
@@ -9,7 +9,7 @@ import { UserDataService } from 'src/app/user-data.service';
   templateUrl: './update-info.component.html',
   styleUrls: ['./update-info.component.css']
 })
-export class UpdateInfoComponent implements AfterViewInit {
+export class UpdateInfoComponent implements AfterViewInit ,OnInit {
   constructor(private userData:UserDataService){}
   name: any;
   form: FormGroup = new FormGroup({
@@ -24,14 +24,22 @@ export class UpdateInfoComponent implements AfterViewInit {
     bloodType: new FormControl,
 
   });
+  data:any
+  ngOnInit(): void {
+    this.userData.getUserData().subscribe({
+      next:(response)=>{
+        console.log(response);
+      }
+    })
+  }
   ngAfterViewInit() {
     this.form = new FormGroup({
       firstName: new FormControl((document.getElementById("firstName") as HTMLElement).innerHTML),
       lastName: new FormControl((document.getElementById("lastName") as HTMLElement).innerHTML),
       email: new FormControl(null),
-      phone: new FormControl((document.getElementById("phone") as HTMLElement).innerHTML),
+      phone: new FormControl(null),
       gender: new FormControl((document.getElementById("gender") as HTMLElement).innerHTML),
-      address: new FormControl(null),
+      address: new FormControl((document.getElementById("address") as HTMLElement).innerHTML),
       weight: new FormControl((document.getElementById("weight") as HTMLElement).innerHTML),
       height: new FormControl((document.getElementById("height") as HTMLElement).innerHTML),
       bloodType: new FormControl((document.getElementById("bloodType") as HTMLElement).innerHTML),
@@ -127,6 +135,13 @@ export class UpdateInfoComponent implements AfterViewInit {
       }
     });
   }
+  header:any={
+    token:localStorage.getItem('Authorization')
+  }
+  fun(reg:FormGroup){
+    console.log(this.header)
+
+  }
   isUpdated:boolean=false
 updateInfo(form:FormGroup){
   this.userData.updateInfo(form.value).subscribe({
@@ -134,6 +149,14 @@ updateInfo(form:FormGroup){
       if(response.message==="updated successfully"){
         this.isUpdated=true;
       }
+    }
+  })
+}
+close(){
+  this.clear()
+  this.userData.getUserData().subscribe({
+    next:(response)=>{
+       this.data=response
     }
   })
 }

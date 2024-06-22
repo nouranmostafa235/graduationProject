@@ -6,10 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserDataService {
-  
   constructor(private http:HttpClient) { }
   header:any={
-    Authorization:localStorage.getItem('Authorization')
+    token:localStorage.getItem('Authorization')
   }
   getUserData():Observable<any>{
     return this.http.get("http://localhost:3000/users/profile",{headers:this.header})

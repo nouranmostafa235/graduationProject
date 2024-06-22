@@ -17,7 +17,7 @@
                 <div class="smallImage d-flex">
                     <img routerLink="/profile" src="assets/imgs/download.jpeg" alt="">
                     <p routerLink="/profile" class="text-decoration-underline ms-2 mt-2 "
-                        style="color: var(--blueColor);">Alex ALex</p>
+                        style="color: var(--blueColor);">{{data.firstName}} {{data.lastName}}</p>
                 </div>
             </div>
         </div>
@@ -32,7 +32,7 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h1 class="modal-title fs-5" id="staticBackdropLabel">Update Personal Info</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" (click)="close()" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <form [formGroup]="form" (ngSubmit)="updateInfo(form)">
@@ -90,7 +90,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
-                                        (click)="clear()">Close</button>
+                                        (click)="close()">Close</button>
                                     <button type="submit" class="btn btn-primary">Save Changes</button>
                                     <p *ngIf="isUpdated">udated successfully</p>
                                 </div>
@@ -107,20 +107,22 @@
                     <img src="assets/imgs/download.jpeg" class="img-thumbnail" alt="">
                 </div>
                 <div class="col-sm-9">
-                    <h3><span id="firstName">Alex</span> <span id="lastName"> Alex</span></h3>
+                    <h3><span id="firstName">{{data.firstName}}</span> <span id="lastName"> {{data.lastName}}</span></h3>
                     <div class="d-flex justify-content-evenly">
-                        <p id="tag" class="fw-light"><span id="age">23</span> yrs, <span id="gender">Male</span></p>
-                        <p class="fw-light ms-auto">Phone: <span id="phone">0111235667</span></p>
+                        <p id="tag" class="fw-light"><span id="age">{{data.age}}</span> yrs, <span id="gender">{{data.gender}}</span></p>
+                        <p class="fw-light ms-auto">Address: <span id="address">{{data.address}}</span></p>
                     </div>
                     <hr>
                     <div class="d-flex justify-content-between fw-light">
-                        <p>Weight: <span id="weight">90</span> Kg</p>
-                        <p>Height: <span id="height">1.89</span> Cm</p>
-                        <p>Blood Type: <span id="bloodType">A-</span></p>
+                        <p>Weight: <span id="weight">{{data.weight}}</span> Kg</p>
+                        <p>Height: <span id="height">{{data.height}}</span> Cm</p>
+                        <p>Blood Type: <span id="bloodType">{{data.bloodType}}</span></p>
                     </div>
                 </div>
             </div>
         </div>
+        
+
         <div class="mt-4 ps-2 first_section">
             <!-- Modal -->
             <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false"
@@ -132,129 +134,145 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form [formGroup]="form">
+                            <form [formGroup]="form" (ngSubmit)="updateInfo(form)">
                                 <table class="personalTable table table-striped mb-0 mb-0" id="modalTable">
                                     <tbody class="">
                                         <tr>
                                             <td>
-                                                <i class="fa-solid fa-check"></i>
+                                                <i *ngIf="data.personalMedicalHistory.anemia" class="fa-solid fa-check"></i>
                                                 <label for="">Animia</label>
-
+                
                                             </td>
                                             <td>
+                                                <i *ngIf="data.personalMedicalHistory.arthritis" class="fa-solid fa-check"></i>
                                                 <label for="">Arthirits</label>
-
+                
                                             </td>
                                             <td>
-                                                <i class="fa-solid fa-check"></i>
+                                                <i *ngIf="data.personalMedicalHistory.asthma" class="fa-solid fa-check"></i>
                                                 <label for="">Asthma</label>
-
+                
                                             </td>
                                             <td>
-
+                                                <i *ngIf="data.personalMedicalHistory.cancer" class="fa-solid fa-check"></i>
                                                 <label for="">Cancer</label>
-
+                
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>
+                                            <td> 
+                                                <i *ngIf="data.personalMedicalHistory.chronicObstructive" class="fa-solid fa-check"></i>
                                                 <label for="">Chronic Obstructive</label>
-
+                
                                             </td>
-                                            <td>
+                                            <td> 
+                                                <i *ngIf="data.personalMedicalHistory.heartDisease" class="fa-solid fa-check"></i>
                                                 <label for="">Heart Disease</label>
-
+                
                                             </td>
-                                            <td><i class="fa-solid fa-check"></i>
+                                            <td>
+                                                <i *ngIf="data.personalMedicalHistory.clottingDisorder" class="fa-solid fa-check"></i>
                                                 <label for="">Clotting Disorder</label>
-
+                
                                             </td>
-                                            <td>
+                                            <td> 
+                                                <i *ngIf="data.personalMedicalHistory.congestiveHeartFailure" class="fa-solid fa-check"></i>
                                                 <label for="">Congestive Heart Failure</label>
-
+                
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>
+                                            <td> 
+                                                <i *ngIf="data.personalMedicalHistory.crohnsDisease" class="fa-solid fa-check"></i>
                                                 <label for="">Crohn's Disease</label>
-
+                
                                             </td>
-                                            <td> <i class="fa-solid fa-check"></i>
+                                            <td>  <i *ngIf="data.personalMedicalHistory.depression" class="fa-solid fa-check"></i>
                                                 <label for="">Depression</label>
-
+                
                                             </td>
                                             <td>
-                                                <i class="fa-solid fa-check"></i>
+                                                <i *ngIf="data.personalMedicalHistory.diabetes" class="fa-solid fa-check"></i>
                                                 <label for="">Diabetes</label>
-
+                
                                             </td>
-                                            <td>
+                                            <td> 
+                                                <i *ngIf="data.personalMedicalHistory.emphysema" class="fa-solid fa-check"></i>
                                                 <label for="">Emphysema</label>
-
+                
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td> <i class="fa-solid fa-check"></i>
+                                            <td>  <i *ngIf="data.personalMedicalHistory.endocrineProblems" class="fa-solid fa-check"></i>
                                                 <label for="">Endocrine Problems</label>
-
+                
                                             </td>
                                             <td>
+                                                <i *ngIf="data.personalMedicalHistory.GERD" class="fa-solid fa-check"></i>
                                                 <label for="">GERD</label>
-
+                
                                             </td>
-                                            <td>
+                                            <td> 
+                                                <i *ngIf="data.personalMedicalHistory.glaucoma" class="fa-solid fa-check"></i>
                                                 <label for="">Glaucoma</label>
-
+                
                                             </td>
-                                            <td>
+                                            <td> 
+                                                <i *ngIf="data.personalMedicalHistory.hepatitis" class="fa-solid fa-check"></i>
                                                 <label for="">Hepatitis</label>
-
+                
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td> <i class="fa-solid fa-check"></i>
+                                            <td> 
+                                                 <i *ngIf="data.personalMedicalHistory.HIV_AIDS" class="fa-solid fa-check"></i>
                                                 <label for="">HIV/AIDS</label>
-
+                
                                             </td>
                                             <td>
-                                                <i class="fa-solid fa-check"></i>
+                                                <i *ngIf="data.personalMedicalHistory.hypertension" class="fa-solid fa-check"></i>
                                                 <label for="">Hypertension</label>
-
+                
                                             </td>
-                                            <td>
+                                            <td> 
+                                                <i *ngIf="data.personalMedicalHistory.kidneyDisease" class="fa-solid fa-check"></i>
                                                 <label for="">Kidney Disease</label>
-
+                
                                             </td>
-                                            <td>
+                                            <td> 
+                                                <i *ngIf="data.personalMedicalHistory.myocardialInfarction" class="fa-solid fa-check"></i>
                                                 <label for="">Myocardial Infarction</label>
-
+                
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>
+                                            <td> 
+                                                <i *ngIf="data.personalMedicalHistory.pepticUlcerDisease" class="fa-solid fa-check"></i>
                                                 <label for="">Peptic UIcer Disease</label>
-
+                
                                             </td>
-                                            <td>
+                                            <td> 
+                                                <i *ngIf="data.personalMedicalHistory.seizures" class="fa-solid fa-check"></i>
                                                 <label for="">Seizures</label>
-
+                
                                             </td>
                                             <td>
-                                                <i class="fa-solid fa-check"></i>
+                                                <i *ngIf="data.personalMedicalHistory.stroke" class="fa-solid fa-check"></i>
                                                 <label for="">Stroke</label>
-
+                
                                             </td>
-                                            <td>
+                                            <td> 
+                                                <i *ngIf="data.personalMedicalHistory.ulcerativeColitis" class="fa-solid fa-check"></i>
                                                 <label for="">UIcerative Colitis</label>
-
+                
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save Changes</button>
+                                        data-bs-dismiss="modal" (click)="close()">Close</button>
+                                    <button type="submit" class="btn btn-primary">Save Changes</button>
                                 </div>
                             </form>
                         </div>
@@ -273,114 +291,130 @@
                 <tbody class="">
                     <tr>
                         <td>
-                            <i class="fa-solid fa-check"></i>
+                            <i *ngIf="data.personalMedicalHistory.anemia" class="fa-solid fa-check"></i>
                             <label for="">Animia</label>
 
                         </td>
                         <td>
+                            <i *ngIf="data.personalMedicalHistory.arthritis" class="fa-solid fa-check"></i>
                             <label for="">Arthirits</label>
 
                         </td>
                         <td>
-                            <i class="fa-solid fa-check"></i>
+                            <i *ngIf="data.personalMedicalHistory.asthma" class="fa-solid fa-check"></i>
                             <label for="">Asthma</label>
 
                         </td>
                         <td>
-
+                            <i *ngIf="data.personalMedicalHistory.cancer" class="fa-solid fa-check"></i>
                             <label for="">Cancer</label>
 
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td> 
+                            <i *ngIf="data.personalMedicalHistory.chronicObstructive" class="fa-solid fa-check"></i>
                             <label for="">Chronic Obstructive</label>
 
                         </td>
-                        <td>
-                            <label for="">Disease</label>
+                        <td> 
+                            <i *ngIf="data.personalMedicalHistory.heartDisease" class="fa-solid fa-check"></i>
+                            <label for="">Heart Disease</label>
 
                         </td>
-                        <td><i class="fa-solid fa-check"></i>
+                        <td>
+                            <i *ngIf="data.personalMedicalHistory.clottingDisorder" class="fa-solid fa-check"></i>
                             <label for="">Clotting Disorder</label>
 
                         </td>
-                        <td>
+                        <td> 
+                            <i *ngIf="data.personalMedicalHistory.congestiveHeartFailure" class="fa-solid fa-check"></i>
                             <label for="">Congestive Heart Failure</label>
 
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td> 
+                            <i *ngIf="data.personalMedicalHistory.crohnsDisease" class="fa-solid fa-check"></i>
                             <label for="">Crohn's Disease</label>
 
                         </td>
-                        <td> <i class="fa-solid fa-check"></i>
+                        <td>  <i *ngIf="data.personalMedicalHistory.depression" class="fa-solid fa-check"></i>
                             <label for="">Depression</label>
 
                         </td>
                         <td>
-                            <i class="fa-solid fa-check"></i>
+                            <i *ngIf="data.personalMedicalHistory.diabetes" class="fa-solid fa-check"></i>
                             <label for="">Diabetes</label>
 
                         </td>
-                        <td>
+                        <td> 
+                            <i *ngIf="data.personalMedicalHistory.emphysema" class="fa-solid fa-check"></i>
                             <label for="">Emphysema</label>
 
                         </td>
                     </tr>
                     <tr>
-                        <td> <i class="fa-solid fa-check"></i>
+                        <td>  <i *ngIf="data.personalMedicalHistory.endocrineProblems" class="fa-solid fa-check"></i>
                             <label for="">Endocrine Problems</label>
 
                         </td>
                         <td>
+                            <i *ngIf="data.personalMedicalHistory.GERD" class="fa-solid fa-check"></i>
                             <label for="">GERD</label>
 
                         </td>
-                        <td>
+                        <td> 
+                            <i *ngIf="data.personalMedicalHistory.glaucoma" class="fa-solid fa-check"></i>
                             <label for="">Glaucoma</label>
 
                         </td>
-                        <td>
+                        <td> 
+                            <i *ngIf="data.personalMedicalHistory.hepatitis" class="fa-solid fa-check"></i>
                             <label for="">Hepatitis</label>
 
                         </td>
                     </tr>
                     <tr>
-                        <td> <i class="fa-solid fa-check"></i>
+                        <td> 
+                             <i *ngIf="data.personalMedicalHistory.HIV_AIDS" class="fa-solid fa-check"></i>
                             <label for="">HIV/AIDS</label>
 
                         </td>
                         <td>
-                            <i class="fa-solid fa-check"></i>
+                            <i *ngIf="data.personalMedicalHistory.hypertension" class="fa-solid fa-check"></i>
                             <label for="">Hypertension</label>
 
                         </td>
-                        <td>
+                        <td> 
+                            <i *ngIf="data.personalMedicalHistory.kidneyDisease" class="fa-solid fa-check"></i>
                             <label for="">Kidney Disease</label>
 
                         </td>
-                        <td>
+                        <td> 
+                            <i *ngIf="data.personalMedicalHistory.myocardialInfarction" class="fa-solid fa-check"></i>
                             <label for="">Myocardial Infarction</label>
 
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td> 
+                            <i *ngIf="data.personalMedicalHistory.pepticUlcerDisease" class="fa-solid fa-check"></i>
                             <label for="">Peptic UIcer Disease</label>
 
                         </td>
-                        <td>
+                        <td> 
+                            <i *ngIf="data.personalMedicalHistory.seizures" class="fa-solid fa-check"></i>
                             <label for="">Seizures</label>
 
                         </td>
                         <td>
-                            <i class="fa-solid fa-check"></i>
+                            <i *ngIf="data.personalMedicalHistory.stroke" class="fa-solid fa-check"></i>
                             <label for="">Stroke</label>
 
                         </td>
-                        <td>
+                        <td> 
+                            <i *ngIf="data.personalMedicalHistory.ulcerativeColitis" class="fa-solid fa-check"></i>
                             <label for="">UIcerative Colitis</label>
 
                         </td>
@@ -388,6 +422,11 @@
                 </tbody>
             </table>
         </div>
+        
+
+
+
+
         <div class="mt-4 ps-2 first_section">
             <!-- Modal -->
             <div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false"
