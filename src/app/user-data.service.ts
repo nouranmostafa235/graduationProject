@@ -17,4 +17,7 @@ export class UserDataService {
   changePass(userData:any):Observable<any>{
     return this.http.put("http://localhost:3000/users/updatePassword",userData,{headers:this.header})
   }
+  updateInfo(userData:any):Observable<any>{
+    return this.http.put("http://localhost:3000/users/updateProfile",userData,{headers:this.header})
+  }
 }
