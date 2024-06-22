@@ -1,7 +1,6 @@
 import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { faL, faWeight } from '@fortawesome/free-solid-svg-icons';
-import { response } from 'express';
+import { Router } from '@angular/router';
 import { UserDataService } from 'src/app/user-data.service';
 
 @Component({
@@ -10,8 +9,10 @@ import { UserDataService } from 'src/app/user-data.service';
   styleUrls: ['./update-info.component.css']
 })
 export class UpdateInfoComponent implements AfterViewInit ,OnInit {
-  constructor(private userData:UserDataService){}
-  name: any;
+  constructor(private userData:UserDataService ,private router:Router){}
+
+  data:any
+
   form: FormGroup = new FormGroup({
     firstName: new FormControl(null),
     lastName: new FormControl,
@@ -24,11 +25,11 @@ export class UpdateInfoComponent implements AfterViewInit ,OnInit {
     bloodType: new FormControl,
 
   });
-  data:any
+ 
   ngOnInit(): void {
     this.userData.getUserData().subscribe({
       next:(response)=>{
-        console.log(response);
+        this.data=response
       }
     })
   }
@@ -135,39 +136,29 @@ export class UpdateInfoComponent implements AfterViewInit ,OnInit {
       }
     });
   }
-  header:any={
-    token:localStorage.getItem('Authorization')
-  }
-  fun(reg:FormGroup){
-    console.log(this.header)
 
-  }
-  isUpdated:boolean=false
+isUpdated:boolean=false
 updateInfo(form:FormGroup){
   this.userData.updateInfo(form.value).subscribe({
     next:(response)=>{
       if(response.message==="updated successfully"){
         this.isUpdated=true;
+        this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+          this.router.navigate([this.router.url]);
+        });
       }
     }
   })
 }
 close(){
-  this.clear()
-  this.userData.getUserData().subscribe({
-    next:(response)=>{
-       this.data=response
-    }
-  })
+  this.form = new FormGroup({
+    firstName: new FormControl((document.getElementById("firstName") as HTMLElement).innerHTML),
+    lastName: new FormControl((document.getElementById("lastName") as HTMLElement).innerHTML),
+    email: new FormControl((document.getElementById("email") as HTMLElement).innerHTML),
+    phone: new FormControl((document.getElementById("phone") as HTMLElement).innerHTML),
+    gender: new FormControl((document.getElementById("gender") as HTMLElement).innerHTML),
+    address: new FormControl((document.getElementById("address") as HTMLElement).innerHTML),
+  });
 }
-  clear() {
-    this.form = new FormGroup({
-      firstName: new FormControl((document.getElementById("firstName") as HTMLElement).innerHTML),
-      lastName: new FormControl((document.getElementById("lastName") as HTMLElement).innerHTML),
-      email: new FormControl(null),
-      phone: new FormControl((document.getElementById("phone") as HTMLElement).innerHTML),
-      gender: new FormControl((document.getElementById("gender") as HTMLElement).innerHTML),
-      address: new FormControl(null),
-    });
-  }
+
 }

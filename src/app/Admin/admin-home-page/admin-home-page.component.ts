@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AdminService } from 'src/app/admin.service';
 import { SignInService } from 'src/app/sign-in.service';
 
 @Component({
@@ -6,86 +9,89 @@ import { SignInService } from 'src/app/sign-in.service';
   templateUrl: './admin-home-page.component.html',
   styleUrls: ['./admin-home-page.component.css']
 })
-export class AdminHomePageComponent {
-  constructor(private signIn:SignInService){}
+export class AdminHomePageComponent implements OnInit {
+  clinicForm:FormGroup;
+  constructor(private signIn:SignInService, private fb:FormBuilder ,private adminServics:AdminService ,private router:Router){
+    this.clinicForm= this.fb.group({
+        name:[""],
+        username:[''],
+        password:[''],
+        about:[''],
+        branches: this.fb.array([this.createBranches()]),
+        contactNumbers: this.fb.array(['']),
+        socialMedia:this.fb.array([this.createSocialMedia()])
+    });
+  }
+  get branches() {
+    return this.clinicForm.get('branches') as FormArray;
+  }
+  get contactNumbers() {
+    return this.clinicForm.get('contactNumbers') as FormArray;
+  }
+
+  get socialMedia() {
+    return this.clinicForm.get('socialMedia') as FormArray;
+  }
+
+  createBranches():FormGroup{
+   return this.fb.group({
+    name:[''],
+    address:[''],
+    phone:[''],
+   });
+  }
+  
+  addBranch(): void {
+    this.branches.push(this.createBranches());
+  }
+  removeBranch(index: number): void {
+    this.branches.removeAt(index);
+  }
+
+ createSocialMedia(): FormGroup {
+    return this.fb.group({
+      platform: [''],
+      link: ['']
+    });
+  }
+
+  addSocialMedia(): void {
+    this.socialMedia.push(this.createSocialMedia());
+  }
+
+  removeSocialMedia(index: number): void {
+    this.socialMedia.removeAt(index);
+  }
+
+  addContactNumber(): void {
+    this.contactNumbers.push(this.fb.control(''));
+  }
+
+  removeContactNumber(index: number): void {
+    this.contactNumbers.removeAt(index);
+  }
+
+  addClinic(form:FormGroup){
+    this.adminServics.addClinic(form).subscribe({
+        next:(response)=>{
+            console.log(response);  
+            this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+                this.router.navigate([this.router.url]);
+              });  
+        }
+    })
+    }
   logOut(){
     this.signIn.adminLogOut()
   }
-  tryarr:any[]=[
-    {
-        "_id": "667578e936dda68e675c0de6",
-        "name": "Sunshine Clinic",
-        "about": "A clinic dedicated to providing the best healthcare services.",
-        "branches": [
-            {
-                "name": "Main Branch",
-                "address": "123 Health St, Wellness City",
-                "phone": "123-456-7890",
-                "_id": "667578e936dda68e675c0de7"
-            },
-            {
-                "name": "East Branch",
-                "address": "456 Care Ave, Healthy Town",
-                "phone": "987-654-3210",
-                "_id": "667578e936dda68e675c0de8"
-            }
-        ],
-        "contactNumbers": [
-            "123-456-7890",
-            "098-765-4321"
-        ],
-        "socialMedia": [
-            {
-                "platform": "Facebook",
-                "link": "http://facebook.com/sunshineclinic",
-                "_id": "667578e936dda68e675c0de9"
-            },
-            {
-                "platform": "Twitter",
-                "link": "http://twitter.com/sunshineclinic",
-                "_id": "667578e936dda68e675c0dea"
-            }
-        ],
-        "createdAt": "2024-06-21T12:58:17.465Z",
-        "__v": 0
-    },
-    {
-      "_id": "667578de6",
-      "name": "Sunsof",
-      "about": "A clinic dkrfrplfroviding the best healthcare services.",
-      "branches": [
-          {
-              "name": "Main Branch",
-              "address": "123 Health St, Wellness City",
-              "phone": "123-456-7890",
-              "_id": "667578e936dda68e675c0de7"
-          },
-          {
-              "name": "East Branch",
-              "address": "456 Care Ave, Healthy Town",
-              "phone": "987-654-3210",
-              "_id": "667578e936dda68e675c0de8"
-          }
-      ],
-      "contactNumbers": [
-          "123-456-7890",
-          "098-765-4321"
-      ],
-      "socialMedia": [
-          {
-              "platform": "Facebook",
-              "link": "http://facebook.com/sunshineclinic",
-              "_id": "667578e936dda68e675c0de9"
-          },
-          {
-              "platform": "Twitter",
-              "link": "http://twitter.com/sunshineclinic",
-              "_id": "667578e936dda68e675c0dea"
-          }
-      ],
-      "createdAt": "2024-06-21T12:58:17.465Z",
-      "__v": 0
+  tryarr:any[]=[]
+  ngOnInit(): void {
+      this.adminServics.getClinics().subscribe({
+        next:(response)=>{
+            this.tryarr=response;
+            console.log(response);
+        }
+      })
   }
-]
 
 }
