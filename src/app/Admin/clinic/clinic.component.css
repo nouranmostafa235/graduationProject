@@ -69,14 +69,3 @@ i{
     border-radius: 10px;
 }
   .dropdown:hover .dropdown-content {display: block;}
-  .box{
-    background-image: url(../../../assets/imgs/admin.png);
-    background-position: center center;
-    background-size: 20%;
-    background-repeat: no-repeat;
-    min-height: 100vh;
-  }
-.layer{
-    min-height: 100vh;
-    background-color: rgba(0, 0 ,0,0.3);
-}

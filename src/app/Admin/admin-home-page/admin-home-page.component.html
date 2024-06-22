@@ -1,91 +1,13 @@
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
-        <div class="modal-content border-0">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Clinic</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form class="form-control" [formGroup]="clinicForm" (ngSubmit)="addClinic(clinicForm)">
-                    <label for="" class="form-label">Clinic Name</label>
-                    <input type="text" class="form-control" name="" formControlName="name">
-
-                    <label for="" class="form-label">UserName</label>
-                    <input type="text" class="form-control" name="" formControlName="username">
-
-                    <label for="" class="form-label">Password</label>
-                    <input type="password" class="form-control" name="" formControlName="password">
-
-                    <label for="about">About</label>
-                    <textarea name="" class="form-control" formControlName="about"></textarea>
-
-                    <div formArrayName="branches">
-                        <div *ngFor="let branch of branches.controls; let i = index" [formGroupName]="i">
-                            <h3>Branch {{ i + 1 }}</h3>
-                            <label for="branchName{{i}}">Name:</label>
-                            <input id="branchName{{i}}" class="form-control" formControlName="name">
-
-                            <label for="branchAddress{{i}}">Address:</label>
-                            <input id="branchAddress{{i}}" class="form-control" formControlName="address">
-
-                            <label for="branchPhone{{i}}">Phone:</label>
-                            <input id="branchPhone{{i}}" class="form-control" formControlName="phone">
-
-                            <button type="button" (click)="removeBranch(i)" class="btn mt-3"><i
-                                    class="fa-solid fa-trash me-1"></i> Remove This Branch</button>
-                        </div>
-                        <button type="button" (click)="addBranch()" class="btn me-3 mt-3"><i
-                                class="fa-solid fa-plus me-1"></i> Add New Branch</button>
-                    </div>
-                    <hr>
-                    <div formArrayName="contactNumbers">
-                        <div *ngFor="let contact of contactNumbers.controls; let i = index">
-                            <label for="contactNumber{{i}}" >Contact Number {{ i + 1 }}:</label>
-                            <input id="contactNumber{{i}}" class="form-control" [formControlName]="i">
-                            <button type="button" class="btn mt-3" (click)="removeContactNumber(i)"> <i
-                                class="fa-solid fa-trash me-1"></i>Remove This Contact
-                                Number</button>
-                        </div>
-                        <button type="button" class="btn mt-3"  (click)="addContactNumber()"> <i
-                            class="fa-solid fa-plus me-1"></i>Add Contact Number</button>
-                    </div>
-                    <hr>
-                    <div formArrayName="socialMedia">
-                        <div *ngFor="let social of socialMedia.controls; let i = index" [formGroupName]="i">
-                          <h3>Social Media {{ i + 1 }}</h3>
-                          <label for="platform{{i}}">Platform:</label>
-                          <input id="platform{{i}}" class="form-control" formControlName="platform">
-                    
-                          <label for="link{{i}}">Link:</label>
-                          <input id="link{{i}}" class="form-control" formControlName="link">
-                    
-                          <button type="button" class="btn mt-3" (click)="removeSocialMedia(i)"> <i
-                            class="fa-solid fa-trash me-1"></i>Remove Social Media</button>
-                        </div>
-                        <button type="button" class="btn mt-3" (click)="addSocialMedia()"><i
-                            class="fa-solid fa-plus me-1"></i> Add Social Media</button>
-                      </div>
-
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save Changes</button>
-                    </div>
-                </form>
-            </div>
-
-        </div>
-    </div>
-</div>
-<!-- End Modal -->
 <div class="row me-0">
     <div class="col-sm-2 text-center">
         <div class="sideBar d-flex flex-column justify-content-between text-white text-center">
             <div>
                 <img src="assets/imgs/rx.png" class="logo bg-white" alt="">
                 <hr>
+            </div>
+            <div class="d-flex flex-column justify-content-center align-items-center">
+                <button routerLink="clinic" class="btn mb-3 w-50"><i class="fa-solid fa-house-chimney-medical me-1"></i> Clinic</button>
+                <button routerLink="labs" class="btn w-50"><i class="fa-solid fa-microscope me-2"></i>Lab</button>
             </div>
             <div>
                 <hr class="mt-5">
@@ -96,71 +18,12 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-10">
-        <div class="navbar border-bottom mb-5">
-            <div class="icons ms-auto me-3">
-                <button class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i
-                        class="fa-solid fa-plus me-1"></i>Add</button>
-            </div>
-            <div class="name me-3">
-                <div class="smallImage d-flex">
-                    <p routerLink="/profile" class="text-decoration-underline ms-2 mt-2 "
-                        style="color: var(--blueColor);">Alex Ldff</p>
-                </div>
-            </div>
+    <div class="col-sm-10 box">
+        <div class="layer">
+            <router-outlet></router-outlet>
         </div>
-        <table class="table table-striped text-center">
-            <thead>
-                <tr>
-                    <th>
-                        ID
-                    </th>
-                    <th>
-                        Name
-                    </th>
-                    <th>
-                        Branches
-                    </th>
-                    <th>
-                        Contact Numbers
-                    </th>
-                    <th>
-                        Edit
-                    </th>
-                    <th>
-                        Delete
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let item of tryarr">
-                    <td scope="row">{{item._id}}</td>
-                    <td>{{item.name}}</td>
-                    <td>
-                        <ul>
-                            <li *ngFor="let br of item.branches">
-                                {{br.name}}
-                            </li>
-                        </ul>
-                    </td>
-                    <td>
-                        <ul>
-                            <li *ngFor="let con of item.contactNumbers">
-                                {{con}}
-                            </li>
-                        </ul>
-                    </td>
-                    <td>
-                        <button class="btn"><i class="fa-solid fa-pen me-1"></i>
-                            Edit</button>
-                    </td>
-                    <td>
-                        <button class="btn"><i class="fa-solid fa-trash me-1"></i>
-                            Delete</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+          
     </div>
+ 
 
 </div>

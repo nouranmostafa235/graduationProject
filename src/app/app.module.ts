@@ -22,6 +22,8 @@ import { HttpClientModule } from  '@angular/common/http';
 import { InstitutionLoginComponent } from './institution-login/institution-login.component';
 import { AdminLoginComponent } from './Admin/admin-login/admin-login.component';
 import { AdminHomePageComponent } from './Admin/admin-home-page/admin-home-page.component';
+import { ClinicComponent } from './Admin/clinic/clinic.component';
+import { LabComponent } from './Admin/lab/lab.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +42,8 @@ import { AdminHomePageComponent } from './Admin/admin-home-page/admin-home-page.
     InstitutionLoginComponent,
     AdminLoginComponent,
     AdminHomePageComponent,
+    ClinicComponent,
+    LabComponent,
   ],
   imports: [
     BrowserModule,

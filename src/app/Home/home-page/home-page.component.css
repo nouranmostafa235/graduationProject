@@ -24,21 +24,26 @@
     visibility: hidden;
 }
 .item1{
-    background-image: url(../../../assets/imgs/rapidRx.jpg);
+    background-image: url(../../../assets/imgs/rapidRxbg.png);
     background-position: center center;
     background-size: cover;
     min-height: 100vh;
 }
 .item2{
-    background-image: url(../../../assets/imgs/Machine_Learning.jpg);
+    background-image: url(../../../assets/imgs/Ml.png);
     background-position: center center;
     background-size: cover;
     min-height: 100vh; 
 }
-
+.item3{
+    background-image: url(../../../assets/imgs/history3.png);
+    background-position: center center;
+    background-size: cover;
+    min-height: 100vh; 
+}
 .layer{
     min-height: 100vh;
-    background-color: rgba(0, 0 ,0,0.6);
+    background-color: rgba(0, 0 ,0,0.3);
 }
 span{
     color: var(--orangeColor);
@@ -47,7 +52,8 @@ h1{
     font-size: 50px;
     font-stretch: 100%;
     letter-spacing: 0.1em;
-    font-weight: 320;
+    font-weight: 400;
+    color: var(--blueColor);
 }
 .layer p{
     font-size: 17px;

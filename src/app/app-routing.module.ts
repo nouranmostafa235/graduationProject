@@ -13,6 +13,8 @@ import { PredictComponent } from './User/predict/predict.component';
 import { InstitutionLoginComponent } from './institution-login/institution-login.component';
 import { AdminLoginComponent } from './Admin/admin-login/admin-login.component';
 import { AdminHomePageComponent } from './Admin/admin-home-page/admin-home-page.component';
+import { ClinicComponent } from './Admin/clinic/clinic.component';
+import { LabComponent } from './Admin/lab/lab.component';
 
 const routes: Routes = [
   {path:"",redirectTo:'home',pathMatch:'full'},
@@ -28,7 +30,13 @@ const routes: Routes = [
   {path:'predictDisease',component:PredictComponent},
   {path:'institutionLogin',component:InstitutionLoginComponent},
   {path:'adminLogin',component:AdminLoginComponent},
-  {path:'adminHomePage',component:AdminHomePageComponent},
+  {path:'adminHomePage',component:AdminHomePageComponent,children:[{
+    path:'clinic',component:ClinicComponent
+  },
+  {
+     path:'labs',component:LabComponent
+  }
+]},
   
 ];
 
