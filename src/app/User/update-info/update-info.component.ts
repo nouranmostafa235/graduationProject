@@ -143,7 +143,7 @@ updateInfo(form:FormGroup){
     next:(response)=>{
       if(response.message==="updated successfully"){
         this.isUpdated=true;
-        this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+        this.router.navigateByUrl('/updateInfo', { skipLocationChange: true }).then(() => {
           this.router.navigate([this.router.url]);
         });
       }
