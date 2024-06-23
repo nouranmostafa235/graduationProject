@@ -1,32 +1,32 @@
-<nav class="navbar navbar-expand-lg">
+<nav class="navbar fixed-top " id="navbar">
   <div class="container">
-    <img src="assets/imgs/rx.png" alt="">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse " id="navbarSupportedContent">
-      <div class="ms-auto d-flex ">
-        <div class="dropdown me-3">
-          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-           English
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item">Arabic</a></li>
-            
-          </ul>
-        </div>
-        <div class="dropdown">
-          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Sign In
-          </a>
-        
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" routerLink="/login">User</a></li>
-            <li><a class="dropdown-item" routerLink="/institutionLogin">Medical Institution</a></li>
-          </ul>
-        </div>
-      </div>
+      <img src="assets/imgs/logo2.jpg" class="me-2" alt="">
+     <h4 class="mt-1">Rapid<span>R</span>x</h4>
+<div class="ms-auto" >
+      <ul class="nav nav-underline">
+        <li class="nav-item">
+          <div class="dropdown me-3">
+            <a class="dropdown-toggle nav-link active" data-bs-toggle="dropdown" aria-expanded="false">
+             English
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item "><i class="fa-solid fa-earth-africa" style="color: #010f1a;"></i>Arabic</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="nav-item">
+          <div class="dropdown me-3">
+            <a class="dropdown-toggle nav-link" data-bs-toggle="dropdown" aria-expanded="false">
+             Sign In
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item " routerLink="/login"> <i class="fa-solid fa-user me-1" style="color: #010f1a;"></i>User</a></li>
+              <li><a class="dropdown-item"><i class="fa-solid fa-house-chimney-medical me-1" style="color: #010f1a;"></i> Clinic</a></li>
+              <li><a class="dropdown-item "><i class="fa-solid fa-flask-vial me-1" style="color: #010f1a;"></i>Lab</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
     </div>
-  </div>
+    </div>
 </nav>

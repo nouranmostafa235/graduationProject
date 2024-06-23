@@ -1,16 +1,42 @@
 .navbar{
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100000;
-    background-color: var(--bodycolor);
+background-color:#010F1A;
+}
+span{
+    color: var(--orangeColor);
+}
+a , h4{
+    color: white;
+}
+h4{
+    font-size: 25px;
+    font-weight: 700;
+}
+.nav-item a{
+    font-size: 17px;
+    font-weight: 700;
+}
+a:hover{
+    color: white !important;
+}
+.active{
+    color: white !important;
 }
 img{
-    width: 5%;
+    width: 5.5%;
 }
-.btn{
-    background-color: var(--orangeColor);
-    color: white;
-    
+.dropdown-item{
+    color: #010F1A;
 }
+.dropdown-item:hover{
+    color: #010F1A !important;
+    cursor: pointer;
+}
+a{
+    cursor: pointer;
+}
+.dropdown-menu a:hover .dropdown-toggle{
+ color: white !important;
+}
+.navbar {
+    transition: background-color 0.5s;
+  }
