@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { AdminService } from 'src/app/admin.service';
 import { SignInService } from 'src/app/sign-in.service';
 
-
 @Component({
   selector: 'app-clinic',
   templateUrl: './clinic.component.html',
@@ -12,7 +11,7 @@ import { SignInService } from 'src/app/sign-in.service';
 })
 export class ClinicComponent implements OnInit{
   clinicForm:FormGroup;
-  constructor(private signIn:SignInService, private fb:FormBuilder ,private adminServics:AdminService ,private router:Router){
+  constructor(private fb:FormBuilder ,private adminServics:AdminService ,private router:Router){
     this.clinicForm= this.fb.group({
         name:[""],
         username:[''],
@@ -72,16 +71,35 @@ export class ClinicComponent implements OnInit{
     this.contactNumbers.removeAt(index);
   }
   addClinic(form:FormGroup){
-    this.adminServics.addClinic(form).subscribe({
-        next:(response)=>{
-            console.log(response);  
-            this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-                this.router.navigate([this.router.url]);
-              });  
+    const plainFormValue = this.toPlainObject(form);
+    console.log(plainFormValue);
+    this.adminServics.addClinic(plainFormValue).subscribe({
+        next: (response) => {
+            console.log(response);
         }
-    })
+    });
     }
-
+    private toPlainObject(formGroup: FormGroup): { [key: string]: any } {
+      const result: { [key: string]: any } = {};
+      Object.keys(formGroup.controls).forEach(key => {
+          const control:any = formGroup.get(key);
+          if (control instanceof FormGroup) {
+              result[key] = this.toPlainObject(control);
+          } else if (control instanceof FormArray) {
+              result[key] = control.controls.map(c => {
+                  if (c instanceof FormGroup) {
+                      return this.toPlainObject(c);
+                  }
+                  return c.value;
+              });
+          } else {
+              result[key] = control.value;
+          }
+      });
+      return result;
+    }
+  
+  
   tryarr:any[]=[]
   ngOnInit(): void {
       this.adminServics.getClinics().subscribe({

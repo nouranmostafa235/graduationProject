@@ -10,9 +10,7 @@ import { UserDataService } from 'src/app/user-data.service';
 })
 export class UpdateInfoComponent implements AfterViewInit ,OnInit {
   constructor(private userData:UserDataService ,private router:Router){}
-
   data:any
-
   form: FormGroup = new FormGroup({
     firstName: new FormControl(null),
     lastName: new FormControl,
@@ -160,5 +158,4 @@ close(){
     address: new FormControl((document.getElementById("address") as HTMLElement).innerHTML),
   });
 }
-
 }
