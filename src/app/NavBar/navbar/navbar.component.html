@@ -1,9 +1,12 @@
-<nav class="navbar fixed-top " id="navbar">
+<nav class="navbar navbar-expand-lg fixed-top " id="navbar">
   <div class="container">
-      <img src="assets/imgs/logo2.jpg" class="me-2" alt="">
-     <h4 class="mt-1">Rapid<span>R</span>x</h4>
-<div class="ms-auto" >
-      <ul class="nav nav-underline">
+    <img src="assets/imgs/logo2.jpg" class="me-2" alt="">
+    <a class="navbar-brand mt-1" routerLink="/home">Rapid<span>R</span>x</a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+<div class=" collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="nav nav-underline mb-2 mb-lg-0 ms-auto">
         <li class="nav-item">
           <div class="dropdown me-3">
             <a class="dropdown-toggle nav-link active" data-bs-toggle="dropdown" aria-expanded="false">
@@ -20,9 +23,9 @@
              Sign In
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item " routerLink="/login"> <i class="fa-solid fa-user me-1" style="color: #010f1a;"></i>User</a></li>
-              <li><a class="dropdown-item"><i class="fa-solid fa-house-chimney-medical me-1" style="color: #010f1a;"></i> Clinic</a></li>
-              <li><a class="dropdown-item "><i class="fa-solid fa-flask-vial me-1" style="color: #010f1a;"></i>Lab</a></li>
+              <li><a class="dropdown-item " routerLink="/login"> <i class="fa-solid fa-user me-2" style="color: #010f1a;"></i>User</a></li>
+              <li><a class="dropdown-item" routerLink="/institutionLogin"><i class="fa-solid fa-house-chimney-medical me-1" style="color: #010f1a;"></i> Clinic</a></li>
+              <li><a class="dropdown-item "><i class="fa-solid fa-flask-vial me-2" style="color: #010f1a;"></i>Lab</a></li>
             </ul>
           </div>
         </li>

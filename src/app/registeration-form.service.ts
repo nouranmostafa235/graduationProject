@@ -13,6 +13,7 @@ export class RegisterationFormService {
     rePassword:new FormControl(null,[Validators.required,Validators.minLength(3)]),
     address:new FormControl(null,[Validators.required,Validators.minLength(3)]),
     phone:new FormControl(null,[Validators.required,Validators.minLength(3)]),
+    age:new FormControl(null,[Validators.required]),
     gender:new FormControl(null,[Validators.required]),
     image:new FormControl(null,[Validators.required]),
     weight:new FormControl(null,[Validators.required]),

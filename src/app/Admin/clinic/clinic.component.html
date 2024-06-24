@@ -10,45 +10,45 @@
             <div class="modal-body">
                 <form class="form-control" [formGroup]="clinicForm" (ngSubmit)="addClinic(clinicForm)">
                     <label for="" class="form-label">Clinic Name</label>
-                    <input type="text" class="form-control" name="" formControlName="name">
+                    <input type="text" class="form-control mb-3" name="" formControlName="name" placeholder="Clinic Name">
 
                     <label for="" class="form-label">UserName</label>
-                    <input type="text" class="form-control" name="" formControlName="username">
+                    <input type="text" class="form-control mb-3" name="" formControlName="username" placeholder="Clinic UserName">
 
                     <label for="" class="form-label">Password</label>
-                    <input type="password" class="form-control" name="" formControlName="password">
+                    <input type="password" class="form-control mb-3" name="" formControlName="password"placeholder="Clinic Password">
 
                     <label for="about">About</label>
-                    <textarea name="" class="form-control" formControlName="about"></textarea>
+                    <textarea name="" class="form-control mb-3" formControlName="about" placeholder="About Clinic"></textarea>
 
                     <div formArrayName="branches">
                         <div *ngFor="let branch of branches.controls; let i = index" [formGroupName]="i">
                             <h3>Branch {{ i + 1 }}</h3>
                             <label for="branchName{{i}}">Name:</label>
-                            <input id="branchName{{i}}" class="form-control" formControlName="name">
+                            <input id="branchName{{i}}" class="form-control mb-3" formControlName="name" placeholder="Branch Name">
 
                             <label for="branchAddress{{i}}">Address:</label>
-                            <input id="branchAddress{{i}}" class="form-control" formControlName="address">
+                            <input id="branchAddress{{i}}" class="form-control mb-3" formControlName="address" placeholder="Branch Address">
 
                             <label for="branchPhone{{i}}">Phone:</label>
-                            <input id="branchPhone{{i}}" class="form-control" formControlName="phone">
+                            <input id="branchPhone{{i}}" class="form-control mb-3" formControlName="phone" placeholder="Branch Phone">
 
-                            <button type="button" (click)="removeBranch(i)" class="btn mt-3"><i
+                            <button type="button" (click)="removeBranch(i)" class="btnn mt-3"><i
                                     class="fa-solid fa-trash me-1"></i> Remove This Branch</button>
                         </div>
-                        <button type="button" (click)="addBranch()" class="btn me-3 mt-3"><i
+                        <button type="button" (click)="addBranch()" class="btnn me-3 mt-3"><i
                                 class="fa-solid fa-plus me-1"></i> Add New Branch</button>
                     </div>
                     <hr>
                     <div formArrayName="contactNumbers">
                         <div *ngFor="let contact of contactNumbers.controls; let i = index">
                             <label for="contactNumber{{i}}" >Contact Number {{ i + 1 }}:</label>
-                            <input id="contactNumber{{i}}" class="form-control" [formControlName]="i">
-                            <button type="button" class="btn mt-3" (click)="removeContactNumber(i)"> <i
+                            <input id="contactNumber{{i}}" class="form-control mb-3" [formControlName]="i" placeholder="Contact Number">
+                            <button type="button" class="btnn mt-3" (click)="removeContactNumber(i)"> <i
                                 class="fa-solid fa-trash me-1"></i>Remove This Contact
                                 Number</button>
                         </div>
-                        <button type="button" class="btn mt-3"  (click)="addContactNumber()"> <i
+                        <button type="button" class="btnn mt-3"  (click)="addContactNumber()"> <i
                             class="fa-solid fa-plus me-1"></i>Add Contact Number</button>
                     </div>
                     <hr>
@@ -56,22 +56,22 @@
                         <div *ngFor="let social of socialMedia.controls; let i = index" [formGroupName]="i">
                           <h3>Social Media {{ i + 1 }}</h3>
                           <label for="platform{{i}}">Platform:</label>
-                          <input id="platform{{i}}" class="form-control" formControlName="platform">
+                          <input id="platform{{i}}" class="form-control mb-3" formControlName="platform" placeholder="e.g Facbook, Instagram">
                     
                           <label for="link{{i}}">Link:</label>
-                          <input id="link{{i}}" class="form-control" formControlName="link">
+                          <input id="link{{i}}" class="form-control mb-3" formControlName="link" placeholder="Platform Link">
                     
-                          <button type="button" class="btn mt-3" (click)="removeSocialMedia(i)"> <i
+                          <button type="button" class="btnn mt-3" (click)="removeSocialMedia(i)"> <i
                             class="fa-solid fa-trash me-1"></i>Remove Social Media</button>
                         </div>
-                        <button type="button" class="btn mt-3" (click)="addSocialMedia()"><i
+                        <button type="button" class="btnn mt-3" (click)="addSocialMedia()"><i
                             class="fa-solid fa-plus me-1"></i> Add Social Media</button>
                       </div>
 
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                        <button type="button" class="btnn" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btnn ">Save Changes</button>
                     </div>
                 </form>
             </div>
@@ -81,19 +81,35 @@
 </div>
 <!-- End Modal -->
 
-    <div class="navbar border-bottom mb-5">
-        <div class="icons ms-auto me-3">
-            <button class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i
-                    class="fa-solid fa-plus me-1"></i>Add</button>
-        </div>
-        <div class="name me-3">
-            <div class="smallImage d-flex">
-                <p routerLink="/profile" class="text-decoration-underline ms-2 mt-2 "
-                    style="color: var(--blueColor);">Alex Ldff</p>
-            </div>
+<nav class="navbar navbar-expand-sm fixed-top mb-5" id="navbar">
+    <div class="container">
+        <img src="assets/imgs/logo2.jpg" class="me-2" alt="">
+        <a class="navbar-brand mt-1" routerLink="/home">Rapid<span>R</span>x</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+              <ul class="nav nav-underline ms-auto">
+                <li class="nav-item me-2">
+                    <div class="smallImage d-flex " routerLink="/adminHomePage">
+                        <a class="ms-2 nav-link active" aria-current="page">Alex ALex</a>
+                </div>
+            </li>
+                <li class="nav-item me-2">
+                    <a class="nav-link" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i
+                        class="fa-solid fa-plus me-1"></i>Add Clinic</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/adminLogin">LogOut</a>
+                </li>
+            </ul>
         </div>
     </div>
-    <table class="table table-striped text-center">
+</nav>
+<div class="container">
+        <table class="table table-striped text-center form">
         <thead>
             <tr>
                 <th>
@@ -145,5 +161,7 @@
             </tr>
         </tbody>
     </table>
+</div>
+
 
 

@@ -1,30 +1,46 @@
 
     <div class="row me-0">
-        <div class="col-sm-2 text-center">
-           <app-side-bar></app-side-bar>
-        </div>
-
-        <div class="col-sm-10 ">
-            <div class="navbar border-bottom mb-5">
-                <div class="icons ms-auto me-3">
-                    <div class="dropdown">
-                        <button class="dropbtn">English <i class="fa-solid fa-caret-down"></i></button>
-                        <div class="dropdown-content">
-                            <a>Arabic</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="name me-3">
-                    <div class="smallImage d-flex">
-                        <img routerLink="/profile" src="assets/imgs/download.jpeg" alt="">
-                        <p routerLink="/profile" class="text-decoration-underline ms-2 mt-2 " style="color: var(--blueColor);">{{data.firstName}} {{data.lastName}}</p>
-                    </div>
+        <nav class="navbar navbar-expand-sm fixed-top mb-5" id="navbar">
+            <div class="container">
+                <img src="assets/imgs/logo2.jpg" class="me-2" alt="">
+                <a class="navbar-brand mt-1" routerLink="/home">Rapid<span>R</span>x</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+    
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="nav nav-underline ms-auto  mb-2 mb-lg-0">
+                        <li class="nav-item">
+                          <a class="nav-link  me-2" aria-current="page" routerLink="/changePassword">Change Password</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link me-2" routerLink="/updateInfo">Update Profile</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" routerLink="/predictDisease">Predict Diabetes</a>
+                        </li>
+                      </ul>
+                      <ul class="nav nav-underline ms-auto">
+                        <li class="nav-item me-2">
+                                <div class="smallImage d-flex " routerLink="/profile">
+                                    <img  src="assets/imgs/download.jpeg" alt="">
+                                    <a  class="ms-2 nav-link active" aria-current="page">Alex ALex</a>
+                            </div>
+                           
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/login">LogOut</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div class="info ps-2 pe-5 pt-5 pb-5 first_section ">
+        </nav>
+
+        <div class="col-sm-10 mx-auto">
+            <div class="info ps-2 pt-5 pb-5 first_section form ">
                 <div class="row">
-                    <div class="col-sm-3">
-                        <img src="assets/imgs/download.jpeg" class="img-thumbnail" alt="">
+                    <div class="col-sm-3 imgDiv">
+                        <img src="assets/imgs/download.jpeg" class="img-thumbnail rounded-circle" alt="">
                     </div>
                     <div class="col-sm-9">
                         <h3>{{data.firstName}} {{data.lastName}}</h3>
@@ -32,7 +48,7 @@
                             <p class="fw-light">{{data.age}} yrs, {{data.gender}}</p>
                             <p class="fw-light ms-auto">Address: {{data.address}}</p>
                         </div>
-                        <hr>
+                        <hr >
                         <div class="d-flex justify-content-between fw-light">
                             <p>Weight: {{data.weight}} Kg</p>
                             <p>Height: {{data.height}} Cm</p>
@@ -353,7 +369,7 @@
                     </tbody>
                 </table>
             </div> 
-            <button routerLink="/familyHistory" class="btn mt-4 mb-5">Family Medical History...</button>
+            <button routerLink="/familyHistory" class="btnn mt-4 mb-5">Family Medical History...</button>
         </div>
    
     </div>

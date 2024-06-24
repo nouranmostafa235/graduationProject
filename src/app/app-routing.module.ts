@@ -30,14 +30,11 @@ const routes: Routes = [
   {path:'predictDisease',component:PredictComponent},
   {path:'institutionLogin',component:InstitutionLoginComponent},
   {path:'adminLogin',component:AdminLoginComponent},
-  {path:'adminHomePage',component:AdminHomePageComponent,children:[{
-    path:'clinic',component:ClinicComponent
-  },
-  {
-     path:'labs',component:LabComponent
-  }
-]},
-  
+  {path:'adminHomePage',component:AdminHomePageComponent},
+  { path:'adminHomePage/clinic',component:ClinicComponent},
+{
+  path:'adminHomePage/labs',component:LabComponent
+}
 ];
 
 @NgModule({

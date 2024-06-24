@@ -1,61 +1,92 @@
-*{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.navbar {
+    background-color: #010F1A;
 }
 
-.title{
-    background-color: var(--blueColor);
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 25%;
-    position: fixed;
-    top: 0;
-    left: 0;
+span {
+    color: var(--orangeColor);
 }
-.title p{
-    width: 50%;
-    text-align: center;
+
+a,
+h4 {
     color: white;
-    font-weight: 400;
-    font-size: 30px;  
-}
-.title span{
-    color: var(--orangeColor);
-}
-.body{
-    background-color: var(--bodycolor);
-}
-label{
-    color: var(--blueColor);
-}
-input{
-    background-color: #D9D9D9;
-}
-.logo{
-    width: 150px;
-    
 }
 
-.btn{
-    background-color: var(--orangeColor);
-    color: white; 
+h4 {
+    font-size: 25px;
+    font-weight: 700;
 }
-.login_form{
-    border: 1px solid var(--blueColor);
-    border-radius: 20px;
-    padding: 50px;
-    margin-top: 30px;
-    box-shadow: -8px 6px 26px -7px var(--blueColor);
+
+.nav-item a {
+    font-size: 17px;
+    font-weight: 700;
 }
-select{
-    background-color: #D9D9D9;
-    margin-top: 20px;
+
+a:hover {
+    color: white !important;
 }
-.newUser{
-    color: var(--blueColor);
+
+.active {
+    color: white !important;
 }
-a{
-    color: var(--orangeColor);
+
+img {
+    width: 5.5%;
+}
+
+.dropdown-item {
+    color: #010F1A;
+}
+
+.dropdown-item:hover {
+    color: #010F1A !important;
     cursor: pointer;
 }
+
+a {
+    cursor: pointer;
+}
+
+.dropdown-menu a:hover .dropdown-toggle {
+    color: white !important;
+}
+
+.navbar {
+    transition: background-color 0.5s;
+}
+
+label {
+    color: var(--blueColor);
+}
+
+.home {
+    background-color: white;
+}
+::placeholder {
+    opacity: 0.3; 
+    font-size: 15px;
+  }
+ .btn{
+    background-color: #010F1A;
+    color: white;
+    border-radius: 0 ;
+    padding: 14px 0px;
+ }
+ .login{
+    margin-top: 70px;
+ }
+.form-control{
+    border-radius: 0 !important;
+    background-color: #F1F1F1 !important;
+    border: 0 !important;
+}
+select {
+    background-color: #F1F1F1;
+    margin-top: 20px;
+}
+.newUser {
+    color: var(--blueColor);
+}
+.newacc:hover{
+    color: #010F1A !important;
+}
+

@@ -1,88 +1,78 @@
-*{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.navbar {
+    background-color: #010F1A;
 }
 
-.title{
-    background-color: var(--blueColor);
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 25%;
-    position: fixed;
-    top: 0;
-    left: 0;
-}
-.title p{
-    width: 50%;
-    text-align: center;
-    color: white;
-    font-weight: 400;
-    font-size: 30px;  
-}
-.title span{
+span {
     color: var(--orangeColor);
 }
-.body{
-    background-color: var(--bodycolor);
+.dropdown-item {
+    color: #010F1A;
+}
+
+.dropdown-item:hover {
+    color: #010F1A !important;
+    cursor: pointer;
+}
+
+a {
+    cursor: pointer;
+}
+
+.dropdown-menu a:hover .dropdown-toggle {
+    color: white !important;
+}
+a,
+h4 {
+    color: white;
+}
+
+h4 {
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.nav-item a {
+    font-size: 17px;
+    font-weight: 700;
+}
+
+a:hover {
+    color: white !important;
+}
+
+.active {
+    color: white !important;
+}
+
+img {
+    width: 5.5%;
 }
 label{
     color: var(--blueColor);
 }
-input{
-    background-color: #D9D9D9;
-}
-.logo{
-    width: 150px;
-}
+
 select{
-    background-color: #D9D9D9;
-}
-.btn{
-    background-color: var(--orangeColor);
-    color: white; 
-}
-.steps{
-    display: flex;
-    justify-content: space-evenly;
-    margin: 30px 0px;
-}
-.num{
-    width: 30px;
-    height: 30px;
-    border: 1px solid  var(--blueColor);
-    display: flex;
-    justify-content: center;
-    border-radius: 50%;
-    
-}
-.num1{
-    border: 3px solid  var(--orangeColor);
-    font-weight: 500;
-}
-.steps p{
-    color: var(--blueColor);
+    background-color: #F1F1F1;
+    border: 0;
+    border-radius: 0;
 }
 
-.per{
-    margin-top: 15px;
-}
-.first::after , .sec::after{
-    content: " ";
-    background-color:var(--blueColor);
-    position: absolute;
-    left: 120%;
-    top: 50%;
-    width: 75px;
-    height: 2px;
-}
-.first{
-    font-weight: 600;
-}
 .personal_form{
-    box-shadow: -8px 6px 26px -7px var(--blueColor);
-    border: 1px solid var(--blueColor);
-    border-radius: 20px;
-    padding: 50px;
-    margin-top: 30px;
+    margin-top: 100px;
 }
+::placeholder {
+    opacity: 0.3; 
+    font-size: 15px;
+  }
+  input {
+    background-color: #F1F1F1;
+    border-radius: 0 !important;
+    border: 0 !important;
+}
+.btnn{
+    background-color: #010F1A;
+    color: white;
+    border-radius: 0 ;
+    padding: 14px 0px;
+    text-decoration: none;
+ }

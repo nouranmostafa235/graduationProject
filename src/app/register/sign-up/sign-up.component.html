@@ -1,83 +1,90 @@
 <div class="row body me-0 ">
-    <div class="col-md-3 ">
-        <div class="title">
-            <p>
-                Begin <span>Your</span> Journey to <span>Health</span>
-            </p>
-        </div>
-    </div>
-    <div class="col-md-9 mx-auto">
-        <div class="d-flex justify-content-center align-items-center"><img src="./assets/imgs/rx.png" alt=""
-                class="logo"></div>
-
-                <div class="steps">
-                    <div class="d-flex justify-content-center align-items-center">
-                        <div class="num num1 me-2">
-                            <p>1</p>
-                        </div>
-                        <p class="per first position-relative">Personal Info</p>
-                    </div>
-                    <div class="d-flex justify-content-center align-items-center">
-                        <div class="num num2 me-2">
-                            <p>2</p>
-                        </div>
-                        <p class="per sec position-relative">Medical Info</p>
-                    </div>
-                    <div class="d-flex justify-content-center align-items-center">
-                        <div class="num num3 me-2">
-                            <p>3</p>
-                        </div>
-                        <p class="per third">Emergency Contacts</p>
-                    </div>
+    <nav class="navbar navbar-expand-lg fixed-top mb-5" id="navbar">
+        <div class="container">
+          <img src="assets/imgs/logo2.jpg" class="me-2" alt="">
+          <a class="navbar-brand mt-1" routerLink="/home">Rapid<span>R</span>x</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+            <ul class="nav nav-underline ms-auto">
+              <li class="nav-item me-2">
+                <a class="nav-link" aria-current="page" routerLink="/home" >Home</a>
+              </li>
+              <li class="nav-item">
+                <div class="dropdown me-3">
+                  <a class="dropdown-toggle nav-link" data-bs-toggle="dropdown" aria-expanded="false">
+                   Sign In
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item " routerLink="/login"> <i class="fa-solid fa-user me-2" style="color: #010f1a;"></i>User</a></li>
+                    <li><a class="dropdown-item" routerLink="/institutionLogin"><i class="fa-solid fa-house-chimney-medical me-1" style="color: #010f1a;"></i> Clinic</a></li>
+                    <li><a class="dropdown-item "><i class="fa-solid fa-flask-vial me-2" style="color: #010f1a;"></i>Lab</a></li>
+                  </ul>
                 </div>
-
-        <form [formGroup]= "form" class="personal_form mb-5 col-sm-10 mx-auto">
+              </li>
+            </ul>
+          </div>
+          </div>
+      </nav>
+    <div class="col-md-9 mx-auto mt-5">
+        <form [formGroup]="form" class="personal_form mb-5  col-sm-10 mx-auto">
             <div class="row">
-                <div class="row pe-0">
+                <div class="row pe-0 mb-4">
                     <div class="col-md-6  pe-0">
                         <label for="firstname" class="ms-2">First Name</label>
-                        <input type="text" class="form-control" formControlName="firstname">
+                        <input type="text" class="form-control" formControlName="firstname"
+                            placeholder="Your First Name">
                     </div>
                     <div class="col-md-6 pe-0 ">
                         <label for="lastname" class="ms-2">Last Name</label>
-                        <input type="text" class="form-control" formControlName="lastname">
+                        <input type="text" class="form-control" formControlName="lastname" placeholder="Your Last Name">
                     </div>
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-12 mb-4">
                     <label for="email" class="ms-2">Email</label>
-                    <input type="email" class="form-control" formControlName="email">
+                    <input type="email" class="form-control" formControlName="email" placeholder="Your Email">
                 </div>
 
-                <div class="row pe-0">
+                <div class="row pe-0 mb-4">
                     <div class="col-md-6 pe-0">
                         <label for="password" class="ms-2">Password</label>
-                        <input type="password" class="form-control" formControlName="password">
+                        <input type="password" class="form-control" formControlName="password"
+                            placeholder="Your Password">
                     </div>
                     <div class="col-md-6 pe-0">
                         <label for="repassword" class="ms-2">Re-Password</label>
-                        <input type="password" class="form-control" formControlName="rePassword">
+                        <input type="password" class="form-control" formControlName="rePassword"
+                            placeholder="Confirm Your Password">
                     </div>
 
                 </div>
-                <div class="row pe-0">
+                <div class="row pe-0 mb-4">
                     <div class="col-md-6 pe-0">
                         <label for="phone" class="ms-2">Phone</label>
-                        <input type="tel" class="form-control" formControlName="phone">
+                        <input type="tel" class="form-control" formControlName="phone" placeholder="Your Phone">
                     </div>
                     <div class="col-md-6 pe-0">
                         <label for="gender" class="ms-2">Gender</label>
                         <select name="Gender" class="form-select" id="" formControlName="gender">
-                            <option selected></option>
+                            <option value="" disabled selected hidden>Select an option</option>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
                         </select>
                     </div>
                 </div>
+                <div class="row pe-0 mb-4">
+                    <div class="col-md-6 ">
+                        <label for="address" class="ms-2">Address</label>
+                        <input type="text" class="form-control" formControlName="address" placeholder="Your Address">
+                    </div>
 
-                <div class="col-md-12">
-                    <label for="address" class="ms-2">Address</label>
-                    <input type="text" class="form-control" formControlName="address">
+                    <div class="col-md-6 ">
+                        <label for="age" class="ms-2">Age</label>
+                        <input type="number" class="form-control" formControlName="age" placeholder="Your Age">
+                    </div>
                 </div>
+
 
                 <div class="col-md-6">
                     <label for="image" class="ms-2 mt-2 mb-2">Upload Your Image</label>
@@ -85,7 +92,7 @@
                 </div>
             </div>
             <div class="div d-flex justify-content-center">
-                <a class="btn ps-5 pe-5 mt-4 mb-3" routerLink="/medical_info" >Next</a>
+                <a class="btnn ps-5 pe-5 mt-4 mb-3" routerLink="/medical_info"> Next <i class="fa-solid fa-arrow-right"></i></a>
             </div>
         </form>
     </div>
