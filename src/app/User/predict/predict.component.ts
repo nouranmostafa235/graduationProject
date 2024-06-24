@@ -13,9 +13,9 @@ export class PredictComponent {
    message:string=""
    predictForm:FormGroup=new FormGroup({
     bmi:new FormControl(),
-    hba1c:new FormControl(),
-    bloodGlucoseLevel:new FormControl(),
-    smokingHistory:new FormControl(),
+    HbA1c_level:new FormControl(),
+    blood_glucose_level:new FormControl(),
+    smoking_history:new FormControl(),
    })
    predict(form:FormGroup){
     this.userData.getPrediction(form).subscribe({
