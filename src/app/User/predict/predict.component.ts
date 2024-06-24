@@ -17,14 +17,18 @@ export class PredictComponent {
     blood_glucose_level:new FormControl(),
     smoking_history:new FormControl(),
    })
-   predict(form:FormGroup){
-    this.userData.getPrediction(form).subscribe({
-      next:(response)=>{
-           console.log(response.message);
-           this.message=response.message
-           this.flag=true;
 
+   predict() {
+    const formValue = this.predictForm.value;
+    this.userData.getPrediction(formValue).subscribe({
+      next: (response) => {
+        console.log(response.message);
+        this.message = response.message;
+        this.flag = true;
+      },
+      error: (err) => {
+        console.error('Error:', err);
       }
-    })
-   }
+    });
+  }
 }
