@@ -19,4 +19,7 @@ export class UserDataService {
   updateInfo(userData:any):Observable<any>{
     return this.http.put("http://localhost:3000/users/updateProfile",userData,{headers:this.header})
   }
+  getPrediction(userData:any):Observable<any>{
+    return this.http.post("http://localhost:3000/users/predict",userData,{headers:this.header})
+  }
 }

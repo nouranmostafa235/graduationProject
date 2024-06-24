@@ -15,26 +15,30 @@ import { AdminLoginComponent } from './Admin/admin-login/admin-login.component';
 import { AdminHomePageComponent } from './Admin/admin-home-page/admin-home-page.component';
 import { ClinicComponent } from './Admin/clinic/clinic.component';
 import { LabComponent } from './Admin/lab/lab.component';
+import { LabLoginComponent } from './Institutions/Labs/lab-login/lab-login.component';
+import { LabHomePageComponent } from './Institutions/Labs/lab-home-page/lab-home-page.component';
+import { ClinicHomePageComponent } from './Institutions/Clinics/clinic-home-page/clinic-home-page.component';
 
 const routes: Routes = [
-  {path:"",redirectTo:'home',pathMatch:'full'},
-  {path:"home",component:HomePageComponent},
-  {path: 'register', component: SignUpComponent}, 
-  {path:'medical_info',component:MedicalInfoComponent},
-  {path:'emergency_Contact',component:EmergencyContactComponent},
-  {path:'login',component:LoginComponent},
-  {path:'profile',component:ProfileComponent},
-  {path:'familyHistory',component:FamilyHistoryComponent},
-  {path:'changePassword',component:ChangePasswordComponent},
-  {path:'updateInfo',component:UpdateInfoComponent},
-  {path:'predictDisease',component:PredictComponent},
-  {path:'institutionLogin',component:InstitutionLoginComponent},
-  {path:'adminLogin',component:AdminLoginComponent},
-  {path:'adminHomePage',component:AdminHomePageComponent},
-  { path:'adminHomePage/clinic',component:ClinicComponent},
-{
-  path:'adminHomePage/labs',component:LabComponent
-}
+  { path: "", redirectTo: 'home', pathMatch: 'full' },
+  { path: "home", component: HomePageComponent },
+  { path: 'register', component: SignUpComponent },
+  { path: 'medical_info', component: MedicalInfoComponent },
+  { path: 'emergency_Contact', component: EmergencyContactComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'familyHistory', component: FamilyHistoryComponent },
+  { path: 'changePassword', component: ChangePasswordComponent },
+  { path: 'updateInfo', component: UpdateInfoComponent },
+  { path: 'predictDisease', component: PredictComponent },
+  { path: 'institutionLogin', component: InstitutionLoginComponent },
+  { path: 'adminLogin', component: AdminLoginComponent },
+  { path: 'adminHomePage', component: AdminHomePageComponent },
+  { path: 'adminHomePage/clinic', component: ClinicComponent },
+  { path: 'adminHomePage/labs', component: LabComponent },
+  {path:'labLogin',component:LabLoginComponent},
+  {path:'lab/Home',component:LabHomePageComponent},
+  {path:'clinic/Home',component:ClinicHomePageComponent},
 ];
 
 @NgModule({

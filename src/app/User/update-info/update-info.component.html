@@ -1,4 +1,5 @@
 <div class="row me-0">
+  
     <nav class="navbar navbar-expand-sm fixed-top mb-5" id="navbar">
         <div class="container">
             <img src="assets/imgs/logo2.jpg" class="me-2" alt="">
@@ -23,7 +24,7 @@
                     <li class="nav-item me-2">
                             <div class="smallImage d-flex " routerLink="/profile">
                                 <img  src="assets/imgs/download.jpeg" alt="">
-                                <a  class="ms-2 nav-link active" aria-current="page">Alex ALex</a>
+                                <a  class="ms-2 nav-link active" aria-current="page">{{data.firstName}} {{data.lastName}}</a>
                         </div>
                        
                     </li>
@@ -35,7 +36,9 @@
         </div>
     </nav>
     <div class="col-sm-10 mx-auto">
-        <div class="info ps-2 pe-5 pt-5 pb-5 first_section form">
+        
+        <div class="info ps-2 pe-5 pt-5 pb-5 first_section form ">
+            
             <div class="ms-auto updateIcon">
                 <i class="fa-solid fa-pen" data-bs-toggle="modal" data-bs-target="#staticBackdrop"></i>
             </div>
@@ -157,131 +160,131 @@
                                 <table class="personalTable table table-striped mb-0 mb-0" id="modalTable">
                                     <tbody class="">
                                         <tr>
-                                            <td>
-                                                <i *ngIf="data.personalMedicalHistory.anemia" class="fa-solid fa-check"></i>
+                                            <td class="d-flex">
+                                                
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="anemia">
                                                 <label for="">Animia</label>
-                
                                             </td>
-                                            <td>
-                                                <i *ngIf="data.personalMedicalHistory.arthritis" class="fa-solid fa-check"></i>
+                                            <td class="d-flex">
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="arthritis">
                                                 <label for="">Arthirits</label>
                 
                                             </td>
-                                            <td>
-                                                <i *ngIf="data.personalMedicalHistory.asthma" class="fa-solid fa-check"></i>
+                                            <td class="d-flex">
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="asthma">
                                                 <label for="">Asthma</label>
                 
                                             </td>
-                                            <td>
-                                                <i *ngIf="data.personalMedicalHistory.cancer" class="fa-solid fa-check"></i>
+                                            <td class="d-flex">
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="cancer">
                                                 <label for="">Cancer</label>
                 
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td> 
-                                                <i *ngIf="data.personalMedicalHistory.chronicObstructive" class="fa-solid fa-check"></i>
+                                            <td class="d-flex"> 
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="chronicObstructive">
                                                 <label for="">Chronic Obstructive</label>
                 
                                             </td>
-                                            <td> 
-                                                <i *ngIf="data.personalMedicalHistory.heartDisease" class="fa-solid fa-check"></i>
+                                            <td class="d-flex"> 
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="heartDisease">
                                                 <label for="">Heart Disease</label>
                 
                                             </td>
-                                            <td>
-                                                <i *ngIf="data.personalMedicalHistory.clottingDisorder" class="fa-solid fa-check"></i>
+                                            <td class="d-flex">
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="clottingDisorder">
                                                 <label for="">Clotting Disorder</label>
                 
                                             </td>
-                                            <td> 
-                                                <i *ngIf="data.personalMedicalHistory.congestiveHeartFailure" class="fa-solid fa-check"></i>
+                                            <td class="d-flex"> 
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="congestiveHeartFailure">
                                                 <label for="">Congestive Heart Failure</label>
                 
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td> 
-                                                <i *ngIf="data.personalMedicalHistory.crohnsDisease" class="fa-solid fa-check"></i>
+                                            <td class="d-flex"> 
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="crohnsDisease">
                                                 <label for="">Crohn's Disease</label>
                 
                                             </td>
-                                            <td>  <i *ngIf="data.personalMedicalHistory.depression" class="fa-solid fa-check"></i>
+                                            <td class="d-flex">   <input type="checkbox" name="" id="" class="form-check" formControlName="depression">
                                                 <label for="">Depression</label>
                 
                                             </td>
-                                            <td>
-                                                <i *ngIf="data.personalMedicalHistory.diabetes" class="fa-solid fa-check"></i>
+                                            <td class="d-flex">
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="diabetes">
                                                 <label for="">Diabetes</label>
                 
                                             </td>
-                                            <td> 
-                                                <i *ngIf="data.personalMedicalHistory.emphysema" class="fa-solid fa-check"></i>
+                                            <td class="d-flex"> 
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="emphysema">
                                                 <label for="">Emphysema</label>
                 
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>  <i *ngIf="data.personalMedicalHistory.endocrineProblems" class="fa-solid fa-check"></i>
+                                            <td class="d-flex">   <input type="checkbox" name="" id="" class="form-check" formControlName="endocrineProblems">
                                                 <label for="">Endocrine Problems</label>
                 
                                             </td>
-                                            <td>
-                                                <i *ngIf="data.personalMedicalHistory.GERD" class="fa-solid fa-check"></i>
+                                            <td class="d-flex">
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="GERD">
                                                 <label for="">GERD</label>
                 
                                             </td>
-                                            <td> 
-                                                <i *ngIf="data.personalMedicalHistory.glaucoma" class="fa-solid fa-check"></i>
+                                            <td class="d-flex"> 
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="glaucoma">
                                                 <label for="">Glaucoma</label>
                 
                                             </td>
-                                            <td> 
-                                                <i *ngIf="data.personalMedicalHistory.hepatitis" class="fa-solid fa-check"></i>
+                                            <td class="d-flex"> 
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="hepatitis">
                                                 <label for="">Hepatitis</label>
                 
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td> 
-                                                 <i *ngIf="data.personalMedicalHistory.HIV_AIDS" class="fa-solid fa-check"></i>
+                                            <td class="d-flex">  
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="HIV_AIDS">
                                                 <label for="">HIV/AIDS</label>
                 
                                             </td>
-                                            <td>
-                                                <i *ngIf="data.personalMedicalHistory.hypertension" class="fa-solid fa-check"></i>
+                                            <td class="d-flex">
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="hypertension">
                                                 <label for="">Hypertension</label>
                 
                                             </td>
-                                            <td> 
-                                                <i *ngIf="data.personalMedicalHistory.kidneyDisease" class="fa-solid fa-check"></i>
+                                            <td class="d-flex"> 
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="kidneyDisease">
                                                 <label for="">Kidney Disease</label>
                 
                                             </td>
-                                            <td> 
-                                                <i *ngIf="data.personalMedicalHistory.myocardialInfarction" class="fa-solid fa-check"></i>
+                                            <td class="d-flex"> 
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="myocardialInfarction">
                                                 <label for="">Myocardial Infarction</label>
                 
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td> 
-                                                <i *ngIf="data.personalMedicalHistory.pepticUlcerDisease" class="fa-solid fa-check"></i>
+                                            <td class="d-flex"> 
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="pepticUlcerDisease">
                                                 <label for="">Peptic UIcer Disease</label>
                 
                                             </td>
-                                            <td> 
-                                                <i *ngIf="data.personalMedicalHistory.seizures" class="fa-solid fa-check"></i>
+                                            <td class="d-flex"> 
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="seizures">
                                                 <label for="">Seizures</label>
                 
                                             </td>
-                                            <td>
-                                                <i *ngIf="data.personalMedicalHistory.stroke" class="fa-solid fa-check"></i>
+                                            <td class="d-flex">
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="stroke">
                                                 <label for="">Stroke</label>
                 
                                             </td>
-                                            <td> 
-                                                <i *ngIf="data.personalMedicalHistory.ulcerativeColitis" class="fa-solid fa-check"></i>
+                                            <td class="d-flex"> 
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="uIcerative">
                                                 <label for="">UIcerative Colitis</label>
                 
                                             </td>
@@ -435,17 +438,12 @@
                         <td> 
                             <i *ngIf="data.personalMedicalHistory.ulcerativeColitis" class="fa-solid fa-check"></i>
                             <label for="">UIcerative Colitis</label>
-
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
         
-
-
-
-
         <div class="mt-4 ps-2 first_section">
             <!-- Modal -->
             <div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false"
@@ -949,5 +947,5 @@
             </table>
         </div>
     </div>
-
+    
 </div>

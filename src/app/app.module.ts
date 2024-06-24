@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SignUpComponent } from './register/sign-up/sign-up.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MedicalInfoComponent } from './register/medical-info/medical-info.component';
 import { EmergencyContactComponent } from './register/emergency-contact/emergency-contact.component';
 import { HomePageComponent } from './Home/home-page/home-page.component';
@@ -24,6 +24,9 @@ import { AdminLoginComponent } from './Admin/admin-login/admin-login.component';
 import { AdminHomePageComponent } from './Admin/admin-home-page/admin-home-page.component';
 import { ClinicComponent } from './Admin/clinic/clinic.component';
 import { LabComponent } from './Admin/lab/lab.component';
+import { LabLoginComponent } from './Institutions/Labs/lab-login/lab-login.component';
+import { LabHomePageComponent } from './Institutions/Labs/lab-home-page/lab-home-page.component';
+import { ClinicHomePageComponent } from './Institutions/Clinics/clinic-home-page/clinic-home-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +47,9 @@ import { LabComponent } from './Admin/lab/lab.component';
     AdminHomePageComponent,
     ClinicComponent,
     LabComponent,
+    LabLoginComponent,
+    LabHomePageComponent,
+    ClinicHomePageComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,7 +57,8 @@ import { LabComponent } from './Admin/lab/lab.component';
     ReactiveFormsModule,
     CarouselModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

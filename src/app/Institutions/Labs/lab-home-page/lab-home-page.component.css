@@ -1,0 +1,55 @@
+.navbar {
+    background-color: #010F1A;
+  }
+  
+  span {
+    color: var(--orangeColor);
+  }
+  
+  a {
+    cursor: pointer;
+  }
+  
+  a,
+  h4 {
+    color: white;
+  }
+  
+  h4 {
+    font-size: 25px;
+    font-weight: 700;
+  }
+  
+  .nav-item a {
+    font-size: 17px;
+    font-weight: 700;
+  }
+  
+  a:hover {
+    color: white !important;
+  }
+  
+  .active {
+    color: white !important;
+  }
+  
+  img {
+    width: 5.5%;
+  }
+  .btnn {
+    background-color: #010F1A;
+    color: white;
+    border-radius: 0;
+    border: 0;
+    padding: 14px 30px;
+    text-decoration: none;
+  }
+.search{
+    height: 100vh;
+}
+.form-control{
+    border-radius: 0 !important;
+    background-color: #F1F1F1 !important;
+    border: 0 !important;
+    padding: 14px 30px;
+}

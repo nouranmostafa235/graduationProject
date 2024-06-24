@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { UserDataService } from 'src/app/user-data.service';
 
 @Component({
   selector: 'app-predict',
@@ -7,14 +8,23 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./predict.component.css']
 })
 export class PredictComponent {
+  constructor(private userData:UserDataService){}
    flag=false;
+   message:string=""
    predictForm:FormGroup=new FormGroup({
     bmi:new FormControl(),
     hba1c:new FormControl(),
     bloodGlucoseLevel:new FormControl(),
     smokingHistory:new FormControl(),
    })
-   submit(form:FormGroup){
-    console.log(form);
+   predict(form:FormGroup){
+    this.userData.getPrediction(form).subscribe({
+      next:(response)=>{
+           console.log(response.message);
+           this.message=response.message
+           this.flag=true;
+
+      }
+    })
    }
 }

@@ -1,0 +1,93 @@
+.navbar {
+    background-color: #010F1A;
+}
+
+span {
+    color: var(--orangeColor);
+}
+
+a,
+h4 {
+    color: white;
+}
+
+h4 {
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.nav-item a {
+    font-size: 17px;
+    font-weight: 700;
+}
+
+a:hover {
+    color: white !important;
+}
+
+.active {
+    color: white !important;
+}
+
+img {
+    width: 5.5%;
+}
+
+.dropdown-item {
+    color: #010F1A;
+}
+
+.dropdown-item:hover {
+    color: #010F1A !important;
+    cursor: pointer;
+}
+
+a {
+    cursor: pointer;
+}
+
+.dropdown-menu a:hover .dropdown-toggle {
+    color: white !important;
+}
+
+.navbar {
+    transition: background-color 0.5s;
+}
+
+label {
+    color: var(--blueColor);
+}
+
+.home {
+    background-color: white;
+}
+::placeholder {
+    opacity: 0.3; 
+    font-size: 15px;
+  }
+
+ .login_form{
+    margin-top: 170px;
+ }
+.form-control{
+    border-radius: 0 !important;
+    background-color: #F1F1F1 !important;
+    border: 0 !important;
+}
+select {
+    background-color: #F1F1F1;
+    margin-top: 20px;
+}
+.newUser {
+    color: var(--blueColor);
+}
+.newacc:hover{
+    color: #010F1A !important;
+}
+.btnn{
+    background-color: #010F1A;
+    color: white;
+    border-radius: 0 ;
+    border: 0;
+    padding: 14px 0px;
+ }
