@@ -35,8 +35,7 @@
             </div>
         </div>
     </nav>
-    <div class="col-sm-10 mx-auto">
-        
+    <div class="col-sm-10 mx-auto"> 
         <div class="info ps-2 pe-5 pt-5 pb-5 first_section form ">
             
             <div class="ms-auto updateIcon">
@@ -157,7 +156,7 @@
                         </div>
                         <div class="modal-body">
                             <form [formGroup]="form" (ngSubmit)="updateInfo(form)">
-                                <table class="personalTable table table-striped mb-0 mb-0" id="modalTable">
+                                <table class="personalTable table table-striped mb-0 mb-0" id="modalTable" formGroupName="personalMedicalHistory">
                                     <tbody class="">
                                         <tr>
                                             <td class="d-flex">
@@ -284,7 +283,7 @@
                 
                                             </td>
                                             <td class="d-flex"> 
-                                                <input type="checkbox" name="" id="" class="form-check" formControlName="uIcerative">
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="ulcerativeColitis">
                                                 <label for="">UIcerative Colitis</label>
                 
                                             </td>
@@ -301,7 +300,7 @@
 
                     </div>
                 </div>
-            </div>
+            </div> 
             <!-- End Modal -->
             <table class="personalTable table table-striped mb-0 mb-0">
                 <thead class="text-center">
@@ -313,135 +312,136 @@
                 <tbody class="">
                     <tr>
                         <td>
-                            <i *ngIf="data.personalMedicalHistory.anemia" class="fa-solid fa-check"></i>
+                            <i *ngIf="data?.personalMedicalHistory?.anemia" class="fa-solid fa-check"></i>
                             <label for="">Animia</label>
 
                         </td>
                         <td>
-                            <i *ngIf="data.personalMedicalHistory.arthritis" class="fa-solid fa-check"></i>
+                            <i *ngIf="data?.personalMedicalHistory?.arthritis" class="fa-solid fa-check"></i>
                             <label for="">Arthirits</label>
 
                         </td>
                         <td>
-                            <i *ngIf="data.personalMedicalHistory.asthma" class="fa-solid fa-check"></i>
+                            <i *ngIf="data?.personalMedicalHistory?.asthma" class="fa-solid fa-check"></i>
                             <label for="">Asthma</label>
 
                         </td>
                         <td>
-                            <i *ngIf="data.personalMedicalHistory.cancer" class="fa-solid fa-check"></i>
+                            <i *ngIf="data?.personalMedicalHistory?.cancer" class="fa-solid fa-check"></i>
                             <label for="">Cancer</label>
 
                         </td>
                     </tr>
                     <tr>
                         <td> 
-                            <i *ngIf="data.personalMedicalHistory.chronicObstructive" class="fa-solid fa-check"></i>
+                            <i *ngIf="data?.personalMedicalHistory?.chronicObstructive" class="fa-solid fa-check"></i>
                             <label for="">Chronic Obstructive</label>
 
                         </td>
                         <td> 
-                            <i *ngIf="data.personalMedicalHistory.heartDisease" class="fa-solid fa-check"></i>
+                            <i *ngIf="data?.personalMedicalHistory?.heartDisease" class="fa-solid fa-check"></i>
                             <label for="">Heart Disease</label>
 
                         </td>
                         <td>
-                            <i *ngIf="data.personalMedicalHistory.clottingDisorder" class="fa-solid fa-check"></i>
+                            <i *ngIf="data?.personalMedicalHistory?.clottingDisorder" class="fa-solid fa-check"></i>
                             <label for="">Clotting Disorder</label>
 
                         </td>
                         <td> 
-                            <i *ngIf="data.personalMedicalHistory.congestiveHeartFailure" class="fa-solid fa-check"></i>
+                            <i *ngIf="data?.personalMedicalHistory?.congestiveHeartFailure" class="fa-solid fa-check"></i>
                             <label for="">Congestive Heart Failure</label>
 
                         </td>
                     </tr>
                     <tr>
                         <td> 
-                            <i *ngIf="data.personalMedicalHistory.crohnsDisease" class="fa-solid fa-check"></i>
+                            <i *ngIf="data?.personalMedicalHistory?.crohnsDisease" class="fa-solid fa-check"></i>
                             <label for="">Crohn's Disease</label>
 
                         </td>
-                        <td>  <i *ngIf="data.personalMedicalHistory.depression" class="fa-solid fa-check"></i>
+                        <td>  <i *ngIf="data?.personalMedicalHistory?.depression" class="fa-solid fa-check"></i>
                             <label for="">Depression</label>
 
                         </td>
                         <td>
-                            <i *ngIf="data.personalMedicalHistory.diabetes" class="fa-solid fa-check"></i>
+                            <i *ngIf="data?.personalMedicalHistory?.diabetes" class="fa-solid fa-check"></i>
                             <label for="">Diabetes</label>
 
                         </td>
                         <td> 
-                            <i *ngIf="data.personalMedicalHistory.emphysema" class="fa-solid fa-check"></i>
+                            <i *ngIf="data?.personalMedicalHistory?.emphysema" class="fa-solid fa-check"></i>
                             <label for="">Emphysema</label>
 
                         </td>
                     </tr>
                     <tr>
-                        <td>  <i *ngIf="data.personalMedicalHistory.endocrineProblems" class="fa-solid fa-check"></i>
+                        <td>  <i *ngIf="data?.personalMedicalHistory?.endocrineProblems" class="fa-solid fa-check"></i>
                             <label for="">Endocrine Problems</label>
 
                         </td>
                         <td>
-                            <i *ngIf="data.personalMedicalHistory.GERD" class="fa-solid fa-check"></i>
+                            <i *ngIf="data?.personalMedicalHistory?.GERD" class="fa-solid fa-check"></i>
                             <label for="">GERD</label>
 
                         </td>
                         <td> 
-                            <i *ngIf="data.personalMedicalHistory.glaucoma" class="fa-solid fa-check"></i>
+                            <i *ngIf="data?.personalMedicalHistory?.glaucoma" class="fa-solid fa-check"></i>
                             <label for="">Glaucoma</label>
 
                         </td>
                         <td> 
-                            <i *ngIf="data.personalMedicalHistory.hepatitis" class="fa-solid fa-check"></i>
+                            <i *ngIf="data?.personalMedicalHistory?.hepatitis" class="fa-solid fa-check"></i>
                             <label for="">Hepatitis</label>
 
                         </td>
                     </tr>
                     <tr>
                         <td> 
-                             <i *ngIf="data.personalMedicalHistory.HIV_AIDS" class="fa-solid fa-check"></i>
+                             <i *ngIf="data?.personalMedicalHistory?.HIV_AIDS" class="fa-solid fa-check"></i>
                             <label for="">HIV/AIDS</label>
 
                         </td>
                         <td>
-                            <i *ngIf="data.personalMedicalHistory.hypertension" class="fa-solid fa-check"></i>
+                            <i *ngIf="data?.personalMedicalHistory?.hypertension" class="fa-solid fa-check"></i>
                             <label for="">Hypertension</label>
 
                         </td>
                         <td> 
-                            <i *ngIf="data.personalMedicalHistory.kidneyDisease" class="fa-solid fa-check"></i>
+                            <i *ngIf="data?.personalMedicalHistory?.kidneyDisease" class="fa-solid fa-check"></i>
                             <label for="">Kidney Disease</label>
+                            
 
                         </td>
                         <td> 
-                            <i *ngIf="data.personalMedicalHistory.myocardialInfarction" class="fa-solid fa-check"></i>
+                            <i *ngIf="data?.personalMedicalHistory?.myocardialInfarction" class="fa-solid fa-check"></i>
                             <label for="">Myocardial Infarction</label>
 
                         </td>
                     </tr>
                     <tr>
                         <td> 
-                            <i *ngIf="data.personalMedicalHistory.pepticUlcerDisease" class="fa-solid fa-check"></i>
+                            <i *ngIf="data?.personalMedicalHistory?.pepticUlcerDisease" class="fa-solid fa-check"></i>
                             <label for="">Peptic UIcer Disease</label>
 
                         </td>
                         <td> 
-                            <i *ngIf="data.personalMedicalHistory.seizures" class="fa-solid fa-check"></i>
+                            <i *ngIf="data?.personalMedicalHistory?.seizures" class="fa-solid fa-check"></i>
                             <label for="">Seizures</label>
 
                         </td>
                         <td>
-                            <i *ngIf="data.personalMedicalHistory.stroke" class="fa-solid fa-check"></i>
+                            <i *ngIf="data?.personalMedicalHistory?.stroke" class="fa-solid fa-check"></i>
                             <label for="">Stroke</label>
 
                         </td>
                         <td> 
-                            <i *ngIf="data.personalMedicalHistory.ulcerativeColitis" class="fa-solid fa-check"></i>
+                            <i *ngIf="data?.personalMedicalHistory?.ulcerativeColitis" class="fa-solid fa-check"></i>
                             <label for="">UIcerative Colitis</label>
                         </td>
                     </tr>
                 </tbody>
-            </table>
+            </table> 
         </div>
         
         <div class="mt-4 ps-2 first_section">
@@ -455,97 +455,112 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form [formGroup]="form">
-                                <table class="personalTable table table-striped mb-0 mb-0" id="modalTable2">
+                            <form [formGroup]="form" (ngSubmit)="updateInfo(form)" >
+                                <table class="personalTable table table-striped mb-0 mb-0" id="modalTable2" formGroupName="personalSurgicalHistory">
                                     <tbody class="">
                                         <tr>
                                             <td>
-
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="adrenalGlandSurgery">
                                                 <label for="">Adrenal Gland Surgery</label>
 
                                             </td>
                                             <td>
-                                                <i class="fa-solid fa-check"></i>
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="colonSurgery">
                                                 <label for="">Colon Surgery</label>
 
                                             </td>
                                             <td>
-                                                <i class="fa-solid fa-check"></i>
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="kidneySurgery">
                                                 <label for="">Kidney Surgery</label>
 
                                             </td>
                                             <td>
-
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="appendectomy">
                                                 <label for="">Appendectomy</label>
 
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="arterySurgery">
                                                 <label for="">Artery Surgery</label>
 
                                             </td>
                                             <td>
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="neckSurgery">
                                                 <label for="">Neck Surgery</label>
 
                                             </td>
                                             <td>
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="thyroidSurgery">
                                                 <label for="">Thyroid Surgery</label>
 
                                             </td>
                                             <td>
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="esophagusSurgery">
                                                 <label for="">Esophagus Surgery</label>
 
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="prostateSurgery">
                                                 <label for="">Prostate Surgery</label>
                                             </td>
-                                            <td> <i class="fa-solid fa-check"></i>
+                                            <td> 
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="bladderSurgery">
                                                 <label for="">Bladder Surgery</label>
 
                                             </td>
                                             <td>
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="largeIntestineSurgery">
                                                 <label for="">Large Intestine Surgery</label>
 
                                             </td>
                                             <td>
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="gastricBypassSurgery">
                                                 <label for="">Gastric Bypass Surgery</label>
 
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="lungSurgery">
                                                 <label for="">Lungs Surgery</label>
 
                                             </td>
                                             <td>
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="smallIntestineSurgery">
                                                 <label for="">Small Intestine Surgery</label>
 
                                             </td>
                                             <td>
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="breastSurgery">
                                                 <label for="">Breast Surgery</label>
 
                                             </td>
                                             <td>
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="hemorrhoidSurgery">
                                                 <label for="">Hemorrhoid Surgery</label>
 
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td> <i class="fa-solid fa-check"></i>
+                                            <td> <input type="checkbox" name="" id="" class="form-check" formControlName="spineSurgery">
                                                 <label for="">Spine Surgery</label>
                                             </td>
                                             <td>
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="uterusSurgery">
                                                 <label for="">Utrus Surgery</label>
 
                                             </td>
                                             <td>
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="cesareanSection">
                                                 <label for="">Cesarean Section</label>
 
                                             </td>
-                                            <td> <i class="fa-solid fa-check"></i>
+                                            <td> 
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="stomachSurgery">
                                                 <label for="">Stomach Surgery</label>
 
                                             </td>
@@ -555,17 +570,17 @@
                                 <div class="modal-footer">
                                     <button type="button" class="btnn "
                                         data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btnn ">Save Changes</button>
+                                    <button type="submit" class="btnn ">Save Changes</button>
                                 </div>
                             </form>
                         </div>
 
                     </div>
                 </div>
-            </div>
+            </div> 
             <!-- End Modal -->
 
-            <table class="personalTable table table-striped mb-0 mb-0">
+             <table class="personalTable table table-striped mb-0 mb-0">
                 <thead class="text-center">
                     <tr>
                         <th colspan="4">Personal <span>Surgical</span> History <i
@@ -576,21 +591,22 @@
                 <tbody class="">
                     <tr>
                         <td>
-
+                            <i *ngIf="data?.personalSurgicalHistory?.adrenalGlandSurgery" class="fa-solid fa-check"></i>
                             <label for="">Adrenal Gland Surgery</label>
 
                         </td>
                         <td>
-                            <i class="fa-solid fa-check"></i>
+                            <i *ngIf="data?.personalSurgicalHistory?.colonSurgery" class="fa-solid fa-check"></i>
                             <label for="">Colon Surgery</label>
 
                         </td>
                         <td>
-                            <i class="fa-solid fa-check"></i>
+                            <i *ngIf="data?.personalSurgicalHistory?.kidneySurgery" class="fa-solid fa-check"></i>
                             <label for="">Kidney Surgery</label>
 
                         </td>
                         <td>
+                            <i *ngIf="data?.personalSurgicalHistory?.appendectomy" class="fa-solid fa-check"></i>
 
                             <label for="">Appendectomy</label>
 
@@ -598,80 +614,96 @@
                     </tr>
                     <tr>
                         <td>
+                            <i *ngIf="data?.personalSurgicalHistory?.arterySurgery" class="fa-solid fa-check"></i>
                             <label for="">Artery Surgery</label>
 
                         </td>
                         <td>
+                            <i *ngIf="data?.personalSurgicalHistory?.neckSurgery" class="fa-solid fa-check"></i>
                             <label for="">Neck Surgery</label>
 
                         </td>
                         <td>
+                            <i *ngIf="data?.personalSurgicalHistory?.thyroidSurgery" class="fa-solid fa-check"></i>
                             <label for="">Thyroid Surgery</label>
 
                         </td>
                         <td>
+                            <i *ngIf="data?.personalSurgicalHistory?.esophagusSurgery" class="fa-solid fa-check"></i>
                             <label for="">Esophagus Surgery</label>
 
                         </td>
                     </tr>
                     <tr>
                         <td>
+                            <i *ngIf="data?.personalSurgicalHistory?.prostateSurgery" class="fa-solid fa-check"></i>
                             <label for="">Prostate Surgery</label>
                         </td>
-                        <td> <i class="fa-solid fa-check"></i>
+                        <td> 
+                            <i *ngIf="data?.personalSurgicalHistory?.bladderSurgery" class="fa-solid fa-check"></i>
                             <label for="">Bladder Surgery</label>
 
                         </td>
                         <td>
+                            <i *ngIf="data?.personalSurgicalHistory?.largeIntestineSurgery" class="fa-solid fa-check"></i>
                             <label for="">Large Intestine Surgery</label>
 
                         </td>
                         <td>
+                            <i *ngIf="data?.personalSurgicalHistory?.gastricBypassSurgery" class="fa-solid fa-check"></i>
                             <label for="">Gastric Bypass Surgery</label>
 
                         </td>
                     </tr>
                     <tr>
                         <td>
+                            <i *ngIf="data?.personalSurgicalHistory?.lungSurgery" class="fa-solid fa-check"></i>
                             <label for="">Lungs Surgery</label>
 
                         </td>
                         <td>
+                            <i *ngIf="data?.personalSurgicalHistory?.smallIntestineSurgery" class="fa-solid fa-check"></i>
                             <label for="">Small Intestine Surgery</label>
 
                         </td>
                         <td>
+                            <i *ngIf="data?.personalSurgicalHistory?.breastSurgery" class="fa-solid fa-check"></i>
                             <label for="">Breast Surgery</label>
 
                         </td>
                         <td>
+                            <i *ngIf="data?.personalSurgicalHistory?.hemorrhoidSurgery" class="fa-solid fa-check"></i>
                             <label for="">Hemorrhoid Surgery</label>
 
                         </td>
                     </tr>
                     <tr>
-                        <td> <i class="fa-solid fa-check"></i>
+                        <td>                            
+                             <i *ngIf="data?.personalSurgicalHistory?.spineSurgery" class="fa-solid fa-check"></i>
                             <label for="">Spine Surgery</label>
                         </td>
                         <td>
+                            <i *ngIf="data?.personalSurgicalHistory?.uterusSurgery" class="fa-solid fa-check"></i>
                             <label for="">Utrus Surgery</label>
 
                         </td>
                         <td>
+                            <i *ngIf="data?.personalSurgicalHistory?.cesareanSection" class="fa-solid fa-check"></i>
                             <label for="">Cesarean Section</label>
 
                         </td>
-                        <td> <i class="fa-solid fa-check"></i>
+                        <td> 
+                            <i *ngIf="data?.personalSurgicalHistory?.stomachSurgery" class="fa-solid fa-check"></i>
                             <label for="">Stomach Surgery</label>
 
                         </td>
                     </tr>
                 </tbody>
-            </table>
+            </table> 
         </div>
         <div class="mt-4 ps-2 first_section">
             <!-- Modal -->
-            <div class="modal fade" id="staticBackdrop4" data-bs-backdrop="static" data-bs-keyboard="false"
+            <!-- <div class="modal fade" id="staticBackdrop4" data-bs-backdrop="static" data-bs-keyboard="false"
                 tabindex="-1" aria-labelledby="staticBackdropLabel4" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
                     <div class="modal-content border-0">
@@ -736,9 +768,9 @@
 
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!-- End Modal -->
-            <table class="personalTable table table-striped mb-0 mb-0">
+            <!-- <table class="personalTable table table-striped mb-0 mb-0">
                 <thead class="text-center">
                     <tr>
                         <th colspan="4">Personal <span>Allergies</span> History <i
@@ -788,12 +820,12 @@
                         </td>
                     </tr>
                 </tbody>
-            </table>
+            </table> -->
         </div>
         <div class="mt-4 mb-5 ps-2 first_section">
 
             <!-- Modal -->
-            <div class="modal fade" id="staticBackdrop5" data-bs-backdrop="static" data-bs-keyboard="false"
+            <!-- <div class="modal fade" id="staticBackdrop5" data-bs-backdrop="static" data-bs-keyboard="false"
                 tabindex="-1" aria-labelledby="staticBackdropLabel5" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
                     <div class="modal-content border-0">
@@ -874,10 +906,10 @@
 
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!-- End Modal -->
 
-
+<!-- 
             <table class="personalTable table table-striped mb-0 mb-0">
                 <thead class="text-center">
                     <tr>
@@ -944,7 +976,7 @@
                         </td>
                     </tr>
                 </tbody>
-            </table>
+            </table> -->
         </div>
     </div>
     

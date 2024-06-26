@@ -27,6 +27,7 @@ import { LabComponent } from './Admin/lab/lab.component';
 import { LabLoginComponent } from './Institutions/Labs/lab-login/lab-login.component';
 import { LabHomePageComponent } from './Institutions/Labs/lab-home-page/lab-home-page.component';
 import { ClinicHomePageComponent } from './Institutions/Clinics/clinic-home-page/clinic-home-page.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,6 +60,7 @@ import { ClinicHomePageComponent } from './Institutions/Clinics/clinic-home-page
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

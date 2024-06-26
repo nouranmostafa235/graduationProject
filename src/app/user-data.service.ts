@@ -22,4 +22,10 @@ export class UserDataService {
   getPrediction(userData:any):Observable<any>{
     return this.http.post("http://localhost:3000/users/predict",userData,{headers:this.header})
   }
+  logOut():Observable<any>{
+    return this.http.put("http://localhost:3000/users/logout",null,{headers:this.header})
+  }
+ pending():Observable<any>{
+  return this.http.get("http://localhost:3000/users/numOfNotification",{headers:this.header})
+ }
 }

@@ -8,7 +8,7 @@ import { SignInService } from '../sign-in.service';
 })
 export class SideBarComponent {
 constructor(private signIn:SignInService){}
-logOut(){
-  this.signIn.logOut()
-}
+// logOut(){
+//   this.signIn.logOut()
+// }
 }

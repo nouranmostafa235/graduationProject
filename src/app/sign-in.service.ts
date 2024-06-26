@@ -21,11 +21,11 @@ export class SignInService {
     let decodedToken:any = jwtDecode(encodedToken)
     this.adminData.next(decodedToken)
   }
-  logOut(){
-    localStorage.removeItem('Authorization')
-    this.userData.next(null)
-    this.router.navigate(['/login'])
-  }
+  // logOut(){
+  //   localStorage.removeItem('Authorization')
+  //   this.userData.next(null)
+  //   this.router.navigate(['/login'])
+  // }
   adminLogOut(){
     localStorage.removeItem('Admintoken')
     this.adminData.next(null)

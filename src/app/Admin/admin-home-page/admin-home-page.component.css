@@ -89,9 +89,9 @@ h5{
   font-size: 40px;
   color: #010F1A;
 }
-h5:hover{
+/* h5:hover{
   cursor: pointer;
-}
+} */
 h2{
   font-size: 40px;
   font-weight: 600;
@@ -111,4 +111,17 @@ h2{
 .lab img:hover{
   transform: scale(1.12);
   cursor: pointer;
+}
+.title{
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 75px;
+  color: var(--orangeColor);
+}
+.subTitle{
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 40px;
 }

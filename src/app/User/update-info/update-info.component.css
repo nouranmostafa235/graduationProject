@@ -2,7 +2,7 @@
     background-color: #010F1A;
   }
   
-  span {
+  .navbar span {
     color: var(--orangeColor);
   }
   

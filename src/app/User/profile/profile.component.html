@@ -1,376 +1,408 @@
-
-    <div class="row me-0">
-        <nav class="navbar navbar-expand-sm fixed-top mb-5" id="navbar">
-            <div class="container">
-                <img src="assets/imgs/logo2.jpg" class="me-2" alt="">
-                <a class="navbar-brand mt-1" routerLink="/home">Rapid<span>R</span>x</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<div class="row me-0">
+    <nav class="navbar navbar-expand-sm fixed-top mb-5" id="navbar">
+        <div class="container">
+            <img src="assets/imgs/logo2.jpg" class="me-2" alt="">
+            <a class="navbar-brand mt-1" routerLink="/home">Rapid<span>R</span>x</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-              </button>
-    
-                <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                    <ul class="nav nav-underline ms-auto  mb-2 mb-lg-0">
-                        <li class="nav-item">
-                          <a class="nav-link  me-2" aria-current="page" routerLink="/changePassword">Change Password</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link me-2" routerLink="/updateInfo">Update Profile</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" routerLink="/predictDisease">Predict Diabetes</a>
-                        </li>
-                      </ul>
-                      <ul class="nav nav-underline ms-auto">
-                        <li class="nav-item me-2">
-                                <div class="smallImage d-flex " routerLink="/profile">
-                                    <img  src="assets/imgs/download.jpeg" alt="">
-                                    <a  class="ms-2 nav-link active" aria-current="page">Alex ALex</a>
-                            </div>
-                           
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" routerLink="/login">LogOut</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+            </button>
 
-        <div class="col-sm-10 mx-auto">
-            <div class="info ps-2 pt-5 pb-5 first_section form ">
-                <div class="row">
-                    <div class="col-sm-3 imgDiv">
-                        <img src="assets/imgs/download.jpeg" class="img-thumbnail rounded-circle" alt="">
-                    </div>
-                    <div class="col-sm-9">
-                        <h3>{{data.firstName}} {{data.lastName}}</h3>
-                        <div class="d-flex justify-content-evenly">
-                            <p class="fw-light">{{data.age}} yrs, {{data.gender}}</p>
-                            <p class="fw-light ms-auto">Address: {{data.address}}</p>
+            <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                <ul class="nav nav-underline ms-auto  mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link  me-2" aria-current="page" routerLink="/changePassword">Change Password</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link me-2" routerLink="/updateInfo">Update Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/predictDisease">Predict Diabetes</a>
+                    </li>
+                </ul>
+                <ul class="nav nav-underline ms-auto">
+                    <li class="">
+                        <div class="dropdown me-3">
+                            <a class="dropdown-toggle nav-link position-relative" data-bs-toggle="dropdown" aria-expanded="false">
+                                
+                                     <i class="fa-solid fa-bell"></i>
+                                     <p class="notNum">{{notificationNum}}</p>
+                                
+                               
+                            </a>
+                            <ul class="dropdown-menu text-body-secondary custom-dropdown-menu" >
+                                <li>
+                                    <p class="c">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, perspiciatis!
+                                        Quas esse voluptas eveniet deleniti quasi, reprehenderit, dolore possimus quo
+                                        temporibus, sunt corporis libero impedit delectus aut excepturi vel numquam!
+                                        Quis possimus dignissimos corrupti suscipit! Accusantium dolor unde quidem omnis
+                                        voluptatibus enim reprehenderit ipsam eligendi deleniti reiciendis earum nam
+                                        doloremque labore, sed adipisci voluptas. Totam error eos a odit libero
+                                        consequuntur ipsam suscipit qui vero maxime esse quas blanditiis nobis itaque
+                                        non ut corporis consectetur asperiores, dignissimos earum provident amet ipsa
+                                        commodi repellendus. Cumque iure, saepe rem amet exercitationem ducimus
+                                        molestias culpa ab obcaecati. Nihil veritatis ipsum quod dolorem doloribus.
+                                    </p>
+                                </li>
+                                <li><a class="dropdown-item" routerLink="/institutionLogin"><i
+                                            class="fa-solid fa-house-chimney-medical me-1" style="color: #010f1a;"></i>
+                                        Clinic</a></li>
+                                <li><a class="dropdown-item " routerLink="/labLogin"><i
+                                            class="fa-solid fa-flask-vial me-2" style="color: #010f1a;"></i>Lab</a></li>
+                            </ul>
                         </div>
-                        <hr >
-                        <div class="d-flex justify-content-between fw-light">
-                            <p>Weight: {{data.weight}} Kg</p>
-                            <p>Height: {{data.height}} Cm</p>
-                            <p>Blood Type: {{data.bloodType}}</p>
+                    </li>
+                    <li class="nav-item me-2">
+                        <div class="smallImage d-flex " routerLink="/profile">
+                            <img src="assets/imgs/download.jpeg" alt="">
+                            <a class="ms-2 nav-link active" aria-current="page">{{data.firstName}}</a>
                         </div>
-                    </div>
-                </div>
+
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" (click)="logOut()">LogOut</a>
+                    </li>
+                </ul>
             </div>
-            <div class="mt-4 ps-2 first_section">
-                <table class="personalTable table table-striped mb-0 mb-0">
-                    <thead class="text-center">
-                        <tr>
-                            <th colspan="4">Personal <span>Medical</span> History</th>
-                        </tr>
-                    </thead>
-                    <tbody class="">
-                        <tr>
-                            <td>
-                                <i *ngIf="data.personalMedicalHistory.anemia" class="fa-solid fa-check"></i>
-                                <label for="">Animia</label>
-
-                            </td>
-                            <td>
-                                <i *ngIf="data.personalMedicalHistory.arthritis" class="fa-solid fa-check"></i>
-                                <label for="">Arthirits</label>
-
-                            </td>
-                            <td>
-                                <i *ngIf="data.personalMedicalHistory.asthma" class="fa-solid fa-check"></i>
-                                <label for="">Asthma</label>
-
-                            </td>
-                            <td>
-                                <i *ngIf="data.personalMedicalHistory.cancer" class="fa-solid fa-check"></i>
-                                <label for="">Cancer</label>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td> 
-                                <i *ngIf="data.personalMedicalHistory.chronicObstructive" class="fa-solid fa-check"></i>
-                                <label for="">Chronic Obstructive</label>
-
-                            </td>
-                            <td> 
-                                <i *ngIf="data.personalMedicalHistory.heartDisease" class="fa-solid fa-check"></i>
-                                <label for="">Heart Disease</label>
-
-                            </td>
-                            <td>
-                                <i *ngIf="data.personalMedicalHistory.clottingDisorder" class="fa-solid fa-check"></i>
-                                <label for="">Clotting Disorder</label>
-
-                            </td>
-                            <td> 
-                                <i *ngIf="data.personalMedicalHistory.congestiveHeartFailure" class="fa-solid fa-check"></i>
-                                <label for="">Congestive Heart Failure</label>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td> 
-                                <i *ngIf="data.personalMedicalHistory.crohnsDisease" class="fa-solid fa-check"></i>
-                                <label for="">Crohn's Disease</label>
-
-                            </td>
-                            <td>  <i *ngIf="data.personalMedicalHistory.depression" class="fa-solid fa-check"></i>
-                                <label for="">Depression</label>
-
-                            </td>
-                            <td>
-                                <i *ngIf="data.personalMedicalHistory.diabetes" class="fa-solid fa-check"></i>
-                                <label for="">Diabetes</label>
-
-                            </td>
-                            <td> 
-                                <i *ngIf="data.personalMedicalHistory.emphysema" class="fa-solid fa-check"></i>
-                                <label for="">Emphysema</label>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>  <i *ngIf="data.personalMedicalHistory.endocrineProblems" class="fa-solid fa-check"></i>
-                                <label for="">Endocrine Problems</label>
-
-                            </td>
-                            <td>
-                                <i *ngIf="data.personalMedicalHistory.GERD" class="fa-solid fa-check"></i>
-                                <label for="">GERD</label>
-
-                            </td>
-                            <td> 
-                                <i *ngIf="data.personalMedicalHistory.glaucoma" class="fa-solid fa-check"></i>
-                                <label for="">Glaucoma</label>
-
-                            </td>
-                            <td> 
-                                <i *ngIf="data.personalMedicalHistory.hepatitis" class="fa-solid fa-check"></i>
-                                <label for="">Hepatitis</label>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td> 
-                                 <i *ngIf="data.personalMedicalHistory.HIV_AIDS" class="fa-solid fa-check"></i>
-                                <label for="">HIV/AIDS</label>
-
-                            </td>
-                            <td>
-                                <i *ngIf="data.personalMedicalHistory.hypertension" class="fa-solid fa-check"></i>
-                                <label for="">Hypertension</label>
-
-                            </td>
-                            <td> 
-                                <i *ngIf="data.personalMedicalHistory.kidneyDisease" class="fa-solid fa-check"></i>
-                                <label for="">Kidney Disease</label>
-
-                            </td>
-                            <td> 
-                                <i *ngIf="data.personalMedicalHistory.myocardialInfarction" class="fa-solid fa-check"></i>
-                                <label for="">Myocardial Infarction</label>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td> 
-                                <i *ngIf="data.personalMedicalHistory.pepticUlcerDisease" class="fa-solid fa-check"></i>
-                                <label for="">Peptic UIcer Disease</label>
-
-                            </td>
-                            <td> 
-                                <i *ngIf="data.personalMedicalHistory.seizures" class="fa-solid fa-check"></i>
-                                <label for="">Seizures</label>
-
-                            </td>
-                            <td>
-                                <i *ngIf="data.personalMedicalHistory.stroke" class="fa-solid fa-check"></i>
-                                <label for="">Stroke</label>
-
-                            </td>
-                            <td> 
-                                <i *ngIf="data.personalMedicalHistory.ulcerativeColitis" class="fa-solid fa-check"></i>
-                                <label for="">UIcerative Colitis</label>
-
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-             <div class="mt-4 ps-2 first_section">
-                <table class="personalTable table table-striped mb-0 mb-0">
-                    <thead class="text-center">
-                        <tr>
-                            <th colspan="4">Personal <span>Surgical</span> History</th>
-                        </tr>
-                    </thead>
-                    <tbody class="">
-                        <tr>
-                            <td>
-                                <i *ngIf="data.personalSurgicalHistory.adrenalGlandSurgery" class="fa-solid fa-check"></i>
-                                <label for="">Adrenal Gland Surgery</label>
-
-                            </td>
-                            <td>
-                                <i *ngIf="data.personalSurgicalHistory.colonSurgery" class="fa-solid fa-check"></i>
-                                <label for="">Colon Surgery</label>
-
-                            </td>
-                            <td>
-                                <i *ngIf="data.personalSurgicalHistory.kidneySurgery" class="fa-solid fa-check"></i>
-                                <label for="">Kidney Surgery</label>
-
-                            </td>
-                            <td>
-                                <i *ngIf="data.personalSurgicalHistory.appendectomy" class="fa-solid fa-check"></i>
-                                <label for="">Appendectomy</label>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <i *ngIf="data.personalSurgicalHistory.arterySurgery" class="fa-solid fa-check"></i>
-                                <label for="">Artery Surgery</label>
-
-                            </td>
-                            <td> 
-                                <i *ngIf="data.personalSurgicalHistory.neckSurgery" class="fa-solid fa-check"></i>
-                                <label for="">Neck Surgery</label>
-
-                            </td>
-                            <td>
-                                <i *ngIf="data.personalSurgicalHistory.thyroidSurgery" class="fa-solid fa-check"></i>
-                                <label for="">Thyroid Surgery</label>
-
-                            </td>
-                            <td> 
-                                <i *ngIf="data.personalSurgicalHistory.esophagusSurgery" class="fa-solid fa-check"></i>
-                                <label for="">Esophagus Surgery</label>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td> 
-                                <i *ngIf="data.personalSurgicalHistory.prostateSurgery" class="fa-solid fa-check"></i>
-                                <label for="">Prostate Surgery</label>
-                            </td>
-                            <td>      <i *ngIf="data.personalSurgicalHistory.bladderSurgery" class="fa-solid fa-check"></i>
-                                <label for="">Bladder Surgery</label>
-
-                            </td>
-                            <td>
-                                <i *ngIf="data.personalSurgicalHistory.largeIntestineSurgery" class="fa-solid fa-check"></i>
-                                <label for="">Large Intestine Surgery</label>
-
-                            </td>
-                            <td> 
-                                <i *ngIf="data.personalSurgicalHistory.gastricBypassSurgery" class="fa-solid fa-check"></i>
-                                <label for="">Gastric Bypass Surgery</label>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td> 
-                                <i *ngIf="data.personalSurgicalHistory.lungSurgery" class="fa-solid fa-check"></i>
-                                <label for="">Lungs Surgery</label>
-
-                            </td>
-                            <td>
-                                <i *ngIf="data.personalSurgicalHistory.smallIntestineSurgery" class="fa-solid fa-check"></i>
-                                <label for="">Small Intestine Surgery</label>
-
-                            </td>
-                            <td> 
-                                <i *ngIf="data.personalSurgicalHistory.breastSurgery" class="fa-solid fa-check"></i>
-                                <label for="">Breast Surgery</label>
-
-                            </td>
-                            <td> 
-                                <i *ngIf="data.personalSurgicalHistory.hemorrhoidSurgery" class="fa-solid fa-check"></i>
-                                <label for="">Hemorrhoid Surgery</label>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>      <i *ngIf="data.personalSurgicalHistory.spineSurgery" class="fa-solid fa-check"></i>
-                                <label for="">Spine Surgery</label>
-                            </td>
-                            <td>
-                                <i *ngIf="data.personalSurgicalHistory.uterusSurgery" class="fa-solid fa-check"></i>
-                                <label for="">Utrus Surgery</label>
-
-                            </td>
-                            <td> 
-                                <i *ngIf="data.personalSurgicalHistory.cesareanSection" class="fa-solid fa-check"></i>
-                                <label for="">Cesarean Section</label>
-
-                            </td>
-                            <td>      <i *ngIf="data.personalSurgicalHistory.stomachSurgery" class="fa-solid fa-check"></i>
-                                <label for="">Stomach Surgery</label>
-
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="mt-4 ps-2 first_section">
-                <table class="personalTable table table-striped mb-0 mb-0">
-                    <thead class="text-center">
-                        <tr>
-                            <th colspan="4">Personal <span>Allergies</span> History</th>
-                        </tr>
-                    </thead>
-                    <tbody class="">
-                        <tr>
-                            <td>
-                                <i *ngIf="data.personalAllergiesHistory.foodAllergies" class="fa-solid fa-check"></i>
-                                <label for="">Food Allergies</label>
-
-                            </td>
-                            <td>
-                                <i *ngIf="data.personalAllergiesHistory.drugAllergies" class="fa-solid fa-check"></i>
-                                <label for="">Drug Allergies</label>
-
-                            </td>
-                            <td>
-                                <i *ngIf="data.personalAllergiesHistory.dustAllergies" class="fa-solid fa-check"></i>
-                                <label for="">Dust Allergies</label>
-
-                            </td>
-                            <td>
-                                <i *ngIf="data.personalAllergiesHistory.petAllergies" class="fa-solid fa-check"></i>
-                                <label for="">Pet Allergies</label>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>        
-                                 <i *ngIf="data.personalAllergiesHistory.temperatureChanges" class="fa-solid fa-check"></i>
-                                <label for="">Tempreture Changes</label>
-
-                            </td>
-                            <td> 
-                                <i *ngIf="data.personalAllergiesHistory.seasonalAllergies" class="fa-solid fa-check"></i>
-                                <label for="">Seasonal Allergies</label>
-
-                            </td>
-                            <td>
-                                <i *ngIf="data.personalAllergiesHistory.pollutionAllergy" class="fa-solid fa-check"></i>
-                                <label for="">Pollution Allergy</label>
-
-                            </td>
-                            <td> 
-                                <i *ngIf="data.personalAllergiesHistory.moldAllergies" class="fa-solid fa-check"></i>
-                                <label for="">Mold Allergies</label>
-
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div> 
-            <button routerLink="/familyHistory" class="btnn mt-4 mb-5">Family Medical History...</button>
         </div>
-   
+    </nav>
+
+    <div class="col-sm-10 mx-auto">
+        <div class="info ps-2 pt-5 pb-5 first_section form ">
+            <div class="row">
+                <div class="col-sm-3 imgDiv">
+                    <img src="assets/imgs/download.jpeg" class="img-thumbnail rounded-circle" alt="">
+                </div>
+                <div class="col-sm-9">
+                    <h3>{{data.firstName}} {{data.lastName}}</h3>
+                    <div class="d-flex justify-content-evenly">
+                        <p class="fw-light">{{data.age}} yrs, {{data.gender}}</p>
+                        <p class="fw-light ms-auto">Address: {{data.address}}</p>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between fw-light">
+                        <p>Weight: {{data.weight}} Kg</p>
+                        <p>Height: {{data.height}} Cm</p>
+                        <p>Blood Type: {{data.bloodType}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-4 ps-2 first_section">
+            <table class="personalTable table table-striped mb-0 mb-0">
+                <thead class="text-center">
+                    <tr>
+                        <th colspan="4">Personal <span>Medical</span> History</th>
+                    </tr>
+                </thead>
+                <tbody class="">
+                    <tr>
+                        <td>
+                            <i *ngIf="data.personalMedicalHistory.anemia" class="fa-solid fa-check"></i>
+                            <label for="">Animia</label>
+
+                        </td>
+                        <td>
+                            <i *ngIf="data.personalMedicalHistory.arthritis" class="fa-solid fa-check"></i>
+                            <label for="">Arthirits</label>
+
+                        </td>
+                        <td>
+                            <i *ngIf="data.personalMedicalHistory.asthma" class="fa-solid fa-check"></i>
+                            <label for="">Asthma</label>
+
+                        </td>
+                        <td>
+                            <i *ngIf="data.personalMedicalHistory.cancer" class="fa-solid fa-check"></i>
+                            <label for="">Cancer</label>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i *ngIf="data.personalMedicalHistory.chronicObstructive" class="fa-solid fa-check"></i>
+                            <label for="">Chronic Obstructive</label>
+
+                        </td>
+                        <td>
+                            <i *ngIf="data.personalMedicalHistory.heartDisease" class="fa-solid fa-check"></i>
+                            <label for="">Heart Disease</label>
+
+                        </td>
+                        <td>
+                            <i *ngIf="data.personalMedicalHistory.clottingDisorder" class="fa-solid fa-check"></i>
+                            <label for="">Clotting Disorder</label>
+
+                        </td>
+                        <td>
+                            <i *ngIf="data.personalMedicalHistory.congestiveHeartFailure" class="fa-solid fa-check"></i>
+                            <label for="">Congestive Heart Failure</label>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i *ngIf="data.personalMedicalHistory.crohnsDisease" class="fa-solid fa-check"></i>
+                            <label for="">Crohn's Disease</label>
+
+                        </td>
+                        <td> <i *ngIf="data.personalMedicalHistory.depression" class="fa-solid fa-check"></i>
+                            <label for="">Depression</label>
+
+                        </td>
+                        <td>
+                            <i *ngIf="data.personalMedicalHistory.diabetes" class="fa-solid fa-check"></i>
+                            <label for="">Diabetes</label>
+
+                        </td>
+                        <td>
+                            <i *ngIf="data.personalMedicalHistory.emphysema" class="fa-solid fa-check"></i>
+                            <label for="">Emphysema</label>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> <i *ngIf="data.personalMedicalHistory.endocrineProblems" class="fa-solid fa-check"></i>
+                            <label for="">Endocrine Problems</label>
+
+                        </td>
+                        <td>
+                            <i *ngIf="data.personalMedicalHistory.GERD" class="fa-solid fa-check"></i>
+                            <label for="">GERD</label>
+
+                        </td>
+                        <td>
+                            <i *ngIf="data.personalMedicalHistory.glaucoma" class="fa-solid fa-check"></i>
+                            <label for="">Glaucoma</label>
+
+                        </td>
+                        <td>
+                            <i *ngIf="data.personalMedicalHistory.hepatitis" class="fa-solid fa-check"></i>
+                            <label for="">Hepatitis</label>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i *ngIf="data.personalMedicalHistory.HIV_AIDS" class="fa-solid fa-check"></i>
+                            <label for="">HIV/AIDS</label>
+
+                        </td>
+                        <td>
+                            <i *ngIf="data.personalMedicalHistory.hypertension" class="fa-solid fa-check"></i>
+                            <label for="">Hypertension</label>
+
+                        </td>
+                        <td>
+                            <i *ngIf="data.personalMedicalHistory.kidneyDisease" class="fa-solid fa-check"></i>
+                            <label for="">Kidney Disease</label>
+
+                        </td>
+                        <td>
+                            <i *ngIf="data.personalMedicalHistory.myocardialInfarction" class="fa-solid fa-check"></i>
+                            <label for="">Myocardial Infarction</label>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i *ngIf="data.personalMedicalHistory.pepticUlcerDisease" class="fa-solid fa-check"></i>
+                            <label for="">Peptic UIcer Disease</label>
+
+                        </td>
+                        <td>
+                            <i *ngIf="data.personalMedicalHistory.seizures" class="fa-solid fa-check"></i>
+                            <label for="">Seizures</label>
+
+                        </td>
+                        <td>
+                            <i *ngIf="data.personalMedicalHistory.stroke" class="fa-solid fa-check"></i>
+                            <label for="">Stroke</label>
+
+                        </td>
+                        <td>
+                            <i *ngIf="data.personalMedicalHistory.ulcerativeColitis" class="fa-solid fa-check"></i>
+                            <label for="">UIcerative Colitis</label>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="mt-4 ps-2 first_section">
+            <table class="personalTable table table-striped mb-0 mb-0">
+                <thead class="text-center">
+                    <tr>
+                        <th colspan="4">Personal <span>Surgical</span> History</th>
+                    </tr>
+                </thead>
+                <tbody class="">
+                    <tr>
+                        <td>
+                            <i *ngIf="data.personalSurgicalHistory.adrenalGlandSurgery" class="fa-solid fa-check"></i>
+                            <label for="">Adrenal Gland Surgery</label>
+
+                        </td>
+                        <td>
+                            <i *ngIf="data.personalSurgicalHistory.colonSurgery" class="fa-solid fa-check"></i>
+                            <label for="">Colon Surgery</label>
+
+                        </td>
+                        <td>
+                            <i *ngIf="data.personalSurgicalHistory.kidneySurgery" class="fa-solid fa-check"></i>
+                            <label for="">Kidney Surgery</label>
+
+                        </td>
+                        <td>
+                            <i *ngIf="data.personalSurgicalHistory.appendectomy" class="fa-solid fa-check"></i>
+                            <label for="">Appendectomy</label>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i *ngIf="data.personalSurgicalHistory.arterySurgery" class="fa-solid fa-check"></i>
+                            <label for="">Artery Surgery</label>
+
+                        </td>
+                        <td>
+                            <i *ngIf="data.personalSurgicalHistory.neckSurgery" class="fa-solid fa-check"></i>
+                            <label for="">Neck Surgery</label>
+
+                        </td>
+                        <td>
+                            <i *ngIf="data.personalSurgicalHistory.thyroidSurgery" class="fa-solid fa-check"></i>
+                            <label for="">Thyroid Surgery</label>
+
+                        </td>
+                        <td>
+                            <i *ngIf="data.personalSurgicalHistory.esophagusSurgery" class="fa-solid fa-check"></i>
+                            <label for="">Esophagus Surgery</label>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i *ngIf="data.personalSurgicalHistory.prostateSurgery" class="fa-solid fa-check"></i>
+                            <label for="">Prostate Surgery</label>
+                        </td>
+                        <td> <i *ngIf="data.personalSurgicalHistory.bladderSurgery" class="fa-solid fa-check"></i>
+                            <label for="">Bladder Surgery</label>
+
+                        </td>
+                        <td>
+                            <i *ngIf="data.personalSurgicalHistory.largeIntestineSurgery" class="fa-solid fa-check"></i>
+                            <label for="">Large Intestine Surgery</label>
+
+                        </td>
+                        <td>
+                            <i *ngIf="data.personalSurgicalHistory.gastricBypassSurgery" class="fa-solid fa-check"></i>
+                            <label for="">Gastric Bypass Surgery</label>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i *ngIf="data.personalSurgicalHistory.lungSurgery" class="fa-solid fa-check"></i>
+                            <label for="">Lungs Surgery</label>
+
+                        </td>
+                        <td>
+                            <i *ngIf="data.personalSurgicalHistory.smallIntestineSurgery" class="fa-solid fa-check"></i>
+                            <label for="">Small Intestine Surgery</label>
+
+                        </td>
+                        <td>
+                            <i *ngIf="data.personalSurgicalHistory.breastSurgery" class="fa-solid fa-check"></i>
+                            <label for="">Breast Surgery</label>
+
+                        </td>
+                        <td>
+                            <i *ngIf="data.personalSurgicalHistory.hemorrhoidSurgery" class="fa-solid fa-check"></i>
+                            <label for="">Hemorrhoid Surgery</label>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> <i *ngIf="data.personalSurgicalHistory.spineSurgery" class="fa-solid fa-check"></i>
+                            <label for="">Spine Surgery</label>
+                        </td>
+                        <td>
+                            <i *ngIf="data.personalSurgicalHistory.uterusSurgery" class="fa-solid fa-check"></i>
+                            <label for="">Utrus Surgery</label>
+
+                        </td>
+                        <td>
+                            <i *ngIf="data.personalSurgicalHistory.cesareanSection" class="fa-solid fa-check"></i>
+                            <label for="">Cesarean Section</label>
+
+                        </td>
+                        <td> <i *ngIf="data.personalSurgicalHistory.stomachSurgery" class="fa-solid fa-check"></i>
+                            <label for="">Stomach Surgery</label>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="mt-4 ps-2 first_section">
+            <table class="personalTable table table-striped mb-0 mb-0">
+                <thead class="text-center">
+                    <tr>
+                        <th colspan="4">Personal <span>Allergies</span> History</th>
+                    </tr>
+                </thead>
+                <tbody class="">
+                    <tr>
+                        <td>
+                            <i *ngIf="data.personalAllergiesHistory.foodAllergies" class="fa-solid fa-check"></i>
+                            <label for="">Food Allergies</label>
+
+                        </td>
+                        <td>
+                            <i *ngIf="data.personalAllergiesHistory.drugAllergies" class="fa-solid fa-check"></i>
+                            <label for="">Drug Allergies</label>
+
+                        </td>
+                        <td>
+                            <i *ngIf="data.personalAllergiesHistory.dustAllergies" class="fa-solid fa-check"></i>
+                            <label for="">Dust Allergies</label>
+
+                        </td>
+                        <td>
+                            <i *ngIf="data.personalAllergiesHistory.petAllergies" class="fa-solid fa-check"></i>
+                            <label for="">Pet Allergies</label>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i *ngIf="data.personalAllergiesHistory.temperatureChanges" class="fa-solid fa-check"></i>
+                            <label for="">Tempreture Changes</label>
+
+                        </td>
+                        <td>
+                            <i *ngIf="data.personalAllergiesHistory.seasonalAllergies" class="fa-solid fa-check"></i>
+                            <label for="">Seasonal Allergies</label>
+
+                        </td>
+                        <td>
+                            <i *ngIf="data.personalAllergiesHistory.pollutionAllergy" class="fa-solid fa-check"></i>
+                            <label for="">Pollution Allergy</label>
+
+                        </td>
+                        <td>
+                            <i *ngIf="data.personalAllergiesHistory.moldAllergies" class="fa-solid fa-check"></i>
+                            <label for="">Mold Allergies</label>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <button routerLink="/familyHistory" class="btnn mt-4 mb-5">Family Medical History...</button>
     </div>
-     
+
+</div>
