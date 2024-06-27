@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserDataService } from 'src/app/user-data.service';
 
 @Component({
@@ -7,9 +8,24 @@ import { UserDataService } from 'src/app/user-data.service';
   templateUrl: './change-password.component.html',
   styleUrls: ['./change-password.component.css']
 })
-export class ChangePasswordComponent {
-  constructor(private userData:UserDataService){
+export class ChangePasswordComponent implements OnInit {
+  constructor(private userData:UserDataService, private router:Router){
 
+  }
+  data:any
+  ngOnInit(): void {
+    this.userData.getUserData().subscribe({
+      next:(res)=>{
+        this.data=res
+      }
+    })
+  }
+  logOut() {
+    this.userData.logOut().subscribe({
+      next: (response) => {
+        this.router.navigate(['/login'])
+      }
+    })
   }
 form:FormGroup=new FormGroup({
   oldPassword:new FormControl(null,[Validators.required]),
@@ -27,4 +43,5 @@ handle(reg:FormGroup){
     error:(err)=>console.log(err),
   })
 }
+
 }

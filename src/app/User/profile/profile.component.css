@@ -87,12 +87,14 @@ a{
 color: white !important;
 }
 .custom-dropdown-menu {
+  height: 300px;
   max-height: 300px; 
+
   overflow-y: auto; 
   white-space: normal; 
   word-wrap: break-word; 
   overflow-wrap: break-word;
-  width: 400px; 
+  width: 500px; 
   padding: 10px; 
   border-radius: 5px; 
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
@@ -120,6 +122,22 @@ color: white !important;
 .custom-dropdown-menu .dropdown-item {
   white-space: normal;
 }
+.dropdown-submenu .dropdown-menu {
+  position: relative;
+  top: 30%;
+  right: 100%;
+  left:0;
+  margin-top: -1px;
+  max-height: 300px; 
+  overflow-y: auto; 
+  white-space: normal; 
+  word-wrap: break-word; 
+  overflow-wrap: break-word;
+  width: 460px; 
+  padding: 8px; 
+  border-radius: 5px; 
+}
+
 .notNum{
   position: absolute;
   top:-5px;
@@ -128,7 +146,30 @@ color: white !important;
  font-size: 18px;
  font-weight: 900;
  border-radius: 3px;
-  /* border-radius: 50%;
-  width: 30px;
-  height: 30px; */
+
+}
+.subanchor{
+  color: #010F1A;
+}
+.subanchor:hover{
+  color: #010F1A !important;
+  cursor: pointer !important;
+}
+.starsRating{
+  user-select: none;
+}
+.star{
+  font-size: 2rem;
+  color:#ffd43b;
+  background-color: unset;
+  border: none;
+}
+.star:hover{
+  cursor: pointer;
+}
+.icon{
+  color: #010F1A;
+}
+.icon:hover{
+ color: #010F1A !important;
 }

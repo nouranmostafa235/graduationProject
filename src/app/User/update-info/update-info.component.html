@@ -24,12 +24,12 @@
                     <li class="nav-item me-2">
                             <div class="smallImage d-flex " routerLink="/profile">
                                 <img  src="assets/imgs/download.jpeg" alt="">
-                                <a  class="ms-2 nav-link active" aria-current="page">{{data.firstName}} {{data.lastName}}</a>
+                                <a  class="ms-2 nav-link active" aria-current="page">{{data.firstName}}</a>
                         </div>
                        
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" routerLink="/login">LogOut</a>
+                        <a class="nav-link" (click)="logOut()">LogOut</a>
                     </li>
                 </ul>
             </div>
@@ -48,7 +48,7 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h1 class="modal-title fs-5" id="staticBackdropLabel">Update Personal Info</h1>
-                            <button type="button" (click)="close()" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <form [formGroup]="form" (ngSubmit)="updateInfo(form)">
@@ -112,7 +112,7 @@
                                     </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btnn" data-bs-dismiss="modal"
-                                        (click)="close()">Close</button>
+                                    >Close</button>
                                     <button type="submit" class="btnn">Save Changes</button>
                                     <p *ngIf="isUpdated">updated successfully</p>
                                 </div>
@@ -292,7 +292,7 @@
                                 </table>
                                 <div class="modal-footer">
                                     <button type="button" class="btnn"
-                                        data-bs-dismiss="modal" (click)="close()">Close</button>
+                                        data-bs-dismiss="modal">Close</button>
                                     <button type="submit" class="btnn">Save Changes</button>
                                 </div>
                             </form>

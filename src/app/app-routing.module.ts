@@ -18,6 +18,8 @@ import { LabComponent } from './Admin/lab/lab.component';
 import { LabLoginComponent } from './Institutions/Labs/lab-login/lab-login.component';
 import { LabHomePageComponent } from './Institutions/Labs/lab-home-page/lab-home-page.component';
 import { ClinicHomePageComponent } from './Institutions/Clinics/clinic-home-page/clinic-home-page.component';
+import { ViewInstitutionProfileComponent } from './User/view-institution-profile/view-institution-profile.component';
+import { ViewClinicProfileComponent } from './User/view-clinic-profile/view-clinic-profile.component';
 
 const routes: Routes = [
   { path: "", redirectTo: 'home', pathMatch: 'full' },
@@ -39,6 +41,8 @@ const routes: Routes = [
   {path:'labLogin',component:LabLoginComponent},
   {path:'lab/Home',component:LabHomePageComponent},
   {path:'clinic/Home',component:ClinicHomePageComponent},
+  {path:'labProfile',component:ViewInstitutionProfileComponent},
+  {path:'clinicProfile',component:ViewClinicProfileComponent},
 ];
 
 @NgModule({

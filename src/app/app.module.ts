@@ -28,6 +28,9 @@ import { LabLoginComponent } from './Institutions/Labs/lab-login/lab-login.compo
 import { LabHomePageComponent } from './Institutions/Labs/lab-home-page/lab-home-page.component';
 import { ClinicHomePageComponent } from './Institutions/Clinics/clinic-home-page/clinic-home-page.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ViewInstitutionProfileComponent } from './User/view-institution-profile/view-institution-profile.component';
+import { ViewClinicProfileComponent } from './User/view-clinic-profile/view-clinic-profile.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,6 +54,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     LabLoginComponent,
     LabHomePageComponent,
     ClinicHomePageComponent,
+    ViewInstitutionProfileComponent,
+    ViewClinicProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,6 +66,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HttpClientModule,
     FormsModule,
     NgbModule,
+    SweetAlert2Module.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,6 @@
 import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Route, Router } from '@angular/router';
 import { faL } from '@fortawesome/free-solid-svg-icons';
 import { UserDataService } from 'src/app/user-data.service';
 
@@ -13,7 +13,7 @@ export class UpdateInfoComponent implements OnInit {
    persolHistroyForm:FormGroup=new FormGroup({});
   form: FormGroup = new FormGroup({});
  
-  constructor(private userData: UserDataService, private fb: FormBuilder) {
+  constructor(private userData: UserDataService, private fb: FormBuilder,private route:Router) {
     this.form = this.fb.group({
       firstName: [''],
       lastName: [''],
@@ -328,7 +328,11 @@ export class UpdateInfoComponent implements OnInit {
       }
     })
   }
-  close() {
-
+  logOut() {
+    this.userData.logOut().subscribe({
+      next: (response) => {
+        this.route.navigate(['/login'])
+      }
+    })
   }
 }

@@ -28,4 +28,16 @@ export class UserDataService {
  pending():Observable<any>{
   return this.http.get("http://localhost:3000/users/numOfNotification",{headers:this.header})
  }
+ labnotifications():Observable<any>{
+  return this.http.get("http://localhost:3000/notifications/getPendingMedicalAnalysis",{headers:this.header})
+ }
+ clinicnotification():Observable<any>{
+  return this.http.get("http://localhost:3000/notifications/getPendingDiagnosis",{headers:this.header})
+ }
+ getLabById(id:any):Observable<any>{
+  return this.http.get(`http://localhost:3000/labs/${id}`)
+ }
+ getClinicById(id:any):Observable<any>{
+  return this.http.get(`http://localhost:3000/clinics/${id}`)
+ }
 }

@@ -22,49 +22,101 @@
                     </li>
                 </ul>
                 <ul class="nav nav-underline ms-auto">
-                    <li class="">
+                    <li>
                         <div class="dropdown me-3">
-                            <a class="dropdown-toggle nav-link position-relative" data-bs-toggle="dropdown" aria-expanded="false">
-                                
-                                     <i class="fa-solid fa-bell"></i>
-                                     <p class="notNum">{{notificationNum}}</p>
-                                
-                               
+                            <a class="nav-link position-relative dropdown-toggle" data-bs-auto-close="outside" href="#"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-bell"></i>
+                                <p class="notNum">{{ notificationNum }}</p>
                             </a>
-                            <ul class="dropdown-menu text-body-secondary custom-dropdown-menu" >
+
+                            <ul class="dropdown-menu custom-dropdown-menu p-4 ">
                                 <li>
-                                    <p class="c">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, perspiciatis!
-                                        Quas esse voluptas eveniet deleniti quasi, reprehenderit, dolore possimus quo
-                                        temporibus, sunt corporis libero impedit delectus aut excepturi vel numquam!
-                                        Quis possimus dignissimos corrupti suscipit! Accusantium dolor unde quidem omnis
-                                        voluptatibus enim reprehenderit ipsam eligendi deleniti reiciendis earum nam
-                                        doloremque labore, sed adipisci voluptas. Totam error eos a odit libero
-                                        consequuntur ipsam suscipit qui vero maxime esse quas blanditiis nobis itaque
-                                        non ut corporis consectetur asperiores, dignissimos earum provident amet ipsa
-                                        commodi repellendus. Cumque iure, saepe rem amet exercitationem ducimus
-                                        molestias culpa ab obcaecati. Nihil veritatis ipsum quod dolorem doloribus.
-                                    </p>
+                                    <P class="fw-bold">NOTIFICATIONS</P>
                                 </li>
-                                <li><a class="dropdown-item" routerLink="/institutionLogin"><i
-                                            class="fa-solid fa-house-chimney-medical me-1" style="color: #010f1a;"></i>
-                                        Clinic</a></li>
-                                <li><a class="dropdown-item " routerLink="/labLogin"><i
-                                            class="fa-solid fa-flask-vial me-2" style="color: #010f1a;"></i>Lab</a></li>
+                                <li class="dropdown-submenu mb-5">
+
+                                    <a class="dropdown-item dropdown-toggle text-center" data-bs-auto-close="outside"
+                                        role="button" data-bs-toggle="dropdown">
+                                        <i class="fa-solid fa-flask"></i> LAB
+                                    </a>
+
+                                    <ul class="dropdown-menu ">
+                                        <li *ngFor="let i of labInfo; let idx=index" class="dropdown-submenu">
+                                            <a class="dropdown-item dropdown-toggle" role="button"
+                                                data-bs-toggle="dropdown">
+                                                {{i.name}}
+                                                <a class="subanchor ms-5"
+                                                    (click)="viewlab(labMedicalAnalysis[idx].lab)"><i
+                                                        class="fa-solid fa-eye ms-5 me-3"></i></a>
+                                            </a>
+
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a class="dropdown-item">
+                                                        <i class="fa-solid fa-file-pdf"></i> <a class="subanchor me-5"
+                                                            [href]="labMedicalAnalysis[idx].pdfPath" target="_blank">
+                                                            {{labMedicalAnalysis[idx].pdfPath}}</a>
+                                                        <a  (click)="accept(i.name)"><i class="fa-solid fa-check me-3 icon"></i></a>
+                                                        <i class="fa-solid fa-x"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown-submenu ">
+
+                                    <a class="dropdown-item dropdown-toggle text-center" data-bs-auto-close="outside"
+                                        role="button" data-bs-toggle="dropdown">
+                                        <i class="fa-solid fa-house-chimney-medical"></i> CLINIC
+                                        <!-- <a class="subanchor ms-3" (click)="view(labMedicalAnalysis[idx].lab)"><i class="fa-solid fa-eye"></i></a> -->
+                                    </a>
+
+                                    <ul class="dropdown-menu ">
+                                        <li *ngFor="let i of clinicInfo; let idx=index" class="dropdown-submenu">
+                                            <a class="dropdown-item dropdown-toggle" role="button"
+                                                data-bs-toggle="dropdown">
+                                                {{i.name}}
+                                                <a class="subanchor " (click)="viewclinic(diagnosis[idx].clinic)"><i
+                                                        class="fa-solid fa-eye ms-5 me-3"></i></a>
+                                            </a>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a class="dropdown-item">
+                                                        <i class="fa-solid fa-file-pdf"></i>
+                                                        <a class="subanchor me-5"
+                                                            (click)="openPdf(diagnosis[idx].pdfPath)" target="_blank"
+                                                            download="lab-medical-analysis.pdf">
+                                                            {{diagnosis[idx].pdfPath}}</a>
+                                                            <a class="icon" (click)="accept(i.name)"> <i class="fa-solid fa-check ms-4 me-3"></i></a>
+                                                        <i
+                                                            class="fa-solid fa-x"></i>
+                                                    </a>
+                                                </li>
+
+                                            </ul>
+                                        </li>
+
+                                    </ul>
+                                </li>
                             </ul>
                         </div>
                     </li>
+
                     <li class="nav-item me-2">
                         <div class="smallImage d-flex " routerLink="/profile">
                             <img src="assets/imgs/download.jpeg" alt="">
-                            <a class="ms-2 nav-link active" aria-current="page">{{data.firstName}}</a>
+                            <a class="ms-2 nav-link active" aria-current="page">{{ data.firstName }}</a>
                         </div>
-
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" (click)="logOut()">LogOut</a>
                     </li>
                 </ul>
+
             </div>
         </div>
     </nav>
@@ -404,5 +456,4 @@
         </div>
         <button routerLink="/familyHistory" class="btnn mt-4 mb-5">Family Medical History...</button>
     </div>
-
 </div>
