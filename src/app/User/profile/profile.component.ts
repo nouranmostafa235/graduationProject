@@ -18,7 +18,7 @@ export class ProfileComponent implements OnInit , AfterViewInit{
   labInfo: any[] = []
   diagnosis: any[] = []
   clinicInfo: any[] = []
-  notificationNum: any
+  notificationNum: any 
   ngOnInit(): void {
    
     this.userData.pending().subscribe({
@@ -81,13 +81,12 @@ export class ProfileComponent implements OnInit , AfterViewInit{
     this.router.navigate(['/clinicProfile'], { queryParams: { id: id } })
   }
   accept(name: any) {
-    Swal.fire({
-      
-      title: `Do you want to accept this file from ${name}?`,
-      showDenyButton: true,
+    Swal.fire({ 
+      title: `Confirm Acceptance`,
+      showDenyButton: false,
+      cancelButtonText: "Cancel",
       showCancelButton: true,
-      confirmButtonText: 'Accept',
-      denyButtonText: `Reject`,
+      confirmButtonText: 'Confirm',
       footer: `
         <h4>Rate ${name}</h4>
         <div class="starsRating d-flex justify-content-center align-items-center" style="user-select: none; display: flex; justify-content: center; align-items: center;">
@@ -105,8 +104,6 @@ export class ProfileComponent implements OnInit , AfterViewInit{
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire('File Accepted!', '', 'success');
-      } else if (result.isDenied) {
-        Swal.fire('Files are Rejected', '', 'info');
       }
     });
   }

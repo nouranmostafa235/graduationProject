@@ -76,15 +76,16 @@ a {
 .rating {
     background-color: #EBEBED;
 }
-.rating{
-    margin-bottom: 160px;
-}
+
 .home{
     padding-top: 100px !important;
     padding-bottom: 100px !important;
 }
 .title {
     color: var(--orangeColor);
+      font-family: "Encode Sans SC", sans-serif;
+      font-size: 40px;
+
 }
 
 p {

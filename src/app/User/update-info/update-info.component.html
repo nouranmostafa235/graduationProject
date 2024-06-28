@@ -51,7 +51,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form [formGroup]="form" (ngSubmit)="updateInfo(form)">
+                            <form [formGroup]="form" (ngSubmit)="save(form)">
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <label for="">First Name</label>
@@ -114,7 +114,6 @@
                                     <button type="button" class="btnn" data-bs-dismiss="modal"
                                     >Close</button>
                                     <button type="submit" class="btnn">Save Changes</button>
-                                    <p *ngIf="isUpdated">updated successfully</p>
                                 </div>
                                 </div>
                             </form>
@@ -155,134 +154,133 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form [formGroup]="form" (ngSubmit)="updateInfo(form)">
+                            <form [formGroup]="form" (ngSubmit)="save(form)">
                                 <table class="personalTable table table-striped mb-0 mb-0" id="modalTable" formGroupName="personalMedicalHistory">
                                     <tbody class="">
-                                        <tr>
-                                            <td class="d-flex">
-                                                
+                                        <tr >
+                                            <td >
                                                 <input type="checkbox" name="" id="" class="form-check" formControlName="anemia">
                                                 <label for="">Animia</label>
                                             </td>
-                                            <td class="d-flex">
+                                            <td>
                                                 <input type="checkbox" name="" id="" class="form-check" formControlName="arthritis">
                                                 <label for="">Arthirits</label>
                 
                                             </td>
-                                            <td class="d-flex">
+                                            <td>
                                                 <input type="checkbox" name="" id="" class="form-check" formControlName="asthma">
                                                 <label for="">Asthma</label>
                 
                                             </td>
-                                            <td class="d-flex">
+                                            <td>
                                                 <input type="checkbox" name="" id="" class="form-check" formControlName="cancer">
                                                 <label for="">Cancer</label>
                 
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="d-flex"> 
+                                            <td> 
                                                 <input type="checkbox" name="" id="" class="form-check" formControlName="chronicObstructive">
                                                 <label for="">Chronic Obstructive</label>
                 
                                             </td>
-                                            <td class="d-flex"> 
+                                            <td> 
                                                 <input type="checkbox" name="" id="" class="form-check" formControlName="heartDisease">
                                                 <label for="">Heart Disease</label>
                 
                                             </td>
-                                            <td class="d-flex">
+                                            <td>
                                                 <input type="checkbox" name="" id="" class="form-check" formControlName="clottingDisorder">
                                                 <label for="">Clotting Disorder</label>
                 
                                             </td>
-                                            <td class="d-flex"> 
+                                            <td> 
                                                 <input type="checkbox" name="" id="" class="form-check" formControlName="congestiveHeartFailure">
                                                 <label for="">Congestive Heart Failure</label>
                 
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="d-flex"> 
+                                            <td> 
                                                 <input type="checkbox" name="" id="" class="form-check" formControlName="crohnsDisease">
                                                 <label for="">Crohn's Disease</label>
                 
                                             </td>
-                                            <td class="d-flex">   <input type="checkbox" name="" id="" class="form-check" formControlName="depression">
+                                            <td>   <input type="checkbox" name="" id="" class="form-check" formControlName="depression">
                                                 <label for="">Depression</label>
                 
                                             </td>
-                                            <td class="d-flex">
+                                            <td>
                                                 <input type="checkbox" name="" id="" class="form-check" formControlName="diabetes">
                                                 <label for="">Diabetes</label>
                 
                                             </td>
-                                            <td class="d-flex"> 
+                                            <td> 
                                                 <input type="checkbox" name="" id="" class="form-check" formControlName="emphysema">
                                                 <label for="">Emphysema</label>
                 
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="d-flex">   <input type="checkbox" name="" id="" class="form-check" formControlName="endocrineProblems">
+                                            <td>   <input type="checkbox" name="" id="" class="form-check" formControlName="endocrineProblems">
                                                 <label for="">Endocrine Problems</label>
                 
                                             </td>
-                                            <td class="d-flex">
+                                            <td>
                                                 <input type="checkbox" name="" id="" class="form-check" formControlName="GERD">
                                                 <label for="">GERD</label>
                 
                                             </td>
-                                            <td class="d-flex"> 
+                                            <td> 
                                                 <input type="checkbox" name="" id="" class="form-check" formControlName="glaucoma">
                                                 <label for="">Glaucoma</label>
                 
                                             </td>
-                                            <td class="d-flex"> 
+                                            <td> 
                                                 <input type="checkbox" name="" id="" class="form-check" formControlName="hepatitis">
                                                 <label for="">Hepatitis</label>
                 
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="d-flex">  
+                                            <td>  
                                                 <input type="checkbox" name="" id="" class="form-check" formControlName="HIV_AIDS">
                                                 <label for="">HIV/AIDS</label>
                 
                                             </td>
-                                            <td class="d-flex">
+                                            <td>
                                                 <input type="checkbox" name="" id="" class="form-check" formControlName="hypertension">
                                                 <label for="">Hypertension</label>
                 
                                             </td>
-                                            <td class="d-flex"> 
+                                            <td> 
                                                 <input type="checkbox" name="" id="" class="form-check" formControlName="kidneyDisease">
                                                 <label for="">Kidney Disease</label>
                 
                                             </td>
-                                            <td class="d-flex"> 
+                                            <td> 
                                                 <input type="checkbox" name="" id="" class="form-check" formControlName="myocardialInfarction">
                                                 <label for="">Myocardial Infarction</label>
                 
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="d-flex"> 
+                                            <td> 
                                                 <input type="checkbox" name="" id="" class="form-check" formControlName="pepticUlcerDisease">
                                                 <label for="">Peptic UIcer Disease</label>
                 
                                             </td>
-                                            <td class="d-flex"> 
+                                            <td> 
                                                 <input type="checkbox" name="" id="" class="form-check" formControlName="seizures">
                                                 <label for="">Seizures</label>
                 
                                             </td>
-                                            <td class="d-flex">
+                                            <td>
                                                 <input type="checkbox" name="" id="" class="form-check" formControlName="stroke">
                                                 <label for="">Stroke</label>
                 
                                             </td>
-                                            <td class="d-flex"> 
+                                            <td> 
                                                 <input type="checkbox" name="" id="" class="form-check" formControlName="ulcerativeColitis">
                                                 <label for="">UIcerative Colitis</label>
                 
@@ -305,7 +303,7 @@
             <table class="personalTable table table-striped mb-0 mb-0">
                 <thead class="text-center">
                     <tr>
-                        <th colspan="4">Personal <span>Medical</span> History <i class="fa-solid ms-2 fa-pen updateIcon"
+                        <th colspan="4">Personal <span class="subtitle">Medical</span> History <i class="fa-solid ms-2 fa-pen updateIcon"
                                 data-bs-toggle="modal" data-bs-target="#staticBackdrop2"></i></th>
                     </tr>
                 </thead>
@@ -455,7 +453,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form [formGroup]="form" (ngSubmit)="updateInfo(form)" >
+                            <form [formGroup]="form" (ngSubmit)="save(form)" >
                                 <table class="personalTable table table-striped mb-0 mb-0" id="modalTable2" formGroupName="personalSurgicalHistory">
                                     <tbody class="">
                                         <tr>
@@ -580,10 +578,10 @@
             </div> 
             <!-- End Modal -->
 
-             <table class="personalTable table table-striped mb-0 mb-0">
+              <table class="personalTable table table-striped mb-0 mb-0">
                 <thead class="text-center">
                     <tr>
-                        <th colspan="4">Personal <span>Surgical</span> History <i
+                        <th colspan="4">Personal <span class="subtitle">Surgical</span> History <i
                                 class="fa-solid fa-pen updateIcon ms-2" data-bs-toggle="modal"
                                 data-bs-target="#staticBackdrop3"></i></th>
                     </tr>
@@ -699,11 +697,11 @@
                         </td>
                     </tr>
                 </tbody>
-            </table> 
+            </table>  
         </div>
         <div class="mt-4 ps-2 first_section">
             <!-- Modal -->
-            <!-- <div class="modal fade" id="staticBackdrop4" data-bs-backdrop="static" data-bs-keyboard="false"
+            <div class="modal fade" id="staticBackdrop4" data-bs-backdrop="static" data-bs-keyboard="false"
                 tabindex="-1" aria-labelledby="staticBackdropLabel4" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
                     <div class="modal-content border-0">
@@ -713,45 +711,48 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form [formGroup]="form">
-                                <table class="personalTable table table-striped mb-0 mb-0" id="modalTable3">
+                            <form [formGroup]="form" (ngSubmit)="save(form)">
+                                <table class="personalTable table table-striped mb-0 mb-0" id="modalTable3" formGroupName="personalAllergiesHistory">
                                     <tbody class="">
                                         <tr>
                                             <td>
-
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="foodAllergies">
                                                 <label for="">Food Allergies</label>
 
                                             </td>
                                             <td>
-
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="drugAllergies">
                                                 <label for="">Drug Allergies</label>
 
                                             </td>
                                             <td>
-                                                <i class="fa-solid fa-check"></i>
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="dustAllergies">
                                                 <label for="">Dust Allergies</label>
 
                                             </td>
                                             <td>
-                                                <i class="fa-solid fa-check"></i>
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="petAllergies">
                                                 <label for="">Pet Allergies</label>
 
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td> <i class="fa-solid fa-check"></i>
+                                            <td> <input type="checkbox" name="" id="" class="form-check" formControlName="temperatureChanges">
                                                 <label for="">Tempreture Changes</label>
 
                                             </td>
                                             <td>
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="seasonalAllergies">
                                                 <label for="">Seasonal Allergies</label>
 
                                             </td>
                                             <td>
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="pollutionAllergy">
                                                 <label for="">Pollution Allergy</label>
 
                                             </td>
                                             <td>
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="moldAllergies">
                                                 <label for="">Mold Allergies</label>
 
                                             </td>
@@ -761,19 +762,19 @@
                                 <div class="modal-footer">
                                     <button type="button" class="btnn"
                                         data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btnn">Save Changes</button>
+                                    <button type="submit" class="btnn">Save Changes</button>
                                 </div>
                             </form>
                         </div>
 
                     </div>
                 </div>
-            </div> -->
+            </div>
             <!-- End Modal -->
-            <!-- <table class="personalTable table table-striped mb-0 mb-0">
+            <table class="personalTable table table-striped mb-0 mb-0">
                 <thead class="text-center">
                     <tr>
-                        <th colspan="4">Personal <span>Allergies</span> History <i
+                        <th colspan="4">Personal <span class="subtitle">Allergies</span> History <i
                                 class="fa-solid ms-2 fa-pen updateIcon " data-bs-toggle="modal"
                                 data-bs-target="#staticBackdrop4"></i></th>
                     </tr>
@@ -781,51 +782,54 @@
                 <tbody class="">
                     <tr>
                         <td>
-
+                            <i *ngIf="data?.personalAllergiesHistory?.foodAllergies" class="fa-solid fa-check"></i>
                             <label for="">Food Allergies</label>
 
                         </td>
                         <td>
-
+                            <i *ngIf="data?.personalAllergiesHistory?.drugAllergies" class="fa-solid fa-check"></i>
                             <label for="">Drug Allergies</label>
 
                         </td>
                         <td>
-                            <i class="fa-solid fa-check"></i>
+                            <i *ngIf="data?.personalAllergiesHistory?.dustAllergies" class="fa-solid fa-check"></i>
                             <label for="">Dust Allergies</label>
 
                         </td>
                         <td>
-                            <i class="fa-solid fa-check"></i>
+                            <i *ngIf="data?.personalAllergiesHistory?.petAllergies" class="fa-solid fa-check"></i>
                             <label for="">Pet Allergies</label>
 
                         </td>
                     </tr>
                     <tr>
-                        <td> <i class="fa-solid fa-check"></i>
+                        <td>  <i *ngIf="data?.personalAllergiesHistory?.temperatureChanges" class="fa-solid fa-check"></i>
                             <label for="">Tempreture Changes</label>
 
                         </td>
                         <td>
+                            <i *ngIf="data?.personalAllergiesHistory?.seasonalAllergies" class="fa-solid fa-check"></i>
                             <label for="">Seasonal Allergies</label>
 
                         </td>
                         <td>
+                            <i *ngIf="data?.personalAllergiesHistory?.pollutionAllergy" class="fa-solid fa-check"></i>
                             <label for="">Pollution Allergy</label>
 
                         </td>
                         <td>
+                            <i *ngIf="data?.personalAllergiesHistory?.moldAllergies" class="fa-solid fa-check"></i>
                             <label for="">Mold Allergies</label>
 
                         </td>
                     </tr>
                 </tbody>
-            </table> -->
+            </table> 
         </div>
         <div class="mt-4 mb-5 ps-2 first_section">
 
             <!-- Modal -->
-            <!-- <div class="modal fade" id="staticBackdrop5" data-bs-backdrop="static" data-bs-keyboard="false"
+            <div class="modal fade" id="staticBackdrop5" data-bs-backdrop="static" data-bs-keyboard="false"
                 tabindex="-1" aria-labelledby="staticBackdropLabel5" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
                     <div class="modal-content border-0">
@@ -835,62 +839,70 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form [formGroup]="form">
-                                <table class="personalTable table table-striped mb-0 mb-0" id="modalTable4">
+                            <form [formGroup]="form" (ngSubmit)="save(form)">
+                                <table class="personalTable table table-striped mb-0 mb-0" id="modalTable4" formGroupName="familyMedicalHistory">
                                     <tbody class="">
                                         <tr>
                                             <td>
-                                                <i class="fa-solid fa-check"></i>
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="cancer">
                                                 <label for="">Cancer</label>
                     
                                             </td>
                                             <td>
-                    
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="anemia">
                                                 <label for="">Animia</label>
                     
                                             </td>
                                             <td>
-                    
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="highBloodPressure">
                                                 <label for="">High Blood Pressure</label>
                     
                                             </td>
                                             <td>
-                                                <i class="fa-solid fa-check"></i>
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="diabetes">
                                                 <label for="">Diabetes</label>
                     
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="anesthesiaReaction">
                                                 <label for="">Anesthesia Reaction</label>
                     
                                             </td>
                                             <td>
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="bloodClots">
                                                 <label for="">Blood Clots</label>
                     
                                             </td>
-                                            <td><i class="fa-solid fa-check"></i>
+                                            <td>
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="bleedingProblems">
                                                 <label for="">Bleeding Problems</label>
                     
                                             </td>
                                             <td>
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="heartDisease">
                                                 <label for="">Heart Disease</label>
                     
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="hepatitis">
                                                 <label for="">Hepatitis</label>
                                             </td>
                                             <td>
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="stroke">
                                                 <label for="">Stroke</label>
                     
                                             </td>
-                                            <td><i class="fa-solid fa-check"></i>
+                                            <td> 
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="kidneyDisease">
                                                 <label for="">Kidney Disease</label>
                     
                                             </td>
                                             <td>
+                                                <input type="checkbox" name="" id="" class="form-check" formControlName="endocrineProblems">
                                                 <label for="">Endocrine Problems</label>
                                             </td>
                                         </tr>
@@ -899,21 +911,21 @@
                                 <div class="modal-footer">
                                     <button type="button" class="btnn"
                                         data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btnn">Save Changes</button>
+                                    <button type="submit" class="btnn">Save Changes</button>
                                 </div>
                             </form>
                         </div>
 
                     </div>
                 </div>
-            </div> -->
+            </div>
             <!-- End Modal -->
 
-<!-- 
+
             <table class="personalTable table table-striped mb-0 mb-0">
                 <thead class="text-center">
                     <tr>
-                        <th colspan="4">Family <span>Medical</span> History <i
+                        <th colspan="4">Family <span class="subtitle">Medical</span> History <i
                                 class="fa-solid ms-2 fa-pen updateIcon" data-bs-toggle="modal"
                                 data-bs-target="#staticBackdrop5"></i></th>
                     </tr>
@@ -921,62 +933,70 @@
                 <tbody class="">
                     <tr>
                         <td>
-                            <i class="fa-solid fa-check"></i>
+                            <i *ngIf="data?.familyMedicalHistory?.cancer" class="fa-solid fa-check"></i>
                             <label for="">Cancer</label>
 
                         </td>
                         <td>
-
+                            <i *ngIf="data?.familyMedicalHistory?.anemia" class="fa-solid fa-check"></i>
                             <label for="">Animia</label>
 
                         </td>
                         <td>
-
+                            <i *ngIf="data?.familyMedicalHistory?.highBloodPressure" class="fa-solid fa-check"></i>
                             <label for="">High Blood Pressure</label>
 
                         </td>
                         <td>
-                            <i class="fa-solid fa-check"></i>
+                            <i *ngIf="data?.familyMedicalHistory?.diabetes" class="fa-solid fa-check"></i>
                             <label for="">Diabetes</label>
 
                         </td>
                     </tr>
                     <tr>
                         <td>
+                            <i *ngIf="data?.familyMedicalHistory?.anesthesiaReaction" class="fa-solid fa-check"></i>
                             <label for="">Anesthesia Reaction</label>
 
                         </td>
                         <td>
+                            <i *ngIf="data?.familyMedicalHistory?.bloodClots" class="fa-solid fa-check"></i>
                             <label for="">Blood Clots</label>
 
                         </td>
-                        <td><i class="fa-solid fa-check"></i>
+                        <td> 
+                            <i *ngIf="data?.familyMedicalHistory?.bleedingProblems" class="fa-solid fa-check"></i>
                             <label for="">Bleeding Problems</label>
 
                         </td>
                         <td>
+                            <i *ngIf="data?.familyMedicalHistory?.heartDisease" class="fa-solid fa-check"></i>
                             <label for="">Heart Disease</label>
 
                         </td>
                     </tr>
                     <tr>
                         <td>
+                            <i *ngIf="data?.familyMedicalHistory?.hepatitis" class="fa-solid fa-check"></i>
                             <label for="">Hepatitis</label>
                         </td>
                         <td>
+                            <i *ngIf="data?.familyMedicalHistory?.stroke" class="fa-solid fa-check"></i>
                             <label for="">Stroke</label>
 
                         </td>
-                        <td><i class="fa-solid fa-check"></i>
+                        <td>
+                            <i *ngIf="data?.familyMedicalHistory?.kidneyDisease" class="fa-solid fa-check"></i>
                             <label for="">Kidney Disease</label>
 
                         </td>
                         <td>
+                            <i *ngIf="data?.familyMedicalHistory?.endocrineProblems" class="fa-solid fa-check"></i>
                             <label for="">Endocrine Problems</label>
                         </td>
                     </tr>
                 </tbody>
-            </table> -->
+            </table> 
         </div>
     </div>
     

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserDataService } from 'src/app/user-data.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-predict',
@@ -46,4 +47,5 @@ export class PredictComponent implements OnInit {
       }
     });
   }
+ 
 }

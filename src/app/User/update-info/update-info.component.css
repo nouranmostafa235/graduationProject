@@ -107,3 +107,6 @@ select {
     background-color: #F1F1F1 !important;
     border: 0 !important;
 }
+.subtitle{
+  color: var(--orangeColor);
+}

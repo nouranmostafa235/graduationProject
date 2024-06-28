@@ -1,8 +1,9 @@
-import { Component, AfterViewInit, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { Route, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder,FormControl, FormGroup } from '@angular/forms';
+import {  Router } from '@angular/router';
 import { faL } from '@fortawesome/free-solid-svg-icons';
 import { UserDataService } from 'src/app/user-data.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-update-info',
@@ -10,7 +11,7 @@ import { UserDataService } from 'src/app/user-data.service';
   styleUrls: ['./update-info.component.css']
 })
 export class UpdateInfoComponent implements OnInit {
-   persolHistroyForm:FormGroup=new FormGroup({});
+  
   form: FormGroup = new FormGroup({});
  
   constructor(private userData: UserDataService, private fb: FormBuilder,private route:Router) {
@@ -73,7 +74,30 @@ export class UpdateInfoComponent implements OnInit {
         cesareanSection:[false],
         stomachSurgery:[false],
       }),
-
+      personalAllergiesHistory: this.fb.group({
+        foodAllergies: [false],
+        drugAllergies: [false],
+        dustAllergies: [false],
+        petAllergies: [false],
+        temperatureChanges: [false],
+        seasonalAllergies: [false],
+        pollutionAllergy: [false],
+        moldAllergies: [false],
+      }),
+      familyMedicalHistory: this.fb.group({
+        cancer: [false],
+        anemia: [false],
+        highBloodPressure: [false],
+        diabetes: [false],
+        anesthesiaReaction: [false],
+        bloodClots: [false],
+        bleedingProblems: [false],
+        heartDisease: [false],
+        hepatitis: [false],
+        stroke: [false],
+        kidneyDisease: [false],
+        endocrineProblems: [false],
+      }),
     })
 
 
@@ -84,7 +108,8 @@ export class UpdateInfoComponent implements OnInit {
   ngOnInit(): void {
     this.userData.getUserData().subscribe({
       next: (response) => {
-        this.data = response
+        this.data = response   
+        console.log(this.data);
         this.form.patchValue({
           firstName: this.data.firstName,
           lastName: this.data.lastName,
@@ -98,7 +123,7 @@ export class UpdateInfoComponent implements OnInit {
           bloodType: this.data.bloodType,
           personalMedicalHistory: {
             anemia: this.data.personalMedicalHistory?.anemia ?? false,
-            arthritis: this.data.personalMedicalHistory?.arthirits??false,
+            arthritis: this.data.personalMedicalHistory?.arthritis??false,
             asthma: this.data.personalMedicalHistory?.asthma??false,
             cancer: this.data.personalMedicalHistory?.cancer??false,
             chronicObstructive: this.data.personalMedicalHistory?.chronicObstructive??false,
@@ -143,178 +168,52 @@ export class UpdateInfoComponent implements OnInit {
             uterusSurgery:this.data.personalSurgicalHistory?.uterusSurgery??false,
             cesareanSection:this.data.personalSurgicalHistory?.cesareanSection??false,
             stomachSurgery:this.data.personalSurgicalHistory?.stomachSurgery??false,
+          },
+          personalAllergiesHistory:{
+            foodAllergies:this.data.personalAllergiesHistory?.foodAllergies??false,
+            drugAllergies:this.data.personalAllergiesHistory?.drugAllergies??false,
+            dustAllergies:this.data.personalAllergiesHistory?.dustAllergies??false,
+            petAllergies: this.data.personalAllergiesHistory?.petAllergies?? false,
+            temperatureChanges:this.data.personalAllergiesHistory?.temperatureChanges??false,
+            seasonalAllergies:this.data.personalAllergiesHistory?.seasonalAllergies??false,
+            pollutionAllergy:this.data.personalAllergiesHistory?.pollutionAllergy??false,
+            moldAllergies:this.data.personalAllergiesHistory?.moldAllergies??false,
+          },
+          familyMedicalHistory:{
+            cancer: this.data.familyMedicalHistory?.cancer??false,
+            anemia: this.data.familyMedicalHistory?.anemia??false,
+            highBloodPressure: this.data.familyMedicalHistory?.highBloodPressure??false,
+            diabetes: this.data.familyMedicalHistory?.diabetes??false,
+            anesthesiaReaction: this.data.familyMedicalHistory?.anesthesiaReaction??false,
+            bloodClots: this.data.familyMedicalHistory?.bloodClots??false,
+            bleedingProblems: this.data.familyMedicalHistory?.bleedingProblems??false,
+            heartDisease: this.data.familyMedicalHistory?.heartDisease??false,
+            hepatitis: this.data.familyMedicalHistory?.hepatitis??false,
+            stroke: this.data.familyMedicalHistory?.stroke??false,
+            kidneyDisease: this.data.familyMedicalHistory?.kidneyDisease??false,
+            endocrineProblems: this.data.familyMedicalHistory?.endocrineProblems??false,
+          },
+          emergencyContacts:[{
+            address:this.data.emergencyContacts[0].address,
+            firstName:this.data.emergencyContacts[0].firstName,
+            lastName:this.data.emergencyContacts[0].lastName,
+            phone:this.data.emergencyContacts[0].phone
+
+          },
+          {
+            address:this.data.emergencyContacts[1].address,
+            lastName:this.data.emergencyContacts[1].lastName,
+            firstName:this.data.emergencyContacts[1].firstName,
+            phone:this.data.emergencyContacts[1].phone
           }
+        ]
+          
         })
 
       }
     })
+    
   }
-
-  //   ngAfterViewInit() {
-  //     this.form = new FormGroup({
-  //       anemia:new FormControl(this.data.personalMedicalHistory.anemia),
-  //       arthritis:new FormControl(this.data.personalMedicalHistory.arthirits),
-  //       asthma:new FormControl(this.data.personalMedicalHistory.asthma),
-  //       cancer:new FormControl(this.data.personalMedicalHistory.cancer),
-  //       chronicObstructive:new FormControl(this.data.personalMedicalHistory.chronicObstructive),
-  //       heartDisease:new FormControl(this.data.personalMedicalHistory.heartDisease),
-  //       clottingDisorder:new FormControl(this.data.personalMedicalHistory.clottingDisorder),
-  //       congestiveHeartFailure:new FormControl(this.data.personalMedicalHistory.congestiveHeartFailure),
-  //       crohnsDisease:new FormControl(this.data.personalMedicalHistory.crohnsDisease),
-  //       depression:new FormControl(this.data.personalMedicalHistory.depression),
-  //       diabetes:new FormControl(this.data.personalMedicalHistory.diabetes),
-  //       emphysema:new FormControl(this.data.personalMedicalHistory.emphysema),
-  //       endocrineProblems:new FormControl(this.data.personalMedicalHistory.endocrineProblems),
-  //       GERD:new FormControl(this.data.personalMedicalHistory.GERD),
-  //       glaucoma:new FormControl(this.data.personalMedicalHistory.glaucoma),
-  //       hepatitis:new FormControl(this.data.personalMedicalHistory.hepatitis),
-  //       HIV_AIDS:new FormControl(this.data.personalMedicalHistory.HIV_AIDS),
-  //       hypertension:new FormControl(this.data.personalMedicalHistory.hypertension),
-  //       kidneyDiseas:new FormControl(this.data.personalMedicalHistory.kidneyDiseas),
-  //       myocardialInfarction:new FormControl(this.data.personalMedicalHistory.myocardialInfarction),
-  //       pepticUlcerDisease:new FormControl(this.data.personalMedicalHistory.pepticUlcerDisease),
-  //       seizures:new FormControl(this.data.personalMedicalHistory.seizures),
-  //       stroke:new FormControl(this.data.personalMedicalHistory.stroke),
-  //       ulcerativeColitis:new FormControl(this.data.personalMedicalHistory.ulcerativeColitis),
-
-  //       adrenal:new FormControl(null),
-  //       colon:new FormControl(null),
-  //       KidneySurgery:new FormControl(null),
-  //       Appendectomy:new FormControl(null),
-  //       ArterySurgery:new FormControl(null),
-  //       NeckSurgery:new FormControl(null),
-  //       ThyroidSurgery:new FormControl(null),
-  //       Esophagus:new FormControl(null),
-  //       Prostate:new FormControl(null),
-  //       Bladder:new FormControl(null),
-  //       LargeIntestineSurgery:new FormControl(null),
-  //       GastricBypassSurgery:new FormControl(null),
-  //       LungsSurgery:new FormControl(null),
-  //       SmallIntestineSurgery:new FormControl(null),
-  //       BreastSurgery:new FormControl(null),
-  //       Hemorrhoid:new FormControl(null),
-  //       Spine:new FormControl(null),
-  //       Utrus:new FormControl(null),
-  //       Cesarean:new FormControl(null),
-  //       Stomach:new FormControl(null),
-
-
-  //       FoodAllergies:new FormControl(null),
-  //       DrugAllergies:new FormControl(null),
-  //       DustAllergies:new FormControl(null),
-  //       PetAllergies:new FormControl(null),
-  //       TempretureChanges:new FormControl(null),
-  //       SeasonalAllergies:new FormControl(null),
-  //       PollutionAllergy:new FormControl(null),
-  //       MoldAllergies:new FormControl(null),
-
-
-  //       fm_Cancer:new FormControl(null),
-  //       fm_Animia:new FormControl(null),
-  //       fm_High_Blood:new FormControl(null),
-  //       fm_Diabetes:new FormControl(null),
-  //       fm_Anesthesia:new FormControl(null),
-  //       fm_BloodClots:new FormControl(null),
-  //       fm_Bleeding:new FormControl(null),
-  //       fm_HeartDisease:new FormControl(null),
-  //       fm_Hepatitis:new FormControl(null),
-  //       fm_Stroke:new FormControl(null),
-  //       fm_KidneyDisease:new FormControl(null),
-  //       fm_Endocrine:new FormControl(null),
-  //     });
-
-  //     // const table = document.getElementById('modalTable');
-  //     // const tdElements = table?.querySelectorAll('td');
-  //     // tdElements?.forEach(td => {
-  //     //   const iElement = td.querySelector('i.fa-check');
-  //     //   if (iElement) {
-  //     //     const checkbox = document.createElement('input');
-  //     //     checkbox.type = 'checkbox';
-  //     //     checkbox.checked = true;
-  //     //     td.replaceChild(checkbox, iElement);
-  //     //   } else {
-  //     //     const labelElement = td.querySelector('label');
-  //     //     if (labelElement) {
-  //     //       const checkbox = document.createElement('input');
-  //     //       checkbox.type = 'checkbox';
-  //     //       td.insertBefore(checkbox, labelElement);
-  //     //     } else {
-  //     //       const checkbox = document.createElement('input');
-  //     //       checkbox.type = 'checkbox';
-  //     //       td.appendChild(checkbox);
-  //     //     }
-  //     //   }
-  //     // });
-
-
-  //     // const table2 = document.getElementById('modalTable2');
-  //     // const tdElements2 = table2?.querySelectorAll('td');
-  //     // tdElements2?.forEach(td => {
-  //     //   const iElement = td.querySelector('i.fa-check');
-  //     //   if (iElement) {
-  //     //     const checkbox = document.createElement('input');
-  //     //     checkbox.type = 'checkbox';
-  //     //     checkbox.checked = true;
-  //     //     td.replaceChild(checkbox, iElement);
-  //     //   } else {
-  //     //     const labelElement = td.querySelector('label');
-  //     //     if (labelElement) {
-  //     //       const checkbox = document.createElement('input');
-  //     //       checkbox.type = 'checkbox';
-  //     //       td.insertBefore(checkbox, labelElement);
-  //     //     } else {
-  //     //       const checkbox = document.createElement('input');
-  //     //       checkbox.type = 'checkbox';
-  //     //       td.appendChild(checkbox);
-  //     //     }
-  //     //   }
-  //     // });
-  //     // const table3 = document.getElementById('modalTable3');
-  //     // const tdElements3 = table3?.querySelectorAll('td');
-  //     // tdElements3?.forEach(td => {
-  //     //   const iElement = td.querySelector('i.fa-check');
-  //     //   if (iElement) {
-  //     //     const checkbox = document.createElement('input');
-  //     //     checkbox.type = 'checkbox';
-  //     //     checkbox.checked = true;
-  //     //     td.replaceChild(checkbox, iElement);
-  //     //   } else {
-  //     //     const labelElement = td.querySelector('label');
-  //     //     if (labelElement) {
-  //     //       const checkbox = document.createElement('input');
-  //     //       checkbox.type = 'checkbox';
-  //     //       td.insertBefore(checkbox, labelElement);
-  //     //     } else {
-  //     //       const checkbox = document.createElement('input');
-  //     //       checkbox.type = 'checkbox';
-  //     //       td.appendChild(checkbox);
-  //     //     }
-  //     //   }
-  //     // });
-  //   //   const table4 = document.getElementById('modalTable4');
-  //   //   const tdElements4 = table4?.querySelectorAll('td');
-  //   //   tdElements4?.forEach(td => {
-  //   //     const iElement = td.querySelector('i.fa-check');
-  //   //     if (iElement) {
-  //   //       const checkbox = document.createElement('input');
-  //   //       checkbox.type = 'checkbox';
-  //   //       checkbox.checked = true;
-  //   //       td.replaceChild(checkbox, iElement);
-  //   //     } else {
-  //   //       const labelElement = td.querySelector('label');
-  //   //       if (labelElement) {
-  //   //         const checkbox = document.createElement('input');
-  //   //         checkbox.type = 'checkbox';
-  //   //         td.insertBefore(checkbox, labelElement);
-  //   //       } else {
-  //   //         const checkbox = document.createElement('input');
-  //   //         checkbox.type = 'checkbox';
-  //   //         td.appendChild(checkbox);
-  //   //       }
-  //   //     }
-  //   //   });
-  //  }
-
   isUpdated: boolean = false
   updateInfo(form: FormGroup) {
     console.log(form.value);
@@ -322,7 +221,6 @@ export class UpdateInfoComponent implements OnInit {
     this.userData.updateInfo(form.value).subscribe({
       next: (response) => {
         if (response.message === "updated successfully") {
-          this.isUpdated = true;
           this.ngOnInit()
         }
       }
@@ -334,5 +232,21 @@ export class UpdateInfoComponent implements OnInit {
         this.route.navigate(['/login'])
       }
     })
+  }
+  save(form:FormGroup){
+    Swal.fire({
+      title: "Do you want to save the changes?",
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: "Save",
+      denyButtonText: `Don't save`
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.updateInfo(form)
+        Swal.fire("Saved!", "", "success");
+      } else if (result.isDenied) {
+        Swal.fire("Changes are not saved", "", "info");
+      }
+    });
   }
 }
