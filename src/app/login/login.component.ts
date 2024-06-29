@@ -22,7 +22,7 @@ export class LoginComponent {
         if(response.message === "Sign in successful"){
           localStorage.setItem('Authorization',"Bearer "+response.token)
           this._service.decodeToken()
-          this.router.navigate(['/profile'])
+          this.router.navigate(['/UserProfile/profile'])
         }
         },
       error:(err)=>console.log(err),

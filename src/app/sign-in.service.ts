@@ -37,4 +37,12 @@ export class SignInService {
   adminLogin(adminData:any):Observable<any>{
    return this._httpClient.post("http://localhost:3000/admin/signIN",adminData)
   }
+
+  clinicLogin(clinicData:any):Observable<any>{
+     return this._httpClient.post("http://localhost:3000/clinics/signIn",clinicData)
+  }
+
+  labLogin(labData:any):Observable<any>{
+    return this._httpClient.post("http://localhost:3000/labs/signIn",labData)
+ }
 }

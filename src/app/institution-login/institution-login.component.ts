@@ -15,6 +15,13 @@ export class InstitutionLoginComponent {
     password:new FormControl(null,[Validators.required]),
   })
 
-
+signIn(clinicData:any){
+   this._service.clinicLogin(clinicData).subscribe({
+    next:(response)=>{
+      this.router.navigate(["/clinic/Home"])
+    }
+   })
+}
 
 }
+

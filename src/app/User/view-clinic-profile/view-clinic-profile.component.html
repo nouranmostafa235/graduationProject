@@ -1,1 +1,100 @@
-<p>view-clinic-profile works!</p>
+
+<div class="home mt-5 p-5">
+    <div class="row">
+        <div class="col-sm-5">
+            <h1 class="title">{{Info.name}}</h1>
+            <p class="text-justify lh-lg ">{{Info.about}}</p>
+        </div>
+        <div class="col-sm-6 image text-center ms-auto me-5">
+            <img src="assets/imgs/images.png"  class="img-thumbnail rounded-circle">
+        </div>
+    </div>
+</div> 
+
+<div class="branches mt-5 p-5">
+    <h2 class="text-center title">OUR BRANCHES</h2>
+    <div class="row p-5">
+
+        <div *ngFor="let i of Info.branches" class="col-sm-12 hoverable text-center rounded-3 p-5">
+            <i class="fa-solid fa-building fa-7x icon" style="color: #010f1a;"></i>
+            <div class="branch mt-5">
+             <h5 class="fw-bold branchName">{{i.name}}</h5>
+             <p class="fw-lighter"><i class="fa-solid fa-location-dot" style="color: #7f7fad;"></i> {{i.address}}</p>
+             <p class="fw-lighter"><i class="fa-solid fa-phone" style="color: #7f7fad;"></i> {{i.phone}}</p>
+            </div>
+         </div>
+
+    </div>
+</div>
+
+<div class="rating mt-5 p-5 text-center " >
+    <h2 class="text-center title">RATING </h2>
+    <div class="stars p-5">
+        <h3 class="fs-2 fw-bold">
+            4.5
+        </h3>
+        <p class="fw-lighter ">Out of 5</p>
+        <i class="fa-solid fa-star-half-stroke fs-4" *ngIf="rate>0 && rate<1" style="color: #FFD43B;"></i>
+        <i class="fa-regular fa-star fs-4" *ngIf="rate==0" style="color: #FFD43B;"></i>
+        <i class="fa-solid fa-star fs-4" *ngIf="rate>=1" style="color: #FFD43B;"></i>
+    
+        <i class="fa-solid fa-star-half-stroke fs-4" *ngIf="rate>1 && rate<2" style="color: #FFD43B;"></i>
+        <i class="fa-regular fa-star fs-4" *ngIf="rate<=1" style="color: #FFD43B;"></i>
+        <i class="fa-solid fa-star fs-4" *ngIf="rate >=2" style="color: #FFD43B;"></i>
+    
+        <i class="fa-solid fa-star-half-stroke fs-4" *ngIf="rate>2 && rate<3" style="color: #FFD43B;"></i>
+        <i class="fa-regular fa-star fs-4" *ngIf="rate<=2" style="color: #FFD43B;"></i>
+        <i class="fa-solid fa-star fs-4" *ngIf="rate >=3" style="color: #FFD43B;"></i>
+    
+        <i class="fa-solid fa-star-half-stroke fs-4" *ngIf="rate>3 && rate<4" style="color: #FFD43B;"></i>
+        <i class="fa-regular fa-star fs-4" *ngIf="rate<=3" style="color: #FFD43B;"></i>
+        <i class="fa-solid fa-star fs-4" *ngIf="rate >=4" style="color: #FFD43B;"></i>
+    
+        <i class="fa-solid fa-star-half-stroke fs-4" *ngIf="rate>4 && rate<5" style="color: #FFD43B;"></i>
+        <i class="fa-regular fa-star fs-4" *ngIf="rate<=4" style="color: #FFD43B;"></i>
+        <i class="fa-solid fa-star fs-4" *ngIf="rate >=5" style="color: #FFD43B;"></i>
+ 
+
+     </div>
+</div>
+<div class="footer">
+    <div class="left-footer">
+        <div class="footer-icon">
+            <h2>{{Info.name}}</h2>
+        </div>
+        <div class="footer-caption ">
+            <p>{{Info.about}}</p>
+        </div>
+        <div class="footer-social-media">
+           <h3 >Social Media</h3>
+           <div class="line"></div>
+           <div class="social-icons">
+            <h4 *ngFor="let i of Info.socialMedia"><a [href]="i.link"><i [class]="'fa-brands fa-'+i.platform.toLowerCase()" style="color: #ffffff;" ></i></a></h4>
+           </div>
+        </div>
+    </div>
+    <div class="middle-footer">
+        <div class="middle-caption">
+            <h3 class="fw-bold">Opening Hours</h3>
+            <p>Don't miss out on our latest menu updates and exclusive offers - join our newsletter today and stay up-to-date with all things Mealify!</p>
+        </div>
+        <h3 class="list-caption">Mon-Sat: 11AM - 23PM; Sunday : Closed</h3>
+ 
+    </div>
+    <div class="right-footer">
+        <h3 class="fw-bold">Contact Us</h3>
+        <ul>
+            <li>
+               <a href=""><h4><i class="fa-solid fa-envelope" style="color: #FD4E20;"></i></h4> </a> 
+               <a href=""><p>contact@example.com</p></a>
+            </li>
+            <li *ngFor="let i of Info.branches">
+                <a href=""><h4><i class="fa-solid fa-phone" style="color: #FD4E20"></i></h4></a>
+                <a href=""><p>{{i.phone}}</p></a>
+            </li>
+        </ul>
+    </div>
+    
+</div>
+
+

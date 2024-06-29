@@ -28,7 +28,7 @@ export class UserDataService {
  pending():Observable<any>{
   return this.http.get("http://localhost:3000/users/numOfNotification",{headers:this.header})
  }
- labnotifications():Observable<any>{
+ medicalAnalysisnotifications():Observable<any>{
   return this.http.get("http://localhost:3000/notifications/getPendingMedicalAnalysis",{headers:this.header})
  }
  clinicnotification():Observable<any>{
@@ -39,5 +39,17 @@ export class UserDataService {
  }
  getClinicById(id:any):Observable<any>{
   return this.http.get(`http://localhost:3000/clinics/${id}`)
+ }
+ acceptMedicalAnalysisFiles(id:any):Observable<any>{
+  return this.http.post(`http://localhost:3000/notifications/acceptMedicalAnalysis/${id}`,{},{headers:this.header})
+ }
+ acceptClinicFiles(id:any):Observable<any>{
+  return this.http.post(`http://localhost:3000/notifications/acceptClinic/${id}`,{},{headers:this.header})
+ }
+ rejectMedicalAnalysisFiles(id:any):Observable<any>{
+  return this.http.post(`http://localhost:3000/notifications/rejectMedicalAnalysis/${id}`,{},{headers:this.header})
+ }
+ rejectClinicFiles(id:any):Observable<any>{
+  return this.http.post(`http://localhost:3000/notifications/rejectClinic/${id}`,{},{headers:this.header})
  }
 }

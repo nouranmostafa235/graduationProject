@@ -29,7 +29,7 @@
       </nav>
     <div class="col-md-7 mx-auto">
 
-        <form class="login_form mb-5  col-sm-10 mx-auto"[formGroup]="login">
+        <form class="login_form mb-5  col-sm-10 mx-auto"[formGroup]="login" (ngSubmit)="signIn(login)">
             <div class="row">
                 <div class="row pe-0">
                     <div class="col-md-12 pe-0">

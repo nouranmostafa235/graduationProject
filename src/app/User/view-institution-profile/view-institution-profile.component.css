@@ -2,15 +2,6 @@
     overflow: hidden;
 }
 
-body {
-    background-color: #ffff;
-}
-
-.navbar {
-    background-color: #010F1A;
-    z-index: 10000;
-}
-
 span {
     color: var(--orangeColor);
 }

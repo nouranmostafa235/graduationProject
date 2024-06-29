@@ -1,0 +1,127 @@
+<div class="row me-0">
+ <nav class="navbar navbar-expand-sm fixed-top mb-5" id="navbar">
+    <div class="container">
+        <img src="assets/imgs/logo2.jpg" class="me-2" alt="">
+        <a class="navbar-brand mt-1" routerLink="/home">Rapid<span>R</span>x</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+            <ul class="nav nav-underline ms-auto  mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link  me-2" aria-current="page" routerLink="/UserProfile/changePassword">Change Password</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link me-2" routerLink="/UserProfile/updataInfo">Update Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/UserProfile/predictDisease">Predict Diabetes</a>
+                </li>
+            </ul>
+            <ul class="nav nav-underline ms-auto">
+                <li>
+                    <div class="dropdown me-3">
+                        <a class="nav-link position-relative dropdown-toggle" data-bs-auto-close="outside" href="#"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-bell"></i>
+                            <p class="notNum" *ngIf="notificationNum>0">{{ notificationNum }}</p>
+                        </a>
+
+                        <ul class="dropdown-menu custom-dropdown-menu p-4 ">
+                            <li>
+                                <P class="fw-bold">NOTIFICATIONS</P>
+                            </li>
+                            <li class="dropdown-submenu mb-5">
+
+                                <a class="dropdown-item dropdown-toggle text-center" data-bs-auto-close="outside"
+                                    role="button" data-bs-toggle="dropdown">
+                                    <i class="fa-solid fa-flask"></i> MEDICAL ANALYSIS
+                                </a>
+
+                                <ul class="dropdown-menu ">
+                                    <li *ngFor="let i of Info; let idx=index" class="dropdown-submenu">
+                                        <a class="dropdown-item dropdown-toggle" role="button"
+                                            data-bs-toggle="dropdown">
+                                            {{i.name}}
+                                            <a class="subanchor ms-5"
+                                                (click)="viewlab(MedicalAnalysis[idx].id)"><i
+                                                    class="fa-solid fa-eye ms-5 me-3"></i></a>
+                                        </a>
+
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a class="dropdown-item">
+                                                    <i class="fa-solid fa-file-pdf"></i> <a class="subanchor me-5"
+                                                        [href]="MedicalAnalysis[idx].pdfPath" target="_blank">
+                                                        {{MedicalAnalysis[idx].pdfPath}}</a>
+                                                    <a  (click)="acceptMedicalAnalysisFiles(i.name,MedicalAnalysis[idx]._id)"><i class="fa-solid fa-check me-3 icon"></i></a>
+                                                    <a (click)="rejectMedicalAnalysisFiles(i.name ,MedicalAnalysis[idx]._id)">
+                                                          <i class="fa-solid fa-x icon"></i>
+                                                    </a>
+                                                  
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                </ul>
+                            </li>
+
+                            <li class="dropdown-submenu ">
+
+                                <a class="dropdown-item dropdown-toggle text-center" data-bs-auto-close="outside"
+                                    role="button" data-bs-toggle="dropdown">
+                                    <i class="fa-solid fa-house-chimney-medical"></i> DIAGNOSES
+                                </a>
+
+                                <ul class="dropdown-menu ">
+                                    <li *ngFor="let i of clinicInfo; let idx=index" class="dropdown-submenu">
+                                        <a class="dropdown-item dropdown-toggle" role="button"
+                                            data-bs-toggle="dropdown">
+                                            {{i.name}}
+                                            <a class="subanchor " (click)="viewclinic(diagnosis[idx].clinic)"><i
+                                                    class="fa-solid fa-eye ms-5 me-3"></i></a>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a class="dropdown-item">
+                                                    <i class="fa-solid fa-file-pdf"></i>
+                                                    <a class="subanchor me-5"
+                                                        (click)="openPdf(diagnosis[idx].pdfPath)" target="_blank"
+                                                        download="lab-medical-analysis.pdf">
+                                                        {{diagnosis[idx].pdfPath}}</a>
+                                                        <a class="icon" (click)="acceptDiagnosesFiles(i.name,diagnosis[idx]._id)"> <i class="fa-solid fa-check ms-4 me-3"></i></a>
+                                                        <a class="icon" (click)="rejectDiagnosesFiles(i.name,diagnosis[idx]._id)"><i class="fa-solid fa-x"></i></a>
+                                                    
+                                                </a>
+                                            </li>
+
+                                        </ul>
+                                    </li>
+
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item me-2">
+                    <div class="smallImage d-flex " routerLink="/UserProfile/profile">
+                        <img src="assets/imgs/download.jpeg" alt="">
+                        <a class="ms-2 nav-link active" aria-current="page">{{ data.firstName }}</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)="logOut()">LogOut</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>   
+<router-outlet></router-outlet>
+</div>
+

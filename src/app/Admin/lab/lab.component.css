@@ -45,6 +45,9 @@
     text-decoration: none;
   }
   .form {
+    margin-top: 60px;
+  }
+  .seachBar{
     margin-top: 120px;
   }
   .smallImage img {

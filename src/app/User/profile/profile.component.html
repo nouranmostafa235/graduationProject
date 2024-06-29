@@ -1,5 +1,5 @@
 <div class="row me-0">
-    <nav class="navbar navbar-expand-sm fixed-top mb-5" id="navbar">
+    <!-- <nav class="navbar navbar-expand-sm fixed-top mb-5" id="navbar">
         <div class="container">
             <img src="assets/imgs/logo2.jpg" class="me-2" alt="">
             <a class="navbar-brand mt-1" routerLink="/home">Rapid<span>R</span>x</a>
@@ -57,7 +57,7 @@
                                                         <i class="fa-solid fa-file-pdf"></i> <a class="subanchor me-5"
                                                             [href]="labMedicalAnalysis[idx].pdfPath" target="_blank">
                                                             {{labMedicalAnalysis[idx].pdfPath}}</a>
-                                                        <a  (click)="accept(i.name)"><i class="fa-solid fa-check me-3 icon"></i></a>
+                                                        <a  (click)="acceptLabFiles(i.name,labMedicalAnalysis[idx]._id)"><i class="fa-solid fa-check me-3 icon"></i></a>
                                                         <i class="fa-solid fa-x"></i>
                                                     </a>
                                                 </li>
@@ -72,7 +72,7 @@
                                     <a class="dropdown-item dropdown-toggle text-center" data-bs-auto-close="outside"
                                         role="button" data-bs-toggle="dropdown">
                                         <i class="fa-solid fa-house-chimney-medical"></i> CLINIC
-                                        <!-- <a class="subanchor ms-3" (click)="view(labMedicalAnalysis[idx].lab)"><i class="fa-solid fa-eye"></i></a> -->
+                                      
                                     </a>
 
                                     <ul class="dropdown-menu ">
@@ -91,7 +91,7 @@
                                                             (click)="openPdf(diagnosis[idx].pdfPath)" target="_blank"
                                                             download="lab-medical-analysis.pdf">
                                                             {{diagnosis[idx].pdfPath}}</a>
-                                                            <a class="icon" (click)="accept(i.name)"> <i class="fa-solid fa-check ms-4 me-3"></i></a>
+                                                            <a class="icon" (click)="acceptClinicFiles(i.name,diagnosis[idx]._id)"> <i class="fa-solid fa-check ms-4 me-3"></i></a>
                                                         <i
                                                             class="fa-solid fa-x"></i>
                                                     </a>
@@ -119,7 +119,7 @@
 
             </div>
         </div>
-    </nav>
+    </nav> -->
 
     <div class="col-sm-10 mx-auto">
         <div class="info ps-2 pt-5 pb-5 first_section form ">

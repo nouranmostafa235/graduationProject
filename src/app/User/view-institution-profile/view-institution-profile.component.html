@@ -1,23 +1,9 @@
-<body>
-   <nav class="navbar navbar-expand-lg fixed-top " id="navbar">
-    <div class="container">
-        <img src="assets/imgs/logo2.png" class="me-2 logo" alt="">
-        <a class="navbar-brand mt-1" routerLink="/home">Rapid<span>R</span>x</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class=" collapse navbar-collapse" id="navbarSupportedContent">
-        </div>
-    </div>
-</nav>
+
 <div class="home mt-5 p-5">
     <div class="row">
         <div class="col-sm-5">
-            <h1 class="title">ALPHA LAB</h1>
-            <p class="text-justify lh-lg ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, nemo. Lorem ipsum dolor sit amet
-                consectetur adipisicing elit. Obcaecati ex minus dolores earum reprehenderit quod explicabo doloribus
-                atque suscipit fuga labore officia dolor qui, laudantium voluptates? Culpa, aut. Cumque, saepe?</p>
+            <h1 class="title">{{Info.name}}</h1>
+            <p class="text-justify lh-lg ">{{Info.about}}</p>
         </div>
         <div class="col-sm-6 image text-center ms-auto me-5">
             <img src="assets/imgs/images.png"  class="img-thumbnail rounded-circle">
@@ -28,29 +14,16 @@
 <div class="branches mt-5 p-5">
     <h2 class="text-center title">OUR BRANCHES</h2>
     <div class="row p-5">
-        <div class="col-sm-4 hoverable text-center rounded-3 p-5">
-           <i class="fa-solid fa-building fa-7x icon" style="color: #010f1a;"></i>
-           <div class="branch mt-5">
-            <h5>Shoubra</h5>
-            <p class="">address: Lorem ipsum dolor sit amet consectetur.</p>
-           </div>
-        </div>
 
-        <div class="col-sm-4 hoverable text-center rounded-3 p-5">
+        <div *ngFor="let i of Info.branches" class="col-sm-12 hoverable text-center rounded-3 p-5">
             <i class="fa-solid fa-building fa-7x icon" style="color: #010f1a;"></i>
             <div class="branch mt-5">
-             <h5>Shoubra</h5>
-             <p>address: Lorem ipsum dolor sit amet consectetur.</p>
+             <h5 class="fw-bold branchName">{{i.name}}</h5>
+             <p class="fw-lighter"><i class="fa-solid fa-location-dot" style="color: #7f7fad;"></i> {{i.address}}</p>
+             <p class="fw-lighter"><i class="fa-solid fa-phone" style="color: #7f7fad;"></i> {{i.phone}}</p>
             </div>
          </div>
 
-         <div class="col-sm-4 hoverable text-center rounded-3 p-5">
-            <i class="fa-solid fa-building fa-7x icon" style="color: #010f1a;"></i>
-            <div class="branch mt-5">
-             <h5>Shoubra</h5>
-             <p>address: Lorem ipsum dolor sit amet consectetur.</p>
-            </div>
-         </div>
     </div>
 </div>
 
@@ -87,19 +60,16 @@
 <div class="footer">
     <div class="left-footer">
         <div class="footer-icon">
-            <h2>ALPHA LAB</h2>
+            <h2>{{Info.name}}</h2>
         </div>
         <div class="footer-caption ">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+            <p>{{Info.about}}</p>
         </div>
         <div class="footer-social-media">
-           <h3>Social Media</h3>
+           <h3 >Social Media</h3>
            <div class="line"></div>
            <div class="social-icons">
-            <h4><i class="fa-brands fa-twitter" style="color: #ffffff;"></i></h4>
-            <h4><i class="fa-brands fa-facebook-f" style="color: #ffffff;"></i></h4>
-             <h4><i class="fa-brands fa-instagram" style="color: #ffffff;"></i></h4>   
-              <h4> <i class="fa-brands fa-linkedin" style="color: #ffffff;"></i></h4>  
+            <h4 *ngFor="let i of Info.socialMedia"><a [href]="i.link"><i [class]="'fa-brands fa-'+i.platform.toLowerCase()" style="color: #ffffff;" ></i></a></h4>
            </div>
         </div>
     </div>
@@ -118,24 +88,13 @@
                <a href=""><h4><i class="fa-solid fa-envelope" style="color: #FD4E20;"></i></h4> </a> 
                <a href=""><p>contact@example.com</p></a>
             </li>
-            <li>
+            <li *ngFor="let i of Info.branches">
                 <a href=""><h4><i class="fa-solid fa-phone" style="color: #FD4E20"></i></h4></a>
-                <a href=""><p>01114855965</p></a>
-            </li>
-            <li>
-                <a href=""><h4><i class="fa-solid fa-phone" style="color: #FD4E20"></i></h4></a>
-                <a href=""><p>01114855965</p></a>
+                <a href=""><p>{{i.phone}}</p></a>
             </li>
         </ul>
     </div>
     
 </div>
-<!-- <div class="contact mt-5 p-5 text-center">
-<h2 class="text-center title">CONTACT US </h2>
-<div class="row">
-    <div class="col-sm-6">
 
-    </div>
-</div>
-</div> -->
-</body>
+

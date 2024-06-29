@@ -31,6 +31,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ViewInstitutionProfileComponent } from './User/view-institution-profile/view-institution-profile.component';
 import { ViewClinicProfileComponent } from './User/view-clinic-profile/view-clinic-profile.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { UserNavBarComponent } from './User/user-nav-bar/user-nav-bar.component';
+import { SearchLabsPipe } from './Pipes/search-labs.pipe';
+import { SearchClinicPipe } from './Pipes/search-clinic.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,6 +59,9 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     ClinicHomePageComponent,
     ViewInstitutionProfileComponent,
     ViewClinicProfileComponent,
+    UserNavBarComponent,
+    SearchLabsPipe,
+    SearchClinicPipe,
   ],
   imports: [
     BrowserModule,

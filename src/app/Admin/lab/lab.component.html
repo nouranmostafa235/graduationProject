@@ -8,7 +8,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form class="form-control" [formGroup]="labForm" (ngSubmit)="addlab(labForm)">
+                <form class="form-control" [formGroup]="labForm" (ngSubmit)="save()">
                     <label for="" class="form-label">Lab Name</label>
                     <input type="text" class="form-control mb-3" name="" formControlName="name" placeholder="Lab Name">
 
@@ -81,6 +81,89 @@
 </div>
 <!-- End Modal -->
 
+<!-- Edit Modal -->
+<div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabe2" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+        <div class="modal-content border-0">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabe2">Edit Lab</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form class="form-control" [formGroup]="editLabform" (ngSubmit)="saveEdits(labId)" >
+                    <label for="" class="form-label">Lab Name</label>
+                    <input type="text" class="form-control mb-3" name="" formControlName="name" placeholder="Lab Name">
+
+                    <label for="" class="form-label">UserName</label>
+                    <input type="text" class="form-control mb-3" name="" formControlName="username" placeholder="Lab UserName">
+
+                    <label for="" class="form-label">Password</label>
+                    <input type="password" class="form-control mb-3" name="" formControlName="password"placeholder="Lab Password">
+
+                    <label for="about">About</label>
+                    <textarea name="" class="form-control mb-3" formControlName="about" placeholder="About Lab"></textarea>
+
+                    <div formArrayName="branches">
+                        <div *ngFor="let branch of getBranchesControls(); let i = index" [formGroupName]="i">
+                            <h3>Branch {{ i + 1 }}</h3>
+                            <label>Name:</label>
+                            <input  class="form-control mb-3" formControlName="name" placeholder="Branch Name">
+
+                            <label>Address:</label>
+                            <input  class="form-control mb-3" formControlName="address" placeholder="Branch Address">
+
+                            <label >Phone:</label>
+                            <input  class="form-control mb-3" formControlName="phone" placeholder="Branch Phone">
+
+                            <button type="button" (click)="removeBranchFromEditForm(i)" class="btnn mt-3"><i
+                                    class="fa-solid fa-trash me-1"></i> Remove This Branch</button>
+                        </div>
+                        <button type="button" (click)="addBranchToEditForm()" class="btnn me-3 mt-3"><i
+                                class="fa-solid fa-plus me-1"></i> Add New Branch</button>
+                    </div>
+                    <hr>
+                    <div formArrayName="contactNumbers">
+                        <div *ngFor="let contact of getContactNumbersControls(); let i = index">
+                            <label  >Contact Number {{ i + 1 }}:</label>
+                            <input  class="form-control mb-3" [formControlName]="i" placeholder="Contact Number">
+                            <button type="button" class="btnn mt-3" (click)="removeContactNumberFromEditForm(i)"> <i
+                                class="fa-solid fa-trash me-1"></i>Remove This Contact
+                                Number</button>
+                        </div>
+                        <button type="button" class="btnn mt-3"  (click)="addContactNumberToEditForm()"> <i
+                            class="fa-solid fa-plus me-1"></i>Add Contact Number</button>
+                    </div>
+                    <hr>
+                    <div formArrayName="socialMedia">
+                        <div *ngFor="let social of getSocialMediaControls(); let i = index" [formGroupName]="i">
+                          <h3>Social Media {{ i + 1 }}</h3>
+                          <label for="platform{{i}}">Platform:</label>
+                          <input id="platform{{i}}" class="form-control mb-3" formControlName="platform" placeholder="e.g Facbook, Instagram">
+                    
+                          <label for="link{{i}}">Link:</label>
+                          <input id="link{{i}}" class="form-control mb-3" formControlName="link" placeholder="Platform Link">
+                    
+                          <button type="button" class="btnn mt-3" (click)="removeSocialMediaFromEditForm(i)"> <i
+                            class="fa-solid fa-trash me-1"></i>Remove Social Media</button>
+                        </div>
+                        <button type="button" class="btnn mt-3" (click)="addSocialMediaToEditForm()"><i
+                            class="fa-solid fa-plus me-1"></i> Add Social Media</button>
+                      </div>
+
+
+                    <div class="modal-footer">
+                        <button type="button" class="btnn" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btnn ">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- End edit Modal -->
+
 <nav class="navbar navbar-expand-sm fixed-top mb-5" id="navbar">
     <div class="container">
         <img src="assets/imgs/logo2.jpg" class="me-2" alt="">
@@ -109,7 +192,12 @@
     </div>
 </nav>
 <div class="container">
+    <div class="col-sm-6 mx-auto seachBar">
+         <input [(ngModel)]="searchValue" type="search" name="" id="" class="form-control" placeholder="Search By Lab Name...">
+    </div>
+   
     <table class="table table-striped text-center form">
+        
         <thead>
             <tr>
                 <th>
@@ -133,7 +221,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let item of tryarr">
+            <tr *ngFor="let item of tryarr |searchLabs:searchValue">
                 <td scope="row">{{item._id}}</td>
                 <td>{{item.name}}</td>
                 <td>
@@ -151,11 +239,11 @@
                     </ul>
                 </td>
                 <td>
-                    <button class="btn"><i class="fa-solid fa-pen me-1"></i>
+                    <button class="btnn "data-bs-toggle="modal" data-bs-target="#staticBackdrop2" (click)="editRow(item)"><i class="fa-solid fa-pen me-1"></i>
                         Edit</button>
                 </td>
                 <td>
-                    <button class="btn"><i class="fa-solid fa-trash me-1"></i>
+                    <button class="btnn" (click)="confirmDelete(item._id)"><i class="fa-solid fa-trash me-1"></i>
                         Delete</button>
                 </td>
             </tr>

@@ -226,12 +226,8 @@ export class UpdateInfoComponent implements OnInit {
       }
     })
   }
-  logOut() {
-    this.userData.logOut().subscribe({
-      next: (response) => {
-        this.route.navigate(['/login'])
-      }
-    })
+  reload(){
+    location.reload()
   }
   save(form:FormGroup){
     Swal.fire({
@@ -243,7 +239,9 @@ export class UpdateInfoComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         this.updateInfo(form)
-        Swal.fire("Saved!", "", "success");
+        Swal.fire("Saved!", "", "success").then(() => {
+          this.reload();
+        });;
       } else if (result.isDenied) {
         Swal.fire("Changes are not saved", "", "info");
       }

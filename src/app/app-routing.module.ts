@@ -20,6 +20,7 @@ import { LabHomePageComponent } from './Institutions/Labs/lab-home-page/lab-home
 import { ClinicHomePageComponent } from './Institutions/Clinics/clinic-home-page/clinic-home-page.component';
 import { ViewInstitutionProfileComponent } from './User/view-institution-profile/view-institution-profile.component';
 import { ViewClinicProfileComponent } from './User/view-clinic-profile/view-clinic-profile.component';
+import { UserNavBarComponent } from './User/user-nav-bar/user-nav-bar.component';
 
 const routes: Routes = [
   { path: "", redirectTo: 'home', pathMatch: 'full' },
@@ -28,11 +29,11 @@ const routes: Routes = [
   { path: 'medical_info', component: MedicalInfoComponent },
   { path: 'emergency_Contact', component: EmergencyContactComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'profile', component: ProfileComponent },
+  // { path: 'profile', component: ProfileComponent },
   { path: 'familyHistory', component: FamilyHistoryComponent },
-  { path: 'changePassword', component: ChangePasswordComponent },
-  { path: 'updateInfo', component: UpdateInfoComponent },
-  { path: 'predictDisease', component: PredictComponent },
+  // { path: 'changePassword', component: ChangePasswordComponent },
+  // { path: 'updateInfo', component: UpdateInfoComponent },
+  // { path: 'predictDisease', component: PredictComponent },
   { path: 'institutionLogin', component: InstitutionLoginComponent },
   { path: 'adminLogin', component: AdminLoginComponent },
   { path: 'adminHomePage', component: AdminHomePageComponent },
@@ -41,8 +42,17 @@ const routes: Routes = [
   {path:'labLogin',component:LabLoginComponent},
   {path:'lab/Home',component:LabHomePageComponent},
   {path:'clinic/Home',component:ClinicHomePageComponent},
-  {path:'labProfile',component:ViewInstitutionProfileComponent},
+  // {path:'labProfile',component:ViewInstitutionProfileComponent},
+  // {path:'clinicProfile',component:ViewClinicProfileComponent},
+  {path:'UserProfile',component:UserNavBarComponent,children:[
+  {path:"profile",component:ProfileComponent},
+  {path:"updataInfo",component:UpdateInfoComponent},
+  {path:"changePassword",component:ChangePasswordComponent},
+  {path:"predictDisease",component:PredictComponent},
   {path:'clinicProfile',component:ViewClinicProfileComponent},
+  {path:'labProfile',component:ViewInstitutionProfileComponent},
+]},
+
 ];
 
 @NgModule({
