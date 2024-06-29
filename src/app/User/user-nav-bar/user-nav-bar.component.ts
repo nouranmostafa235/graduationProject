@@ -34,15 +34,16 @@ export class UserNavBarComponent implements OnInit {
     this.userData.medicalAnalysisnotifications().subscribe({
       next: (response) => {
         this.MedicalAnalysis = response.pendingMedicalAnalysis
-        for (let i of this.MedicalAnalysis) {
-          if (i.type === "lab") {
+        for (let i of this.MedicalAnalysis) {  
+          console.log(i.type,"---------");
+          if (i.type == "lab") {
             this.userData.getLabById(i.id).subscribe({
               next: (response) => {
                 this.Info.push(response)
               }
             })
           }
-         else{
+         else{          
           this.userData.getClinicById(i.id).subscribe({
             next: (response) => {
               this.Info.push(response)
@@ -131,7 +132,7 @@ export class UserNavBarComponent implements OnInit {
       showCancelButton: true,
       confirmButtonText: 'Confirm',
       footer: `
-        <h4>Rate ${id}</h4>
+        <h4>Rate ${name}</h4>
         <div class="starsRating d-flex justify-content-center align-items-center" style="user-select: none; display: flex; justify-content: center; align-items: center;">
           <button class="star" style="font-size: 2rem; color: #ffd43b; background-color: unset; border: none;">&#9734;</button>
           <button class="star" style="font-size: 2rem; color: #ffd43b; background-color: unset; border: none;">&#9734;</button>

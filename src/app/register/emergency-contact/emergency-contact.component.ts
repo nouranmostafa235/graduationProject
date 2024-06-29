@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormArray, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { response } from 'express';
 import { RegisterationFormService } from 'src/app/registeration-form.service';
 @Component({
   selector: 'app-emergency-contact',
@@ -9,12 +10,27 @@ import { RegisterationFormService } from 'src/app/registeration-form.service';
 })
 export class EmergencyContactComponent {
   form:FormGroup=new FormGroup({});
-  handle(reg:FormGroup){
-      console.log(reg.value)
+  handle(){
+    const formData = this.form.value;
+    formData['profileImage']=this._reg.imageFile
+    // const localStorageValue = localStorage.getItem('uploadedImage');
+    // if (localStorageValue) {
+    //   formData['profileImage'] = localStorageValue;
+    // }
+    this._reg.handlrRegistration(formData).subscribe({
+      next:(response)=>{
+        console.log("---------formm-",formData);
+        console.log( "imageeee",formData['profileImage']);
+        
+      }
+    })
+    
   }
 
-constructor(_reg:RegisterationFormService, private router: Router){
-  this.form=_reg.registerForm;
+constructor(private _reg:RegisterationFormService, private router: Router){
+  this.form=this._reg.registerForm;
 }
-
+  get emergencyContacts(): FormArray {
+    return this.form.get('emergencyContacts') as FormArray;
+  }
 }

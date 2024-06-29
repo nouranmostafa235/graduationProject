@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UserDataService } from 'src/app/user-data.service';
-import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-view-institution-profile',

@@ -29,55 +29,62 @@
       </nav>
     <div class="col-md-8 mx-auto">
 
-        <form (ngSubmit)="handle(form)" [formGroup]="form">
+        <form (ngSubmit)="handle()" [formGroup]="form">
+            
             <p class="firstContact"><i class="fa-solid fa-address-book me-2"></i>First Contact</p>
-            <div class="row">
-                <div class="row pe-0 mb-4">
-                    <div class="col-md-6 pe-0">
-                        <label for="emerfirstname" class="ms-2">First Name</label>
-                        <input type="text" class="form-control" formControlName="firstname1" placeholder="Contact First Name">
+            <div class="row" formArrayName="emergencyContacts">
+                <div [formGroupName]="0">
+                    <div class="row pe-0 mb-4">
+                        <div class="col-md-6 pe-0">
+                            <label for="emerfirstname" class="ms-2">First Name</label>
+                            <input type="text" class="form-control" formControlName="firstName" placeholder="Contact First Name">
+                        </div>
+                        <div class="col-md-6 pe-0 ">
+                            <label for="emerlastname" class="ms-2">Last Name</label>
+                            <input type="text" class="form-control" formControlName="lastName" placeholder="Contact Last Name">
+                        </div>
                     </div>
-                    <div class="col-md-6 pe-0 ">
-                        <label for="emerlastname" class="ms-2">Last Name</label>
-                        <input type="text" class="form-control" formControlName="lastname1" placeholder="Contact Last Name">
+                    <div class="row pe-0 mb-4">
+                        <div class="col-md-6 pe-0">
+                            <label for="emeraddress" class="ms-2">Address</label>
+                            <input type="text" class="form-control" formControlName="address" placeholder="Contact Address">
+                        </div>
+                        <div class="col-md-6 pe-0">
+                            <label for="emerPhone" class="ms-2">Phone</label>
+                            <input type="tel" class="form-control" formControlName="phone" placeholder="Contact Phone">
+                        </div>
                     </div>
+                    <hr class="mt-4">
                 </div>
-                <div class="row pe-0 mb-4">
-                    <div class="col-md-6 pe-0">
-                        <label for="emeraddress" class="ms-2">Address</label>
-                        <input type="text" class="form-control" formControlName="address1" placeholder="Contact Address">
-                    </div>
-                    <div class="col-md-6 pe-0">
-                        <label for="emerPhone" class="ms-2">Phone</label>
-                        <input type="tel" class="form-control" formControlName="phone1" placeholder="Contact Phone">
-                    </div>
-                </div>
-                <hr class="mt-4">
-                <p class="secondContact"><i class="fa-solid fa-address-book me-2"></i>Second Contact</p>
-                <div class="row mb-4 pe-0">
-                    <div class="col-md-6  pe-0">
-                        <label for="emerfirstname2" class="ms-2">First Name</label>
-                        <input type="text" class="form-control" formControlName="firstname2" placeholder="Contact First Name">
-                    </div>
-                    <div class="col-md-6 pe-0 ">
-                        <label for="emerlastname2" class="ms-2">Last Name</label>
-                        <input type="text" class="form-control" formControlName="lastname2" placeholder="Contact Last Name">
-                    </div>
-                </div>
-                <div class="row pe-0 mb-4">
-                    <div class="col-md-6 pe-0">
-                        <label for="emeraddress2" class="ms-2">Address</label>
-                        <input type="text" class="form-control" formControlName="address2" placeholder="Contact Address">
-                    </div>
-                    <div class="col-md-6 pe-0">
-                        <label for="emerPhone2" class="ms-2">Phone</label>
-                        <input type="tel" class="form-control" formControlName="phone2" placeholder="Contact Phone">
-                    </div>
-                </div>
+       <div [formGroupName]="1">
+        <p class="secondContact"><i class="fa-solid fa-address-book me-2"></i>Second Contact</p>
+        <div class="row mb-4 pe-0">
+            <div class="col-md-6  pe-0">
+                <label for="emerfirstname2" class="ms-2">First Name</label>
+                <input type="text" class="form-control" formControlName="firstName" placeholder="Contact First Name">
+            </div>
+            <div class="col-md-6 pe-0 ">
+                <label for="emerlastname2" class="ms-2">Last Name</label>
+                <input type="text" class="form-control" formControlName="lastName" placeholder="Contact Last Name">
+            </div>
+        </div>
+        <div class="row pe-0 mb-4">
+            <div class="col-md-6 pe-0">
+                <label for="emeraddress2" class="ms-2">Address</label>
+                <input type="text" class="form-control" formControlName="address" placeholder="Contact Address">
+            </div>
+            <div class="col-md-6 pe-0">
+                <label for="emerPhone2" class="ms-2">Phone</label>
+                <input type="tel" class="form-control" formControlName="phone" placeholder="Contact Phone">
+            </div>
+        </div>
+
+       </div>
+       
             </div>
             <div class="div d-flex justify-content-evenly">
                 <button class="btnn ps-5 pe-5 mt-5 mb-3" routerLink="/medical_info" ><i class="fa-solid fa-arrow-left me-2"></i>Back</button>
-                <button type="submit" routerLink="/login" class="btnn ps-5 pe-5 mt-5 mb-3">Register <i class="fa-solid fa-right-to-bracket ms-1"></i></button>
+                <button type="submit" class="btnn ps-5 pe-5 mt-5 mb-3">Register <i class="fa-solid fa-right-to-bracket ms-1"></i></button>
             </div>
         </form>
     </div>

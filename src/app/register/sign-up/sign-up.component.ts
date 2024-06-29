@@ -9,8 +9,15 @@ import { RegisterationFormService } from 'src/app/registeration-form.service';
 })
 export class SignUpComponent {
 form:FormGroup=new FormGroup({});
- constructor(_regForm:RegisterationFormService){
-  this.form=_regForm.registerForm;
+ constructor(private _regForm:RegisterationFormService){
+  this.form=this._regForm.registerForm;
  }
+handleFileChange(event: any) {
+  this._regForm.handleFileChange(event)
+  // const file = event.target.files[0];
+  // console.log("fileee",file);
   
+  // const filePath = URL.createObjectURL(file);
+  // localStorage.setItem('uploadedImage', file);
+}
 }

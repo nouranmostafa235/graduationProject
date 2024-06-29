@@ -29,7 +29,7 @@
       </nav>
     <div class="col-md-8 mx-auto">
         <form [formGroup]="form" class="personal_form mb-5 mx-auto">
-            <div class="row mb-5">
+            <div class="row mb-5" >
                 <div class="col-md-4">
                     <label for="weight" class="ms-2">Weight</label>
                     <input type="number" class="form-control" formControlName="weight" placeholder="Your Weight">
@@ -57,7 +57,7 @@
                     </select>
                 </div>
             </div>
-            <div class="row mt-5 mb-5 tbl">
+            <div class="row mt-5 mb-5 tbl" formArrayName="personalMedicalHistory">
                 <table class="personalTable table table-striped mb-0 mb-0">
                     <thead class="text-center">
                         <tr>
@@ -69,75 +69,75 @@
                         <tr>
                             <td>
                                 <input type="checkbox" name="animia" value="animia" class="me-2"
-                                    formControlName="animia">
+                                    formControlName="anemia">
                                 <label for="">Animia</label>
                             </td>
                             <td>
                                 <input class="me-2" type="checkbox" name="Arthirits" value="Arthirits"
-                                    formControlName="Arthirits">
+                                    formControlName="arthritis">
                                 <label for="">Arthirits</label>
 
                             </td>
                             <td>
                                 <input class="me-2" type="checkbox" name="Asthma" value="Asthma"
-                                    formControlName="Asthma">
+                                    formControlName="asthma">
                                 <label for="">Asthma</label>
 
                             </td>
                             <td>
                                 <input class="me-2" type="checkbox" name="Cancer" value="Cancer"
-                                    formControlName="Cancer">
+                                    formControlName="cancer">
                                 <label for="">Cancer</label>
 
                             </td>
                         </tr>
                         <tr>
                             <td> <input class="me-2" type="checkbox" name="Chronic Obstructive"
-                                    value="Chronic Obstructive" formControlName="ChronicObstructive">
+                                    value="Chronic Obstructive" formControlName="chronicObstructive">
                                 <label for="">Chronic Obstructive</label>
 
                             </td>
                             <td> <input class="me-2" type="checkbox" name="Disease" value="Disease"
-                                    formControlName="Disease">
+                                    formControlName="heartDisease">
                                 <label for="">Heart Disease</label>
 
                             </td>
                             <td><input class="me-2" type="checkbox" name="Clotting Disorder" value="Clotting Disorder"
-                                    formControlName="Clotting">
+                                    formControlName="clottingDisorder">
                                 <label for="">Clotting Disorder</label>
 
                             </td>
                             <td> <input class="me-2" type="checkbox" name="Congestive Heart Failure"
-                                    value="Congestive Heart Failure" formControlName="Congestive">
+                                    value="Congestive Heart Failure" formControlName="congestiveHeartFailure">
                                 <label for="">Congestive Heart Failure</label>
 
                             </td>
                         </tr>
                         <tr>
                             <td> <input class="me-2" type="checkbox" name="Crohn's Disease" value="Crohn's Disease"
-                                    formControlName="Crohns">
+                                    formControlName="crohnsDisease">
                                 <label for="">Crohn's Disease</label>
 
                             </td>
                             <td> <input class="me-2" type="checkbox" name="Depression" value="Depression"
-                                    formControlName="Depression">
+                                    formControlName="depression">
                                 <label for="">Depression</label>
 
                             </td>
                             <td><input class="me-2" type="checkbox" name="Diabetes" value="Diabetes"
-                                    formControlName="Diabetes">
+                                    formControlName="diabetes">
                                 <label for="">Diabetes</label>
 
                             </td>
                             <td> <input class="me-2" type="checkbox" name="Emphysema" value="Emphysema"
-                                    formControlName="Emphysema">
+                                    formControlName="emphysema">
                                 <label for="">Emphysema</label>
 
                             </td>
                         </tr>
                         <tr>
                             <td> <input class="me-2" type="checkbox" name="Endocrine Problems"
-                                    value="Endocrine Problems" formControlName="Endocrine">
+                                    value="Endocrine Problems" formControlName="endocrineProblems">
                                 <label for="">Endocrine Problems</label>
 
                             </td>
@@ -146,12 +146,12 @@
 
                             </td>
                             <td> <input class="me-2" type="checkbox" name="Glaucoma" value="Glaucoma"
-                                    formControlName="Glaucoma">
+                                    formControlName="glaucoma">
                                 <label for="">Glaucoma</label>
 
                             </td>
                             <td> <input class="me-2" type="checkbox" name="Hepatitis" value="Hepatitis"
-                                    formControlName="Hepatitis">
+                                    formControlName="hepatitis">
                                 <label for="">Hepatitis</label>
 
                             </td>
@@ -163,39 +163,39 @@
 
                             </td>
                             <td><input class="me-2" type="checkbox" name="Hypertension" value="Hypertension"
-                                    formControlName="Hypertension">
+                                    formControlName="hypertension">
                                 <label for="">Hypertension</label>
 
                             </td>
                             <td> <input class="me-2" type="checkbox" name="Kidney Disease" value="Kidney Disease"
-                                    formControlName="Kidney">
+                                    formControlName="kidneyDisease">
                                 <label for="">Kidney Disease</label>
 
                             </td>
                             <td> <input class="me-2" type="checkbox" name="Myocardial Infarction"
-                                    value="Myocardial Infarction" formControlName="Myocardial">
+                                    value="Myocardial Infarction" formControlName="myocardialInfarction">
                                 <label for="">Myocardial Infarction</label>
 
                             </td>
                         </tr>
                         <tr>
                             <td> <input class="me-2" type="checkbox" name="Peptic UIcer Disease"
-                                    value="Peptic UIcer Disease" formControlName="Peptic">
+                                    value="Peptic UIcer Disease" formControlName="pepticUlcerDisease">
                                 <label for="">Peptic UIcer Disease</label>
 
                             </td>
                             <td> <input class="me-2" type="checkbox" name="Seizures" value="Seizures"
-                                    formControlName="Seizures">
+                                    formControlName="seizures">
                                 <label for="">Seizures</label>
 
                             </td>
                             <td><input class="me-2" type="checkbox" name="Stroke" value="Stroke"
-                                    formControlName="Stroke">
+                                    formControlName="stroke">
                                 <label for="">Stroke</label>
 
                             </td>
                             <td> <input class="me-2" type="checkbox" name="UIcerative Colitis"
-                                    value="UIcerative Colitis" formControlName="UIcerative">
+                                    value="UIcerative Colitis" formControlName="ulcerativeColitis">
                                 <label for="">UIcerative Colitis</label>
 
                             </td>
@@ -203,7 +203,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="row mt-5 mb-5 tbl">
+            <div class="row mt-5 mb-5 tbl" formArrayName="personalSurgicalHistory">
                 <table class="surgeryTable table table-striped mb-0">
                     <thead class="text-center">
                         <tr>
@@ -215,111 +215,111 @@
                         <tr>
                             <td>
                                 <input type="checkbox" name="Adrenal Gland Surgery" value="Adrenal Gland Surgery"
-                                    class="me-2" formControlName="Adrenal">
+                                    class="me-2" formControlName="adrenalGlandSurgery">
                                 <label for="">Adrenal Gland Surgery</label>
 
                             </td>
                             <td>
                                 <input class="me-2" type="checkbox" name="Colon Surgery" value="Colon Surgery"
-                                    formControlName="Colon">
+                                    formControlName="colonSurgery">
                                 <label for="">Colon Surgery</label>
 
                             </td>
                             <td>
                                 <input class="me-2" type="checkbox" name="Kidney Surgery" value="Kidney Surgery"
-                                    formControlName="KidneySurgery">
+                                    formControlName="kidneySurgery">
                                 <label for="">Kidney Surgery</label>
 
                             </td>
                             <td>
                                 <input class="me-2" type="checkbox" name="Appendectomy" value="Appendectomy"
-                                    formControlName="Appendectomy">
+                                    formControlName="appendectomy">
                                 <label for="">Appendectomy</label>
 
                             </td>
                         </tr>
                         <tr>
                             <td> <input class="me-2" type="checkbox" name="Artery Surgery" value="Artery Surgery"
-                                    formControlName="ArterySurgery">
+                                    formControlName="arterySurgery">
                                 <label for="">Artery Surgery</label>
 
                             </td>
                             <td> <input class="me-2" type="checkbox" name="Neck Surgery" value="Neck Surgery"
-                                    formControlName="NeckSurgery">
+                                    formControlName="neckSurgery">
                                 <label for="">Neck Surgery</label>
 
                             </td>
                             <td> <input class="me-2" type="checkbox" name="Thyroid Surgery" value="Thyroid Surgery"
-                                    formControlName="ThyroidSurgery">
+                                    formControlName="thyroidSurgery">
                                 <label for="">Thyroid Surgery</label>
 
                             </td>
                             <td> <input class="me-2" type="checkbox" name="Esophagus Surgery" value="Esophagus Surgery"
-                                    formControlName="Esophagus">
+                                    formControlName="esophagusSurgery">
                                 <label for="">Esophagus Surgery</label>
 
                             </td>
                         </tr>
                         <tr>
                             <td> <input class="me-2" type="checkbox" name="Prostate Surgery" value="Prostate Surgery"
-                                    formControlName="Prostate">
+                                    formControlName="prostateSurgery">
                                 <label for="">Prostate Surgery</label>
                             </td>
                             <td> <input class="me-2" type="checkbox" name="Bladder Surgery" value="Bladder Surgery"
-                                    formControlName="Bladder">
+                                    formControlName="bladderSurgery">
                                 <label for="">Bladder Surgery</label>
 
                             </td>
                             <td><input class="me-2" type="checkbox" name="Large Intestine Surgery"
-                                    value="Large Intestine Surgery" formControlName="LargeIntestineSurgery">
+                                    value="Large Intestine Surgery" formControlName="largeIntestineSurgery">
                                 <label for="">Large Intestine Surgery</label>
 
                             </td>
                             <td> <input class="me-2" type="checkbox" name="Gastric Bypass Surgery"
-                                    value="Gastric Bypass Surgery" formControlName="GastricBypassSurgery">
+                                    value="Gastric Bypass Surgery" formControlName="gastricBypassSurgery">
                                 <label for="">Gastric Bypass Surgery</label>
 
                             </td>
                         </tr>
                         <tr>
                             <td> <input class="me-2" type="checkbox" name="Lungs Surgery" value="Lungs Surgery"
-                                    formControlName="LungsSurgery">
+                                    formControlName="lungSurgery">
                                 <label for="">Lungs Surgery</label>
 
                             </td>
                             <td><input class="me-2" type="checkbox" name="Small Intestine Surgery"
-                                    value="Small Intestine Surgery" formControlName="SmallIntestineSurgery">
+                                    value="Small Intestine Surgery" formControlName="smallIntestineSurgery">
                                 <label for="">Small Intestine Surgery</label>
 
                             </td>
                             <td> <input class="me-2" type="checkbox" name="Breast Surgery" value="Breast Surgery"
-                                    formControlName="BreastSurgery">
+                                    formControlName="breastSurgery">
                                 <label for="">Breast Surgery</label>
 
                             </td>
                             <td> <input class="me-2" type="checkbox" name="Hemorrhoid Surgery"
-                                    value="Hemorrhoid Surgery" formControlName="Hemorrhoid">
+                                    value="Hemorrhoid Surgery" formControlName="hemorrhoidSurgery">
                                 <label for="">Hemorrhoid Surgery</label>
 
                             </td>
                         </tr>
                         <tr>
                             <td> <input class="me-2" type="checkbox" name="Spine Surgery" value="Spine Surgery"
-                                    formControlName="Spine">
+                                    formControlName="spineSurgery">
                                 <label for="">Spine Surgery</label>
                             </td>
                             <td><input class="me-2" type="checkbox" name="Utrus Surgery" value="Utrus Surgery"
-                                    formControlName="Utrus">
+                                    formControlName="uterusSurgery">
                                 <label for="">Utrus Surgery</label>
 
                             </td>
                             <td> <input class="me-2" type="checkbox" name="Cesarean Section" value="Cesarean Section"
-                                    formControlName="Cesarean">
+                                    formControlName="cesareanSection">
                                 <label for="">Cesarean Section</label>
 
                             </td>
                             <td> <input class="me-2" type="checkbox" name="Stomach Surgery" value="Stomach Surgery"
-                                    formControlName="Stomach">
+                                    formControlName="stomachSurgery">
                                 <label for="">Stomach Surgery</label>
 
                             </td>
@@ -327,7 +327,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="row mt-5 mb-5 tbl">
+            <div class="row mt-5 mb-5 tbl" formArrayName="personalAllergiesHistory">
                 <table class="allergyTable table table-striped mb-0">
                     <thead class="text-center">
                         <tr>
@@ -339,47 +339,47 @@
                         <tr>
                             <td>
                                 <input type="checkbox" name="Food Allergies" value="Food Allergies" class="me-2"
-                                    formControlName="FoodAllergies">
+                                    formControlName="foodAllergies">
                                 <label for="">Food Allergies</label>
 
                             </td>
                             <td>
                                 <input class="me-2" type="checkbox" name="Drug Allergies" value="Drug Allergies"
-                                    formControlName="DrugAllergies">
+                                    formControlName="drugAllergies">
                                 <label for="">Drug Allergies</label>
 
                             </td>
                             <td>
                                 <input class="me-2" type="checkbox" name="Dust Allergies" value="Dust Allergies"
-                                    formControlName="DustAllergies">
+                                    formControlName="dustAllergies">
                                 <label for="">Dust Allergies</label>
 
                             </td>
                             <td>
                                 <input class="me-2" type="checkbox" name="Pet Allergies" value="Pet Allergies"
-                                    formControlName="PetAllergies">
+                                    formControlName="petAllergies">
                                 <label for="">Pet Allergies</label>
 
                             </td>
                         </tr>
                         <tr>
                             <td> <input class="me-2" type="checkbox" name="Tempreture Changes"
-                                    value="Tempreture Changes" formControlName="TempretureChanges">
+                                    value="Tempreture Changes" formControlName="temperatureChanges">
                                 <label for="">Tempreture Changes</label>
 
                             </td>
                             <td> <input class="me-2" type="checkbox" name="Seasonal Allergies"
-                                    value="Seasonal Allergies" formControlName="SeasonalAllergies">
+                                    value="Seasonal Allergies" formControlName="seasonalAllergies">
                                 <label for="">Seasonal Allergies</label>
 
                             </td>
                             <td><input class="me-2" type="checkbox" name="Pollution Allergy" value="Pollution Allergy"
-                                    formControlName="PollutionAllergy">
+                                    formControlName="pollutionAllergy">
                                 <label for="">Pollution Allergy</label>
 
                             </td>
                             <td> <input class="me-2" type="checkbox" name="Mold Allergies" value="Mold Allergies"
-                                    formControlName="MoldAllergies">
+                                    formControlName="moldAllergies">
                                 <label for="">Mold Allergies</label>
 
                             </td>
@@ -388,8 +388,8 @@
                 </table>
             </div>
 
-            <div class="row mt-5 mb-5 tbl">
-                <table class=" FamilyTable table table-striped mb-0">
+            <div class="row mt-5 mb-5 tbl" >
+                <table class=" FamilyTable table table-striped mb-0" formArrayName="familyMedicalHistory" >
                     <thead class="text-center">
                         <tr>
                             <th colspan="4">Family <span>Medical</span> History: has anyone in your family had any of
@@ -399,68 +399,68 @@
                         <tr>
                             <td>
                                 <input type="checkbox" name="fm-Cancer" value="fm-Cancer" class="me-2"
-                                    formControlName="fm_Cancer">
+                                    formControlName="cancer">
                                 <label for="">Cancer</label>
 
                             </td>
                             <td>
                                 <input class="me-2" type="checkbox" name="fm-Animia" value="fm-Animia"
-                                    formControlName="fm_Animia">
+                                    formControlName="anemia">
                                 <label for="">Animia</label>
 
                             </td>
                             <td>
                                 <input class="me-2" type="checkbox" name="fm-High Blood Pressure"
-                                    value="fm-High Blood Pressure" formControlName="fm_High_Blood">
+                                    value="fm-High Blood Pressure" formControlName="highBloodPressure">
                                 <label for="">High Blood Pressure</label>
 
                             </td>
                             <td>
                                 <input class="me-2" type="checkbox" name="fm-Diabetes" value="fm-Diabetes"
-                                    formControlName="fm_Diabetes">
+                                    formControlName="diabetes">
                                 <label for="">Diabetes</label>
 
                             </td>
                         </tr>
                         <tr>
                             <td> <input class="me-2" type="checkbox" name="fm-Anesthesia Reaction"
-                                    value="fm-Anesthesia Reaction" formControlName="fm_Anesthesia">
+                                    value="fm-Anesthesia Reaction" formControlName="anesthesiaReaction">
                                 <label for="">Anesthesia Reaction</label>
 
                             </td>
                             <td> <input class="me-2" type="checkbox" name="fm-Blood Clots" value="fm-Blood Clots"
-                                    formControlName="fm_BloodClots">
+                                    formControlName="bloodClots">
                                 <label for="">Blood Clots</label>
 
                             </td>
                             <td><input class="me-2" type="checkbox" name="fm-Bleeding Problems"
-                                    value="fm-Bleeding Problems" formControlName="fm_Bleeding">
+                                    value="fm-Bleeding Problems" formControlName="bleedingProblems">
                                 <label for="">Bleeding Problems</label>
 
                             </td>
                             <td> <input class="me-2" type="checkbox" name="fm-Heart Disease" value="fm-Heart Disease"
-                                    formControlName="fm_HeartDisease">
+                                    formControlName="heartDisease">
                                 <label for="">Heart Disease</label>
 
                             </td>
                         </tr>
                         <tr>
                             <td> <input class="me-2" type="checkbox" name="fm-Hepatitis" value="fm-Hepatitis"
-                                    formControlName="fm_Hepatitis">
+                                    formControlName="hepatitis">
                                 <label for="">Hepatitis</label>
                             </td>
                             <td> <input class="me-2" type="checkbox" name="fm-Stroke" value="fm-Stroke"
-                                    formControlName="fm_Stroke">
+                                    formControlName="stroke">
                                 <label for="">Stroke</label>
 
                             </td>
                             <td><input class="me-2" type="checkbox" name="fm-Kidney Disease" value="fm-Kidney Disease"
-                                    formControlName="fm_KidneyDisease">
+                                    formControlName="kidneyDisease">
                                 <label for="">Kidney Disease</label>
 
                             </td>
                             <td> <input class="me-2" type="checkbox" name="fm-Endocrine Problems"
-                                    value="fm-Endocrine Problems" formControlName="fm_Endocrine">
+                                    value="fm-Endocrine Problems" formControlName="endocrineProblems">
                                 <label for="">Endocrine Problems</label>
                             </td>
                         </tr>
