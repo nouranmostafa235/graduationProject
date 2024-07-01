@@ -11,7 +11,7 @@ export class ViewClinicProfileComponent implements OnInit {
   constructor(private userData:UserDataService ,private route:ActivatedRoute){}
   id:any
   Info:any
-  rate:any=4.5
+  rate:any
   ngOnInit(): void {
     this.route.queryParams.subscribe(params=>{
       this.id=params['id']
@@ -19,6 +19,7 @@ export class ViewClinicProfileComponent implements OnInit {
    this.userData.getClinicById(this.id).subscribe({
     next:(response)=>{
       this.Info=response
+      this.rate=response.rate
     }
    })
     

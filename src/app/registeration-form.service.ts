@@ -23,7 +23,7 @@ export class RegisterationFormService {
       bloodType: new FormControl(),
       password:[''],
       maritalStatus:[''],
-      profileImage:[null],
+      profileImage:[null,Validators.required],
       personalMedicalHistory:this.fb.group({
         anemia: [false],
         arthritis: [false],
@@ -117,19 +117,14 @@ export class RegisterationFormService {
 
   handleFileChange(event: any) {
     const file = event.target.files[0];
-     
     const filePath = URL.createObjectURL(file);
     this.imageFile=file
-  console.log("fileee",filePath);
+    console.log("fileee",filePath);
     // localStorage.setItem('uploadedImage', file);
   }
  handlrRegistration(userData:any):Observable<any>{
   
-  return this.http.post<any>("http://localhost:3000/users/register",userData,{
-    headers: new HttpHeaders({
-      'Content-Type': 'multipart/form-data'
-    })
-  })
+  return this.http.post<any>("http://localhost:3000/users/register",userData)
  }
 
 }

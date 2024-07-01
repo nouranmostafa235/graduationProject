@@ -29,12 +29,12 @@
       </nav>
     <div class="col-md-7 mx-auto">
 
-        <form class="login_form mb-5  col-sm-10 mx-auto"[formGroup]="login" (ngSubmit)="signIn(login)">
+        <form class="login_form mb-5  col-sm-10 mx-auto"[formGroup]="login" (ngSubmit)="signIn()">
             <div class="row">
                 <div class="row pe-0">
                     <div class="col-md-12 pe-0">
                         <label for="email_login" class="ms-2">UserName</label>
-                        <input type="text" class="form-control mb-lg-5" formControlName="userName" placeholder="Your UserName">
+                        <input type="text" class="form-control mb-lg-5" formControlName="username" placeholder="Your UserName">
                     </div>
                 </div>
                 <div class="col-md-12">

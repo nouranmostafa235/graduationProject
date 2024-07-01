@@ -1,0 +1,47 @@
+
+  <div class="search w-100 d-flex flex-column justify-content-center align-items-center col-sm-5 mx-auto">
+    <div class="w-50 d-flex">
+      <input type="text" [(ngModel)]="searchVal" class="form-control" placeholder="Search User to Add Medical Analysis">
+      <button class="btnn ms-3">Search</button>
+    </div>
+    <div *ngIf="searchVal" class="scrollable-container w-50">
+      <div *ngFor="let user of allusers | searchUsers: searchVal; let j = index" class="user-item d-flex">
+        <p>{{ user.email }}</p>
+        <div class="ms-auto">
+          <button class="btnn2 me-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="setSelectedUser(user._id)">Upload <i class="fa-solid fa-upload ms-1"></i></button>
+          <button class="btnn2">View <i class="fa-solid fa-eye ms-1"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Upload Medical Analysis</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="save()">
+            <div class="row">
+              <div class="col-sm-7 mb-4 mx-auto">
+                <label for="">Upload Pdf File*</label>
+                <input type="file" class="file-input form-control" (change)="onChange($event)" name="pdf" id="pdf" required>
+              </div>
+              <div class="col-sm-7 mb-4 mx-auto">
+                <label for="">Upload Test Name*</label>
+                <input type="text" class="text-input form-control" (input)="onTextInputChange($event)" name="testname" id="testname" [(ngModel)]="text" required>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btnn" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btnn" [disabled]="!file || !text">Upload</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

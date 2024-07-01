@@ -1,29 +1,103 @@
-<div class="row me-0">
-    <nav class="navbar navbar-expand-sm fixed-top" id="navbar">
-        <div class="container">
-            <img src="assets/imgs/logo2.jpg" class="me-2" alt="">
-            <a class="navbar-brand mt-1" routerLink="/home">Rapid<span>R</span>x</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-    
-            <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                  <ul class="nav nav-underline ms-auto">
-                    <li class="nav-item me-2">
-                            <div class="smallImage d-flex " routerLink="/adminHomePage">
-                                <a class="ms-2 nav-link active" aria-current="page">Alex ALex</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" routerLink="/institutionLogin">LogOut</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <div class="search d-flex justify-content-center align-items-center col-sm-5 mx-auto">
+
+    <div class="home mt-5 p-5">
+      <div class="row">
+          <div class="col-sm-5">
+              <h1 class="title">{{clinicInfo.name}}</h1>
+              <p class="text-justify lh-lg ">{{clinicInfo.about}}</p>
+          </div>
+          <div class="col-sm-6 image text-center ms-auto me-5">
+              <img src="assets/imgs/images.png"  class="img-thumbnail rounded-circle">
+          </div>
+      </div>
+  </div> 
+  
+  <div class="branches mt-5 p-5">
+      <h2 class="text-center title">OUR BRANCHES</h2>
+      <div class="row p-5">
+  
+          <div *ngFor="let i of clinicInfo.branches" class="col-sm-12 hoverable text-center rounded-3 p-5">
+              <i class="fa-solid fa-building fa-7x icon" style="color: #010f1a;"></i>
+              <div class="branch mt-5">
+               <h5 class="fw-bold branchName">{{i.name}}</h5>
+               <p class="fw-lighter"><i class="fa-solid fa-location-dot" style="color: #7f7fad;"></i> {{i.address}}</p>
+               <p class="fw-lighter"><i class="fa-solid fa-phone" style="color: #7f7fad;"></i> {{i.phone}}</p>
+              </div>
+           </div>
+  
+      </div>
+  </div>
+  
+  <div class="rating mt-5 p-5 text-center " >
+      <h2 class="text-center title">RATING </h2>
+      <div class="stars p-5">
+          <h3 class="fs-2 fw-bold">
+              4.5
+          </h3>
+          <p class="fw-lighter ">Out of 5</p>
+          <i class="fa-solid fa-star-half-stroke fs-4" *ngIf="rate>0 && rate<1" style="color: #FFD43B;"></i>
+          <i class="fa-regular fa-star fs-4" *ngIf="rate==0" style="color: #FFD43B;"></i>
+          <i class="fa-solid fa-star fs-4" *ngIf="rate>=1" style="color: #FFD43B;"></i>
+      
+          <i class="fa-solid fa-star-half-stroke fs-4" *ngIf="rate>1 && rate<2" style="color: #FFD43B;"></i>
+          <i class="fa-regular fa-star fs-4" *ngIf="rate<=1" style="color: #FFD43B;"></i>
+          <i class="fa-solid fa-star fs-4" *ngIf="rate >=2" style="color: #FFD43B;"></i>
+      
+          <i class="fa-solid fa-star-half-stroke fs-4" *ngIf="rate>2 && rate<3" style="color: #FFD43B;"></i>
+          <i class="fa-regular fa-star fs-4" *ngIf="rate<=2" style="color: #FFD43B;"></i>
+          <i class="fa-solid fa-star fs-4" *ngIf="rate >=3" style="color: #FFD43B;"></i>
+      
+          <i class="fa-solid fa-star-half-stroke fs-4" *ngIf="rate>3 && rate<4" style="color: #FFD43B;"></i>
+          <i class="fa-regular fa-star fs-4" *ngIf="rate<=3" style="color: #FFD43B;"></i>
+          <i class="fa-solid fa-star fs-4" *ngIf="rate >=4" style="color: #FFD43B;"></i>
+      
+          <i class="fa-solid fa-star-half-stroke fs-4" *ngIf="rate>4 && rate<5" style="color: #FFD43B;"></i>
+          <i class="fa-regular fa-star fs-4" *ngIf="rate<=4" style="color: #FFD43B;"></i>
+          <i class="fa-solid fa-star fs-4" *ngIf="rate >=5" style="color: #FFD43B;"></i>
+   
+  
+       </div>
+  </div>
+  <div class="footer">
+      <div class="left-footer">
+          <div class="footer-icon">
+              <h2>{{clinicInfo.name}}</h2>
+          </div>
+          <div class="footer-caption ">
+              <p>{{clinicInfo.about}}</p>
+          </div>
+          <div class="footer-social-media">
+             <h3 >Social Media</h3>
+             <div class="line"></div>
+             <div class="social-icons">
+              <h4 *ngFor="let i of clinicInfo.socialMedia"><a [href]="i.link"><i [class]="'fa-brands fa-'+i.platform.toLowerCase()" style="color: #ffffff;" ></i></a></h4>
+             </div>
+          </div>
+      </div>
+      <div class="middle-footer">
+          <div class="middle-caption">
+              <h3 class="fw-bold">Opening Hours</h3>
+              <p>Don't miss out on our latest menu updates and exclusive offers - join our newsletter today and stay up-to-date with all things Mealify!</p>
+          </div>
+          <h3 class="list-caption">Mon-Sat: 11AM - 23PM; Sunday : Closed</h3>
+   
+      </div>
+      <div class="right-footer">
+          <h3 class="fw-bold">Contact Us</h3>
+          <ul>
+              <li>
+                 <a href=""><h4><i class="fa-solid fa-envelope" style="color: #FD4E20;"></i></h4> </a> 
+                 <a href=""><p>contact@example.com</p></a>
+              </li>
+              <li *ngFor="let i of clinicInfo.branches">
+                  <a href=""><h4><i class="fa-solid fa-phone" style="color: #FD4E20"></i></h4></a>
+                  <a href=""><p>{{i.phone}}</p></a>
+              </li>
+          </ul>
+      </div>
+      
+  </div>
+    <!-- <div class="search d-flex justify-content-center align-items-center col-sm-5 mx-auto">
       <input type="search" name="" class="form-control" id="" placeholder="Search User to Add Diagnose ">
       <button class="btnn ms-3">Search</button>
-    </div>
+    </div> -->
     
-    </div>

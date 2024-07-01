@@ -19,8 +19,7 @@ export class LabLoginComponent {
     const labData= this.login.value
     this._service.labLogin(labData).subscribe({
       next:(response)=>{
-        console.log(response);
-        localStorage.setItem('labTokin',"Bearer "+response)
+        localStorage.setItem('labTokin',"Bearer "+response.token)
         this.router.navigate(['/lab/Home'])
       }
     })

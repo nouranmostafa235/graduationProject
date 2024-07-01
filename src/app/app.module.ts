@@ -34,6 +34,14 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { UserNavBarComponent } from './User/user-nav-bar/user-nav-bar.component';
 import { SearchLabsPipe } from './Pipes/search-labs.pipe';
 import { SearchClinicPipe } from './Pipes/search-clinic.pipe';
+import { UploadDiagnoseComponent } from './Institutions/Clinics/upload-diagnose/upload-diagnose.component';
+import { UploadMedicalAnalysisComponent } from './Institutions/Clinics/upload-medical-analysis/upload-medical-analysis.component';
+import { LabUploadMedicalAnalysisComponent } from './Institutions/Labs/lab-upload-medical-analysis/lab-upload-medical-analysis.component';
+import { LabNavbarComponent } from './Institutions/Labs/lab-navbar/lab-navbar.component';
+import { ClinicNavBarComponent } from './Institutions/Clinics/clinic-nav-bar/clinic-nav-bar.component';
+import { SearchUsersPipe } from './search-users.pipe';
+import { ViewUserInLabComponent } from './Institutions/Labs/view-user-in-lab/view-user-in-lab.component';
+import { ViewUserProfileInClinicComponent } from './Institutions/Clinics/view-user-profile-in-clinic/view-user-profile-in-clinic.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,6 +70,14 @@ import { SearchClinicPipe } from './Pipes/search-clinic.pipe';
     UserNavBarComponent,
     SearchLabsPipe,
     SearchClinicPipe,
+    UploadDiagnoseComponent,
+    UploadMedicalAnalysisComponent,
+    LabUploadMedicalAnalysisComponent,
+    LabNavbarComponent,
+    ClinicNavBarComponent,
+    SearchUsersPipe,
+    ViewUserInLabComponent,
+    ViewUserProfileInClinicComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,6 +89,7 @@ import { SearchClinicPipe } from './Pipes/search-clinic.pipe';
     FormsModule,
     NgbModule,
     SweetAlert2Module.forRoot(),
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -44,12 +44,18 @@ export class UserDataService {
   return this.http.post(`http://localhost:3000/notifications/acceptMedicalAnalysis/${id}`,{},{headers:this.header})
  }
  acceptClinicFiles(id:any):Observable<any>{
-  return this.http.post(`http://localhost:3000/notifications/acceptClinic/${id}`,{},{headers:this.header})
+  return this.http.post(`http://localhost:3000/notifications/acceptDiagnosis/${id}`,{},{headers:this.header})
  }
  rejectMedicalAnalysisFiles(id:any):Observable<any>{
   return this.http.post(`http://localhost:3000/notifications/rejectMedicalAnalysis/${id}`,{},{headers:this.header})
  }
  rejectClinicFiles(id:any):Observable<any>{
-  return this.http.post(`http://localhost:3000/notifications/rejectClinic/${id}`,{},{headers:this.header})
+  return this.http.post(`http://localhost:3000/notifications/rejectDiagnosis/${id}`,{},{headers:this.header})
+ }
+ Labrating(id:any,ratingNum:any):Observable<any>{
+  return this.http.put(`http://localhost:3000/users/labEvaluation/${id}`,ratingNum,{headers:this.header})
+ }
+ clinicRating(id:any,ratingNum:any):Observable<any>{
+  return this.http.put(`http://localhost:3000/users/clinicEvaluation/${id}`,ratingNum,{headers:this.header})
  }
 }

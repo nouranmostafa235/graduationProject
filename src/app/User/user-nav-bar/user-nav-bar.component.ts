@@ -18,7 +18,17 @@ export class UserNavBarComponent implements OnInit {
   diagnosis: any[] = []
   clinicInfo: any[] = []
   notificationNum: any
-
+  labId:any
+  clinicID:any
+  clinicRating:any=0
+  LabRating:any=0
+  ratingNum :any={
+    evaluation: this.LabRating
+  }
+  ClinicratingNum:any={
+    evalution:this.clinicRating
+  }
+  
   ngOnInit(): void {
 
     this.userData.pending().subscribe({
@@ -32,40 +42,43 @@ export class UserNavBarComponent implements OnInit {
       }
     })
     this.userData.medicalAnalysisnotifications().subscribe({
-      next: (response) => {
-        this.MedicalAnalysis = response.pendingMedicalAnalysis
-        for (let i of this.MedicalAnalysis) {  
-          console.log(i.type,"---------");
-          if (i.type == "lab") {
-            this.userData.getLabById(i.id).subscribe({
-              next: (response) => {
-                this.Info.push(response)
-              }
-            })
+      next: async (response) => {
+        this.MedicalAnalysis = response.pendingMedicalAnalysis;
+        this.Info = []; 
+    
+        const analysisPromises = this.MedicalAnalysis.map(i => {
+          if (i.type === "lab") {
+            return this.userData.getLabById(i.id).toPromise();
+          } else {
+            return this.userData.getClinicById(i.id).toPromise();
           }
-         else{          
-          this.userData.getClinicById(i.id).subscribe({
-            next: (response) => {
-              this.Info.push(response)
-            }
-          })
-         }
+        });
+    
+        try {
+          const analysisResults = await Promise.all(analysisPromises);
+          this.Info.push(...analysisResults);
+        } catch (error) {
+          console.error('Error fetching medical analysis:', error);
         }
       }
-    })
+    });
     this.userData.clinicnotification().subscribe({
-      next: (response) => {
-        this.diagnosis = response.pendingDiagnosis
-        for (let i of this.diagnosis) {
-          this.userData.getClinicById(i.clinic).subscribe({
-            next: (response) => {
-              this.clinicInfo.push(response)
-            }
-          })
+      next: async (response) => {
+        this.diagnosis = response.pendingDiagnosis;
+        this.clinicInfo = [];
+    
+        const diagnosisPromises = this.diagnosis.map(i => 
+          this.userData.getClinicById(i.clinic).toPromise()
+        );
+    
+        try {
+          const diagnosisResults = await Promise.all(diagnosisPromises);
+          this.clinicInfo.push(...diagnosisResults);
+        } catch (error) {
+          console.error('Error fetching clinic information:', error);
         }
-
       }
-    })
+    });
 
   }
   logOut() {
@@ -82,14 +95,20 @@ export class UserNavBarComponent implements OnInit {
   openPdf(pdfPath: string) {
     window.open(pdfPath, '_blank');
   }
-  viewlab(id: any) {
-
-    this.router.navigate(['/UserProfile/labProfile'], { queryParams: { id: id } })
+  view(id: any,type:any) {
+     if(type==="lab"){
+        this.router.navigate(['/UserProfile/labProfile'], { queryParams: { id: id } })
+     }
+     else{
+      this.router.navigate(['/UserProfile/clinicProfile'], { queryParams: { id: id } })
+     }
+  
   }
+ 
   viewclinic(id: any) {
     this.router.navigate(['/UserProfile/clinicProfile'], { queryParams: { id: id } })
   }
-  acceptMedicalAnalysisFiles(name: any, id: any) {
+  acceptMedicalAnalysisFiles(name: any, id: any,IId:any,type:any) {
     Swal.fire({
       title: `Confirm Acceptance`,
       showDenyButton: false,
@@ -108,23 +127,30 @@ export class UserNavBarComponent implements OnInit {
       `,
 
       didOpen: () => {
-        this.attachStarRatingListeners();
+        if(type==="lab"){
+          this.attachStarRatingListeners(IId);
+        }
+        else{
+          this.attachStarRatingListenersClinic(IId)
+        }
+        
       }
     }).then((result) => {
       if (result.isConfirmed) {
+       
         this.userData.acceptMedicalAnalysisFiles(id).subscribe({
-          next: (response) => {
-            console.log(response);
+          next: (response) => { 
           }
         })
-        Swal.fire('File Accepted', '', 'success').then(() => {
+        Swal.fire('File Accepted', '', 'success').then(() => { 
+        
           this.reload();
         });
       }
     });
   }
 
-  acceptDiagnosesFiles(name: any, id: any) {
+  acceptDiagnosesFiles(name: any, id: any,IId:any) {
     Swal.fire({
       title: `Confirm Acceptance`,
       showDenyButton: false,
@@ -143,7 +169,7 @@ export class UserNavBarComponent implements OnInit {
       `,
 
       didOpen: () => {
-        this.attachStarRatingListeners();
+        this.attachStarRatingListenersClinic(IId);
       }
     }).then((result) => {
       if (result.isConfirmed) {
@@ -159,7 +185,7 @@ export class UserNavBarComponent implements OnInit {
     });
   }
 
-  rejectMedicalAnalysisFiles(name: any, id: any) {
+  rejectMedicalAnalysisFiles(name: any, id: any,IId:any,type:any) {
     Swal.fire({
       title: `Confirm Rejection`,
       showDenyButton: false,
@@ -178,7 +204,12 @@ export class UserNavBarComponent implements OnInit {
         </div>
       `,
       didOpen: () => {
-        this.attachStarRatingListeners();
+        if(type==="lab"){
+          this.attachStarRatingListeners(IId);
+        }
+        else{
+          this.attachStarRatingListenersClinic(IId)
+        }
       }
     }).then((result) => {
       if (result.isConfirmed) {
@@ -194,7 +225,7 @@ export class UserNavBarComponent implements OnInit {
     });
   }
   
-  rejectDiagnosesFiles(name: any, id: any) {
+  rejectDiagnosesFiles(name: any, id: any,IId:any) {
     Swal.fire({
       title: `Confirm Rejection`,
       showDenyButton: false,
@@ -213,7 +244,7 @@ export class UserNavBarComponent implements OnInit {
         </div>
       `,
       didOpen: () => {
-        this.attachStarRatingListeners();
+        this.attachStarRatingListenersClinic(IId);
       }
     }).then((result) => {
       if (result.isConfirmed) {
@@ -233,15 +264,45 @@ export class UserNavBarComponent implements OnInit {
   }
   
 
-  attachStarRatingListeners() {
+  attachStarRatingListeners(id:any) {
     const allStars = document.querySelectorAll('.star');
     allStars.forEach((star, i) => {
       star.addEventListener('click', () => {
         this.updateStarRating(i + 1);
+        this.labId=id
+        this.LabRating=i+1
+        this.ratingNum.evaluation=this.LabRating
+        console.log(this.labId,this.LabRating);
+        this.sendRating()
       });
     });
   }
+  sendRating(){
+    console.log(this.labId,this.ratingNum);
+    this.userData.Labrating(this.labId,this.ratingNum).subscribe({
+      next:(response)=>{ 
+      }
+    })
+  }
+  sendClinicRating(){
+    this.userData.clinicRating(this.clinicID,this.ClinicratingNum).subscribe({
+      next:(response)=>{
 
+      }
+    })
+  }
+  attachStarRatingListenersClinic(id:any) {
+    const allStars = document.querySelectorAll('.star');
+    allStars.forEach((star, i) => {
+      star.addEventListener('click', () => {
+        this.updateStarRating(i + 1);
+        this.clinicID=id
+        this.clinicRating=i+1
+        this.ClinicratingNum.evaluation=this.clinicRating
+        this.sendClinicRating() 
+      });
+    });
+  }
   updateStarRating(rating: number) {
     const allStars = document.querySelectorAll('.star');
     allStars.forEach((star, i) => {

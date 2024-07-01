@@ -13,7 +13,7 @@ form:FormGroup=new FormGroup({});
   this.form=this._regForm.registerForm;
  }
 handleFileChange(event: any) {
-  this._regForm.handleFileChange(event)
+  // this._regForm.handleFileChange(event)
   // const file = event.target.files[0];
   // console.log("fileee",file);
   

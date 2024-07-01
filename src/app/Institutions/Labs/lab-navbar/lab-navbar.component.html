@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-sm fixed-top" id="navbar">
+    <div class="container">
+        <img src="assets/imgs/logo2.jpg" class="me-2" alt="">
+        <a class="navbar-brand mt-1" routerLink="/home">Rapid<span>R</span>x</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+            <ul class="nav nav-underline mx-auto">
+                 <li class="nav-item me-2">
+                    <a class="ms-2 nav-link" aria-current="page" routerLink="/lab/uploadAnalysis">Upload Medical Analysis </a>
+                </li>
+                <li class="nav-item">
+                    <a class="ms-2 nav-link" aria-current="page" routerLink="/lab/viewUser">View User Profile</a>
+                </li>
+            </ul>
+            <ul class="nav nav-underline ms-auto">
+                <li class="nav-item me-2">
+                    <div class="smallImage d-flex " routerLink="/lab/Home">
+                        <a class="ms-2 nav-link active" aria-current="page">{{labInfo.name}} Lab</a>
+                    </div>
+                </li>
+               
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/labLogin">LogOut</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<router-outlet></router-outlet>

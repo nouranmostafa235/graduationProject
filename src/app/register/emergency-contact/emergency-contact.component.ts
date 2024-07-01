@@ -12,14 +12,14 @@ export class EmergencyContactComponent {
   form:FormGroup=new FormGroup({});
   handle(){
     const formData = this.form.value;
-    formData['profileImage']=this._reg.imageFile
+ 
     // const localStorageValue = localStorage.getItem('uploadedImage');
     // if (localStorageValue) {
     //   formData['profileImage'] = localStorageValue;
     // }
     this._reg.handlrRegistration(formData).subscribe({
       next:(response)=>{
-        console.log("---------formm-",formData);
+        console.log("---------formm-",response);
         console.log( "imageeee",formData['profileImage']);
         
       }

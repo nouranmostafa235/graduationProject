@@ -10,12 +10,14 @@ import { UserDataService } from 'src/app/user-data.service';
 
 
 export class ProfileComponent implements OnInit{
-  constructor(private userData: UserDataService, private router: Router) { }
+  constructor(private userData: UserDataService) { }
   data: any
   ngOnInit(): void {
     this.userData.getUserData().subscribe({
       next: (response) => {
         this.data = response
+        console.log(response,"userrr");
+        
       }
     })
   }
