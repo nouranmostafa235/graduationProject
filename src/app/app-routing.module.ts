@@ -28,6 +28,9 @@ import { LabNavbarComponent } from './Institutions/Labs/lab-navbar/lab-navbar.co
 import { ClinicNavBarComponent } from './Institutions/Clinics/clinic-nav-bar/clinic-nav-bar.component';
 import { ViewUserInLabComponent } from './Institutions/Labs/view-user-in-lab/view-user-in-lab.component';
 import { ViewUserProfileInClinicComponent } from './Institutions/Clinics/view-user-profile-in-clinic/view-user-profile-in-clinic.component';
+import { ChooseViewOptionComponent } from './Institutions/Labs/choose-view-option/choose-view-option.component';
+import { ChooseViewOptionClinicComponent } from './Institutions/Clinics/choose-view-option-clinic/choose-view-option-clinic.component';
+import { UserProfileByLabComponent } from './Institutions/Labs/user-profile-by-lab/user-profile-by-lab.component';
 
 const routes: Routes = [
   { path: "", redirectTo: 'home', pathMatch: 'full' },
@@ -47,6 +50,8 @@ const routes: Routes = [
     path: "lab", component: LabNavbarComponent, children: [{ path: 'Home', component: LabHomePageComponent },
     { path: "uploadAnalysis", component: LabUploadMedicalAnalysisComponent },
     { path: "viewUser", component: ViewUserInLabComponent },
+    { path: "option", component: ChooseViewOptionComponent },
+    { path: "userProfile", component: UserProfileByLabComponent },
     ]
   },
   {
@@ -54,6 +59,7 @@ const routes: Routes = [
     { path: "uploadDiagnose", component: UploadDiagnoseComponent },
     { path: "uploadAnalysis", component: UploadMedicalAnalysisComponent },
     { path: "viewUser", component: ViewUserProfileInClinicComponent },
+    { path: "option", component: ChooseViewOptionClinicComponent },
     ]
   },
 

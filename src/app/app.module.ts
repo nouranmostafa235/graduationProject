@@ -42,6 +42,9 @@ import { ClinicNavBarComponent } from './Institutions/Clinics/clinic-nav-bar/cli
 import { SearchUsersPipe } from './search-users.pipe';
 import { ViewUserInLabComponent } from './Institutions/Labs/view-user-in-lab/view-user-in-lab.component';
 import { ViewUserProfileInClinicComponent } from './Institutions/Clinics/view-user-profile-in-clinic/view-user-profile-in-clinic.component';
+import { ChooseViewOptionComponent } from './Institutions/Labs/choose-view-option/choose-view-option.component';
+import { ChooseViewOptionClinicComponent } from './Institutions/Clinics/choose-view-option-clinic/choose-view-option-clinic.component';
+import { UserProfileByLabComponent } from './Institutions/Labs/user-profile-by-lab/user-profile-by-lab.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -78,6 +81,9 @@ import { ViewUserProfileInClinicComponent } from './Institutions/Clinics/view-us
     SearchUsersPipe,
     ViewUserInLabComponent,
     ViewUserProfileInClinicComponent,
+    ChooseViewOptionComponent,
+    ChooseViewOptionClinicComponent,
+    UserProfileByLabComponent,
   ],
   imports: [
     BrowserModule,
