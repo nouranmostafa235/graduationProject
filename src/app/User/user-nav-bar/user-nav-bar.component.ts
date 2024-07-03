@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class UserNavBarComponent implements OnInit {
   constructor(private userData: UserDataService, private router: Router) { }
-
+  defaultImageUrl: string = 'assets/imgs/default_user.webp'; 
   data: any
   MedicalAnalysis: any[] = []
   Info: any[] = []
@@ -332,5 +332,8 @@ export class UserNavBarComponent implements OnInit {
 
   }
 
-
+  onImageError(event: Event) {
+    const imgElement = event.target as HTMLImageElement;
+    imgElement.src = this.defaultImageUrl;
+  }
 }

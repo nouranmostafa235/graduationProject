@@ -9,28 +9,54 @@ import { RegisterationFormService } from 'src/app/registeration-form.service';
   styleUrls: ['./emergency-contact.component.css']
 })
 export class EmergencyContactComponent {
-  form:FormGroup=new FormGroup({});
-  handle(){
-    const formData = this.form.value;
- 
-    // const localStorageValue = localStorage.getItem('uploadedImage');
-    // if (localStorageValue) {
-    //   formData['profileImage'] = localStorageValue;
-    // }
-    this._reg.handlrRegistration(formData).subscribe({
-      next:(response)=>{
-        console.log("---------formm-",response);
-        console.log( "imageeee",formData['profileImage']);
+  
+  emergencyContacts = [
+    { address: '', firstName: '', lastName: '', phone: '' },
+    { address: '', firstName: '', lastName: '', phone: '' }
+  ];
+formData:any;
+constructor(private _reg: RegisterationFormService, private router: Router) {
+  // this.formData=this._reg.getFormData();
+ }
+ addItem() {
+  this._reg.addToArray(this.emergencyContacts);
+  this.emergencyContacts = [
+    { address: this.emergencyContacts[0].address, firstName: this.emergencyContacts[0].firstName, lastName: this.emergencyContacts[0].lastName, phone: this.emergencyContacts[0].phone },
+    { address: this.emergencyContacts[1].address, firstName: this.emergencyContacts[1].firstName, lastName:this.emergencyContacts[1].lastName, phone: this.emergencyContacts[1].phone }
+  ];
+}
+submitForm() {
+  this._reg.setFormData({
+    emergencyContacts:this.emergencyContacts
+  })
+  this.formData=this._reg.getFormData();
+  const formDataa = new FormData();
+  for (const key in this.formData) {
+    if (this.formData.hasOwnProperty(key) && key !== 'profile_images') {
+      if (key === 'emergencyContacts' || key ==='personalAllergiesHistory' || key ==='familyMedicalHistory' || key==='personalMedicalHistory' || key==='personalSurgicalHistory') {
+        formDataa.append(key, JSON.stringify(this.formData[key]));
         
+      } else {
+        formDataa.append(key, this.formData[key]);
       }
-    })
-    
+    }
   }
 
-constructor(private _reg:RegisterationFormService, private router: Router){
-  this.form=this._reg.registerForm;
-}
-  get emergencyContacts(): FormArray {
-    return this.form.get('emergencyContacts') as FormArray;
+  if (this.formData.profile_images) {          
+    formDataa.append('profile_images', this.formData.profile_images, this.formData.profile_images.name);
   }
+
+  
+  formDataa.forEach((value, key) => {
+    console.log(key, value);
+  });
+ 
+ 
+  this._reg.handleRegister(formDataa).subscribe({
+    next:(response)=> console.log(response)
+    
+  })  
 }
+ 
+}
+

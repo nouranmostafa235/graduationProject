@@ -110,7 +110,7 @@
 
                 <li class="nav-item me-2">
                     <div class="smallImage d-flex " routerLink="/UserProfile/profile">
-                        <img src="assets/imgs/download.jpeg" alt="">
+                        <img img [src]="data.fileUrl || defaultImageUrl" (error)="onImageError($event)" alt="">
                         <a class="ms-2 nav-link active" aria-current="page">{{ data.firstName }}</a>
                     </div>
                 </li>

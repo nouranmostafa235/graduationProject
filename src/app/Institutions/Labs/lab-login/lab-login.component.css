@@ -67,7 +67,8 @@ label {
   }
 
  .login_form{
-    margin-top: 170px;
+    margin-top: 120px;
+    margin-bottom: 30px;
  }
 .form-control{
     border-radius: 0 !important;
@@ -91,3 +92,6 @@ select {
     border: 0;
     padding: 14px 0px;
  }
+ h4{
+    color:var(--blueColor) ;
+}

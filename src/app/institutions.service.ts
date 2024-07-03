@@ -33,10 +33,10 @@ export class InstitutionsService {
     return this.http.get<any[]>("http://localhost:3000/users/getall")
   }
   getUserByIdClinic(userId:any):Observable<any>{
-   return this.http.get(`http://localhost:3000/clinics/userById/${userId}`,{headers:this.ClinicHeader})
+   return this.http.get(`http://localhost:3000/users/userById/${userId}`,{headers:this.ClinicHeader})
   }
   getUserByIdLab(userID:any):Observable<any>{
-    return this.http.get(`http://localhost:3000/labs/userById/${userID}`,{headers:this.labHeader})
+    return this.http.get(`http://localhost:3000/users/userById/${userID}`,{headers:this.labHeader})
   }
 
 }

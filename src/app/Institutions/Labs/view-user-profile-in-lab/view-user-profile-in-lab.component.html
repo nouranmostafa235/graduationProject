@@ -1,0 +1,61 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  </head>
+<div class="row me-0 vh-100 d-flex justify-content-center align-items-center overflow-hidden">
+    <div class="col-sm-10 mx-auto">
+        <div class="info ps-2 pt-4 pb-5 first_section form ">
+            <div class="ms-auto animate__animated animate__slideInRight d-flex justify-content-end pe-3 w-25">
+                <button data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btnn">Upload Medical Analysis <i class="fa-solid fa-upload"></i></button>
+            </div>
+            <div class="row">
+                
+                <div class="col-sm-3 imgDiv">
+                    <img [src]="userData.fileUrl|| defaultImageUrl" (error)="onImageError($event)" class="img-thumbnail rounded-circle" alt="">
+                </div>
+                <div class="col-sm-9">
+                    <h3>{{userData.firstName}} {{userData.lastName}}</h3>
+                    <div class="d-flex justify-content-evenly">
+                        <p class="fw-light">{{userData.age}} yrs, {{userData.gender}}</p>
+                        <p class="fw-light ms-auto">Address: {{userData.address}}</p>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between fw-light">
+                        <p>Weight: {{userData.weight}} Kg</p>
+                        <p>Height: {{userData.height}} Cm</p>
+                        <p>Blood Type: {{userData.bloodType}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+</div>
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h1 class="modal-title fs-5" id="staticBackdropLabel">Upload Medical Analysis</h1>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <form (ngSubmit)="save()">
+        <div class="row">
+          <div class="col-sm-7 mb-4 mx-auto">
+            <label for="">Upload Pdf File*</label>
+            <input type="file" class="file-input form-control" (change)="onChange($event)" name="pdf" id="pdf" required>
+          </div>
+          <div class="col-sm-7 mb-4 mx-auto">
+            <label for="">Upload Test Name*</label>
+            <input type="text" class="text-input form-control" (input)="onTextInputChange($event)" name="testname" id="testname" [(ngModel)]="text" required>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btnn" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btnn" [disabled]="!file || !text">Upload</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>

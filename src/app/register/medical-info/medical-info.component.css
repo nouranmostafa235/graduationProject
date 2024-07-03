@@ -91,6 +91,6 @@ th {
     color: var(--blueColor);
 }
 
-form {
+.form {
     margin-top: 120px;
 }

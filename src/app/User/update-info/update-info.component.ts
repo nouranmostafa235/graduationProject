@@ -11,9 +11,9 @@ import Swal from 'sweetalert2';
   styleUrls: ['./update-info.component.css']
 })
 export class UpdateInfoComponent implements OnInit {
-  
+  selectedFile: File | null = null;
   form: FormGroup = new FormGroup({});
- 
+  defaultImageUrl: string = 'assets/imgs/default_user.webp'; 
   constructor(private userData: UserDataService, private fb: FormBuilder,private route:Router) {
     this.form = this.fb.group({
       firstName: [''],
@@ -246,5 +246,41 @@ export class UpdateInfoComponent implements OnInit {
         Swal.fire("Changes are not saved", "", "info");
       }
     });
+  }
+  onImageError(event: Event) {
+    const imgElement = event.target as HTMLImageElement;
+    imgElement.src = this.defaultImageUrl;
+  }
+  onFileSelect(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      this.selectedFile = file;
+      console.log(file);
+      this.uploadImage();
+    }
+  }
+  uploadImage() {
+    if (this.selectedFile) {
+      const formData = new FormData();
+      formData.append('profileImage', this.selectedFile, this.selectedFile.name);
+      this.userData.updateInfo(formData).subscribe({
+        next:(response)=>{
+          formData.forEach((value, key) => {
+            console.log(key, value);
+          });
+          
+          
+        }
+      })
+       
+      // this.http.post('YOUR_API_ENDPOINT', formData).subscribe({
+      //   next: (response) => {
+      //     console.log('Image uploaded successfully', response);
+      //   },
+      //   error: (err) => {
+      //     console.error('Error uploading image', err);
+      //   }
+      // });
+    }
   }
 }

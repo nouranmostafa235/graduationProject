@@ -1,0 +1,57 @@
+.home{
+    margin-top: 120px;
+  }
+  .clinic img{
+    width: 40%;
+   
+    transition: all 0.5s;
+  }
+  .lab img{
+    width: 70%;
+    transition: all 0.5s;
+  }
+  .clinic .subTitle{
+    margin-bottom: 70px;
+  }
+  h5{
+    font-weight: 600;
+    font-size: 40px;
+    color: #010F1A;
+  }
+  /* h5:hover{
+    cursor: pointer;
+  } */
+  h2{
+    font-size: 40px;
+    font-weight: 600;
+  }
+  .line{
+    height: 60vh;
+    width: 0.1px;
+    background-color: #010F1A;
+    transform: scaleX(0.2);
+    border-radius: 4px;
+    box-shadow: 1px 1px 35px 5px rgba(0,0,0,0.75);
+  }
+  .clinic img:hover{
+    transform: scale(1.12);
+    cursor: pointer;
+  }
+  .lab img:hover{
+    transform: scale(1.12);
+    cursor: pointer;
+  }
+  .title{
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 75px;
+    color: var(--orangeColor);
+  }
+  .subTitle{
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 40px;
+  }
+  

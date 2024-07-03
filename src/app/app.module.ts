@@ -18,7 +18,7 @@ import { UpdateInfoComponent } from './User/update-info/update-info.component';
 import { PredictComponent } from './User/predict/predict.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { NgwWowModule } from 'ngx-wow';
-import { HttpClientModule } from  '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { InstitutionLoginComponent } from './institution-login/institution-login.component';
 import { AdminLoginComponent } from './Admin/admin-login/admin-login.component';
 import { AdminHomePageComponent } from './Admin/admin-home-page/admin-home-page.component';
@@ -40,11 +40,17 @@ import { LabUploadMedicalAnalysisComponent } from './Institutions/Labs/lab-uploa
 import { LabNavbarComponent } from './Institutions/Labs/lab-navbar/lab-navbar.component';
 import { ClinicNavBarComponent } from './Institutions/Clinics/clinic-nav-bar/clinic-nav-bar.component';
 import { SearchUsersPipe } from './search-users.pipe';
-import { ViewUserInLabComponent } from './Institutions/Labs/view-user-in-lab/view-user-in-lab.component';
 import { ViewUserProfileInClinicComponent } from './Institutions/Clinics/view-user-profile-in-clinic/view-user-profile-in-clinic.component';
-import { ChooseViewOptionComponent } from './Institutions/Labs/choose-view-option/choose-view-option.component';
 import { ChooseViewOptionClinicComponent } from './Institutions/Clinics/choose-view-option-clinic/choose-view-option-clinic.component';
-import { UserProfileByLabComponent } from './Institutions/Labs/user-profile-by-lab/user-profile-by-lab.component';
+import { ViewBySearchINClinicComponent } from './Institutions/Clinics/view-by-search-inclinic/view-by-search-inclinic.component';
+import { ViewOptionsInLabComponent } from './Institutions/Labs/view-options-in-lab/view-options-in-lab.component';
+import { ViewBySearchInlabComponent } from './Institutions/Labs/view-by-search-inlab/view-by-search-inlab.component';
+import { ViewUserProfileInLabComponent } from './Institutions/Labs/view-user-profile-in-lab/view-user-profile-in-lab.component';
+import {  ZXingScannerModule } from '@zxing/ngx-scanner';
+import { QrCodeScannerComponent } from './QRCode/qr-code-scanner/qr-code-scanner.component';
+import { UserFilesComponent } from './User/user-files/user-files.component';
+import { ViewUserFilesInClinicComponent } from './Institutions/Clinics/view-user-files-in-clinic/view-user-files-in-clinic.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -79,11 +85,15 @@ import { UserProfileByLabComponent } from './Institutions/Labs/user-profile-by-l
     LabNavbarComponent,
     ClinicNavBarComponent,
     SearchUsersPipe,
-    ViewUserInLabComponent,
     ViewUserProfileInClinicComponent,
-    ChooseViewOptionComponent,
     ChooseViewOptionClinicComponent,
-    UserProfileByLabComponent,
+    ViewBySearchINClinicComponent,
+    ViewOptionsInLabComponent,
+    ViewBySearchInlabComponent,
+    ViewUserProfileInLabComponent,
+    QrCodeScannerComponent,
+    UserFilesComponent,
+    ViewUserFilesInClinicComponent,
   ],
   imports: [
     BrowserModule,
@@ -95,7 +105,7 @@ import { UserProfileByLabComponent } from './Institutions/Labs/user-profile-by-l
     FormsModule,
     NgbModule,
     SweetAlert2Module.forRoot(),
-  
+    ZXingScannerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

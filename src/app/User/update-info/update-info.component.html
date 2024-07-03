@@ -124,8 +124,11 @@
             </div>
             <!-- End Modal -->
             <div class="row">
-                <div class="col-sm-3 imgDiv">
-                    <img src="assets/imgs/download.jpeg" class="img-thumbnail rounded-circle" alt="">
+                <div class="col-sm-3 imgDiv position-relative ">
+                    <img img [src]="data.fileUrl || defaultImageUrl" (error)="onImageError($event)" class="img-thumbnail rounded-circle" alt="">
+                    <div class=" camera w-25 d-flex position-absolute " (click)="fileInput.click()"><i class="fa-solid fa-camera fa-lg"></i>
+                        <input type="file" #fileInput style="display: none;" (change)="onFileSelect($event)" />
+                    </div>
                 </div>
                 <div class="col-sm-9">
                     <h3><span id="firstName">{{data.firstName}}</span> <span id="lastName"> {{data.lastName}}</span></h3>

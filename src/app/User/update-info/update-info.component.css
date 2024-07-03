@@ -110,3 +110,8 @@ select {
 .subtitle{
   color: var(--orangeColor);
 }
+.camera{
+  bottom: 10px;
+  right: 10px;
+  cursor: pointer;
+}

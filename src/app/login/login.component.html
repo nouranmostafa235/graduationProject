@@ -27,17 +27,21 @@
           </div>
           </div>
       </nav>
-    <div class="col-md-7 mx-auto login ">
-        <form class="login_form mb-5 mt-5 col-sm-10 mx-auto"[formGroup]="login" (ngSubmit)="handle(login)">
-            <div class="row mt-5">
+      <div class="login_form login align-items-center justify-content-center d-flex">
+        <h4 class="text-center animate__animated animate__bounceInDown pe-1">User</h4>
+        <h4 class="text-center animate__animated animate__slideInRight">Login</h4>
+    </div>
+    <div class="col-md-7 mx-auto ">
+        <form class=" mb-5 col-sm-10 mx-auto"[formGroup]="login" (ngSubmit)="handle(login)">
+            <div class="row ">
                 <div class="row pe-0 mt-5">
                     <div class="col-md-12 pe-0">
-                        <label for="email_login" class="ms-2">Email</label>
+                        <label for="email_login" class="ms-2">User Email</label>
                         <input type="email" class="form-control mb-5" formControlName="email" placeholder="Your Email">
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <label for="password_login" class="ms-2">Password</label>
+                    <label for="password_login" class="ms-2">User Password</label>
                     <input type="password" class="form-control mb-3" formControlName="password" placeholder="Your Password">
                 </div>
             </div>

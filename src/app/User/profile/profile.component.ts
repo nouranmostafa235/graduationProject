@@ -12,6 +12,7 @@ import { UserDataService } from 'src/app/user-data.service';
 export class ProfileComponent implements OnInit{
   constructor(private userData: UserDataService) { }
   data: any
+  defaultImageUrl: string = 'assets/imgs/default_user.webp'; 
   ngOnInit(): void {
     this.userData.getUserData().subscribe({
       next: (response) => {
@@ -20,5 +21,9 @@ export class ProfileComponent implements OnInit{
         
       }
     })
+  }
+  onImageError(event: Event) {
+    const imgElement = event.target as HTMLImageElement;
+    imgElement.src = this.defaultImageUrl;
   }
 }

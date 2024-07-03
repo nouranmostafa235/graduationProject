@@ -1,0 +1,58 @@
+<div class="row me-0">
+    <div class="col-sm-10 mx-auto">
+        <div class="info ps-2 pt-5 pb-5 first_section form ">
+            <div class="row">
+                <div class="col-sm-3 imgDiv">
+                    <img [src]="data.fileUrl || defaultImageUrl" (error)="onImageError($event)" class="img-thumbnail rounded-circle" alt="">
+                </div>
+                <div class="col-sm-9">
+                    <h3>{{data.firstName}} {{data.lastName}}</h3>
+                    <div class="d-flex justify-content-evenly">
+                        <p class="fw-light">{{data.age}} yrs, {{data.gender}}</p>
+                        <p class="fw-light ms-auto">Address: {{data.address}}</p>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between fw-light">
+                        <p>Weight: {{data.weight}} Kg</p>
+                        <p>Height: {{data.height}} Cm</p>
+                        <p>Blood Type: {{data.bloodType}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-4 ps-2 first_section">
+            <table class="personalTable table table-striped mb-0 mb-0">
+                <thead class="text-center">
+                    <tr>
+                        <th colspan="4">Personal <span>Medical Analysis</span> Files</th>
+                    </tr>
+                </thead>
+                <tbody class="">
+                    <tr *ngFor="let row of chunkArray(data.medicalAnalysis, 4)">
+                        <td *ngFor="let i of row">
+                            <i class="fa-solid fa-file-pdf fa-2xl"></i>
+                            <a for="">{{i.testName}}</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="mt-4 ps-2 first_section mb-5">
+            <table class="personalTable table table-striped mb-0 mb-0">
+                <thead class="text-center">
+                    <tr >
+                        <th colspan="4">Personal <span>Diagnose</span> Files</th>
+                    </tr>
+                </thead>
+                <tbody class="">
+                    <tr *ngFor="let row of chunkArray(data.diagnosis, 4)">
+                        <td *ngFor="let i of row  ; let idx=index">
+                            <i class="fa-solid fa-file-pdf fa-2xl"></i>
+                            <a for="">{{clinics[idx].name}}</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

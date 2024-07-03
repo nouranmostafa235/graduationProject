@@ -26,12 +26,15 @@ import { UploadMedicalAnalysisComponent } from './Institutions/Clinics/upload-me
 import { LabUploadMedicalAnalysisComponent } from './Institutions/Labs/lab-upload-medical-analysis/lab-upload-medical-analysis.component';
 import { LabNavbarComponent } from './Institutions/Labs/lab-navbar/lab-navbar.component';
 import { ClinicNavBarComponent } from './Institutions/Clinics/clinic-nav-bar/clinic-nav-bar.component';
-import { ViewUserInLabComponent } from './Institutions/Labs/view-user-in-lab/view-user-in-lab.component';
 import { ViewUserProfileInClinicComponent } from './Institutions/Clinics/view-user-profile-in-clinic/view-user-profile-in-clinic.component';
-import { ChooseViewOptionComponent } from './Institutions/Labs/choose-view-option/choose-view-option.component';
 import { ChooseViewOptionClinicComponent } from './Institutions/Clinics/choose-view-option-clinic/choose-view-option-clinic.component';
-import { UserProfileByLabComponent } from './Institutions/Labs/user-profile-by-lab/user-profile-by-lab.component';
-
+import { ViewBySearchINClinicComponent } from './Institutions/Clinics/view-by-search-inclinic/view-by-search-inclinic.component';
+import { ViewOptionsInLabComponent } from './Institutions/Labs/view-options-in-lab/view-options-in-lab.component';
+import { ViewBySearchInlabComponent } from './Institutions/Labs/view-by-search-inlab/view-by-search-inlab.component';
+import { ViewUserProfileInLabComponent } from './Institutions/Labs/view-user-profile-in-lab/view-user-profile-in-lab.component';
+import { QrCodeScannerComponent } from './QRCode/qr-code-scanner/qr-code-scanner.component';
+import { UserFilesComponent } from './User/user-files/user-files.component';
+import { ViewUserFilesInClinicComponent } from './Institutions/Clinics/view-user-files-in-clinic/view-user-files-in-clinic.component';
 const routes: Routes = [
   { path: "", redirectTo: 'home', pathMatch: 'full' },
   { path: "home", component: HomePageComponent },
@@ -39,7 +42,6 @@ const routes: Routes = [
   { path: 'medical_info', component: MedicalInfoComponent },
   { path: 'emergency_Contact', component: EmergencyContactComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'familyHistory', component: FamilyHistoryComponent },
   { path: 'institutionLogin', component: InstitutionLoginComponent },
   { path: 'adminLogin', component: AdminLoginComponent },
   { path: 'adminHomePage', component: AdminHomePageComponent },
@@ -49,9 +51,9 @@ const routes: Routes = [
   {
     path: "lab", component: LabNavbarComponent, children: [{ path: 'Home', component: LabHomePageComponent },
     { path: "uploadAnalysis", component: LabUploadMedicalAnalysisComponent },
-    { path: "viewUser", component: ViewUserInLabComponent },
-    { path: "option", component: ChooseViewOptionComponent },
-    { path: "userProfile", component: UserProfileByLabComponent },
+    { path: "option", component: ViewOptionsInLabComponent },
+    { path: "searchUser", component: ViewBySearchInlabComponent },
+    { path: "viewUser", component: ViewUserProfileInLabComponent },
     ]
   },
   {
@@ -60,6 +62,8 @@ const routes: Routes = [
     { path: "uploadAnalysis", component: UploadMedicalAnalysisComponent },
     { path: "viewUser", component: ViewUserProfileInClinicComponent },
     { path: "option", component: ChooseViewOptionClinicComponent },
+    { path: "seachUser", component: ViewBySearchINClinicComponent },
+    { path: "userFiles", component: ViewUserFilesInClinicComponent },
     ]
   },
 
@@ -71,10 +75,12 @@ const routes: Routes = [
       { path: "predictDisease", component: PredictComponent },
       { path: 'clinicProfile', component: ViewClinicProfileComponent },
       { path: 'labProfile', component: ViewInstitutionProfileComponent },
+      { path: 'familyHistory', component: FamilyHistoryComponent },
+      { path: 'files', component: UserFilesComponent },
     ]
   },
 
-
+{path:"qrScanner",component:QrCodeScannerComponent}
 
 ];
 

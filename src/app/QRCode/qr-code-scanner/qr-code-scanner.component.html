@@ -1,0 +1,16 @@
+<div *ngIf="!hasPermission">
+  <p>Camera access is not granted. Please allow camera access.</p>
+</div>
+
+<div *ngIf="hasDevices">
+  <zxing-scanner
+    [device]="currentDevice"
+    (scanSuccess)="handleQrCodeResult($event)"
+    (camerasFound)="onCamerasFound($event)"
+    (permissionResponse)="onHasPermission($event)">
+  </zxing-scanner>
+</div>
+
+<div *ngIf="!hasDevices && hasPermission">
+  <p>No camera devices found.</p>
+</div>

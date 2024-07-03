@@ -2,12 +2,16 @@
     margin-top: 120px;
   }
   .clinic img{
-    width: 75%;
+    width: 40%;
+   
     transition: all 0.5s;
   }
   .lab img{
-    width: 105%;
+    width: 70%;
     transition: all 0.5s;
+  }
+  .clinic .subTitle{
+    margin-bottom: 70px;
   }
   h5{
     font-weight: 600;
