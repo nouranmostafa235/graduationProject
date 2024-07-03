@@ -35,7 +35,7 @@
             <p *ngIf="login.get('password')?.getError('minLength')" class="m-0"> password minLength is 8</p>
             <p *ngIf="login.get('password')?.getError('pattern')" class="m-0"> password should be atleast has a capitale
               letter </p>
-            <p *ngIf="login.get('password')?.getError('required')" class="m-0"> FUCK </p>
+            <p *ngIf="login.get('password')?.getError('required')" class="m-0"> password is required</p>
           </div>
         </div>
       </div>
