@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { response } from 'express';
 import { UserDataService } from 'src/app/user-data.service';
 
 @Component({
@@ -7,48 +7,16 @@ import { UserDataService } from 'src/app/user-data.service';
   templateUrl: './family-history.component.html',
   styleUrls: ['./family-history.component.css']
 })
+
+
 export class FamilyHistoryComponent implements OnInit {
-  data: any;
-  form: FormGroup;
-
-  constructor(private userData: UserDataService) {
-    this.form = new FormGroup({
-      disease: new FormControl(null, [Validators.required]),
-      relationship: new FormControl(null, [Validators.required]),
-    });
-  }
-
+constructor(private userData:UserDataService){}
+  data:any
   ngOnInit(): void {
-    this.fetchUserData();
-  }
-
-  fetchUserData(): void {
     this.userData.getUserData().subscribe({
-      next: (response) => {
-        this.data = response;
-      },
-      error: (err) => {
-        console.error('Error fetching user data:', err);
+      next:(response)=>{
+        this.data=response
       }
-    });
+    })
   }
-
-  submitForm(): void {
-    if (this.form.valid) {
-      const formData = this.form.value;
-      console.log('Form Data:', formData);
-    } else {
-      this.markFormGroupTouched(this.form);
-    }
-  }
-
-  private markFormGroupTouched(formGroup: FormGroup): void {
-    Object.values(formGroup.controls).forEach(control => {
-      control.markAsTouched();
-
-      if (control instanceof FormGroup) {
-        this.markFormGroupTouched(control);
-      }
-    });
-  }
-}
+} 

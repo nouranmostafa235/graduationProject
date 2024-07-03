@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { FormBuilder,FormControl, FormGroup } from '@angular/forms';
+import {  Router } from '@angular/router';
+import { faL } from '@fortawesome/free-solid-svg-icons';
 import { UserDataService } from 'src/app/user-data.service';
 import Swal from 'sweetalert2';
 
@@ -11,27 +12,21 @@ import Swal from 'sweetalert2';
 })
 export class UpdateInfoComponent implements OnInit {
   selectedFile: File | null = null;
-  form: FormGroup;
-  defaultImageUrl: string = 'assets/imgs/default_user.webp';
-  data: any = {};
-  
-  constructor(
-    private userData: UserDataService,
-    private fb: FormBuilder,
-    private router: Router
-  ) {
+  form: FormGroup = new FormGroup({});
+  defaultImageUrl: string = 'assets/imgs/default_user.webp'; 
+  constructor(private userData: UserDataService, private fb: FormBuilder,private route:Router) {
     this.form = this.fb.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      phone: ['', [Validators.required, Validators.pattern('[0-9]+')]],
-      age: ['', Validators.required],
-      gender: ['', Validators.required],
+      firstName: [''],
+      lastName: [''],
+      email: [''],
+      phone: [''],
+      age: [''],
+      gender: [''],
       address: [''],
       weight: [''],
       height: [''],
       bloodType: [''],
-      personalMedicalHistory: this.fb.group({
+      personalMedicalHistory:this.fb.group({
         anemia: [false],
         arthritis: [false],
         asthma: [false],
@@ -55,29 +50,29 @@ export class UpdateInfoComponent implements OnInit {
         pepticUlcerDisease: [false],
         seizures: [false],
         stroke: [false],
-        ulcerativeColitis: [false],
+        ulcerativeColitis: [false]
       }),
       personalSurgicalHistory: this.fb.group({
-        adrenalGlandSurgery: [false],
-        colonSurgery: [false],
-        kidneySurgery: [false],
-        appendectomy: [false],
-        arterySurgery: [false],
-        neckSurgery: [false],
-        thyroidSurgery: [false],
-        esophagusSurgery: [false],
-        prostateSurgery: [false],
-        bladderSurgery: [false],
-        largeIntestineSurgery: [false],
-        gastricBypassSurgery: [false],
-        lungSurgery: [false],
-        smallIntestineSurgery: [false],
-        breastSurgery: [false],
-        hemorrhoidSurgery: [false],
-        spineSurgery: [false],
-        uterusSurgery: [false],
-        cesareanSection: [false],
-        stomachSurgery: [false],
+        adrenalGlandSurgery:[false],
+        colonSurgery:[false],
+        kidneySurgery:[false],
+        appendectomy:[false],
+        arterySurgery:[false],
+        neckSurgery:[false],
+        thyroidSurgery:[false],
+        esophagusSurgery:[false],
+        prostateSurgery:[false],
+        bladderSurgery:[false],
+        largeIntestineSurgery:[false],
+        gastricBypassSurgery:[false],
+        lungSurgery:[false],
+        smallIntestineSurgery:[false],
+        breastSurgery:[false],
+        hemorrhoidSurgery:[false],
+        spineSurgery:[false],
+        uterusSurgery:[false],
+        cesareanSection:[false],
+        stomachSurgery:[false],
       }),
       personalAllergiesHistory: this.fb.group({
         foodAllergies: [false],
@@ -103,137 +98,187 @@ export class UpdateInfoComponent implements OnInit {
         kidneyDisease: [false],
         endocrineProblems: [false],
       }),
-      emergencyContacts: this.fb.array([
-        this.fb.group({
-          address: [''],
-          firstName: [''],
-          lastName: [''],
-          phone: [''],
-        }),
-        this.fb.group({
-          address: [''],
-          firstName: [''],
-          lastName: [''],
-          phone: [''],
-        })
-      ])
-    });
+    })
+
+
   }
 
+  data: any = {}
+  first: any
   ngOnInit(): void {
-    this.fetchUserData();
-  }
-
-  fetchUserData(): void {
     this.userData.getUserData().subscribe({
       next: (response) => {
-        this.data = response;
-        this.populateForm();
-      },
-      error: (err) => {
-        console.error('Error fetching user data:', err);
-      }
-    });
-  }
+        this.data = response   
+        console.log(this.data);
+        this.form.patchValue({
+          firstName: this.data.firstName,
+          lastName: this.data.lastName,
+          email: this.data.email,
+          phone: this.data.phone,
+          age: this.data.age,
+          gender: this.data.gender,
+          address: this.data.address,
+          weight: this.data.weight,
+          height: this.data.height,
+          bloodType: this.data.bloodType,
+          personalMedicalHistory: {
+            anemia: this.data.personalMedicalHistory?.anemia ?? false,
+            arthritis: this.data.personalMedicalHistory?.arthritis??false,
+            asthma: this.data.personalMedicalHistory?.asthma??false,
+            cancer: this.data.personalMedicalHistory?.cancer??false,
+            chronicObstructive: this.data.personalMedicalHistory?.chronicObstructive??false,
+            heartDisease: this.data.personalMedicalHistory?.heartDisease??false,
+            clottingDisorder: this.data.personalMedicalHistory?.clottingDisorder??false,
+            congestiveHeartFailure: this.data.personalMedicalHistory?.congestiveHeartFailure??false,
+            crohnsDisease: this.data.personalMedicalHistory?.crohnsDisease??false,
+            depression: this.data.personalMedicalHistory?.depression??false,
+            diabetes: this.data.personalMedicalHistory?.diabetes??false,
+            emphysema: this.data.personalMedicalHistory?.emphysema??false,
+            endocrineProblems: this.data.personalMedicalHistory?.endocrineProblems??false,
+            GERD: this.data.personalMedicalHistory?.GERD??false,
+            glaucoma: this.data.personalMedicalHistory?.glaucoma??false,
+            hepatitis: this.data.personalMedicalHistory?.hepatitis??false,
+            HIV_AIDS: this.data.personalMedicalHistory?.HIV_AIDS??false,
+            hypertension: this.data.personalMedicalHistory?.hypertension??false,
+            kidneyDisease: this.data.personalMedicalHistory?.kidneyDisease??false,
+            myocardialInfarction: this.data.personalMedicalHistory?.myocardialInfarction??false,
+            pepticUlcerDisease: this.data.personalMedicalHistory?.pepticUlcerDisease??false,
+            seizures: this.data.personalMedicalHistory?.seizures??false,
+            stroke: this.data.personalMedicalHistory?.stroke??false,
+            ulcerativeColitis: this.data.personalMedicalHistory?.ulcerativeColitis??false,
+          },
+          personalSurgicalHistory:{
+            adrenalGlandSurgery:this.data.personalSurgicalHistory?.adrenalGlandSurgery??false,
+            colonSurgery:this.data.personalSurgicalHistory?.colonSurgery??false,
+            kidneySurgery:this.data.personalSurgicalHistory?.kidneySurgery??false,
+            appendectomy:this.data.personalSurgicalHistory?.appendectomy??false,
+            arterySurgery:this.data.personalSurgicalHistory?.arterySurgery??false,
+            neckSurgery:this.data.personalSurgicalHistory?.neckSurgery??false,
+            thyroidSurgery:this.data.personalSurgicalHistory?.thyroidSurgery??false,
+            esophagusSurgery:this.data.personalSurgicalHistory?.esophagusSurgery??false,
+            prostateSurgery:this.data.personalSurgicalHistory?.prostateSurgery??false,
+            bladderSurgery:this.data.personalSurgicalHistory?.bladderSurgery??false,
+            largeIntestineSurgery:this.data.personalSurgicalHistory?.largeIntestineSurgery??false,
+            gastricBypassSurgery:this.data.personalSurgicalHistory?.gastricBypassSurgery??false,
+            lungSurgery:this.data.personalSurgicalHistory?.lungSurgery??false,
+            smallIntestineSurgery:this.data.personalSurgicalHistory?.smallIntestineSurgery??false,
+            breastSurgery:this.data.personalSurgicalHistory?.breastSurgery??false,
+            hemorrhoidSurgery:this.data.personalSurgicalHistory?.hemorrhoidSurgery??false,
+            spineSurgery:this.data.personalSurgicalHistory?.spineSurgery??false,
+            uterusSurgery:this.data.personalSurgicalHistory?.uterusSurgery??false,
+            cesareanSection:this.data.personalSurgicalHistory?.cesareanSection??false,
+            stomachSurgery:this.data.personalSurgicalHistory?.stomachSurgery??false,
+          },
+          personalAllergiesHistory:{
+            foodAllergies:this.data.personalAllergiesHistory?.foodAllergies??false,
+            drugAllergies:this.data.personalAllergiesHistory?.drugAllergies??false,
+            dustAllergies:this.data.personalAllergiesHistory?.dustAllergies??false,
+            petAllergies: this.data.personalAllergiesHistory?.petAllergies?? false,
+            temperatureChanges:this.data.personalAllergiesHistory?.temperatureChanges??false,
+            seasonalAllergies:this.data.personalAllergiesHistory?.seasonalAllergies??false,
+            pollutionAllergy:this.data.personalAllergiesHistory?.pollutionAllergy??false,
+            moldAllergies:this.data.personalAllergiesHistory?.moldAllergies??false,
+          },
+          familyMedicalHistory:{
+            cancer: this.data.familyMedicalHistory?.cancer??false,
+            anemia: this.data.familyMedicalHistory?.anemia??false,
+            highBloodPressure: this.data.familyMedicalHistory?.highBloodPressure??false,
+            diabetes: this.data.familyMedicalHistory?.diabetes??false,
+            anesthesiaReaction: this.data.familyMedicalHistory?.anesthesiaReaction??false,
+            bloodClots: this.data.familyMedicalHistory?.bloodClots??false,
+            bleedingProblems: this.data.familyMedicalHistory?.bleedingProblems??false,
+            heartDisease: this.data.familyMedicalHistory?.heartDisease??false,
+            hepatitis: this.data.familyMedicalHistory?.hepatitis??false,
+            stroke: this.data.familyMedicalHistory?.stroke??false,
+            kidneyDisease: this.data.familyMedicalHistory?.kidneyDisease??false,
+            endocrineProblems: this.data.familyMedicalHistory?.endocrineProblems??false,
+          },
+          emergencyContacts:[{
+            address:this.data.emergencyContacts[0].address,
+            firstName:this.data.emergencyContacts[0].firstName,
+            lastName:this.data.emergencyContacts[0].lastName,
+            phone:this.data.emergencyContacts[0].phone
 
-  populateForm(): void {
-    this.form.patchValue({
-      firstName: this.data.firstName,
-      lastName: this.data.lastName,
-      email: this.data.email,
-      phone: this.data.phone,
-      age: this.data.age,
-      gender: this.data.gender,
-      address: this.data.address,
-      weight: this.data.weight,
-      height: this.data.height,
-      bloodType: this.data.bloodType,
-      personalMedicalHistory: this.data.personalMedicalHistory,
-      personalSurgicalHistory: this.data.personalSurgicalHistory,
-      personalAllergiesHistory: this.data.personalAllergiesHistory,
-      familyMedicalHistory: this.data.familyMedicalHistory,
-      emergencyContacts: [
-        {
-          address: this.data.emergencyContacts[0]?.address || '',
-          firstName: this.data.emergencyContacts[0]?.firstName || '',
-          lastName: this.data.emergencyContacts[0]?.lastName || '',
-          phone: this.data.emergencyContacts[0]?.phone || '',
-        },
-        {
-          address: this.data.emergencyContacts[1]?.address || '',
-          firstName: this.data.emergencyContacts[1]?.firstName || '',
-          lastName: this.data.emergencyContacts[1]?.lastName || '',
-          phone: this.data.emergencyContacts[1]?.phone || '',
-        }
-      ]
-    });
-  }
-
-  isFieldInvalid(fieldName: string): boolean {
-    const control = this.form.get(fieldName);
-    return control ? control.invalid && control.touched : false;
-  }
-
-  updateInfo(): void {
-    if (this.form.valid) {
-      this.userData.updateInfo(this.form.value).subscribe({
-        next: (response) => {
-          if (response.message === 'updated successfully') {
-            Swal.fire('Success', 'Information updated successfully', 'success').then(() => {
-              this.router.navigate(['/dashboard']);
-            });
-          } else {
-            Swal.fire('Error', 'Failed to update information', 'error');
+          },
+          {
+            address:this.data.emergencyContacts[1].address,
+            lastName:this.data.emergencyContacts[1].lastName,
+            firstName:this.data.emergencyContacts[1].firstName,
+            phone:this.data.emergencyContacts[1].phone
           }
-        },
-        error: (err) => {
-          console.error('Error updating information:', err);
-          Swal.fire('Error', 'Failed to update information', 'error');
-        }
-      });
-    } else {
-      Swal.fire('Validation Error', 'Please fill out all required fields', 'error');
-      this.markFormGroupTouched(this.form);
-    }
+        ]
+          
+        })
+
+      }
+    })
+    
   }
-
-  markFormGroupTouched(formGroup: FormGroup) {
-    Object.values(formGroup.controls).forEach(control => {
-      control.markAsTouched();
-
-      if (control instanceof FormGroup) {
-        this.markFormGroupTouched(control);
+  isUpdated: boolean = false
+  updateInfo(form: FormGroup) {
+    console.log(form.value);
+    
+    this.userData.updateInfo(form.value).subscribe({
+      next: (response) => {
+        if (response.message === "updated successfully") {
+          this.ngOnInit()
+        }
+      }
+    })
+  }
+  reload(){
+    location.reload()
+  }
+  save(form:FormGroup){
+    Swal.fire({
+      title: "Do you want to save the changes?",
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: "Save",
+      denyButtonText: `Don't save`
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.updateInfo(form)
+        Swal.fire("Saved!", "", "success").then(() => {
+          this.reload();
+        });;
+      } else if (result.isDenied) {
+        Swal.fire("Changes are not saved", "", "info");
       }
     });
   }
-
   onImageError(event: Event) {
     const imgElement = event.target as HTMLImageElement;
     imgElement.src = this.defaultImageUrl;
   }
-
   onFileSelect(event: any) {
     const file = event.target.files[0];
     if (file) {
       this.selectedFile = file;
+      console.log(file);
       this.uploadImage();
     }
   }
-
   uploadImage() {
     if (this.selectedFile) {
       const formData = new FormData();
       formData.append('profile_images', this.selectedFile, this.selectedFile.name);
       this.userData.updateImage(formData).subscribe({
-        next: (response) => {
-          console.log('Image uploaded successfully', response);
-          Swal.fire('Success', 'Profile image updated successfully', 'success');
-        },
-        error: (err) => {
-          console.error('Error uploading image', err);
-          Swal.fire('Error', 'Failed to upload profile image', 'error');
+        next:(response)=>{
+          formData.forEach((value, key) => {
+            console.log(key, value);
+          });
         }
-      });
+      })
+       
+      // this.http.post('YOUR_API_ENDPOINT', formData).subscribe({
+      //   next: (response) => {
+      //     console.log('Image uploaded successfully', response);
+      //   },
+      //   error: (err) => {
+      //     console.error('Error uploading image', err);
+      //   }
+      // });
     }
   }
 }

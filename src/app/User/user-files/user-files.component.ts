@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { response } from 'express';
 import { UserDataService } from 'src/app/user-data.service';
 
 @Component({
@@ -7,49 +8,40 @@ import { UserDataService } from 'src/app/user-data.service';
   styleUrls: ['./user-files.component.css']
 })
 export class UserFilesComponent implements OnInit {
-  data: any;
-  clinicsIDs: any[] = [];
-  clinics: any[] = [];
-  defaultImageUrl: string = 'assets/imgs/default_user.webp';
-
-  constructor(private userData: UserDataService) { }
-
-  ngOnInit(): void {
-    this.userData.getUserData().subscribe({
-      next: (response) => {
-        this.data = response;
-        this.clinicsIDs = response.diagnosis.map((diagnosis: any) => diagnosis.clinic);
-        this.fetchClinics();
-      },
-      error: (err) => {
-        console.error('Error fetching user data:', err);
-        // Handle error, e.g., show a message to the user
+constructor(private userData:UserDataService){}
+data:any
+clinicsIDs:any[]=[{}]
+clinics:any[]=[]
+defaultImageUrl: string = 'assets/imgs/default_user.webp'; 
+ngOnInit(): void {
+  this.userData.getUserData().subscribe({
+    next: (response) => {
+      this.data = response
+      this.clinicsIDs=response.diagnosis
+      console.log(this.clinicsIDs.length,"id");
+      for(let i=0 ;i<this.clinicsIDs.length;i++){
+        this.userData.getClinicById(this.clinicsIDs[i].clinic).subscribe({
+          next:(response)=>{
+            this.clinics.push(response)        
+          }
+        })
+        
       }
-    });
-  }
-
-  fetchClinics(): void {
-    const clinicRequests = this.clinicsIDs.map(clinicId =>
-      this.userData.getClinicById(clinicId)
-    );
-
-    Promise.all(clinicRequests).then(responses => {
-      this.clinics = responses;
-    }).catch(error => {
-      console.error('Error fetching clinics:', error);
-    });
-  }
-
-  onImageError(event: Event) {
-    const imgElement = event.target as HTMLImageElement;
-    imgElement.src = this.defaultImageUrl;
-  }
-
-  chunkArray(array: any[], chunkSize: number): any[][] {
-    const chunks = [];
-    for (let i = 0; i < array.length; i += chunkSize) {
-      chunks.push(array.slice(i, i + chunkSize));
+      
     }
-    return chunks;
+  })  
+}
+onImageError(event: Event) {
+  const imgElement = event.target as HTMLImageElement;
+  imgElement.src = this.defaultImageUrl;
+}
+
+chunkArray(array: any[], chunkSize: number): any[][] {
+  const chunks = [];
+  for (let i = 0; i < array.length; i += chunkSize) {
+    chunks.push(array.slice(i, i + chunkSize));
   }
+  return chunks;
+}
+
 }
