@@ -50,6 +50,8 @@ import {  ZXingScannerModule } from '@zxing/ngx-scanner';
 import { QrCodeScannerComponent } from './QRCode/qr-code-scanner/qr-code-scanner.component';
 import { UserFilesComponent } from './User/user-files/user-files.component';
 import { ViewUserFilesInClinicComponent } from './Institutions/Clinics/view-user-files-in-clinic/view-user-files-in-clinic.component';
+import { QRCodeModule } from 'angularx-qrcode';
+
 
 @NgModule({
   declarations: [
@@ -106,6 +108,7 @@ import { ViewUserFilesInClinicComponent } from './Institutions/Clinics/view-user
     NgbModule,
     SweetAlert2Module.forRoot(),
     ZXingScannerModule,
+    QRCodeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

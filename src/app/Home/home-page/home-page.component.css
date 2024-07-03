@@ -1,85 +1,24 @@
-/* .home{
-    background-color: var(--bodycolor);
-}
-@keyframes slideInLeft {
-    0% {
-        transform: translateX(-100%);
-        opacity: 0;
-        visibility: hidden;
-    }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-        visibility: visible;
-    }
-}
-
-.slide-in-left {
-    animation: slideInLeft 1s forwards;
-}
-.slide-in-left-delayed {
-    animation: slideInLeft 1s forwards;
-    animation-delay: 1s; 
-    animation-fill-mode: forwards; 
-    visibility: hidden;
-}
-.item1{
-    background-image: url(../../../assets/imgs/rapidRxbg.png);
-    background-position: center center;
-    background-size: cover;
-    min-height: 100vh;
-}
-.item2{
-    background-image: url(../../../assets/imgs/Ml.png);
-    background-position: center center;
-    background-size: cover;
-    min-height: 100vh; 
-}
-.item3{
-    background-image: url(../../../assets/imgs/history3.png);
-    background-position: center center;
-    background-size: cover;
-    min-height: 100vh; 
-}
-.layer{
-    min-height: 100vh;
-    background-color: rgba(0, 0 ,0,0.3);
-}
-span{
-    color: var(--orangeColor);
-}
-h1{
-    font-size: 50px;
-    font-stretch: 100%;
-    letter-spacing: 0.1em;
-    font-weight: 400;
-    color: var(--blueColor);
-}
-.layer p{
-    font-size: 17px;
-    line-height: 2.1em;
-} */
-@keyframes slideInLeft {
-    0% {
-        transform: translateX(-100%);
-        opacity: 0;
-        /* visibility: hidden; */
-    }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-        /* visibility: visible; */
-    }
-}
-
-.slide-in-left {
-    animation: slideInLeft 1s forwards;
-}
- *{
+*{
     box-sizing: border-box;
     padding: 0;
     margin: 0;
  }
+
+@keyframes slideInLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.slide-in-left {
+    animation: slideInLeft 1s forwards;
+}
+
  img{
     width: 100%;
  }
@@ -119,4 +58,5 @@ p{
     font-size: 20px;
     font-weight: 400;
 }
+
  

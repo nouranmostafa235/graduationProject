@@ -1,11 +1,17 @@
 <div class="row me-0">
     <div class="col-sm-10 mx-auto">
-        <div class="info ps-2 pt-5 pb-5 first_section form ">
-            <div class="row">
+        <div class="info ps-2 pt-3 pb-5 first_section form ">
+            <div class="row d-flex justify-content-center align-items-center">
                 <div class="col-sm-3 imgDiv">
-                    <img [src]="data.fileUrl || defaultImageUrl" (error)="onImageError($event)" class="img-thumbnail rounded-circle" alt="">
+                    <img [src]="data.fileUrl || defaultImageUrl" (error)="onImageError($event)"
+                        class="img-thumbnail rounded-circle" alt="">
                 </div>
-                <div class="col-sm-9">
+                <div class="col-sm-9 ">
+                    <div class="d-flex justify-content-end position-relative">
+                        <qrcode [qrdata]="data._id" [width]="100" (qrCodeURL)="onChange($event)" class="mt-2"></qrcode>
+                        <a [href]="qrCodeDownloadLink" class="position-absolute top-0 end-0"><i
+                                class="fa-solid fa-download " style="color: black;"></i></a>
+                    </div>
                     <h3>{{data.firstName}} {{data.lastName}}</h3>
                     <div class="d-flex justify-content-evenly">
                         <p class="fw-light">{{data.age}} yrs, {{data.gender}}</p>
@@ -336,6 +342,6 @@
             <button routerLink="/UserProfile/familyHistory" class="btnn mt-4 mb-5">Family Medical History...</button>
             <button routerLink="/UserProfile/files" class="btnn mt-4 mb-5">Medical Files...</button>
         </div>
-       
+
     </div>
 </div>

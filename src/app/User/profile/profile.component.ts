@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { SafeValue } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { UserDataService } from 'src/app/user-data.service';
 
@@ -9,17 +10,21 @@ import { UserDataService } from 'src/app/user-data.service';
 })
 
 
-export class ProfileComponent implements OnInit{
+export class ProfileComponent implements OnInit {
   constructor(private userData: UserDataService) { }
   data: any
-  defaultImageUrl: string = 'assets/imgs/default_user.webp'; 
+  qrCodeDownloadLink: SafeValue = ''
+  defaultImageUrl: string = 'assets/imgs/default_user.webp';
   ngOnInit(): void {
     this.userData.getUserData().subscribe({
       next: (response) => {
         this.data = response
-        console.log(response,"userrr");
+        console.log(response, "userrr");
       }
     })
+  }
+  onChange(url: any) {
+    this.qrCodeDownloadLink = url
   }
   onImageError(event: Event) {
     const imgElement = event.target as HTMLImageElement;
