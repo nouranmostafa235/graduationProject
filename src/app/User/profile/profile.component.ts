@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserDataService } from 'src/app/user-data.service';
 
@@ -7,21 +7,28 @@ import { UserDataService } from 'src/app/user-data.service';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
+export class ProfileComponent implements OnInit {
+  data: any;
+  defaultImageUrl: string = 'assets/imgs/default_user.webp';
 
-
-export class ProfileComponent implements OnInit{
   constructor(private userData: UserDataService) { }
-  data: any
-  defaultImageUrl: string = 'assets/imgs/default_user.webp'; 
+
   ngOnInit(): void {
+    this.fetchUserData();
+  }
+
+  fetchUserData(): void {
     this.userData.getUserData().subscribe({
       next: (response) => {
-        this.data = response
-        console.log(response,"userrr");
+        this.data = response;
+      },
+      error: (err) => {
+        console.error('Error fetching user data:', err);
       }
-    })
+    });
   }
-  onImageError(event: Event) {
+
+  onImageError(event: Event): void {
     const imgElement = event.target as HTMLImageElement;
     imgElement.src = this.defaultImageUrl;
   }

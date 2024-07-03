@@ -9,39 +9,63 @@ import { UserDataService } from 'src/app/user-data.service';
   styleUrls: ['./change-password.component.css']
 })
 export class ChangePasswordComponent implements OnInit {
-  constructor(private userData:UserDataService, private router:Router){
+  form: FormGroup;
+  data: any;
+  isUpdated: boolean = false;
 
+  constructor(private userData: UserDataService, private router: Router) {
+    this.form = new FormGroup({
+      oldPassword: new FormControl(null, [Validators.required]),
+      newPassword: new FormControl(null, [Validators.required, Validators.minLength(6)]),
+    });
   }
-  data:any
+
   ngOnInit(): void {
     this.userData.getUserData().subscribe({
-      next:(res)=>{
-        this.data=res
+      next: (res) => {
+        this.data = res;
+      },
+      error: (err) => {
+        console.error('Error fetching user data:', err);
       }
-    })
+    });
   }
-  logOut() {
+
+  logOut(): void {
     this.userData.logOut().subscribe({
       next: (response) => {
-        this.router.navigate(['/login'])
-      }
-    })
-  }
-form:FormGroup=new FormGroup({
-  oldPassword:new FormControl(null,[Validators.required]),
-  newPassword:new FormControl(null,[Validators.required]),
-})
-isUpdated:boolean=false
-handle(reg:FormGroup){
-  this.userData.changePass(reg.value).subscribe({
-    next:(response)=>{
-      if(response.message === "Password updated successfully")
-      {
-        this.isUpdated=true
-      }
+        this.router.navigate(['/login']);
       },
-    error:(err)=>console.log(err),
-  })
-}
+      error: (err) => {
+        console.error('Error logging out:', err);
+      }
+    });
+  }
 
+  handle(): void {
+    if (this.form.valid) {
+      this.userData.changePass(this.form.value).subscribe({
+        next: (response) => {
+          if (response.message === 'Password updated successfully') {
+            this.isUpdated = true;
+          }
+        },
+        error: (err) => {
+          console.error('Error updating password:', err);
+        }
+      });
+    } else {
+      this.markFormGroupTouched(this.form);
+    }
+  }
+
+  private markFormGroupTouched(formGroup: FormGroup): void {
+    Object.values(formGroup.controls).forEach(control => {
+      control.markAsTouched();
+
+      if (control instanceof FormGroup) {
+        this.markFormGroupTouched(control);
+      }
+    });
+  }
 }

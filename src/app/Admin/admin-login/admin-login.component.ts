@@ -9,21 +9,43 @@ import { SignInService } from 'src/app/sign-in.service';
   styleUrls: ['./admin-login.component.css']
 })
 export class AdminLoginComponent {
-  constructor(private router:Router, private _service:SignInService){}
-  login:FormGroup = new FormGroup({
-    username:new FormControl(null,[Validators.required,Validators.email]),
-    password:new FormControl(null,[Validators.required]),
-  })
-  handleLogin(form:FormGroup){
-     this._service.adminLogin(form.value).subscribe({
-      next:(response)=>{
-        if(response.message === "Sign in successful"){
-          localStorage.setItem('Admintoken',"Bearer "+response.token)
-          this._service.decodeAdminToken()
-          this.router.navigate(['/adminHomePage'])
+  login: FormGroup;
+
+  constructor(private router: Router, private _service: SignInService) {
+    this.login = new FormGroup({
+      username: new FormControl(null, [Validators.required, Validators.email]),
+      password: new FormControl(null, [Validators.required, Validators.minLength(6)])
+    });
+  }
+
+  handleLogin() {
+    if (this.login.valid) {
+      this._service.adminLogin(this.login.value).subscribe({
+        next: (response) => {
+          if (response.message === "Sign in successful") {
+            localStorage.setItem('Admintoken', "Bearer " + response.token);
+            this._service.decodeAdminToken();
+            this.router.navigate(['/adminHomePage']);
+          } else {
+            alert('Login failed. Please try again.');
+          }
+        },
+        error: (err) => {
+          console.error(err);
+          alert('An error occurred. Please try again later.');
         }
-      },
-      error:(err)=>console.log(err)
-     })
+      });
+    } else {
+      this.login.markAllAsTouched();
+      alert('Please fill in the form correctly.');
+    }
+  }
+
+  get username() {
+    return this.login.get('username');
+  }
+
+  get password() {
+    return this.login.get('password');
   }
 }
