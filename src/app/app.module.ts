@@ -50,6 +50,7 @@ import {  ZXingScannerModule } from '@zxing/ngx-scanner';
 import { QrCodeScannerComponent } from './QRCode/qr-code-scanner/qr-code-scanner.component';
 import { UserFilesComponent } from './User/user-files/user-files.component';
 import { ViewUserFilesInClinicComponent } from './Institutions/Clinics/view-user-files-in-clinic/view-user-files-in-clinic.component';
+import { ViewByQrInClinicComponent } from './Institutions/Clinics/view-by-qr-inclinic/view-by-qr-inclinic.component';
 
 @NgModule({
   declarations: [
@@ -94,6 +95,7 @@ import { ViewUserFilesInClinicComponent } from './Institutions/Clinics/view-user
     QrCodeScannerComponent,
     UserFilesComponent,
     ViewUserFilesInClinicComponent,
+    ViewByQrInClinicComponent,
   ],
   imports: [
     BrowserModule,

@@ -64,6 +64,7 @@ const routes: Routes = [
     { path: "option", component: ChooseViewOptionClinicComponent },
     { path: "seachUser", component: ViewBySearchINClinicComponent },
     { path: "userFiles", component: ViewUserFilesInClinicComponent },
+    {path:"qrScanner",component:QrCodeScannerComponent},
     ]
   },
 
@@ -80,7 +81,6 @@ const routes: Routes = [
     ]
   },
 
-{path:"qrScanner",component:QrCodeScannerComponent}
 
 ];
 
