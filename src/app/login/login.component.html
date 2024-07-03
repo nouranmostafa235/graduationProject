@@ -1,4 +1,4 @@
-<div class="row body me-0 home ">
+<!-- <div class="row body me-0 home ">
     <nav class="navbar navbar-expand-lg fixed-top mb-5" id="navbar">
         <div class="container">
           <img src="assets/imgs/logo2.jpg" class="me-2" alt="">
@@ -55,4 +55,59 @@
           
         </form>
     </div>
+</div> -->
+<div class="row body me-0 home">
+  <nav class="navbar navbar-expand-lg fixed-top mb-5" id="navbar">
+      <div class="container">
+          <img src="assets/imgs/logo2.jpg" class="me-2" alt="">
+          <a class="navbar-brand mt-1" routerLink="/home">Rapid<span>R</span>x</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="nav nav-underline ms-auto">
+                  <li class="nav-item me-2">
+                      <a class="nav-link" aria-current="page" routerLink="/home">Home</a>
+                  </li>
+                  <li class="nav-item">
+                      <div class="dropdown me-3">
+                          <a class="dropdown-toggle nav-link active" data-bs-toggle="dropdown" aria-expanded="false">
+                              Sign In
+                          </a>
+                          <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" routerLink="/login"><i class="fa-solid fa-user me-2" style="color: #010f1a;"></i>User</a></li>
+                              <li><a class="dropdown-item" routerLink="/institutionLogin"><i class="fa-solid fa-house-chimney-medical me-1" style="color: #010f1a;"></i> Clinic</a></li>
+                              <li><a class="dropdown-item" routerLink="/labLogin"><i class="fa-solid fa-flask-vial me-2" style="color: #010f1a;"></i>Lab</a></li>
+                          </ul>
+                      </div>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+  <div class="login_form login align-items-center justify-content-center d-flex">
+      <h4 class="text-center animate__animated animate__bounceInDown pe-1">User</h4>
+      <h4 class="text-center animate__animated animate__slideInRight">Login</h4>
+  </div>
+  <div class="col-md-7 mx-auto">
+      <form class="mb-5 col-sm-10 mx-auto" [formGroup]="login" (ngSubmit)="handle(login)">
+          <div class="row">
+              <div class="col-md-12 pe-0 mt-5">
+                  <label for="email_login" class="ms-2">User Email</label>
+                  <input type="email" class="form-control mb-5" formControlName="email" placeholder="Your Email">
+              </div>
+              <div class="col-md-12">
+                  <label for="password_login" class="ms-2">User Password</label>
+                  <input type="password" class="form-control mb-3" formControlName="password" placeholder="Your Password">
+              </div>
+          </div>
+          <div class="d-flex justify-content-center mt-4">
+              <button type="submit" class="btn ps-5 pe-5">Login</button>
+          </div>
+          <div class="text-center mt-4 d-flex justify-content-center">
+              <p class="newUser">New User?</p>
+              <a class="fw-light newUser newacc" routerLink="/register">Create New Account</a>
+          </div>
+      </form>
+  </div>
 </div>
