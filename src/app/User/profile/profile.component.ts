@@ -18,7 +18,6 @@ export class ProfileComponent implements OnInit{
       next: (response) => {
         this.data = response
         console.log(response,"userrr");
-        
       }
     })
   }

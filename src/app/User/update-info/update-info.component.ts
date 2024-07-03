@@ -262,14 +262,12 @@ export class UpdateInfoComponent implements OnInit {
   uploadImage() {
     if (this.selectedFile) {
       const formData = new FormData();
-      formData.append('profileImage', this.selectedFile, this.selectedFile.name);
-      this.userData.updateInfo(formData).subscribe({
+      formData.append('profile_images', this.selectedFile, this.selectedFile.name);
+      this.userData.updateImage(formData).subscribe({
         next:(response)=>{
           formData.forEach((value, key) => {
             console.log(key, value);
           });
-          
-          
         }
       })
        
