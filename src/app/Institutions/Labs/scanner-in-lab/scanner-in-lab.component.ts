@@ -1,20 +1,19 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { ZXingScannerComponent } from '@zxing/ngx-scanner';
-import { Result } from '@zxing/library';
-import { NgxScannerQrcodeComponent, ScannerQRCodeResult } from 'ngx-scanner-qrcode';
+import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgxScannerQrcodeComponent, ScannerQRCodeResult } from 'ngx-scanner-qrcode';
+
 @Component({
-  selector: 'app-qr-code-scanner',
-  templateUrl: './qr-code-scanner.component.html',
-  styleUrls: ['./qr-code-scanner.component.css']
+  selector: 'app-scanner-in-lab',
+  templateUrl: './scanner-in-lab.component.html',
+  styleUrls: ['./scanner-in-lab.component.css']
 })
-export class QrCodeScannerComponent{
+export class ScannerInLabComponent {
   @ViewChild('action', { static: true }) 
   action!: NgxScannerQrcodeComponent;
   qrCodeValue!: string;
   previousQrCodeValue!: string;
   constructor(private route:Router){}
- 
+
   ngAfterViewInit() {
     this.action.data.subscribe((data: ScannerQRCodeResult[]) => {
       if (data.length > 0) {
@@ -24,7 +23,7 @@ export class QrCodeScannerComponent{
           this.previousQrCodeValue = newQrCodeValue;
           const url = new URL(this.qrCodeValue);
           const id = url.searchParams.get('id');
-          this.route.navigate(['/clinic/viewUser'], { queryParams: { id: id } })
+          this.route.navigate(['/lab/viewUser'], { queryParams: { id: id } })
         }
       }
     });
@@ -37,7 +36,5 @@ export class QrCodeScannerComponent{
     }
   }
 
- 
 
-  
 }

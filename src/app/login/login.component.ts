@@ -12,7 +12,7 @@ export class LoginComponent {
   constructor(private router:Router, private _service:SignInService){}
   login:FormGroup = new FormGroup({
     email:new FormControl(null,[Validators.required,Validators.email]),
-    password:new FormControl(null,[Validators.required]),
+    password:new FormControl(null,[Validators.required,Validators.minLength(8)]),
   })
 
   handle(reg:FormGroup){

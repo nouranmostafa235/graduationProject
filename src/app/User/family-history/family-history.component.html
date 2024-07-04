@@ -4,7 +4,8 @@
         <div class="info ps-2 pe-5 pt-5 pb-5 first_section form">
             <div class="row">
                 <div class="col-sm-3 imgDiv">
-                    <img src="assets/imgs/download.jpeg" class="img-thumbnail rounded-circle" alt="">
+                    <img [src]="data.fileUrl || defaultImageUrl" (error)="onImageError($event)"
+                    class="img-thumbnail rounded-circle" alt="">
                 </div>
                 <div class="col-sm-9">
                     <h3>{{data.firstName}} {{data.lastName}}</h3>

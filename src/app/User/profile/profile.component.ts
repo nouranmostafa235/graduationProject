@@ -13,6 +13,7 @@ import { UserDataService } from 'src/app/user-data.service';
 export class ProfileComponent implements OnInit {
   constructor(private userData: UserDataService) { }
   data: any
+  url:any
   qrCodeDownloadLink: SafeValue = ''
   defaultImageUrl: string = 'assets/imgs/default_user.webp';
   ngOnInit(): void {
@@ -20,6 +21,7 @@ export class ProfileComponent implements OnInit {
       next: (response) => {
         this.data = response
         console.log(response, "userrr");
+        this.url=`http://localhost:4200/user?id=${this.data._id}`
       }
     })
   }

@@ -52,6 +52,8 @@ import { UserFilesComponent } from './User/user-files/user-files.component';
 import { ViewUserFilesInClinicComponent } from './Institutions/Clinics/view-user-files-in-clinic/view-user-files-in-clinic.component';
 import { QRCodeModule } from 'angularx-qrcode';
 import { NgxScannerQrcodeModule, LOAD_WASM } from 'ngx-scanner-qrcode';
+import { ScannerInLabComponent } from './Institutions/Labs/scanner-in-lab/scanner-in-lab.component';
+import { AnyUserViewComponent } from './any-user-view/any-user-view.component';
 
 LOAD_WASM().subscribe();
 @NgModule({
@@ -97,6 +99,8 @@ LOAD_WASM().subscribe();
     QrCodeScannerComponent,
     UserFilesComponent,
     ViewUserFilesInClinicComponent,
+    ScannerInLabComponent,
+    AnyUserViewComponent,
   ],
   imports: [
     BrowserModule,

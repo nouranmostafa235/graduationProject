@@ -1,0 +1,12 @@
+<div class="scan w-50 mx-auto " [style.padding.px]="20">
+    <ngx-scanner-qrcode #action="scanner"></ngx-scanner-qrcode>
+    <!-- <span *ngIf="qrCodeValue">{{ qrCodeValue }}</span> -->
+  
+    <p *ngIf="action.data | async as scanData; else loading">
+        {{ scanData.length > 0 ? "Scanned Succefully" : 'No scan results yet' }}
+    </p>
+    <ng-template #loading>⌛ Loading...</ng-template>
+    <button class="btnn" (click)="toggleScanner()">
+        {{ action.isStart ? 'Stop' : 'Start' }}
+    </button>
+  </div>

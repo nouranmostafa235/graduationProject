@@ -13,6 +13,9 @@ export class UserDataService {
   getUserData():Observable<any>{
     return this.http.get("http://localhost:3000/users/profile",{headers:this.header})
   }
+  getUserDataBId(id:any):Observable<any>{
+    return this.http.get(`http://localhost:3000/users/userByQr/${id}`)
+  }
   changePass(userData:any):Observable<any>{
     return this.http.put("http://localhost:3000/users/updatePassword",userData,{headers:this.header})
   }

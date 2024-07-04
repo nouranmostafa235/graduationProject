@@ -10,6 +10,7 @@ import { UserDataService } from 'src/app/user-data.service';
 
 
 export class FamilyHistoryComponent implements OnInit {
+  defaultImageUrl: string = 'assets/imgs/default_user.webp';
 constructor(private userData:UserDataService){}
   data:any
   ngOnInit(): void {
@@ -18,5 +19,9 @@ constructor(private userData:UserDataService){}
         this.data=response
       }
     })
+  }
+  onImageError(event: Event) {
+    const imgElement = event.target as HTMLImageElement;
+    imgElement.src = this.defaultImageUrl;
   }
 } 

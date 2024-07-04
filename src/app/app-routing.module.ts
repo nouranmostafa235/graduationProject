@@ -35,6 +35,8 @@ import { ViewUserProfileInLabComponent } from './Institutions/Labs/view-user-pro
 import { QrCodeScannerComponent } from './QRCode/qr-code-scanner/qr-code-scanner.component';
 import { UserFilesComponent } from './User/user-files/user-files.component';
 import { ViewUserFilesInClinicComponent } from './Institutions/Clinics/view-user-files-in-clinic/view-user-files-in-clinic.component';
+import { ScannerInLabComponent } from './Institutions/Labs/scanner-in-lab/scanner-in-lab.component';
+import { AnyUserViewComponent } from './any-user-view/any-user-view.component';
 const routes: Routes = [
   { path: "", redirectTo: 'home', pathMatch: 'full' },
   { path: "home", component: HomePageComponent },
@@ -54,6 +56,7 @@ const routes: Routes = [
     { path: "option", component: ViewOptionsInLabComponent },
     { path: "searchUser", component: ViewBySearchInlabComponent },
     { path: "viewUser", component: ViewUserProfileInLabComponent },
+    {path:"qrScanner",component:ScannerInLabComponent}
     ]
   },
   {
@@ -64,6 +67,7 @@ const routes: Routes = [
     { path: "option", component: ChooseViewOptionClinicComponent },
     { path: "seachUser", component: ViewBySearchINClinicComponent },
     { path: "userFiles", component: ViewUserFilesInClinicComponent },
+    {path:"qrScanner",component:QrCodeScannerComponent}
     ]
   },
 
@@ -79,8 +83,8 @@ const routes: Routes = [
       { path: 'files', component: UserFilesComponent },
     ]
   },
+  {path:'user',component:AnyUserViewComponent}
 
-{path:"qrScanner",component:QrCodeScannerComponent}
 
 ];
 

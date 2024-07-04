@@ -1,4 +1,38 @@
 <div class="row me-0">
+    <nav class="navbar navbar-expand-lg fixed-top mb-5" id="navbar">
+        <div class="container">
+            <img src="assets/imgs/logo2.jpg" class="me-2" alt="">
+            <a class="navbar-brand mt-1" routerLink="/home">Rapid<span>R</span>x</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="nav nav-underline ms-auto">
+                    <li class="nav-item me-2">
+                        <a class="nav-link" aria-current="page" routerLink="/home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="dropdown me-3">
+                            <a class="dropdown-toggle nav-link" data-bs-toggle="dropdown" aria-expanded="false">
+                                Sign In
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item " routerLink="/login"> <i class="fa-solid fa-user me-2"
+                                            style="color: #010f1a;"></i>User</a></li>
+                                <li><a class="dropdown-item" routerLink="/institutionLogin"><i
+                                            class="fa-solid fa-house-chimney-medical me-1" style="color: #010f1a;"></i>
+                                        Clinic</a></li>
+                                <li><a class="dropdown-item "><i class="fa-solid fa-flask-vial me-2"
+                                            style="color: #010f1a;"></i>Lab</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <div class="col-sm-10 mx-auto">
         <div class="info ps-2 pt-3 pb-5 first_section form ">
             <div class="row d-flex justify-content-center align-items-center">
@@ -7,11 +41,6 @@
                         class="img-thumbnail rounded-circle" alt="">
                 </div>
                 <div class="col-sm-9 ">
-                    <div class="d-flex justify-content-end position-relative">
-                        <qrcode [qrdata]="url" [width]="100" (qrCodeURL)="onChange($event)" class="mt-2"></qrcode>
-                        <a [href]="qrCodeDownloadLink" class="position-absolute top-0 end-0"><i
-                                class="fa-solid fa-download " style="color: black;"></i></a>
-                    </div>
                     <h3>{{data.firstName}} {{data.lastName}}</h3>
                     <div class="d-flex justify-content-evenly">
                         <p class="fw-light">{{data.age}} yrs, {{data.gender}}</p>
@@ -26,6 +55,7 @@
                 </div>
             </div>
         </div>
+
         <div class="mt-4 ps-2 first_section">
             <table class="personalTable table table-striped mb-0 mb-0">
                 <thead class="text-center">
@@ -167,122 +197,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="mt-4 ps-2 first_section">
-            <table class="personalTable table table-striped mb-0 mb-0">
-                <thead class="text-center">
-                    <tr>
-                        <th colspan="4">Personal <span>Surgical</span> History</th>
-                    </tr>
-                </thead>
-                <tbody class="">
-                    <tr>
-                        <td>
-                            <i *ngIf="data.personalSurgicalHistory.adrenalGlandSurgery" class="fa-solid fa-check"></i>
-                            <label for="">Adrenal Gland Surgery</label>
 
-                        </td>
-                        <td>
-                            <i *ngIf="data.personalSurgicalHistory.colonSurgery" class="fa-solid fa-check"></i>
-                            <label for="">Colon Surgery</label>
-
-                        </td>
-                        <td>
-                            <i *ngIf="data.personalSurgicalHistory.kidneySurgery" class="fa-solid fa-check"></i>
-                            <label for="">Kidney Surgery</label>
-
-                        </td>
-                        <td>
-                            <i *ngIf="data.personalSurgicalHistory.appendectomy" class="fa-solid fa-check"></i>
-                            <label for="">Appendectomy</label>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <i *ngIf="data.personalSurgicalHistory.arterySurgery" class="fa-solid fa-check"></i>
-                            <label for="">Artery Surgery</label>
-
-                        </td>
-                        <td>
-                            <i *ngIf="data.personalSurgicalHistory.neckSurgery" class="fa-solid fa-check"></i>
-                            <label for="">Neck Surgery</label>
-
-                        </td>
-                        <td>
-                            <i *ngIf="data.personalSurgicalHistory.thyroidSurgery" class="fa-solid fa-check"></i>
-                            <label for="">Thyroid Surgery</label>
-
-                        </td>
-                        <td>
-                            <i *ngIf="data.personalSurgicalHistory.esophagusSurgery" class="fa-solid fa-check"></i>
-                            <label for="">Esophagus Surgery</label>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <i *ngIf="data.personalSurgicalHistory.prostateSurgery" class="fa-solid fa-check"></i>
-                            <label for="">Prostate Surgery</label>
-                        </td>
-                        <td> <i *ngIf="data.personalSurgicalHistory.bladderSurgery" class="fa-solid fa-check"></i>
-                            <label for="">Bladder Surgery</label>
-
-                        </td>
-                        <td>
-                            <i *ngIf="data.personalSurgicalHistory.largeIntestineSurgery" class="fa-solid fa-check"></i>
-                            <label for="">Large Intestine Surgery</label>
-
-                        </td>
-                        <td>
-                            <i *ngIf="data.personalSurgicalHistory.gastricBypassSurgery" class="fa-solid fa-check"></i>
-                            <label for="">Gastric Bypass Surgery</label>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <i *ngIf="data.personalSurgicalHistory.lungSurgery" class="fa-solid fa-check"></i>
-                            <label for="">Lungs Surgery</label>
-
-                        </td>
-                        <td>
-                            <i *ngIf="data.personalSurgicalHistory.smallIntestineSurgery" class="fa-solid fa-check"></i>
-                            <label for="">Small Intestine Surgery</label>
-
-                        </td>
-                        <td>
-                            <i *ngIf="data.personalSurgicalHistory.breastSurgery" class="fa-solid fa-check"></i>
-                            <label for="">Breast Surgery</label>
-
-                        </td>
-                        <td>
-                            <i *ngIf="data.personalSurgicalHistory.hemorrhoidSurgery" class="fa-solid fa-check"></i>
-                            <label for="">Hemorrhoid Surgery</label>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td> <i *ngIf="data.personalSurgicalHistory.spineSurgery" class="fa-solid fa-check"></i>
-                            <label for="">Spine Surgery</label>
-                        </td>
-                        <td>
-                            <i *ngIf="data.personalSurgicalHistory.uterusSurgery" class="fa-solid fa-check"></i>
-                            <label for="">Utrus Surgery</label>
-
-                        </td>
-                        <td>
-                            <i *ngIf="data.personalSurgicalHistory.cesareanSection" class="fa-solid fa-check"></i>
-                            <label for="">Cesarean Section</label>
-
-                        </td>
-                        <td> <i *ngIf="data.personalSurgicalHistory.stomachSurgery" class="fa-solid fa-check"></i>
-                            <label for="">Stomach Surgery</label>
-
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
         <div class="mt-4 ps-2 first_section">
             <table class="personalTable table table-striped mb-0 mb-0">
                 <thead class="text-center">
@@ -338,10 +253,53 @@
                 </tbody>
             </table>
         </div>
-        <div class="d-flex justify-content-between">
-            <button routerLink="/UserProfile/familyHistory" class="btnn mt-4 mb-5">Family Medical History...</button>
-            <button routerLink="/UserProfile/files" class="btnn mt-4 mb-5">Medical Files...</button>
+
+        <div class="info contactslabel  mt-4 p-4 first_section ">
+            <div>
+                <h2 class="text-center">Emergency Contacts</h2>
+                <p class="firstContact"><i class="fa-solid fa-address-book me-2"></i>First Contact</p>
+                        <div class="row pe-0 mb-4">
+                            <div class="col-md-4 pe-0">
+                                <label for="emerfirstname" class="ms-2">Name</label>
+                                <p class="ms-2">{{data.emergencyContacts[0].firstName}}
+                                    {{data.emergencyContacts[0].lastName}}</p>
+
+                            </div>
+                            <div class="col-md-4 pe-0">
+                                <label for="emeraddress" class="ms-2">Address</label>
+                                <p class="ms-2">{{data.emergencyContacts[0].address}}</p>
+                            </div>
+                            <div class="col-md-4 pe-0">
+                                <label for="emerPhone" class="ms-2">Phone</label>
+                                <p class="ms-2">{{data.emergencyContacts[0].phone}}</p>
+                            </div>
+                        </div>
+                        <hr class="mt-4">
+                    </div>
+                    <div>
+                        <p class="secondContact"><i class="fa-solid fa-address-book me-2"></i>Second Contact</p>
+                        <div class="row  pe-0">
+                            <div class="row pe-0 ">
+                                <div class="col-md-4 pe-0">
+                                    <label for="emerfirstname" class="ms-2">Name</label>
+                                    <p class="ms-2">{{data.emergencyContacts[1].firstName}} {{data.emergencyContacts[0].lastName}}
+                                    </p>
+
+                                </div>
+                                <div class="col-md-4 pe-0">
+                                    <label for="emeraddress" class="ms-2">Address</label>
+                                    <p class="ms-2">{{data.emergencyContacts[1].address}}</p>
+                                </div>
+                                <div class="col-md-4 pe-0">
+                                    <label for="emerPhone" class="ms-2">Phone</label>
+                                    <p class="ms-2">{{data.emergencyContacts[1].phone}}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
         </div>
 
-    </div>
-</div>

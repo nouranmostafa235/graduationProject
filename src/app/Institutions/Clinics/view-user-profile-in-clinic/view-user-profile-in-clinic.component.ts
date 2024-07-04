@@ -24,7 +24,7 @@ export class ViewUserProfileInClinicComponent implements OnInit{
      this.service.getUserByIdClinic(this.userId).subscribe({
       next:(response)=>{
         this.userData=response.user
-        console.log(this.userData);
+        console.log(this.userData,"jjjjj");
       }
      })
      this.service.getClinicByToken().subscribe({

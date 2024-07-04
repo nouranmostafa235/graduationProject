@@ -1,16 +1,12 @@
-<div *ngIf="!hasPermission">
-  <p>Camera access is not granted. Please allow camera access.</p>
-</div>
+<div class="scan w-50 mx-auto " [style.padding.px]="20">
+  <ngx-scanner-qrcode #action="scanner"></ngx-scanner-qrcode>
+  <!-- <span *ngIf="qrCodeValue">{{ qrCodeValue }}</span> -->
 
-<div *ngIf="hasDevices">
-  <zxing-scanner
-    [device]="currentDevice"
-    (scanSuccess)="handleQrCodeResult($event)"
-    (camerasFound)="onCamerasFound($event)"
-    (permissionResponse)="onHasPermission($event)">
-  </zxing-scanner>
-</div>
-
-<div *ngIf="!hasDevices && hasPermission">
-  <p>No camera devices found.</p>
+  <p *ngIf="action.data | async as scanData; else loading">
+      {{ scanData.length > 0 ? "Scanned Succefully" : 'No scan results yet' }}
+  </p>
+  <ng-template #loading>⌛ Loading...</ng-template>
+  <button (click)="toggleScanner()">
+      {{ action.isStart ? 'Stop' : 'Start' }}
+  </button>
 </div>

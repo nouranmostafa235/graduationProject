@@ -1,42 +1,24 @@
-<div *ngIf="showScanner" class="modal" tabindex="-1" style="display: block; background: rgba(0,0,0,0.5)">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">QR Code Scanner</h5>
-          <button type="button" class="btn-close" (click)="closeScanner()"></button>
-        </div>
-        <div class="modal-body">
-          <ngx-scanner-qrcode #scanner="scanner" (scanSuccess)="handleQrCodeResult($event)"></ngx-scanner-qrcode>
-  
-          <!-- Display Scanned QR Code Value -->
-       
-  
-          <!-- Loading -->
-          <p *ngIf="scanner.isLoading">⌛ Loading...</p>
-  
-          <!-- Start/Stop Scanner -->
-          <button (click)="scanner.isStart ? scanner.stop() : scanner.start()">
-            {{scanner.isStart ? 'Stop' : 'Start'}}
-            <p *ngIf="scannedValue">Scanned Value: {{ scannedValue }}</p>
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
 <div class="col-sm-10 mx-auto home">
     <div class="row justify-content-evenly">
         <h2 class="text-center pb-4 title">Select Option</h2>
-        <div class="col-sm-5 clinic text-center"(click)="openScanner()">  
+
+        <div class="nfc-container">
+            <button (click)="startNfcScan()" class="btn btn-primary">Scan NFC Card</button>
+            <div *ngIf="nfcError" class="error-message">{{ nfcError }}</div>
+          </div>
+
+
+
+        <div class="col-sm-5 clinic text-center">
             <h5 class=" subTitle">Scan QR Code</h5>
-            <img src="assets/imgs/qr.gif"  alt="" routerLink="clinic">
+            <img src="assets/imgs/qr.gif" alt=""  routerLink="/clinic/qrScanner">
         </div>
         <div class="col-sm-1 line">
-           
         </div>
-        <div class="col-sm-5 lab text-center"> 
+        <div class="col-sm-5 lab text-center">
             <h5 class="subTitle">Search By Email</h5>
             <img src="assets/imgs/searchh.gif" class="ms-5" alt="" routerLink="/clinic/seachUser">
-           
+
         </div>
     </div>
- </div>
+</div>
