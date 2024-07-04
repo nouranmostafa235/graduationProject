@@ -51,8 +51,9 @@ import { QrCodeScannerComponent } from './QRCode/qr-code-scanner/qr-code-scanner
 import { UserFilesComponent } from './User/user-files/user-files.component';
 import { ViewUserFilesInClinicComponent } from './Institutions/Clinics/view-user-files-in-clinic/view-user-files-in-clinic.component';
 import { QRCodeModule } from 'angularx-qrcode';
+import { NgxScannerQrcodeModule, LOAD_WASM } from 'ngx-scanner-qrcode';
 
-
+LOAD_WASM().subscribe();
 @NgModule({
   declarations: [
     AppComponent,
@@ -109,6 +110,7 @@ import { QRCodeModule } from 'angularx-qrcode';
     SweetAlert2Module.forRoot(),
     ZXingScannerModule,
     QRCodeModule,
+    NgxScannerQrcodeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

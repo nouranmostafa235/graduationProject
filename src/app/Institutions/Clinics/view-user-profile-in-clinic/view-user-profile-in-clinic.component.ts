@@ -38,7 +38,6 @@ export class ViewUserProfileInClinicComponent implements OnInit{
     const imgElement = event.target as HTMLImageElement;
     imgElement.src = this.defaultImageUrl;
   }
-
   onChangeAnalysis(event: any) {
     const file: File = event.target.files[0]
     if (file) {

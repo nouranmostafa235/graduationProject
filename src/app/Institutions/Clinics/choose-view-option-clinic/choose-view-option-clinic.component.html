@@ -1,7 +1,32 @@
+<div *ngIf="showScanner" class="modal" tabindex="-1" style="display: block; background: rgba(0,0,0,0.5)">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">QR Code Scanner</h5>
+          <button type="button" class="btn-close" (click)="closeScanner()"></button>
+        </div>
+        <div class="modal-body">
+          <ngx-scanner-qrcode #scanner="scanner" (scanSuccess)="handleQrCodeResult($event)"></ngx-scanner-qrcode>
+  
+          <!-- Display Scanned QR Code Value -->
+       
+  
+          <!-- Loading -->
+          <p *ngIf="scanner.isLoading">⌛ Loading...</p>
+  
+          <!-- Start/Stop Scanner -->
+          <button (click)="scanner.isStart ? scanner.stop() : scanner.start()">
+            {{scanner.isStart ? 'Stop' : 'Start'}}
+            <p *ngIf="scannedValue">Scanned Value: {{ scannedValue }}</p>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 <div class="col-sm-10 mx-auto home">
     <div class="row justify-content-evenly">
         <h2 class="text-center pb-4 title">Select Option</h2>
-        <div class="col-sm-5 clinic text-center">  
+        <div class="col-sm-5 clinic text-center"(click)="openScanner()">  
             <h5 class=" subTitle">Scan QR Code</h5>
             <img src="assets/imgs/qr.gif"  alt="" routerLink="clinic">
         </div>

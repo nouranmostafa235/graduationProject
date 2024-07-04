@@ -8,7 +8,7 @@
                 </div>
                 <div class="col-sm-9 ">
                     <div class="d-flex justify-content-end position-relative">
-                        <qrcode [qrdata]="data._id" [width]="100" (qrCodeURL)="onChange($event)" class="mt-2"></qrcode>
+                        <qrcode [qrdata]="data._id + 'heloo'" [width]="100" (qrCodeURL)="onChange($event)" class="mt-2"></qrcode>
                         <a [href]="qrCodeDownloadLink" class="position-absolute top-0 end-0"><i
                                 class="fa-solid fa-download " style="color: black;"></i></a>
                     </div>
