@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SignInService } from 'src/app/sign-in.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-admin-login',
@@ -23,7 +24,13 @@ export class AdminLoginComponent {
           this.router.navigate(['/adminHomePage'])
         }
       },
-      error:(err)=>console.log(err)
+      error:(err)=>{        
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: err.error,
+        });
+      }
      })
   }
 }

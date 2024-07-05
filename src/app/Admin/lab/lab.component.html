@@ -11,16 +11,28 @@
                 <form class="form-control" [formGroup]="labForm" (ngSubmit)="save()">
                     <label for="" class="form-label">Lab Name</label>
                     <input type="text" class="form-control mb-3" name="" formControlName="name" placeholder="Lab Name">
-
+                    <div class="" *ngIf="labForm.controls['name'].invalid && (labForm.controls['name'].touched || labForm.controls['name'].dirty)">
+                        <small class="text-danger" *ngIf="labForm.controls['name'].errors?.['required']">Name is Required</small>
+                        <small class="text-danger" *ngIf="labForm.controls['name'].errors?.['pattern']">Name is must be at least 3</small>
+                      </div>
                     <label for="" class="form-label">UserName</label>
                     <input type="text" class="form-control mb-3" name="" formControlName="username" placeholder="Lab UserName">
-
+                    <div class="" *ngIf="labForm.controls['username'].invalid && (labForm.controls['username'].touched || labForm.controls['username'].dirty)">
+                        <small class="text-danger" *ngIf="labForm.controls['username'].errors?.['required']">User Name is Required</small>
+                        <small class="text-danger" *ngIf="labForm.controls['username'].errors?.['pattern']">User Name is must be at least 3</small>
+    
+                      </div>
                     <label for="" class="form-label">Password</label>
                     <input type="password" class="form-control mb-3" name="" formControlName="password"placeholder="Lab Password">
+                    <div class="" *ngIf="labForm.controls['password'].invalid && (labForm.controls['password'].touched || labForm.controls['password'].dirty)">
+                        <small class="text-danger" *ngIf="labForm.controls['password'].errors?.['required']">User Name is Required</small>
+                      </div>
 
                     <label for="about">About</label>
                     <textarea name="" class="form-control mb-3" formControlName="about" placeholder="About Lab"></textarea>
-
+                <div class="" *ngIf="labForm.controls['about'].invalid && (labForm.controls['about'].touched || labForm.controls['about'].dirty)">
+                    <small class="text-danger" *ngIf="labForm.controls['about'].errors?.['required']">User Name is Required</small>
+                  </div>
                     <div formArrayName="branches">
                         <div *ngFor="let branch of branches.controls; let i = index" [formGroupName]="i">
                             <h3>Branch {{ i + 1 }}</h3>

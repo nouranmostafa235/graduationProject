@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { SignInService } from 'src/app/sign-in.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-lab-login',
@@ -21,6 +21,13 @@ export class LabLoginComponent {
       next:(response)=>{
         localStorage.setItem('labTokin',"Bearer "+response.token)
         this.router.navigate(['/lab/Home'])
+      },
+      error:(err)=>{        
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: err.error.error,
+        });
       }
     })
   }

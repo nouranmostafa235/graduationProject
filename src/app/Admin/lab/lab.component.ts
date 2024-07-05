@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AdminService } from 'src/app/admin.service';
 import { SignInService } from 'src/app/sign-in.service';
@@ -18,10 +18,10 @@ export class LabComponent implements OnInit{
   searchValue:string=""
   constructor(private signIn:SignInService, private fb:FormBuilder ,private adminServics:AdminService ,private router:Router){
     this.labForm= this.fb.group({
-      name:[""],
-      username:[''],
-      password:[''],
-      about:[''],
+      name:["",[Validators.required,Validators.minLength(3)]],
+      username:['',[Validators.required,Validators.minLength(3)]],
+      password:['',[Validators.required]],
+      about:['',[Validators.required,,Validators.minLength(3)]],
       branches: this.fb.array([this.createBranches()]),
       contactNumbers: this.fb.array(['']),
       socialMedia:this.fb.array([this.createSocialMedia()])

@@ -42,14 +42,20 @@
          
             <div class="row">
                 <div class="row pe-0">
-                    <div class="col-md-12 pe-0">
+                    <div class="col-md-12 pe-0 mb-5">
                         <label for="email_login" class="ms-2">Lab UserName</label>
-                        <input type="text" class="form-control mb-lg-5" formControlName="username" placeholder="Your UserName">
+                        <input type="text" class="form-control" formControlName="username" placeholder="Your UserName">
+                        <div class="" *ngIf="login.controls['username'].invalid && (login.controls['username'].touched || login.controls['username'].dirty)">
+                          <span *ngIf="login.controls['username'].errors?.['required']">UserName is Required</span>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-12 mb-5">
                     <label for="password_login" class="ms-2">Lab Password</label>
-                    <input type="password" class="form-control mb-5" formControlName="password" placeholder="Your Password">
+                    <input type="password" class="form-control" formControlName="password" placeholder="Your Password">
+                    <div class="" *ngIf="login.controls['password'].invalid && (login.controls['password'].touched || login.controls['password'].dirty)">
+                      <span *ngIf="login.controls['password'].errors?.['required']">Password is Required</span>
+                    </div>
                 </div>
             </div>
             <div class="div">

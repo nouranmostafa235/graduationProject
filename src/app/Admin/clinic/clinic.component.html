@@ -12,16 +12,29 @@ aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <form class="form-control" [formGroup]="clinicForm" (ngSubmit)="save()">
                 <label for="" class="form-label">Clinic Name</label>
                 <input type="text" class="form-control mb-3" name="" formControlName="name" placeholder="Clinic Name">
+                <div class="" *ngIf="clinicForm.controls['name'].invalid && (clinicForm.controls['name'].touched || clinicForm.controls['name'].dirty)">
+                    <small class="text-danger" *ngIf="clinicForm.controls['name'].errors?.['required']">Name is Required</small>
+                    <small class="text-danger" *ngIf="clinicForm.controls['name'].errors?.['pattern']">Name is must be at least 3</small>
+                  </div>
 
                 <label for="" class="form-label">UserName</label>
                 <input type="text" class="form-control mb-3" name="" formControlName="username" placeholder="Clinic UserName">
+                <div class="" *ngIf="clinicForm.controls['username'].invalid && (clinicForm.controls['username'].touched || clinicForm.controls['username'].dirty)">
+                    <small class="text-danger" *ngIf="clinicForm.controls['username'].errors?.['required']">User Name is Required</small>
+                    <small class="text-danger" *ngIf="clinicForm.controls['username'].errors?.['pattern']">User Name is must be at least 3</small>
+
+                  </div>
 
                 <label for="" class="form-label">Password</label>
                 <input type="password" class="form-control mb-3" name="" formControlName="password"placeholder="Clinic Password">
-
+                <div class="" *ngIf="clinicForm.controls['password'].invalid && (clinicForm.controls['password'].touched || clinicForm.controls['password'].dirty)">
+                    <small class="text-danger" *ngIf="clinicForm.controls['password'].errors?.['required']">User Name is Required</small>
+                  </div>
                 <label for="about">About</label>
                 <textarea name="" class="form-control mb-3" formControlName="about" placeholder="About Clinic"></textarea>
-
+                <div class="" *ngIf="clinicForm.controls['about'].invalid && (clinicForm.controls['about'].touched || clinicForm.controls['about'].dirty)">
+                    <small class="text-danger" *ngIf="clinicForm.controls['about'].errors?.['required']">User Name is Required</small>
+                  </div>
                 <div formArrayName="branches">
                     <div *ngFor="let branch of branches.controls; let i = index" [formGroupName]="i">
                         <h3>Branch {{ i + 1 }}</h3>
@@ -72,7 +85,7 @@ aria-labelledby="staticBackdropLabel" aria-hidden="true">
 
                 <div class="modal-footer">
                     <button type="button" class="btnn" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btnn ">Save Changes</button>
+                    <button type="submit" [disabled]="clinicForm.invalid" class="btnn ">Save Changes</button>
                 </div>
             </form>
         </div>

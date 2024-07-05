@@ -1,12 +1,40 @@
-<div class="scan w-50 mx-auto " [style.padding.px]="20">
-    <ngx-scanner-qrcode #action="scanner"></ngx-scanner-qrcode>
-    <!-- <span *ngIf="qrCodeValue">{{ qrCodeValue }}</span> -->
+
+
+
+<div class="col-sm-12 mx-auto home me-0">
+    <div class="row justify-content-evenly me-0">
+        <h2 class="text-center pb-4 title">Select Scan Option</h2>
   
-    <p *ngIf="action.data | async as scanData; else loading">
-        {{ scanData.length > 0 ? "Scanned Succefully" : 'No scan results yet' }}
-    </p>
-    <ng-template #loading>⌛ Loading...</ng-template>
-    <button class="btnn" (click)="toggleScanner()">
-        {{ action.isStart ? 'Stop' : 'Start' }}
-    </button>
+        <div class="col-sm-5 clinic text-center">
+          <div class="scan w-50 mx-auto mb-5" [style.padding.px]="20">
+            <h1 class="text-center mb-4">Scan By QR Code</h1>
+            <ngx-scanner-qrcode #action="scanner"></ngx-scanner-qrcode>
+            <p *ngIf="action.data | async as scanData; else loading">
+                {{ scanData.length > 0 ? "Scanned Succefully" : 'No scan results yet' }}
+            </p>
+            <ng-template #loading>⌛ Loading...</ng-template>
+            <button class="btnn" (click)="toggleScanner()">
+                {{ action.isStart ? 'Stop' : 'Start' }}
+            </button>
+          </div>
+        </div>
+        <div class="col-sm-1 line scan">
+        </div>
+        <div class="col-sm-5 lab text-center">
+          <div class="nfc-container ">
+            <h1 class="text-center mb-5">Scan By NFC Card</h1>
+            <button (click)="startNfcScan()" class="btnn btn-primary mb-5">Scan NFC Card</button>
+            <div *ngIf="nfcError" class="error-message mb-5">{{ nfcError }}</div>
+          </div>
+  
+        </div>
+    </div>
   </div>
+  
+  
+  
+  
+  
+  
+  
+  

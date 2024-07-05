@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SignInService } from '../sign-in.service';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-institution-login',
   templateUrl: './institution-login.component.html',
@@ -21,6 +21,13 @@ signIn(){
     next:(response)=>{
       localStorage.setItem('clinicTokin',"Bearer "+response.token)
       this.router.navigate(["/clinic/Home"])
+    },
+    error:(err)=>{        
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: err.error.error,
+      });
     }
    })
 }

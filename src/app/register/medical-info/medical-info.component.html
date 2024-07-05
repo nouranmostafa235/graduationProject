@@ -28,450 +28,462 @@
           </div>
       </nav>
     <div class="col-md-8 mx-auto form">
-        <div class="personal_form mb-5 mx-auto">
-            <div class="row mb-5" >
-                <div class="col-md-4">
-                    <label for="weight" class="ms-2">Weight</label>
-                    <input type="number" class="form-control" [(ngModel)]="weight" placeholder="Your Weight">
+        <form [formGroup]="signUp">
+            <div class="personal_form mb-5 mx-auto">
+                <div class="row mb-5" >
+                    <div class="col-md-4">
+                        <label for="weight" class="ms-2">Weight</label>
+                        <input type="number" class="form-control" formControlName="weight" placeholder="Your Weight">
+                        <div class="" *ngIf="signUp.controls['weight'].invalid && (signUp.controls['weight'].touched || signUp.controls['weight'].dirty)">
+                            <small class="text-danger" *ngIf="signUp.controls['weight'].errors?.['required']">Weight is Required</small>
+                          </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="height" class="ms-2">Height</label>
+                        <input type="number" class="form-control" formControlName="height" placeholder="Your Height">
+                        <div class="" *ngIf="signUp.controls['height'].invalid && (signUp.controls['height'].touched || signUp.controls['height'].dirty)">
+                            <small class="text-danger" *ngIf="signUp.controls['height'].errors?.['required']">Height is Required</small>
+                          </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="bloddType" class="ms-2">Blood Type</label>
+                        <select name="bloodType" id="" class="form-select" formControlName="bloodType">
+                            <option value="" disabled selected>Your Blood Type</option>
+                            <option ngValue="A">A</option>
+                            <option ngValue="A+">A+</option>
+                            <option ngValue="A-">A-</option>
+                            <option ngValue="B">B</option>
+                            <option ngValue="B+">B+</option>
+                            <option ngValue="B-">B-</option>
+                            <option ngValue="O">O</option>
+                            <option ngValue="O+">O+</option>
+                            <option ngValue="O-">O-</option>
+                            <option ngValue="AB">AB</option>
+                            <option ngValue="AB-">AB-</option>
+                            <option ngValue="AB+">AB+</option>
+                        </select>
+                        <div class="" *ngIf="signUp.controls['bloodType'].invalid && (signUp.controls['bloodType'].touched || signUp.controls['bloodType'].dirty)">
+                            <small class="text-danger" *ngIf="signUp.controls['bloodType'].errors?.['required']">BloodType is Required</small>
+                          </div>
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <label for="height" class="ms-2">Height</label>
-                    <input type="number" class="form-control" [(ngModel)]="height" placeholder="Your Height">
+                <div class="row mt-5 mb-5 tbl">
+                    <table class="personalTable table table-striped mb-0 mb-0">
+                        <thead class="text-center">
+                            <tr>
+                                <th colspan="4">Personal <span>Medical</span> History: have you ever had any of the
+                                    following?</th>
+                            </tr>
+                        </thead>
+                        <tbody class="" formGroupName="personalMedicalHistory">
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="animia" value="animia" class="me-2"
+                                    formControlName="anemia">
+                                    <label for="">Animia</label>
+                                </td>
+                                <td>
+                                    <input class="me-2" type="checkbox" name="Arthirits" value="Arthirits"
+                                    formControlName="arthritis">
+                                    <label for="">Arthirits</label>
+    
+                                </td>
+                                <td>
+                                    <input class="me-2" type="checkbox" name="Asthma" value="Asthma"
+                                    formControlName="asthma">
+                                    <label for="">Asthma</label>
+    
+                                </td>
+                                <td>
+                                    <input class="me-2" type="checkbox" name="Cancer" value="Cancer"
+                                    formControlName="cancer">
+                                    <label for="">Cancer</label>
+    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> <input class="me-2" type="checkbox" name="Chronic Obstructive"
+                                        value="Chronic Obstructive"  formControlName="chronicObstructive">
+                                    <label for="">Chronic Obstructive</label>
+    
+                                </td>
+                                <td> <input class="me-2" type="checkbox" name="Disease" value="Disease"
+                                    formControlName="heartDisease">
+                                    <label for="">Heart Disease</label>
+    
+                                </td>
+                                <td><input class="me-2" type="checkbox" name="Clotting Disorder" value="Clotting Disorder"
+                                    formControlName="clottingDisorder">
+                                    <label for="">Clotting Disorder</label>
+    
+                                </td>
+                                <td> <input class="me-2" type="checkbox" name="Congestive Heart Failure"
+                                        value="Congestive Heart Failure"  formControlName="congestiveHeartFailure">
+                                    <label for="">Congestive Heart Failure</label>
+    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> <input class="me-2" type="checkbox" name="Crohn's Disease" value="Crohn's Disease"
+                                    formControlName="crohnsDisease">
+                                    <label for="">Crohn's Disease</label>
+    
+                                </td>
+                                <td> <input class="me-2" type="checkbox" name="Depression" value="Depression"
+                                    formControlName="depression">
+                                    <label for="">Depression</label>
+    
+                                </td>
+                                <td><input class="me-2" type="checkbox" name="Diabetes" value="Diabetes"
+                                    formControlName="diabetes">
+                                    <label for="">Diabetes</label>
+    
+                                </td>
+                                <td> <input class="me-2" type="checkbox" name="Emphysema" value="Emphysema"
+                                    formControlName="emphysema">
+                                    <label for="">Emphysema</label>
+    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> <input class="me-2" type="checkbox" name="Endocrine Problems"
+                                        value="Endocrine Problems"  formControlName="endocrineProblems">
+                                    <label for="">Endocrine Problems</label>
+    
+                                </td>
+                                <td><input class="me-2" type="checkbox" name="GERD" value="GERD"  formControlName="GERD">
+                                    <label for="">GERD</label>
+    
+                                </td>
+                                <td> <input class="me-2" type="checkbox" name="Glaucoma" value="Glaucoma"
+                                    formControlName="glaucoma">
+                                    <label for="">Glaucoma</label>
+    
+                                </td>
+                                <td> <input class="me-2" type="checkbox" name="Hepatitis" value="Hepatitis"
+                                    formControlName="hepatitis">
+                                    <label for="">Hepatitis</label>
+    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> <input class="me-2" type="checkbox" name="HIV/AIDS" value="HIV/AIDS"
+                                    formControlName="HIV_AIDS">
+                                    <label for="">HIV/AIDS</label>
+    
+                                </td>
+                                <td><input class="me-2" type="checkbox" name="Hypertension" value="Hypertension"
+                                    formControlName="hypertension">
+                                    <label for="">Hypertension</label>
+    
+                                </td>
+                                <td> <input class="me-2" type="checkbox" name="Kidney Disease" value="Kidney Disease"
+                                    formControlName="kidneyDisease">
+                                    <label for="">Kidney Disease</label>
+    
+                                </td>
+                                <td> <input class="me-2" type="checkbox" name="Myocardial Infarction"
+                                        value="Myocardial Infarction"  formControlName="myocardialInfarction">
+                                    <label for="">Myocardial Infarction</label>
+    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> <input class="me-2" type="checkbox" name="Peptic UIcer Disease"
+                                        value="Peptic UIcer Disease"  formControlName="pepticUlcerDisease">
+                                    <label for="">Peptic UIcer Disease</label>
+    
+                                </td>
+                                <td> <input class="me-2" type="checkbox" name="Seizures" value="Seizures"
+                                    formControlName="seizures">
+                                    <label for="">Seizures</label>
+    
+                                </td>
+                                <td><input class="me-2" type="checkbox" name="Stroke" value="Stroke"
+                                    formControlName="stroke">
+                                    <label for="">Stroke</label>
+    
+                                </td>
+                                <td> <input class="me-2" type="checkbox" name="UIcerative Colitis"
+                                        value="UIcerative Colitis"  formControlName="ulcerativeColitis">
+                                    <label for="">UIcerative Colitis</label>
+    
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-                <div class="col-md-4">
-                    <label for="bloddType" class="ms-2">Blood Type</label>
-                    <select name="bloodType" id="" class="form-select" [(ngModel)]="bloodType">
-                        <option value="" disabled selected>Your Blood Type</option>
-                        <option ngValue="A">A</option>
-                        <option ngValue="A+">A+</option>
-                        <option ngValue="A-">A-</option>
-                        <option ngValue="B">B</option>
-                        <option ngValue="B+">B+</option>
-                        <option ngValue="B-">B-</option>
-                        <option ngValue="O">O</option>
-                        <option ngValue="O+">O+</option>
-                        <option ngValue="O-">O-</option>
-                        <option ngValue="AB">AB</option>
-                        <option ngValue="AB-">AB-</option>
-                        <option ngValue="AB+">AB+</option>
-                    </select>
+                <div class="row mt-5 mb-5 tbl" >
+                    <table class="surgeryTable table table-striped mb-0" formGroupName="personalSurgicalHistory">
+                        <thead class="text-center">
+                            <tr>
+                                <th colspan="4">Personal <span>Surgical</span> History: have you ever had any of the
+                                    following?</th>
+                            </tr>
+                        </thead>
+                        <tbody class="">
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="Adrenal Gland Surgery" value="Adrenal Gland Surgery"
+                                        class="me-2"  formControlName="adrenalGlandSurgery">
+                                    <label for="">Adrenal Gland Surgery</label>
+    
+                                </td>
+                                <td>
+                                    <input class="me-2" type="checkbox" name="Colon Surgery" value="Colon Surgery"
+                                    formControlName="colonSurgery">
+                                    <label for="">Colon Surgery</label>
+    
+                                </td>
+                                <td>
+                                    <input class="me-2" type="checkbox" name="Kidney Surgery" value="Kidney Surgery"
+                                    formControlName="kidneySurgery">
+                                    <label for="">Kidney Surgery</label>
+    
+                                </td>
+                                <td>
+                                    <input class="me-2" type="checkbox" name="Appendectomy" value="Appendectomy"
+                                    formControlName="appendectomy">
+                                    <label for="">Appendectomy</label>
+    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> <input class="me-2" type="checkbox" name="Artery Surgery" value="Artery Surgery"
+                                    formControlName="arterySurgery">
+                                    <label for="">Artery Surgery</label>
+    
+                                </td>
+                                <td> <input class="me-2" type="checkbox" name="Neck Surgery" value="Neck Surgery"
+                                    formControlName="neckSurgery">
+                                    <label for="">Neck Surgery</label>
+    
+                                </td>
+                                <td> <input class="me-2" type="checkbox" name="Thyroid Surgery" value="Thyroid Surgery"
+                                    formControlName="thyroidSurgery">
+                                    <label for="">Thyroid Surgery</label>
+    
+                                </td>
+                                <td> <input class="me-2" type="checkbox" name="Esophagus Surgery" value="Esophagus Surgery"
+                                    formControlName="esophagusSurgery">
+                                    <label for="">Esophagus Surgery</label>
+    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> <input class="me-2" type="checkbox" name="Prostate Surgery" value="Prostate Surgery"
+                                    formControlName="prostateSurgery">
+                                    <label for="">Prostate Surgery</label>
+                                </td>
+                                <td> <input class="me-2" type="checkbox" name="Bladder Surgery" value="Bladder Surgery"
+                                    formControlName="bladderSurgery">
+                                    <label for="">Bladder Surgery</label>
+    
+                                </td>
+                                <td><input class="me-2" type="checkbox" name="Large Intestine Surgery"
+                                        value="Large Intestine Surgery"  formControlName="largeIntestineSurgery">
+                                    <label for="">Large Intestine Surgery</label>
+    
+                                </td>
+                                <td> <input class="me-2" type="checkbox" name="Gastric Bypass Surgery"
+                                        value="Gastric Bypass Surgery"  formControlName="gastricBypassSurgery">
+                                    <label for="">Gastric Bypass Surgery</label>
+    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> <input class="me-2" type="checkbox" name="Lungs Surgery" value="Lungs Surgery"
+                                    formControlName="lungSurgery">
+                                    <label for="">Lungs Surgery</label>
+    
+                                </td>
+                                <td><input class="me-2" type="checkbox" name="Small Intestine Surgery"
+                                        value="Small Intestine Surgery"  formControlName="smallIntestineSurgery">
+                                    <label for="">Small Intestine Surgery</label>
+    
+                                </td>
+                                <td> <input class="me-2" type="checkbox" name="Breast Surgery" value="Breast Surgery"
+                                    formControlName="breastSurgery">
+                                    <label for="">Breast Surgery</label>
+    
+                                </td>
+                                <td> <input class="me-2" type="checkbox" name="Hemorrhoid Surgery"
+                                        value="Hemorrhoid Surgery"  formControlName="hemorrhoidSurgery">
+                                    <label for="">Hemorrhoid Surgery</label>
+    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> <input class="me-2" type="checkbox" name="Spine Surgery" value="Spine Surgery"
+                                    formControlName="spineSurgery">
+                                    <label for="">Spine Surgery</label>
+                                </td>
+                                <td><input class="me-2" type="checkbox" name="Utrus Surgery" value="Utrus Surgery"
+                                    formControlName="uterusSurgery">
+                                    <label for="">Utrus Surgery</label>
+    
+                                </td>
+                                <td> <input class="me-2" type="checkbox" name="Cesarean Section" value="Cesarean Section"
+                                    formControlName="cesareanSection">
+                                    <label for="">Cesarean Section</label>
+    
+                                </td>
+                                <td> <input class="me-2" type="checkbox" name="Stomach Surgery" value="Stomach Surgery"
+                                    formControlName="stomachSurgery">
+                                    <label for="">Stomach Surgery</label>
+    
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row mt-5 mb-5 tbl">
+                    <table class="allergyTable table table-striped mb-0" formGroupName="personalAllergiesHistory">
+                        <thead class="text-center">
+                            <tr>
+                                <th colspan="4">Personal <span>Allergies</span> History: have you ever had any of the
+                                    following?</th>
+                            </tr>
+                        </thead>
+                        <tbody class="">
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="Food Allergies" value="Food Allergies" class="me-2"
+                                    formControlName="foodAllergies">
+                                    <label for="">Food Allergies</label>
+    
+                                </td>
+                                <td>
+                                    <input class="me-2" type="checkbox" name="Drug Allergies" value="Drug Allergies"
+                                    formControlName="drugAllergies">
+                                    <label for="">Drug Allergies</label>
+    
+                                </td>
+                                <td>
+                                    <input class="me-2" type="checkbox" name="Dust Allergies" value="Dust Allergies"
+                                    formControlName="dustAllergies">
+                                    <label for="">Dust Allergies</label>
+    
+                                </td>
+                                <td>
+                                    <input class="me-2" type="checkbox" name="Pet Allergies" value="Pet Allergies"
+                                    formControlName="petAllergies">
+                                    <label for="">Pet Allergies</label>
+    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> <input class="me-2" type="checkbox" name="Tempreture Changes"
+                                        value="Tempreture Changes" formControlName="temperatureChanges">
+                                    <label for="">Tempreture Changes</label>
+    
+                                </td>
+                                <td> <input class="me-2" type="checkbox" name="Seasonal Allergies"
+                                        value="Seasonal Allergies" formControlName="seasonalAllergies">
+                                    <label for="">Seasonal Allergies</label>
+    
+                                </td>
+                                <td><input class="me-2" type="checkbox" name="Pollution Allergy" value="Pollution Allergy"
+                                    formControlName="pollutionAllergy">
+                                    <label for="">Pollution Allergy</label>
+    
+                                </td>
+                                <td> <input class="me-2" type="checkbox" name="Mold Allergies" value="Mold Allergies"
+                                    formControlName="moldAllergies">
+                                    <label for="">Mold Allergies</label>
+    
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+    
+                <div class="row mt-5 mb-5 tbl" >
+                    <table class=" FamilyTable table table-striped mb-0" formGroupName="familyMedicalHistory" >
+                        <thead class="text-center">
+                            <tr>
+                                <th colspan="4">Family <span>Medical</span> History: has anyone in your family had any of
+                                    the following?</th>
+                        </thead>
+                        <tbody class="">
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="fm-Cancer" value="fm-Cancer" class="me-2"
+                                    formControlName="cancer">
+                                    <label for="">Cancer</label>
+    
+                                </td>
+                                <td>
+                                    <input class="me-2" type="checkbox" name="fm-Animia" value="fm-Animia"
+                                    formControlName="anemia">
+                                    <label for="">Animia</label>
+    
+                                </td>
+                                <td>
+                                    <input class="me-2" type="checkbox" name="fm-High Blood Pressure"
+                                        value="fm-High Blood Pressure"  formControlName="highBloodPressure">
+                                    <label for="">High Blood Pressure</label>
+    
+                                </td>
+                                <td>
+                                    <input class="me-2" type="checkbox" name="fm-Diabetes" value="fm-Diabetes"
+                                    formControlName="diabetes">
+                                    <label for="">Diabetes</label>
+    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> <input class="me-2" type="checkbox" name="fm-Anesthesia Reaction"
+                                        value="fm-Anesthesia Reaction"  formControlName="anesthesiaReaction">
+                                    <label for="">Anesthesia Reaction</label>
+    
+                                </td>
+                                <td> <input class="me-2" type="checkbox" name="fm-Blood Clots" value="fm-Blood Clots"
+                                    formControlName="bloodClots">
+                                    <label for="">Blood Clots</label>
+    
+                                </td>
+                                <td><input class="me-2" type="checkbox" name="fm-Bleeding Problems"
+                                        value="fm-Bleeding Problems"  formControlName="bleedingProblems">
+                                    <label for="">Bleeding Problems</label>
+    
+                                </td>
+                                <td> <input class="me-2" type="checkbox" name="fm-Heart Disease" value="fm-Heart Disease"
+                                    formControlName="heartDisease">
+                                    <label for="">Heart Disease</label>
+    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> <input class="me-2" type="checkbox" name="fm-Hepatitis" value="fm-Hepatitis"
+                                    formControlName="hepatitis">
+                                    <label for="">Hepatitis</label>
+                                </td>
+                                <td> <input class="me-2" type="checkbox" name="fm-Stroke" value="fm-Stroke"
+                                         formControlName="stroke">
+                                    <label for="">Stroke</label>
+    
+                                </td>
+                                <td><input class="me-2" type="checkbox" name="fm-Kidney Disease" value="fm-Kidney Disease"
+                                         formControlName="kidneyDisease">
+                                    <label for="">Kidney Disease</label>
+    
+                                </td>
+                                <td> <input class="me-2" type="checkbox" name="fm-Endocrine Problems"
+                                        value="fm-Endocrine Problems"  formControlName="endocrineProblems">
+                                    <label for="">Endocrine Problems</label>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="div d-flex justify-content-evenly">
+                    <a class="btnn ps-5 pe-5 mt-4 mb-3" routerLink="/register"><i class="fa-solid fa-arrow-left me-2"></i>Back</a>
+                    <a class="btnn ps-5 pe-5 mt-4 mb-3" (click)="saveData()">Next <i class="fa-solid fa-arrow-right ms-1"></i></a>
+    
                 </div>
             </div>
-            <div class="row mt-5 mb-5 tbl">
-                <table class="personalTable table table-striped mb-0 mb-0">
-                    <thead class="text-center">
-                        <tr>
-                            <th colspan="4">Personal <span>Medical</span> History: have you ever had any of the
-                                following?</th>
-                        </tr>
-                    </thead>
-                    <tbody class="">
-                        <tr>
-                            <td>
-                                <input type="checkbox" name="animia" value="animia" class="me-2"
-                                [(ngModel)]="personalMedicalHistory.anemia">
-                                <label for="">Animia</label>
-                            </td>
-                            <td>
-                                <input class="me-2" type="checkbox" name="Arthirits" value="Arthirits"
-                                [(ngModel)]="personalMedicalHistory.arthritis">
-                                <label for="">Arthirits</label>
+     
+        </form>
 
-                            </td>
-                            <td>
-                                <input class="me-2" type="checkbox" name="Asthma" value="Asthma"
-                                [(ngModel)]="personalMedicalHistory.asthma">
-                                <label for="">Asthma</label>
-
-                            </td>
-                            <td>
-                                <input class="me-2" type="checkbox" name="Cancer" value="Cancer"
-                                [(ngModel)]="personalMedicalHistory.cancer">
-                                <label for="">Cancer</label>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td> <input class="me-2" type="checkbox" name="Chronic Obstructive"
-                                    value="Chronic Obstructive"  [(ngModel)]="personalMedicalHistory.chronicObstructive">
-                                <label for="">Chronic Obstructive</label>
-
-                            </td>
-                            <td> <input class="me-2" type="checkbox" name="Disease" value="Disease"
-                                [(ngModel)]="personalMedicalHistory.heartDisease">
-                                <label for="">Heart Disease</label>
-
-                            </td>
-                            <td><input class="me-2" type="checkbox" name="Clotting Disorder" value="Clotting Disorder"
-                                [(ngModel)]="personalMedicalHistory.clottingDisorder">
-                                <label for="">Clotting Disorder</label>
-
-                            </td>
-                            <td> <input class="me-2" type="checkbox" name="Congestive Heart Failure"
-                                    value="Congestive Heart Failure"  [(ngModel)]="personalMedicalHistory.congestiveHeartFailure">
-                                <label for="">Congestive Heart Failure</label>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td> <input class="me-2" type="checkbox" name="Crohn's Disease" value="Crohn's Disease"
-                                [(ngModel)]="personalMedicalHistory.crohnsDisease">
-                                <label for="">Crohn's Disease</label>
-
-                            </td>
-                            <td> <input class="me-2" type="checkbox" name="Depression" value="Depression"
-                                [(ngModel)]="personalMedicalHistory.depression">
-                                <label for="">Depression</label>
-
-                            </td>
-                            <td><input class="me-2" type="checkbox" name="Diabetes" value="Diabetes"
-                                [(ngModel)]="personalMedicalHistory.diabetes">
-                                <label for="">Diabetes</label>
-
-                            </td>
-                            <td> <input class="me-2" type="checkbox" name="Emphysema" value="Emphysema"
-                                [(ngModel)]="personalMedicalHistory.emphysema">
-                                <label for="">Emphysema</label>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td> <input class="me-2" type="checkbox" name="Endocrine Problems"
-                                    value="Endocrine Problems"  [(ngModel)]="personalMedicalHistory.endocrineProblems">
-                                <label for="">Endocrine Problems</label>
-
-                            </td>
-                            <td><input class="me-2" type="checkbox" name="GERD" value="GERD"  [(ngModel)]="personalMedicalHistory.GERD">
-                                <label for="">GERD</label>
-
-                            </td>
-                            <td> <input class="me-2" type="checkbox" name="Glaucoma" value="Glaucoma"
-                                [(ngModel)]="personalMedicalHistory.glaucoma">
-                                <label for="">Glaucoma</label>
-
-                            </td>
-                            <td> <input class="me-2" type="checkbox" name="Hepatitis" value="Hepatitis"
-                                [(ngModel)]="personalMedicalHistory.hepatitis">
-                                <label for="">Hepatitis</label>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td> <input class="me-2" type="checkbox" name="HIV/AIDS" value="HIV/AIDS"
-                                [(ngModel)]="personalMedicalHistory.HIV_AIDS">
-                                <label for="">HIV/AIDS</label>
-
-                            </td>
-                            <td><input class="me-2" type="checkbox" name="Hypertension" value="Hypertension"
-                                [(ngModel)]="personalMedicalHistory.hypertension">
-                                <label for="">Hypertension</label>
-
-                            </td>
-                            <td> <input class="me-2" type="checkbox" name="Kidney Disease" value="Kidney Disease"
-                                [(ngModel)]="personalMedicalHistory.kidneyDisease">
-                                <label for="">Kidney Disease</label>
-
-                            </td>
-                            <td> <input class="me-2" type="checkbox" name="Myocardial Infarction"
-                                    value="Myocardial Infarction"  [(ngModel)]="personalMedicalHistory.myocardialInfarction">
-                                <label for="">Myocardial Infarction</label>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td> <input class="me-2" type="checkbox" name="Peptic UIcer Disease"
-                                    value="Peptic UIcer Disease"  [(ngModel)]="personalMedicalHistory.pepticUlcerDisease">
-                                <label for="">Peptic UIcer Disease</label>
-
-                            </td>
-                            <td> <input class="me-2" type="checkbox" name="Seizures" value="Seizures"
-                                [(ngModel)]="personalMedicalHistory.seizures">
-                                <label for="">Seizures</label>
-
-                            </td>
-                            <td><input class="me-2" type="checkbox" name="Stroke" value="Stroke"
-                                [(ngModel)]="personalMedicalHistory.stroke">
-                                <label for="">Stroke</label>
-
-                            </td>
-                            <td> <input class="me-2" type="checkbox" name="UIcerative Colitis"
-                                    value="UIcerative Colitis"  [(ngModel)]="personalMedicalHistory.ulcerativeColitis">
-                                <label for="">UIcerative Colitis</label>
-
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="row mt-5 mb-5 tbl" >
-                <table class="surgeryTable table table-striped mb-0">
-                    <thead class="text-center">
-                        <tr>
-                            <th colspan="4">Personal <span>Surgical</span> History: have you ever had any of the
-                                following?</th>
-                        </tr>
-                    </thead>
-                    <tbody class="">
-                        <tr>
-                            <td>
-                                <input type="checkbox" name="Adrenal Gland Surgery" value="Adrenal Gland Surgery"
-                                    class="me-2"  [(ngModel)]="personalSurgicalHistory.adrenalGlandSurgery">
-                                <label for="">Adrenal Gland Surgery</label>
-
-                            </td>
-                            <td>
-                                <input class="me-2" type="checkbox" name="Colon Surgery" value="Colon Surgery"
-                                [(ngModel)]="personalSurgicalHistory.colonSurgery">
-                                <label for="">Colon Surgery</label>
-
-                            </td>
-                            <td>
-                                <input class="me-2" type="checkbox" name="Kidney Surgery" value="Kidney Surgery"
-                                [(ngModel)]="personalSurgicalHistory.kidneySurgery">
-                                <label for="">Kidney Surgery</label>
-
-                            </td>
-                            <td>
-                                <input class="me-2" type="checkbox" name="Appendectomy" value="Appendectomy"
-                                [(ngModel)]="personalSurgicalHistory.appendectomy">
-                                <label for="">Appendectomy</label>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td> <input class="me-2" type="checkbox" name="Artery Surgery" value="Artery Surgery"
-                                [(ngModel)]="personalSurgicalHistory.arterySurgery">
-                                <label for="">Artery Surgery</label>
-
-                            </td>
-                            <td> <input class="me-2" type="checkbox" name="Neck Surgery" value="Neck Surgery"
-                                [(ngModel)]="personalSurgicalHistory.neckSurgery">
-                                <label for="">Neck Surgery</label>
-
-                            </td>
-                            <td> <input class="me-2" type="checkbox" name="Thyroid Surgery" value="Thyroid Surgery"
-                                [(ngModel)]="personalSurgicalHistory.thyroidSurgery">
-                                <label for="">Thyroid Surgery</label>
-
-                            </td>
-                            <td> <input class="me-2" type="checkbox" name="Esophagus Surgery" value="Esophagus Surgery"
-                                [(ngModel)]="personalSurgicalHistory.esophagusSurgery">
-                                <label for="">Esophagus Surgery</label>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td> <input class="me-2" type="checkbox" name="Prostate Surgery" value="Prostate Surgery"
-                                [(ngModel)]="personalSurgicalHistory.prostateSurgery">
-                                <label for="">Prostate Surgery</label>
-                            </td>
-                            <td> <input class="me-2" type="checkbox" name="Bladder Surgery" value="Bladder Surgery"
-                                [(ngModel)]="personalSurgicalHistory.bladderSurgery">
-                                <label for="">Bladder Surgery</label>
-
-                            </td>
-                            <td><input class="me-2" type="checkbox" name="Large Intestine Surgery"
-                                    value="Large Intestine Surgery"  [(ngModel)]="personalSurgicalHistory.largeIntestineSurgery">
-                                <label for="">Large Intestine Surgery</label>
-
-                            </td>
-                            <td> <input class="me-2" type="checkbox" name="Gastric Bypass Surgery"
-                                    value="Gastric Bypass Surgery"  [(ngModel)]="personalSurgicalHistory.gastricBypassSurgery">
-                                <label for="">Gastric Bypass Surgery</label>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td> <input class="me-2" type="checkbox" name="Lungs Surgery" value="Lungs Surgery"
-                                [(ngModel)]="personalSurgicalHistory.lungSurgery">
-                                <label for="">Lungs Surgery</label>
-
-                            </td>
-                            <td><input class="me-2" type="checkbox" name="Small Intestine Surgery"
-                                    value="Small Intestine Surgery"  [(ngModel)]="personalSurgicalHistory.smallIntestineSurgery">
-                                <label for="">Small Intestine Surgery</label>
-
-                            </td>
-                            <td> <input class="me-2" type="checkbox" name="Breast Surgery" value="Breast Surgery"
-                                [(ngModel)]="personalSurgicalHistory.breastSurgery">
-                                <label for="">Breast Surgery</label>
-
-                            </td>
-                            <td> <input class="me-2" type="checkbox" name="Hemorrhoid Surgery"
-                                    value="Hemorrhoid Surgery"  [(ngModel)]="personalSurgicalHistory.hemorrhoidSurgery">
-                                <label for="">Hemorrhoid Surgery</label>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td> <input class="me-2" type="checkbox" name="Spine Surgery" value="Spine Surgery"
-                                [(ngModel)]="personalSurgicalHistory.spineSurgery">
-                                <label for="">Spine Surgery</label>
-                            </td>
-                            <td><input class="me-2" type="checkbox" name="Utrus Surgery" value="Utrus Surgery"
-                                [(ngModel)]="personalSurgicalHistory.uterusSurgery">
-                                <label for="">Utrus Surgery</label>
-
-                            </td>
-                            <td> <input class="me-2" type="checkbox" name="Cesarean Section" value="Cesarean Section"
-                                [(ngModel)]="personalSurgicalHistory.cesareanSection">
-                                <label for="">Cesarean Section</label>
-
-                            </td>
-                            <td> <input class="me-2" type="checkbox" name="Stomach Surgery" value="Stomach Surgery"
-                                [(ngModel)]="personalSurgicalHistory.stomachSurgery">
-                                <label for="">Stomach Surgery</label>
-
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="row mt-5 mb-5 tbl">
-                <table class="allergyTable table table-striped mb-0">
-                    <thead class="text-center">
-                        <tr>
-                            <th colspan="4">Personal <span>Allergies</span> History: have you ever had any of the
-                                following?</th>
-                        </tr>
-                    </thead>
-                    <tbody class="">
-                        <tr>
-                            <td>
-                                <input type="checkbox" name="Food Allergies" value="Food Allergies" class="me-2"
-                                [(ngModel)]="personalAllergiesHistory.foodAllergies">
-                                <label for="">Food Allergies</label>
-
-                            </td>
-                            <td>
-                                <input class="me-2" type="checkbox" name="Drug Allergies" value="Drug Allergies"
-                                [(ngModel)]="personalAllergiesHistory.drugAllergies">
-                                <label for="">Drug Allergies</label>
-
-                            </td>
-                            <td>
-                                <input class="me-2" type="checkbox" name="Dust Allergies" value="Dust Allergies"
-                                [(ngModel)]="personalAllergiesHistory.dustAllergies">
-                                <label for="">Dust Allergies</label>
-
-                            </td>
-                            <td>
-                                <input class="me-2" type="checkbox" name="Pet Allergies" value="Pet Allergies"
-                                [(ngModel)]="personalAllergiesHistory.petAllergies">
-                                <label for="">Pet Allergies</label>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td> <input class="me-2" type="checkbox" name="Tempreture Changes"
-                                    value="Tempreture Changes" [(ngModel)]="personalAllergiesHistory.temperatureChanges">
-                                <label for="">Tempreture Changes</label>
-
-                            </td>
-                            <td> <input class="me-2" type="checkbox" name="Seasonal Allergies"
-                                    value="Seasonal Allergies" [(ngModel)]="personalAllergiesHistory.seasonalAllergies">
-                                <label for="">Seasonal Allergies</label>
-
-                            </td>
-                            <td><input class="me-2" type="checkbox" name="Pollution Allergy" value="Pollution Allergy"
-                                [(ngModel)]="personalAllergiesHistory.pollutionAllergy">
-                                <label for="">Pollution Allergy</label>
-
-                            </td>
-                            <td> <input class="me-2" type="checkbox" name="Mold Allergies" value="Mold Allergies"
-                                [(ngModel)]="personalAllergiesHistory.moldAllergies">
-                                <label for="">Mold Allergies</label>
-
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="row mt-5 mb-5 tbl" >
-                <table class=" FamilyTable table table-striped mb-0" >
-                    <thead class="text-center">
-                        <tr>
-                            <th colspan="4">Family <span>Medical</span> History: has anyone in your family had any of
-                                the following?</th>
-                    </thead>
-                    <tbody class="">
-                        <tr>
-                            <td>
-                                <input type="checkbox" name="fm-Cancer" value="fm-Cancer" class="me-2"
-                                [(ngModel)]="familyMedicalHistory.cancer">
-                                <label for="">Cancer</label>
-
-                            </td>
-                            <td>
-                                <input class="me-2" type="checkbox" name="fm-Animia" value="fm-Animia"
-                                [(ngModel)]="familyMedicalHistory.anemia">
-                                <label for="">Animia</label>
-
-                            </td>
-                            <td>
-                                <input class="me-2" type="checkbox" name="fm-High Blood Pressure"
-                                    value="fm-High Blood Pressure"  [(ngModel)]="familyMedicalHistory.highBloodPressure">
-                                <label for="">High Blood Pressure</label>
-
-                            </td>
-                            <td>
-                                <input class="me-2" type="checkbox" name="fm-Diabetes" value="fm-Diabetes"
-                                [(ngModel)]="familyMedicalHistory.diabetes">
-                                <label for="">Diabetes</label>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td> <input class="me-2" type="checkbox" name="fm-Anesthesia Reaction"
-                                    value="fm-Anesthesia Reaction"  [(ngModel)]="familyMedicalHistory.anesthesiaReaction">
-                                <label for="">Anesthesia Reaction</label>
-
-                            </td>
-                            <td> <input class="me-2" type="checkbox" name="fm-Blood Clots" value="fm-Blood Clots"
-                                [(ngModel)]="familyMedicalHistory.bloodClots">
-                                <label for="">Blood Clots</label>
-
-                            </td>
-                            <td><input class="me-2" type="checkbox" name="fm-Bleeding Problems"
-                                    value="fm-Bleeding Problems"  [(ngModel)]="familyMedicalHistory.bleedingProblems">
-                                <label for="">Bleeding Problems</label>
-
-                            </td>
-                            <td> <input class="me-2" type="checkbox" name="fm-Heart Disease" value="fm-Heart Disease"
-                                [(ngModel)]="familyMedicalHistory.heartDisease">
-                                <label for="">Heart Disease</label>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td> <input class="me-2" type="checkbox" name="fm-Hepatitis" value="fm-Hepatitis"
-                                [(ngModel)]="familyMedicalHistory.hepatitis">
-                                <label for="">Hepatitis</label>
-                            </td>
-                            <td> <input class="me-2" type="checkbox" name="fm-Stroke" value="fm-Stroke"
-                                     [(ngModel)]="familyMedicalHistory.stroke">
-                                <label for="">Stroke</label>
-
-                            </td>
-                            <td><input class="me-2" type="checkbox" name="fm-Kidney Disease" value="fm-Kidney Disease"
-                                     [(ngModel)]="familyMedicalHistory.kidneyDisease">
-                                <label for="">Kidney Disease</label>
-
-                            </td>
-                            <td> <input class="me-2" type="checkbox" name="fm-Endocrine Problems"
-                                    value="fm-Endocrine Problems"  [(ngModel)]="familyMedicalHistory.endocrineProblems">
-                                <label for="">Endocrine Problems</label>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="div d-flex justify-content-evenly">
-                <a class="btnn ps-5 pe-5 mt-4 mb-3" routerLink="/register"><i class="fa-solid fa-arrow-left me-2"></i>Back</a>
-                <a class="btnn ps-5 pe-5 mt-4 mb-3" (click)="saveData()">Next <i class="fa-solid fa-arrow-right ms-1"></i></a>
-
-            </div>
-        </div>
-    </div>
 </div>
