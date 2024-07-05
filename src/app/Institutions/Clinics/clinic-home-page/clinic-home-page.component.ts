@@ -8,11 +8,12 @@ import { InstitutionsService } from 'src/app/institutions.service';
 export class ClinicHomePageComponent implements OnInit{
   constructor(private instService:InstitutionsService){}
  clinicInfo:any
- rate:any=4.5
+ rate:any
 ngOnInit(): void {
   this.instService.getClinicByToken().subscribe({
     next:(response)=>{
       this.clinicInfo=response.clinic
+      this.rate=this.clinicInfo.rate
        console.log(this.clinicInfo);
     }
   })

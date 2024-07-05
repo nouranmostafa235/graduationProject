@@ -10,11 +10,12 @@ import { InstitutionsService } from 'src/app/institutions.service';
 export class LabHomePageComponent implements OnInit{
   constructor(private instService:InstitutionsService){}
   labInfo:any
-  rate:any=4.5
+  rate:any
 ngOnInit(): void {
   this.instService.getLabByToken().subscribe({
     next:(response)=>{
       this.labInfo=response.lab
+      this.rate=this.labInfo.rate
       console.log(this.labInfo,"laaabb");
       
     }

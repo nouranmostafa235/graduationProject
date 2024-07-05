@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormArray, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { response } from 'express';
 import { RegisterationFormService } from 'src/app/registeration-form.service';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-emergency-contact',
   templateUrl: './emergency-contact.component.html',
@@ -46,15 +46,29 @@ submitForm() {
     formDataa.append('profile_images', this.formData.profile_images, this.formData.profile_images.name);
   }
 
-  
-  formDataa.forEach((value, key) => {
-    console.log(key, value);
-  });
- 
  
   this._reg.handleRegister(formDataa).subscribe({
-    next:(response)=> console.log(response)
-    
+    next:(response)=>{ console.log(response)
+      Swal.fire({
+        title: 'Success!',
+        text: 'You have successfully signed up!',
+        icon: 'success',
+        confirmButtonText: 'OK'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.router.navigate(['/login']);
+        }
+      });
+    },
+    error: (err) => {
+      console.error('Error:', err);
+      Swal.fire({
+        title: 'Error!',
+        text: 'There was an error during sign up. Please try again.',
+        icon: 'error',
+        confirmButtonText: 'OK'
+      });
+    }
   })  
 }
  

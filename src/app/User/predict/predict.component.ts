@@ -15,10 +15,10 @@ export class PredictComponent implements OnInit {
   data: any
   message: string = ""
   predictForm: FormGroup = new FormGroup({
-    bmi: new FormControl(),
-    HbA1c_level: new FormControl(),
-    blood_glucose_level: new FormControl(),
-    smoking_history: new FormControl(),
+    bmi: new FormControl(null),
+    HbA1c_level: new FormControl(null),
+    blood_glucose_level: new FormControl(null),
+    smoking_history: new FormControl(null),
   })
   ngOnInit(): void {
     this.userData.getUserData().subscribe({

@@ -1,12 +1,12 @@
 
     <div class="home mt-5 p-5">
       <div class="row">
-          <div class="col-sm-5">
+          <div class="col-sm-7">
               <h1 class="title">{{clinicInfo.name}}</h1>
               <p class="text-justify lh-lg ">{{clinicInfo.about}}</p>
           </div>
-          <div class="col-sm-6 image text-center ms-auto me-5">
-              <img src="assets/imgs/images.png"  class="img-thumbnail rounded-circle">
+          <div class="col-sm-4 image text-center ms-auto me-5">
+              <img src="assets/imgs/clinicLogo.jpeg"  class="img-thumbnail rounded-circle">
           </div>
       </div>
   </div> 
@@ -31,7 +31,7 @@
       <h2 class="text-center title">RATING </h2>
       <div class="stars p-5">
           <h3 class="fs-2 fw-bold">
-              4.5
+             {{rate}}
           </h3>
           <p class="fw-lighter ">Out of 5</p>
           <i class="fa-solid fa-star-half-stroke fs-4" *ngIf="rate>0 && rate<1" style="color: #FFD43B;"></i>
@@ -78,7 +78,7 @@
               <h3 class="fw-bold">Opening Hours</h3>
               <p>Don't miss out on our latest menu updates and exclusive offers - join our newsletter today and stay up-to-date with all things Mealify!</p>
           </div>
-          <h3 class="list-caption">Mon-Sat: 11AM - 23PM; Sunday : Closed</h3>
+          <h3 class="list-caption">sun-Sat: 11AM - 11PM; Friday : Closed</h3>
    
       </div>
       <div class="right-footer">

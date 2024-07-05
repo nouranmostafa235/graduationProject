@@ -87,10 +87,8 @@
                         <input type="number" class="form-control" [(ngModel)]="age" placeholder="Your Age">
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="row pe-0 mb-4">
+                <div class="row pe-0 mb-4">
             <div class="col-md-6">
                 <label for="Marital Status" class="ms-2 mt-2 mb-2">Marital Status</label>
                 <select class="form-select" [(ngModel)]="maritalStatus">
@@ -105,7 +103,11 @@
                 <label for="image" class="ms-2 mt-2 mb-2">Upload Your Image</label>
                 <input type="file" class="form-control" (change)="onFileSelect($event)" required>
             </div>
+        </div> 
+            </div>
         </div>
+
+       
 
     </div>
     <div class="div d-flex justify-content-center">

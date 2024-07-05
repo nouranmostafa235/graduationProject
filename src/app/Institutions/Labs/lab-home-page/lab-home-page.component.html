@@ -1,10 +1,10 @@
   <div class="home mt-5 p-5">
     <div class="row">
-        <div class="col-sm-5">
+        <div class="col-sm-7">
             <h1 class="title">{{labInfo.name}}</h1>
             <p class="text-justify lh-lg ">{{labInfo.about}}</p>
         </div>
-        <div class="col-sm-6 image text-center ms-auto me-5">
+        <div class="col-sm-4 image text-center ms-auto me-5">
             <img src="assets/imgs/images.png"  class="img-thumbnail rounded-circle">
         </div>
     </div>
@@ -30,7 +30,7 @@
     <h2 class="text-center title">RATING </h2>
     <div class="stars p-5">
         <h3 class="fs-2 fw-bold">
-            4.5
+            {{rate}}
         </h3>
         <p class="fw-lighter ">Out of 5</p>
         <i class="fa-solid fa-star-half-stroke fs-4" *ngIf="rate>0 && rate<1" style="color: #FFD43B;"></i>
@@ -87,9 +87,9 @@
                <a href=""><h4><i class="fa-solid fa-envelope" style="color: #FD4E20;"></i></h4> </a> 
                <a href=""><p>contact@example.com</p></a>
             </li>
-            <li *ngFor="let i of labInfo.branches">
+            <li *ngFor="let i of labInfo.contactNumbers">
                 <a href=""><h4><i class="fa-solid fa-phone" style="color: #FD4E20"></i></h4></a>
-                <a href=""><p>{{i.phone}}</p></a>
+                <a href=""><p>{{i}}</p></a>
             </li>
         </ul>
     </div>
