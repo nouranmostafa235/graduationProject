@@ -131,7 +131,7 @@ export class RegisterationFormService {
     this.formData.emergencyContacts.splice(index, 1);
   }
   handleRegister(userData:any):Observable<any>{
-      return this.http.post<any>("http://localhost:3000/users/register",userData)
+      return this.http.post<any>("https://rabid-rx-back-end.vercel.app/users/register",userData)
   }
 
   // registerForm:FormGroup=new FormGroup({})

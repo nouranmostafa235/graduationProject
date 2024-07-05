@@ -11,57 +11,57 @@ export class UserDataService {
     token:localStorage.getItem('Authorization')
   }
   getUserData():Observable<any>{
-    return this.http.get("http://localhost:3000/users/profile",{headers:this.header})
+    return this.http.get("https://rabid-rx-back-end.vercel.app/users/profile",{headers:this.header})
   }
   getUserDataBId(id:any):Observable<any>{
-    return this.http.get(`http://localhost:3000/users/userByQr/${id}`)
+    return this.http.get(`https://rabid-rx-back-end.vercel.app/users/userByQr/${id}`)
   }
   changePass(userData:any):Observable<any>{
-    return this.http.put("http://localhost:3000/users/updatePassword",userData,{headers:this.header})
+    return this.http.put("https://rabid-rx-back-end.vercel.app/users/updatePassword",userData,{headers:this.header})
   }
   updateInfo(userData:any):Observable<any>{
-    return this.http.put("http://localhost:3000/users/updateProfile",userData,{headers:this.header})
+    return this.http.put("https://rabid-rx-back-end.vercel.app/users/updateProfile",userData,{headers:this.header})
   }
   updateImage(userData:any):Observable<any>{
-    return this.http.put("http://localhost:3000/users/updateImage",userData,{headers:this.header})
+    return this.http.put("https://rabid-rx-back-end.vercel.app/users/updateImage",userData,{headers:this.header})
   }
   getPrediction(userData:any):Observable<any>{
-    return this.http.post("http://localhost:3000/users/predict",userData,{headers:this.header})
+    return this.http.post("https://rabid-rx-back-end.vercel.app/users/predict",userData,{headers:this.header})
   }
   logOut():Observable<any>{
-    return this.http.put("http://localhost:3000/users/logout",null,{headers:this.header})
+    return this.http.put("https://rabid-rx-back-end.vercel.app/users/logout",null,{headers:this.header})
   }
  pending():Observable<any>{
-  return this.http.get("http://localhost:3000/users/numOfNotification",{headers:this.header})
+  return this.http.get("https://rabid-rx-back-end.vercel.app/users/numOfNotification",{headers:this.header})
  }
  medicalAnalysisnotifications():Observable<any>{
-  return this.http.get("http://localhost:3000/notifications/getPendingMedicalAnalysis",{headers:this.header})
+  return this.http.get("https://rabid-rx-back-end.vercel.app/notifications/getPendingMedicalAnalysis",{headers:this.header})
  }
  clinicnotification():Observable<any>{
-  return this.http.get("http://localhost:3000/notifications/getPendingDiagnosis",{headers:this.header})
+  return this.http.get("https://rabid-rx-back-end.vercel.app/notifications/getPendingDiagnosis",{headers:this.header})
  }
  getLabById(id:any):Observable<any>{
-  return this.http.get(`http://localhost:3000/labs/${id}`)
+  return this.http.get(`https://rabid-rx-back-end.vercel.app/labs/${id}`)
  }
  getClinicById(id:any):Observable<any>{
-  return this.http.get(`http://localhost:3000/clinics/${id}`)
+  return this.http.get(`https://rabid-rx-back-end.vercel.app/clinics/${id}`)
  }
  acceptMedicalAnalysisFiles(id:any):Observable<any>{
-  return this.http.post(`http://localhost:3000/notifications/acceptMedicalAnalysis/${id}`,{},{headers:this.header})
+  return this.http.post(`https://rabid-rx-back-end.vercel.app/notifications/acceptMedicalAnalysis/${id}`,{},{headers:this.header})
  }
  acceptClinicFiles(id:any):Observable<any>{
-  return this.http.post(`http://localhost:3000/notifications/acceptDiagnosis/${id}`,{},{headers:this.header})
+  return this.http.post(`https://rabid-rx-back-end.vercel.app/notifications/acceptDiagnosis/${id}`,{},{headers:this.header})
  }
  rejectMedicalAnalysisFiles(id:any):Observable<any>{
-  return this.http.post(`http://localhost:3000/notifications/rejectMedicalAnalysis/${id}`,{},{headers:this.header})
+  return this.http.post(`https://rabid-rx-back-end.vercel.app/notifications/rejectMedicalAnalysis/${id}`,{},{headers:this.header})
  }
  rejectClinicFiles(id:any):Observable<any>{
-  return this.http.post(`http://localhost:3000/notifications/rejectDiagnosis/${id}`,{},{headers:this.header})
+  return this.http.post(`https://rabid-rx-back-end.vercel.app/notifications/rejectDiagnosis/${id}`,{},{headers:this.header})
  }
  Labrating(id:any,ratingNum:any):Observable<any>{
-  return this.http.put(`http://localhost:3000/users/labEvaluation/${id}`,ratingNum,{headers:this.header})
+  return this.http.put(`https://rabid-rx-back-end.vercel.app/users/labEvaluation/${id}`,ratingNum,{headers:this.header})
  }
  clinicRating(id:any,ratingNum:any):Observable<any>{
-  return this.http.put(`http://localhost:3000/users/clinicEvaluation/${id}`,ratingNum,{headers:this.header})
+  return this.http.put(`https://rabid-rx-back-end.vercel.app/users/clinicEvaluation/${id}`,ratingNum,{headers:this.header})
  }
 }
