@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SignInService } from '../sign-in.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -14,11 +15,7 @@ export class LoginComponent {
     email:new FormControl(null,[Validators.required,Validators.email]),
     password:new FormControl(null,[Validators.required,Validators.minLength(8)]),
   })
-
-  
-
-  // constructor(private router: Router) {}
-
+  errorMessage:any
   handle(reg:FormGroup){
     this._service.login(reg.value).subscribe({
       next:(response)=>{
@@ -29,7 +26,15 @@ export class LoginComponent {
           this.router.navigate(['/UserProfile/profile'])
         }
         },
-      error:(err)=>console.log(err),
+      error:(err)=>{
+        console.log(err);
+        
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: err.error.message,
+        });
+      },
     })
 }
 
