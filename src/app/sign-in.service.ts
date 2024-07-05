@@ -27,17 +27,17 @@ export class SignInService {
     this.router.navigate(['/adminLogin'])
   }
   login(userData:any):Observable<any>{
-    return this._httpClient.post("http://localhost:3000/users/signIN",userData)
+    return this._httpClient.post("https://rabid-rx-back-end.vercel.app/users/signIN",userData)
   }
   adminLogin(adminData:any):Observable<any>{
-   return this._httpClient.post("http://localhost:3000/admin/signIN",adminData)
+   return this._httpClient.post("https://rabid-rx-back-end.vercel.app/admin/signIN",adminData)
   }
 
   clinicLogin(clinicData:any):Observable<any>{
-     return this._httpClient.post("http://localhost:3000/clinics/signIn",clinicData)
+     return this._httpClient.post("https://rabid-rx-back-end.vercel.app/clinics/signIn",clinicData)
   }
 
   labLogin(labData:any):Observable<any>{
-    return this._httpClient.post("http://localhost:3000/labs/signIn",labData)
+    return this._httpClient.post("https://rabid-rx-back-end.vercel.app/labs/signIn",labData)
  }
 }
