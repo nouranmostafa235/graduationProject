@@ -34,18 +34,46 @@ export class PredictComponent implements OnInit {
       }
     })
   }
-  predict() {
+  predict(): void {
     const formValue = this.predictForm.value;
+
+    // Show loading SweetAlert
+    Swal.fire({
+      title: 'Loading...',
+      text: 'Please wait while we process your data.',
+      allowOutsideClick: false,
+      didOpen: () => {
+        Swal.showLoading();
+      }
+    });
+
     this.userData.getPrediction(formValue).subscribe({
       next: (response) => {
         console.log(response.message);
         this.message = response.message;
         this.flag = true;
+
+        // Update SweetAlert with the response message
+        Swal.fire({
+          title: 'Prediction Result',
+          text: this.message,
+          icon: 'success',
+          confirmButtonText: 'OK'
+        });
       },
       error: (err) => {
         console.error('Error:', err);
+
+        // Update SweetAlert with the error message
+        Swal.fire({
+          title: 'Error',
+          text: 'An error occurred while processing your request. Please try again.',
+          icon: 'error',
+          confirmButtonText: 'OK'
+        });
       }
     });
   }
- 
+
 }
+

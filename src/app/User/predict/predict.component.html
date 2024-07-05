@@ -1,33 +1,36 @@
-    <div class="col-sm-7 mx-auto ">
-        <div class="predict  mb-5">
-            <h3 class="text-center mb-5 pb-4">Prediction of Diabetes Disease</h3>
-            <form (ngSubmit)="predict()" class="" [formGroup]="predictForm">
-                <label for="">Body Mass Index (BMI)</label>
-                <input type="number" name="" id="" class="form-control mb-5" formControlName="bmi" placeholder="Measure of body fat based on height and weight">
-                
-                <label for="">HbA1c Level</label>
-                <input type="number" name="" id="" class="form-control mb-5" formControlName="HbA1c_level" placeholder="Average Blood Glucose (sugar) Levels for the Last Two to Three Months">
+<div class="col-sm-7 mx-auto ">
+  <div class="predict  mb-5">
+      <h3 class="text-center mb-5 pb-4">Prediction of Diabetes Disease</h3>
+      <form (ngSubmit)="predict()" class="" [formGroup]="predictForm">
+          <label for="">Body Mass Index (BMI)</label>
+          <input type="number" name="" id="" class="form-control mb-5" formControlName="bmi"
+              placeholder="Measure of body fat based on height and weight">
 
-                <label for="" class="mb-2">Blood Glucose Level</label>
-                <input type="number" name="" id="" class="form-control mb-5" formControlName="blood_glucose_level" placeholder="Your Blood Glucose Level">
+          <label for="">HbA1c Level</label>
+          <input type="number" name="" id="" class="form-control mb-5" formControlName="HbA1c_level"
+              placeholder="Average Blood Glucose (sugar) Levels for the Last Two to Three Months">
 
-                <label for="" class="mb-2">Smoking History</label>
-                <select name="" id="" class="form-select mb-5" formControlName="smoking_history">
-                <option selected ></option>
-                <option value="never" >Never</option>
-                <option value="current" >Current</option>
-                <option value="former" >Former</option>
-                <option value="no_info" >No Info</option>
-               <option value="notCurrent" >Not Current</option> 
-               <option value="ever" >Ever</option>
-                </select>
-                <div class="d-flex justify-content-end">
-                    <button type="submit" class="btnn pe-5 ps-5" (click)="flag=true">Predict <i class="fa-solid fa-magnifying-glass-chart ms-1"></i></button>
-                </div>
-            </form>
-            <div *ngIf="flag==true" class="w-50 mx-auto result">
-                <p class="text-center p-4">{{message}}</p>
-            </div>
-            
-        </div>
-    </div>
+          <label for="" class="mb-2">Blood Glucose Level</label>
+          <input type="number" name="" id="" class="form-control mb-5" formControlName="blood_glucose_level"
+              placeholder="Your Blood Glucose Level">
+
+          <label for="" class="mb-2">Smoking History</label>
+          <select name="" id="" class="form-select mb-5" formControlName="smoking_history">
+              <option selected></option>
+              <option value="never">Never</option>
+              <option value="current">Current</option>
+              <option value="former">Former</option>
+              <option value="no_info">No Info</option>
+              <option value="notCurrent">Not Current</option>
+              <option value="ever">Ever</option>
+          </select>
+          <div class="d-flex justify-content-end">
+              <button type="submit" class="btnn pe-5 ps-5" (click)="flag=true">Predict <i
+                      class="fa-solid fa-magnifying-glass-chart ms-1"></i></button>
+              
+          </div>
+      </form>
+
+
+  </div>
+</div>

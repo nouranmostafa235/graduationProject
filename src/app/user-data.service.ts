@@ -26,7 +26,7 @@ export class UserDataService {
     return this.http.put("https://rabid-rx-back-end.vercel.app/users/updateImage",userData,{headers:this.header})
   }
   getPrediction(userData:any):Observable<any>{
-    return this.http.post("https://rabid-rx-back-end.vercel.app/users/predict",userData,{headers:this.header})
+    return this.http.post("http://localhost:3000/users/predict",userData,{headers:this.header})
   }
   logOut():Observable<any>{
     return this.http.put("https://rabid-rx-back-end.vercel.app/users/logout",null,{headers:this.header})
