@@ -7,15 +7,16 @@ import { Router } from '@angular/router';
   selector: 'app-qr-code-scanner',
   templateUrl: './qr-code-scanner.component.html',
   styleUrls: ['./qr-code-scanner.component.css']
-})
+}) 
 export class QrCodeScannerComponent{
   @ViewChild('action', { static: true }) 
   action!: NgxScannerQrcodeComponent;
+  nfcError: string | null = null;
   qrCodeValue!: string;
   previousQrCodeValue!: string;
-  nfcError: string | null = null;
-  constructor(private route:Router){}
- 
+
+  constructor(private route: Router) {}
+
   ngAfterViewInit() {
     this.action.data.subscribe((data: ScannerQRCodeResult[]) => {
       if (data.length > 0) {
@@ -25,17 +26,23 @@ export class QrCodeScannerComponent{
           this.previousQrCodeValue = newQrCodeValue;
           const url = new URL(this.qrCodeValue);
           const id = url.searchParams.get('id');
-          this.route.navigate(['/clinic/viewUser'], { queryParams: { id: id } })
+          this.route.navigate(['/clinic/viewUser'], { queryParams: { id: id } });
         }
       }
     });
   }
+
   toggleScanner() {
     if (this.action.isStart) {
       this.action.stop();
     } else {
       this.action.start();
     }
+  }
+
+  toggleDevice() {
+    const deviceId = ''; // Provide the device ID here
+    this.action.playDevice(deviceId);
   }
 
   async startNfcScan() {
