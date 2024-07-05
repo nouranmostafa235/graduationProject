@@ -36,11 +36,8 @@ export class PredictComponent implements OnInit {
   }
   predict(): void {
     const formValue = this.predictForm.value;
-<<<<<<< Updated upstream
 
     // Show loading SweetAlert
-=======
->>>>>>> Stashed changes
     Swal.fire({
       title: 'Loading...',
       text: 'Please wait while we process your data.',
@@ -55,11 +52,8 @@ export class PredictComponent implements OnInit {
         console.log(response.message);
         this.message = response.message;
         this.flag = true;
-<<<<<<< Updated upstream
 
         // Update SweetAlert with the response message
-=======
->>>>>>> Stashed changes
         Swal.fire({
           title: 'Prediction Result',
           text: this.message,
@@ -69,11 +63,8 @@ export class PredictComponent implements OnInit {
       },
       error: (err) => {
         console.error('Error:', err);
-<<<<<<< Updated upstream
 
         // Update SweetAlert with the error message
-=======
->>>>>>> Stashed changes
         Swal.fire({
           title: 'Error',
           text: 'An error occurred while processing your request. Please try again.',
@@ -84,9 +75,5 @@ export class PredictComponent implements OnInit {
     });
   }
 
-<<<<<<< Updated upstream
-=======
- 
->>>>>>> Stashed changes
 }
 
