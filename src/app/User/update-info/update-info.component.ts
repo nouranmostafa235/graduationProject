@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder,FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder,FormControl, FormGroup, Validators } from '@angular/forms';
 import {  Router } from '@angular/router';
 import { faL } from '@fortawesome/free-solid-svg-icons';
 import { UserDataService } from 'src/app/user-data.service';
@@ -18,8 +18,8 @@ export class UpdateInfoComponent implements OnInit {
     this.form = this.fb.group({
       firstName: [''],
       lastName: [''],
-      email: [''],
-      phone: [''],
+      email: ['',[Validators.email]],
+      phone: ['',[Validators.pattern('^01[1245][0-9]{8,}$')]],
       age: [''],
       gender: [''],
       address: [''],

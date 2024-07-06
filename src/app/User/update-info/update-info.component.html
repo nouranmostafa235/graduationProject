@@ -65,10 +65,16 @@
                                     <div class="col-sm-12">
                                         <label for="">Email</label>
                                         <input type="email" name="" id="" class="form-control mb-3" formControlName="email" placeholder="Your Email">
+                                        <div class="" *ngIf="form.controls['email'].invalid && (form.controls['email'].touched || form.controls['email'].dirty)">
+                                            <small class="text-danger" *ngIf="form.controls['email'].errors?.['email']">Email is Invalid example@example</small>
+                                          </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <label for="">Phone</label>
                                         <input type="tel" name="" id="" class="form-control mb-3" formControlName="phone" placeholder="Your Phone">
+                                        <div class="" *ngIf="form.controls['phone'].invalid && (form.controls['phone'].touched || form.controls['phone'].dirty)">
+                                            <small class="text-danger" *ngIf="form.controls['phone'].errors?.['pattern']">phone is Invalid</small>
+                                          </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <label for="">gender</label>
@@ -109,7 +115,7 @@
                                 <div class="modal-footer">
                                     <button type="button" class="btnn" data-bs-dismiss="modal"
                                     >Close</button>
-                                    <button type="submit" class="btnn">Save Changes</button>
+                                    <button type="submit" [disabled]="form.invalid" class="btnn">Save Changes</button>
                                 </div>
                                 </div>
                             </form>
