@@ -19,7 +19,7 @@ export class UpdateInfoComponent implements OnInit {
       firstName: [''],
       lastName: [''],
       email: ['',[Validators.email]],
-      phone: ['',[Validators.pattern('^01[1245][0-9]{8,}$')]],
+      phone: ['',[Validators.pattern('^01[1250][0-9]{8,}$')]],
       age: [''],
       gender: [''],
       address: [''],

@@ -16,4 +16,7 @@ ngOnInit(): void {
     }
   })
 }
+logout(){
+  localStorage.removeItem("labTokin")
+}
 }

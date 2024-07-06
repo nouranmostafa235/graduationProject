@@ -37,6 +37,10 @@ import { UserFilesComponent } from './User/user-files/user-files.component';
 import { ViewUserFilesInClinicComponent } from './Institutions/Clinics/view-user-files-in-clinic/view-user-files-in-clinic.component';
 import { ScannerInLabComponent } from './Institutions/Labs/scanner-in-lab/scanner-in-lab.component';
 import { AnyUserViewComponent } from './any-user-view/any-user-view.component';
+import { authGuard } from './auth.guard';
+import { adminGuard } from './admin.guard';
+import { labGuard } from './lab.guard';
+import { clinicGuard } from './clinic.guard';
 const routes: Routes = [
   { path: "", redirectTo: 'home', pathMatch: 'full' },
   { path: "home", component: HomePageComponent },
@@ -46,41 +50,41 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'institutionLogin', component: InstitutionLoginComponent },
   { path: 'adminLogin', component: AdminLoginComponent },
-  { path: 'adminHomePage', component: AdminHomePageComponent },
-  { path: 'adminHomePage/clinic', component: ClinicComponent },
-  { path: 'adminHomePage/labs', component: LabComponent },
+  { path: 'adminHomePage',canActivate:[adminGuard], component: AdminHomePageComponent },
+  { path: 'adminHomePage/clinic',canActivate:[adminGuard], component: ClinicComponent },
+  { path: 'adminHomePage/labs', canActivate:[adminGuard],component: LabComponent },
   { path: 'labLogin', component: LabLoginComponent },
   {
-    path: "lab", component: LabNavbarComponent, children: [{ path: 'Home', component: LabHomePageComponent },
-    { path: "uploadAnalysis", component: LabUploadMedicalAnalysisComponent },
-    { path: "option", component: ViewOptionsInLabComponent },
-    { path: "searchUser", component: ViewBySearchInlabComponent },
-    { path: "viewUser", component: ViewUserProfileInLabComponent },
-    {path:"qrScanner",component:ScannerInLabComponent}
+    path: "lab",canActivate:[labGuard], component: LabNavbarComponent, children: [{ path: 'Home', component: LabHomePageComponent },
+    { path: "uploadAnalysis",canActivate:[labGuard], component: LabUploadMedicalAnalysisComponent },
+    { path: "option", canActivate:[labGuard],component: ViewOptionsInLabComponent },
+    { path: "searchUser",canActivate:[labGuard], component: ViewBySearchInlabComponent },
+    { path: "viewUser", canActivate:[labGuard],component: ViewUserProfileInLabComponent },
+    {path:"qrScanner",canActivate:[labGuard],component:ScannerInLabComponent}
     ]
   },
   {
-    path: "clinic", component: ClinicNavBarComponent, children: [{ path: 'Home', component: ClinicHomePageComponent },
-    { path: "uploadDiagnose", component: UploadDiagnoseComponent },
-    { path: "uploadAnalysis", component: UploadMedicalAnalysisComponent },
-    { path: "viewUser", component: ViewUserProfileInClinicComponent },
-    { path: "option", component: ChooseViewOptionClinicComponent },
-    { path: "seachUser", component: ViewBySearchINClinicComponent },
-    { path: "userFiles", component: ViewUserFilesInClinicComponent },
-    {path:"qrScanner",component:QrCodeScannerComponent}
+    path: "clinic",canActivate:[clinicGuard], component: ClinicNavBarComponent, children: [{ path: 'Home', component: ClinicHomePageComponent },
+    { path: "uploadDiagnose",canActivate:[clinicGuard], component: UploadDiagnoseComponent },
+    { path: "uploadAnalysis",canActivate:[clinicGuard], component: UploadMedicalAnalysisComponent },
+    { path: "viewUser",canActivate:[clinicGuard], component: ViewUserProfileInClinicComponent },
+    { path: "option",canActivate:[clinicGuard], component: ChooseViewOptionClinicComponent },
+    { path: "seachUser",canActivate:[clinicGuard], component: ViewBySearchINClinicComponent },
+    { path: "userFiles",canActivate:[clinicGuard], component: ViewUserFilesInClinicComponent },
+    {path:"qrScanner",canActivate:[clinicGuard],component:QrCodeScannerComponent}
     ]
   },
 
   {
-    path: 'UserProfile', component: UserNavBarComponent, children: [
-      { path: "profile", component: ProfileComponent },
-      { path: "updataInfo", component: UpdateInfoComponent },
-      { path: "changePassword", component: ChangePasswordComponent },
-      { path: "predictDisease", component: PredictComponent },
-      { path: 'clinicProfile', component: ViewClinicProfileComponent },
-      { path: 'labProfile', component: ViewInstitutionProfileComponent },
-      { path: 'familyHistory', component: FamilyHistoryComponent },
-      { path: 'files', component: UserFilesComponent },
+    path: 'UserProfile',canActivate:[authGuard], component: UserNavBarComponent, children: [
+      { path: "profile", canActivate:[authGuard],component: ProfileComponent },
+      { path: "updataInfo",canActivate:[authGuard], component: UpdateInfoComponent },
+      { path: "changePassword",canActivate:[authGuard], component: ChangePasswordComponent },
+      { path: "predictDisease",canActivate:[authGuard], component: PredictComponent },
+      { path: 'clinicProfile', canActivate:[authGuard],component: ViewClinicProfileComponent },
+      { path: 'labProfile', canActivate:[authGuard],component: ViewInstitutionProfileComponent },
+      { path: 'familyHistory',canActivate:[authGuard], component: FamilyHistoryComponent },
+      { path: 'files', canActivate:[authGuard],component: UserFilesComponent },
     ]
   },
   {path:'user',component:AnyUserViewComponent}

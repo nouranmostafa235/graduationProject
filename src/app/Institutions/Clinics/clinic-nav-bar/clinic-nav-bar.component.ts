@@ -18,4 +18,7 @@ export class ClinicNavBarComponent implements OnInit{
     }
    })
  }
+ logOut(){
+  localStorage.removeItem("clinicTokin")
+ }
 }

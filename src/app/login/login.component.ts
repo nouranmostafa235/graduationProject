@@ -19,7 +19,6 @@ export class LoginComponent {
   handle(reg:FormGroup){
     this._service.login(reg.value).subscribe({
       next:(response)=>{
-       
         if(response.message === "Sign in successful"){
           localStorage.setItem('Authorization',"Bearer "+response.token)
           this._service.decodeToken()
