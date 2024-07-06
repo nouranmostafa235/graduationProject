@@ -39,7 +39,7 @@ export class QrCodeScannerComponent{
   }
 
   async startNfcScan() {
-    this.nfcError = null; // Reset the error message
+    this.nfcError = null; 
     if ('NDEFReader' in window) {
       try {
         const ndef = new (window as any).NDEFReader();
