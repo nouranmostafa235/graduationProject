@@ -125,3 +125,12 @@ h2{
   font-style: normal;
   font-size: 40px;
 }
+@media screen and (min-width: 768px) and (max-width: 991.98px) {
+  
+}
+@media screen and (min-width: 576px) and (max-width: 767.98px) {
+  
+}
+@media screen and (max-width: 575.98px) {
+  
+}

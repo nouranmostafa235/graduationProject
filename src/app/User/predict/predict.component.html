@@ -1,53 +1,60 @@
 <div class="col-sm-7 mx-auto ">
   <div class="predict  mb-5">
-      <h3 class="text-center mb-5 pb-4">Prediction of Diabetes Disease</h3>
-      <form (ngSubmit)="predict()" class="" [formGroup]="predictForm">
-     <div class="mb-5">
+    <h3 class="text-center mb-5 pb-4">Prediction of Diabetes Disease</h3>
+    <form (ngSubmit)="predict()" class="" [formGroup]="predictForm">
+      <div class="mb-5">
         <label for="">Body Mass Index (BMI)</label>
         <input type="number" name="" id="" class="form-control " formControlName="bmi"
-            placeholder="Measure of body fat based on height and weight">
-            <div class="" *ngIf="predictForm.controls['bmi'].invalid && (predictForm.controls['bmi'].touched || predictForm.controls['bmi'].dirty)">
-              <small class="text-danger" *ngIf="predictForm.controls['bmi'].errors?.['required']">BMI is Required</small>
-            </div>
-     </div>
-
-<div class="mb-5">
-    <label for="">HbA1c Level</label>
-    <input type="number" name="" id="" class="form-control " formControlName="HbA1c_level"
-        placeholder="Average Blood Glucose (sugar) Levels for the Last Two to Three Months">
-        <div class="" *ngIf="predictForm.controls['HbA1c_level'].invalid && (predictForm.controls['HbA1c_level'].touched || predictForm.controls['HbA1c_level'].dirty)">
-          <small class="text-danger" *ngIf="predictForm.controls['HbA1c_level'].errors?.['required']">HbA1c Level is Required</small>
+          placeholder="Measure of body fat based on height and weight">
+        <div class=""
+          *ngIf="predictForm.controls['bmi'].invalid && (predictForm.controls['bmi'].touched || predictForm.controls['bmi'].dirty)">
+          <small class="text-danger" *ngIf="predictForm.controls['bmi'].errors?.['required']">BMI is Required</small>
         </div>
-</div>
-         <div class="mb-5">
-            <label for="" class="mb-2">Blood Glucose Level</label>
-            <input type="number" name="" id="" class="form-control " formControlName="blood_glucose_level"
-                placeholder="Your Blood Glucose Level">
-                <div class="" *ngIf="predictForm.controls['blood_glucose_level'].invalid && (predictForm.controls['blood_glucose_level'].touched || predictForm.controls['blood_glucose_level'].dirty)">
-                  <small class="text-danger" *ngIf="predictForm.controls['blood_glucose_level'].errors?.['required']">Blood Glucose Level is Required</small>
-                </div>
-         </div>
-         <div class="mb-5">
-            <label for="" class="mb-2">Smoking History</label>
-            <select name="" id="" class="form-select " formControlName="smoking_history">
-                <option selected></option>
-                <option value="never">Never</option>
-                <option value="current">Current</option>
-                <option value="former">Former</option>
-                <option value="no_info">No Info</option>
-                <option value="notCurrent">Not Current</option>
-                <option value="ever">Ever</option>
-            </select>
-            <div class="" *ngIf="predictForm.controls['smoking_history'].invalid && (predictForm.controls['smoking_history'].touched || predictForm.controls['smoking_history'].dirty)">
-              <small class="text-danger" *ngIf="predictForm.controls['smoking_history'].errors?.['required']">Smoking History is Required</small>
-            </div>
-         </div>
-          <div class="d-flex justify-content-end">
-              <button type="submit" [disabled]="predictForm.invalid" class="btnn pe-5 ps-5" (click)="flag=true">Predict <i
-                      class="fa-solid fa-magnifying-glass-chart ms-1"></i></button>
-              
-          </div>
-      </form>
+      </div>
+
+      <div class="mb-5">
+        <label for="">HbA1c Level</label>
+        <input type="number" name="" id="" class="form-control " formControlName="HbA1c_level"
+          placeholder="Average Blood Glucose (sugar) Levels for the Last Two to Three Months">
+        <div class=""
+          *ngIf="predictForm.controls['HbA1c_level'].invalid && (predictForm.controls['HbA1c_level'].touched || predictForm.controls['HbA1c_level'].dirty)">
+          <small class="text-danger" *ngIf="predictForm.controls['HbA1c_level'].errors?.['required']">HbA1c Level is
+            Required</small>
+        </div>
+      </div>
+      <div class="mb-5">
+        <label for="" class="mb-2">Blood Glucose Level</label>
+        <input type="number" name="" id="" class="form-control " formControlName="blood_glucose_level"
+          placeholder="Your Blood Glucose Level">
+        <div class=""
+          *ngIf="predictForm.controls['blood_glucose_level'].invalid && (predictForm.controls['blood_glucose_level'].touched || predictForm.controls['blood_glucose_level'].dirty)">
+          <small class="text-danger" *ngIf="predictForm.controls['blood_glucose_level'].errors?.['required']">Blood
+            Glucose Level is Required</small>
+        </div>
+      </div>
+      <div class="mb-5">
+        <label for="" class="mb-2">Smoking History</label>
+        <select name="" id="" class="form-select " formControlName="smoking_history">
+          <option selected></option>
+          <option value="never">Never</option>
+          <option value="current">Current</option>
+          <option value="former">Former</option>
+          <option value="no_info">No Info</option>
+          <option value="notCurrent">Not Current</option>
+          <option value="ever">Ever</option>
+        </select>
+        <div class=""
+          *ngIf="predictForm.controls['smoking_history'].invalid && (predictForm.controls['smoking_history'].touched || predictForm.controls['smoking_history'].dirty)">
+          <small class="text-danger" *ngIf="predictForm.controls['smoking_history'].errors?.['required']">Smoking
+            History is Required</small>
+        </div>
+      </div>
+      <div class="d-flex justify-content-end">
+        <button type="submit" [disabled]="predictForm.invalid" class="btnn pe-5 ps-5" (click)="flag=true">Predict <i
+            class="fa-solid fa-magnifying-glass-chart ms-1"></i></button>
+
+      </div>
+    </form>
 
 
   </div>
