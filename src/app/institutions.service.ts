@@ -38,5 +38,11 @@ export class InstitutionsService {
   getUserByIdLab(userID:any):Observable<any>{
     return this.http.get(`https://rabid-rx-back-end.vercel.app/users/userById/${userID}`,{headers:this.labHeader})
   }
+  logOutClinic():Observable<any>{
+    return this.http.put('http://localhost:3000/clinics/logout',null,{headers:this.ClinicHeader})
+  }
+  logOutLab():Observable<any>{
+    return this.http.put('http://localhost:3000/labs/logout',null,{headers:this.labHeader})
+  }
 
 }
