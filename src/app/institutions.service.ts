@@ -39,10 +39,10 @@ export class InstitutionsService {
     return this.http.get(`https://rabid-rx-back-end.vercel.app/users/userById/${userID}`,{headers:this.labHeader})
   }
   logOutClinic():Observable<any>{
-    return this.http.put('http://localhost:3000/clinics/logout',null,{headers:this.ClinicHeader})
+    return this.http.put('https://rabid-rx-back-end.vercel.app/clinics/logout',null,{headers:this.ClinicHeader})
   }
   logOutLab():Observable<any>{
-    return this.http.put('http://localhost:3000/labs/logout',null,{headers:this.labHeader})
+    return this.http.put('https://rabid-rx-back-end.vercel.app/labs/logout',null,{headers:this.labHeader})
   }
 
 }
