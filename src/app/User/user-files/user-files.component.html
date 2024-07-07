@@ -31,7 +31,7 @@
                     <tr *ngFor="let row of chunkArray(data.medicalAnalysis, 4)">
                         <td *ngFor="let i of row">
                             <i class="fa-solid fa-file-pdf fa-2xl"></i>
-                            <a for="">{{i.testName}}</a>
+                            <a [href]="i.fileUrl" target="_blank" for="">{{i.testName}}</a>
                         </td>
                     </tr>
                 </tbody>
@@ -48,7 +48,7 @@
                     <tr *ngFor="let row of chunkArray(data.diagnosis, 4)">
                         <td *ngFor="let i of row  ; let idx=index">
                             <i class="fa-solid fa-file-pdf fa-2xl"></i>
-                            <a for="">{{clinics[idx].name}}</a>
+                            <a [href]="i.fileUrl" for="" target="_blank">{{clinics[idx].name}}</a>
                         </td>
                     </tr>
                 </tbody>

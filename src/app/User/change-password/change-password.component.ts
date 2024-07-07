@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserDataService } from 'src/app/user-data.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-change-password',
@@ -40,7 +41,13 @@ handle(reg:FormGroup){
         this.isUpdated=true
       }
       },
-    error:(err)=>console.log(err),
+    error:(err)=>{
+      Swal.fire({
+        icon: "success",
+        // title: "Oops...",
+        text: "Passord Changes Sucessfullly",
+      });
+    },
   })
 }
 

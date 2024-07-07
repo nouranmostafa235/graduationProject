@@ -66,6 +66,8 @@ export class UserNavBarComponent implements OnInit {
       next: async (response) => {
         this.diagnosis = response.pendingDiagnosis;
         this.clinicInfo = [];
+        console.log("daaattta",this.diagnosis);
+        
     
         const diagnosisPromises = this.diagnosis.map(i => 
           this.userData.getClinicById(i.clinic).toPromise()

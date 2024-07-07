@@ -56,7 +56,7 @@
                                                 <a class="dropdown-item">
                                                     <i class="fa-solid fa-file-pdf"></i> <a class="subanchor me-5"
                                                         [href]="MedicalAnalysis[idx].fileUrl" target="_blank">
-                                                        {{MedicalAnalysis[idx].fileUrl}}</a>
+                                                        {{MedicalAnalysis[idx].testName}}</a>
                                                     <a  (click)="acceptMedicalAnalysisFiles(i.name,MedicalAnalysis[idx]._id ,MedicalAnalysis[idx].id,MedicalAnalysis[idx].type)"><i class="fa-solid fa-check me-3 icon"></i></a>
                                                     <a (click)="rejectMedicalAnalysisFiles(i.name ,MedicalAnalysis[idx]._id,MedicalAnalysis[idx].id,MedicalAnalysis[idx].type)">
                                                           <i class="fa-solid fa-x icon"></i>
@@ -90,8 +90,7 @@
                                                 <a class="dropdown-item">
                                                     <i class="fa-solid fa-file-pdf"></i>
                                                     <a class="subanchor me-5"
-                                                    [href]="diagnosis[idx].fileUrl" target="_blank"
-                                                        download="lab-medical-analysis.pdf">
+                                                    [href]="diagnosis[idx].fileUrl" target="_blank">
                                                         {{diagnosis[idx].pdfPath}}</a>
                                                         <a class="icon" (click)="acceptDiagnosesFiles(i.name,diagnosis[idx]._id,diagnosis[idx].clinic)"> <i class="fa-solid fa-check ms-4 me-3"></i></a>
                                                         <a class="icon" (click)="rejectDiagnosesFiles(i.name,diagnosis[idx]._id,diagnosis[idx].clinic)"><i class="fa-solid fa-x"></i></a>
