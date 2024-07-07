@@ -1,84 +1,85 @@
 <div class="row body me-0">
-    <nav class="navbar navbar-expand-lg fixed-top mb-5" id="navbar">
-      <div class="container">
-        <img src="assets/imgs/logo2.jpg" class="me-2" alt="">
-        <a class="navbar-brand mt-1" routerLink="/home">Rapid<span>R</span>x</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="nav nav-underline ms-auto">
-            <li class="nav-item me-2">
-              <a class="nav-link" aria-current="page" routerLink="/home">Home</a>
-            </li>
-            <li class="nav-item">
-              <div class="dropdown me-3">
-                <a class="dropdown-toggle nav-link" data-bs-toggle="dropdown" aria-expanded="false">
-                  Sign In
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" routerLink="/login"><i class="fa-solid fa-user me-2" style="color: #010f1a;"></i>User</a></li>
-                  <li><a class="dropdown-item" routerLink="/institutionLogin"><i class="fa-solid fa-house-chimney-medical me-1" style="color: #010f1a;"></i> Clinic</a></li>
-                  <li><a class="dropdown-item"><i class="fa-solid fa-flask-vial me-2" style="color: #010f1a;"></i>Lab</a></li>
-                </ul>
-              </div>
-            </li>
-          </ul>
-        </div>
+  <nav class="navbar navbar-expand-lg fixed-top mb-5" id="navbar">
+    <div class="container">
+      <img src="assets/imgs/logo2.jpg" class="me-2" alt="">
+      <a class="navbar-brand mt-1" routerLink="/home">Rapid<span>R</span>x</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="nav nav-underline ms-auto">
+          <li class="nav-item me-2">
+            <a class="nav-link" aria-current="page" routerLink="/home">Home</a>
+          </li>
+          <li class="nav-item">
+            <div class="dropdown me-3">
+              <a class="dropdown-toggle nav-link" data-bs-toggle="dropdown" aria-expanded="false">
+                Sign In
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" routerLink="/login"><i class="fa-solid fa-user me-2" style="color: #010f1a;"></i>User</a></li>
+                <li><a class="dropdown-item" routerLink="/institutionLogin"><i class="fa-solid fa-house-chimney-medical me-1" style="color: #010f1a;"></i> Clinic</a></li>
+                <li><a class="dropdown-item"><i class="fa-solid fa-flask-vial me-2" style="color: #010f1a;"></i>Lab</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
       </div>
-    </nav>
-  
-    <div class="col-md-8 mx-auto form">
-      <form [formGroup]="emergencyContactsForm" (ngSubmit)="submitForm()">
-        <div>
-          <p class="firstContact"><i class="fa-solid fa-address-book me-2"></i>First Contact</p>
-          <div class="row" formArrayName="emergencyContacts">
-            <div *ngFor="let contact of emergencyContacts.controls; let i = index" [formGroupName]="i">
-              <div class="row pe-0 mb-4">
-                <div class="col-md-6 pe-0">
-                  <label for="emerfirstname{{i}}" class="ms-2">First Name</label>
-                  <input type="text" class="form-control" formControlName="firstName" placeholder="Contact First Name">
-                  <div *ngIf="contact.get('firstName')?.invalid && (contact.get('firstName')?.touched || contact.get('firstName')?.dirty)">
-                    <small class="text-danger" *ngIf="contact.get('firstName')?.errors?.['required']">First Name is required</small>
-                    <small class="text-danger" *ngIf="contact.get('firstName')?.errors?.['minlength']">First Name must be at least 3 characters</small>
-                  </div>
-                </div>
-                <div class="col-md-6 pe-0">
-                  <label for="emerlastname{{i}}" class="ms-2">Last Name</label>
-                  <input type="text" class="form-control" formControlName="lastName" placeholder="Contact Last Name">
-                  <div *ngIf="contact.get('lastName')?.invalid && (contact.get('lastName')?.touched || contact.get('lastName')?.dirty)">
-                    <small class="text-danger" *ngIf="contact.get('lastName')?.errors?.['required']">Last Name is required</small>
-                    <small class="text-danger" *ngIf="contact.get('lastName')?.errors?.['minlength']">Last Name must be at least 3 characters</small>
-                  </div>
+    </div>
+  </nav>
+
+  <div class="col-md-8 mx-auto form">
+    <form [formGroup]="emergencyContactsForm" (ngSubmit)="submitForm()">
+      <div>
+        <p class="firstContact"><i class="fa-solid fa-address-book me-2"></i>First Contact</p>
+        <div class="row" formArrayName="emergencyContacts">
+          <div *ngFor="let contact of emergencyContacts.controls; let i = index" [formGroupName]="i">
+            <div class="row pe-0 mb-4">
+              <div class="col-md-6 pe-0">
+                <label for="emerfirstname{{i}}" class="ms-2">First Name</label>
+                <input type="text" class="form-control" formControlName="firstName" placeholder="Contact First Name">
+                <div *ngIf="contact.get('firstName')?.invalid && (contact.get('firstName')?.touched || contact.get('firstName')?.dirty)">
+                  <small class="text-danger" *ngIf="contact.get('firstName')?.errors?.['required']">First Name is required</small>
+                  <small class="text-danger" *ngIf="contact.get('firstName')?.errors?.['minlength']">First Name must be at least 3 characters</small>
                 </div>
               </div>
-              <div class="row pe-0 mb-4">
-                <div class="col-md-6 pe-0">
-                  <label for="emeraddress{{i}}" class="ms-2">Address</label>
-                  <input type="text" class="form-control" formControlName="address" placeholder="Contact Address">
-                  <div *ngIf="contact.get('address')?.invalid && (contact.get('address')?.touched || contact.get('address')?.dirty)">
-                    <small class="text-danger" *ngIf="contact.get('address')?.errors?.['required']">Address is required</small>
-                  </div>
-                </div>
-                <div class="col-md-6 pe-0">
-                  <label for="emerPhone{{i}}" class="ms-2">Phone</label>
-                  <input type="tel" class="form-control" formControlName="phone" placeholder="Contact Phone">
-                  <div *ngIf="contact.get('phone')?.invalid && (contact.get('phone')?.touched || contact.get('phone')?.dirty)">
-                    <small class="text-danger" *ngIf="contact.get('phone')?.errors?.['required']">Phone is required</small>
-                    <small class="text-danger" *ngIf="contact.get('phone')?.errors?.['pattern']">Invalid phone number</small>
-                  </div>
+              <div class="col-md-6 pe-0">
+                <label for="emerlastname{{i}}" class="ms-2">Last Name</label>
+                <input type="text" class="form-control" formControlName="lastName" placeholder="Contact Last Name">
+                <div *ngIf="contact.get('lastName')?.invalid && (contact.get('lastName')?.touched || contact.get('lastName')?.dirty)">
+                  <small class="text-danger" *ngIf="contact.get('lastName')?.errors?.['required']">Last Name is required</small>
+                  <small class="text-danger" *ngIf="contact.get('lastName')?.errors?.['minlength']">Last Name must be at least 3 characters</small>
                 </div>
               </div>
+            </div>
+            <div class="row pe-0 mb-4">
+              <div class="col-md-6 pe-0">
+                <label for="emeraddress{{i}}" class="ms-2">Address</label>
+                <input type="text" class="form-control" formControlName="address" placeholder="Contact Address">
+                <div *ngIf="contact.get('address')?.invalid && (contact.get('address')?.touched || contact.get('address')?.dirty)">
+                  <small class="text-danger" *ngIf="contact.get('address')?.errors?.['required']">Address is required</small>
+                </div>
+              </div>
+              <div class="col-md-6 pe-0">
+                <label for="emerPhone{{i}}" class="ms-2">Phone</label>
+                <input type="tel" class="form-control" formControlName="phone" placeholder="Contact Phone">
+                <div *ngIf="contact.get('phone')?.invalid && (contact.get('phone')?.touched || contact.get('phone')?.dirty)">
+                  <small class="text-danger" *ngIf="contact.get('phone')?.errors?.['required']">Phone is required</small>
+                  <small class="text-danger" *ngIf="contact.get('phone')?.errors?.['pattern']">Invalid phone number</small>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="i === 0">
               <hr class="mt-4">
               <p class="secondContact"><i class="fa-solid fa-address-book me-2"></i>Second Contact</p>
             </div>
           </div>
         </div>
-        <div class="div d-flex justify-content-evenly">
-          <button class="btnn ps-5 pe-5 mt-5 mb-3" routerLink="/medical_info"><i class="fa-solid fa-arrow-left me-2"></i>Back</button>
-          <button type="submit" class="btnn ps-5 pe-5 mt-5 mb-3" [disabled]="emergencyContactsForm.invalid">Register <i class="fa-solid fa-right-to-bracket ms-1"></i></button>
-        </div>
-      </form>
-    </div>
+      </div>
+      <div class="div d-flex justify-content-evenly">
+        <button class="btnn ps-5 pe-5 mt-5 mb-3" routerLink="/medical_info"><i class="fa-solid fa-arrow-left me-2"></i>Back</button>
+        <button type="submit" class="btnn ps-5 pe-5 mt-5 mb-3" [disabled]="emergencyContactsForm.invalid">Register <i class="fa-solid fa-right-to-bracket ms-1"></i></button>
+      </div>
+    </form>
   </div>
-  
+</div>

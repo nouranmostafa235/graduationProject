@@ -12,29 +12,29 @@ export class AdminService {
     Authorization : localStorage.getItem("Admintoken")
   }
   addClinic(clincData:any):Observable<any>{
-    return this.http.post("https://rabid-rx-back-end.vercel.app/clinics/add",clincData,{headers:this.header})
+    return this.http.post("http://localhost:3000/clinics/add",clincData,{headers:this.header})
   }
   addlab(labData:any):Observable<any>{
-    return this.http.post("https://rabid-rx-back-end.vercel.app/labs/add",labData,{headers:this.header})
+    return this.http.post("http://localhost:3000/labs/add",labData,{headers:this.header})
   }
 
   getClinics():Observable<any>{
-    return this.http.get("https://rabid-rx-back-end.vercel.app/clinics",{headers:this.header})
+    return this.http.get("http://localhost:3000/clinics",{headers:this.header})
   }
 
   getlabs():Observable<any>{
-    return this.http.get("https://rabid-rx-back-end.vercel.app/labs",{headers:this.header})
+    return this.http.get("http://localhost:3000/labs",{headers:this.header})
   }
 editLabs(id:any,editData:any):Observable<any>{
-  return this.http.put(`https://rabid-rx-back-end.vercel.app/labs/${id}`,editData,{headers:this.header})
+  return this.http.put(`http://localhost:3000/labs/${id}`,editData,{headers:this.header})
 }
 editclinics(id:any,editData:any):Observable<any>{
-  return this.http.put(`https://rabid-rx-back-end.vercel.app/clinics/${id}`,editData,{headers:this.header})
+  return this.http.put(`http://localhost:3000/clinics/${id}`,editData,{headers:this.header})
 }
 deleteClinics(id:any):Observable<any>{
-  return this.http.delete(`https://rabid-rx-back-end.vercel.app/clinics/${id}`,{headers:this.header})
+  return this.http.delete(`http://localhost:3000/clinics/${id}`,{headers:this.header})
 }
 deleteLabs(id:any):Observable<any>{
-  return this.http.delete(`https://rabid-rx-back-end.vercel.app/labs/${id}`,{headers:this.header})
+  return this.http.delete(`http://localhost:3000/labs/${id}`,{headers:this.header})
 }
 }
